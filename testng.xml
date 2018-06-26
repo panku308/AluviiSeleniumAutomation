@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="2">
+
+<test name="Login" >
+	<classes>
+		<class name="Tests.LoginTest.LoginTest">  </class>		
+	</classes>
+	
+</test>
+<test name="CreateMemberTest" >
+	<classes>
+		<class name="Tests.ManageMembershipsTest.CreateMemberTest">  </class>		
+	</classes>
+</test>
+<test name="CreateProductTest">
+	<classes>
+		<class name="Tests.RegisterManagementTest.CreateCategoryTest">  </class>
+		<class name="Tests.RegisterManagementTest.CreateProductTest">  </class>	
+		<class name="Tests.RegisterManagementTest.CreateRegisterTest">  </class>		
+	</classes>
+</test>  
+<test name="AdddWaiver-SignWaiver-VerifyWaiver-Test">
+	<classes>
+		<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestToSign">  </class>
+		<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestOverMinAgeTest">  </class>
+		<class name="Tests.WaiverTest.AddWaiver_OnlyOneGuestTest">  </class>		
+	</classes>
+</test>
+
+  
+</suite> <!-- Suite -->
