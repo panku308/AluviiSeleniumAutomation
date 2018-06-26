@@ -19,17 +19,7 @@ public class Debug {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		
-		Date d = new Date();
-		System.out.println("CY= " + d.getYear()+ "CD=" + d.getDate() + " CM = " + d.getMonth());
 		
-		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
-		Thread.sleep(5000);
-		CommonFunctions.Login(driver);
-		Thread.sleep(5000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();",CategoryDialogBoxElements.GetLastPageButton(driver));
-		Thread.sleep(10000);
-	
 		  
 
 	}
