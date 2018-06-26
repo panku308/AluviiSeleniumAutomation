@@ -14,7 +14,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.LoginPageElements;
 
 public class CommonFunctions {
-	//--------------------------------------------Global Variables------------------------------------------------------
+	//--------------------------------------------Global Variables-------------------------------------------------------
 	public static String domainName="https://sessionqa";
 	public static String url=domainName+".aluvii.com/employee/";
 	public static String UserName="ceo@aluvii.com";
