@@ -1,6 +1,8 @@
 package GlobalFiles;
 
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -110,6 +112,30 @@ public class CommonFunctions {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();",element);
 		Thread.sleep(10000);
+	}
+	
+	public static String generateRandomIndex() {
+
+		int minimum = 0;
+		int maximum = 99999;
+
+		return String.valueOf(ThreadLocalRandom.current().nextInt(minimum,maximum));
+
+	}
+	
+	public static void filterTable(String input) {
+
+		driver.findElement(By.xpath("//span[text()='Filter']")).click();
+		try{Thread.sleep(2000);}catch(Exception e){}
+		driver.findElement(By.xpath("//select[@title='Operator']/..")).click();
+		try{Thread.sleep(2000);}catch(Exception e){}
+		driver.findElement(By.xpath("//li[text()='Is equal to']")).click();
+		try{Thread.sleep(2000);}catch(Exception e){}
+		driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);;
+		try{Thread.sleep(2000);}catch(Exception e){}
+		driver.findElement(By.xpath("//button[text()='Filter']")).click();
+		try{Thread.sleep(2000);}catch(Exception e){}
+
 	}
 	
 }

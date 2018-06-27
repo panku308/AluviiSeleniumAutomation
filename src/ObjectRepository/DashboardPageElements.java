@@ -35,5 +35,11 @@ private static WebElement element = null;
 		return element;
 	}
 	
+	public static WebElement GetHRManagementLink(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("HR Management"));		
+		return element;
+	}
+	
 
 }
