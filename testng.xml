@@ -19,7 +19,7 @@
 		<class name="Tests.RegisterManagementTest.CreateProductTest">  </class>	
 		<class name="Tests.RegisterManagementTest.CreateRegisterTest">  </class>		
 	</classes>
-</test>  
+</test>   
 <test name="AdddWaiver-SignWaiver-VerifyWaiver-Test">
 	<classes>
 		<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestToSign">  </class>
