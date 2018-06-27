@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -16,7 +17,7 @@ import ObjectRepository.PaymentThroughCreditCardDialogBoxElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellProduct_CreditCard_Test {
 	
 	  public static WebDriver driver=null;

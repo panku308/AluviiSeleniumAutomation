@@ -9,12 +9,13 @@ import ObjectRepository.SignWaiverPageElements;
 import ObjectRepository.WaiverManagementPageElements;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddWaiver_ReqAllGuestToSign {
 	 public static WebDriver driver=null;
 	 String WaiverName="";

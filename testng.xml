@@ -8,11 +8,13 @@
 	</classes>
 	
 </test>
+
 <test name="CreateMemberTest" >
 	<classes>
 		<class name="Tests.ManageMembershipsTest.CreateMemberTest">  </class>		
 	</classes>
 </test>
+
 <test name="CreateProductTest">
 	<classes>
 		<class name="Tests.RegisterManagementTest.CreateCategoryTest">  </class>
@@ -28,4 +30,5 @@
 	</classes>
 </test>
 
+ 
 </suite> <!-- Suite -->

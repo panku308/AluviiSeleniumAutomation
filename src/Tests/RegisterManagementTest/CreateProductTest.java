@@ -9,6 +9,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
 import static org.testng.Assert.assertEquals;
 
@@ -21,7 +22,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateProductTest {
 
 	  public static WebDriver driver=null;
