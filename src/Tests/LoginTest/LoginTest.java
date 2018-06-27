@@ -5,9 +5,10 @@ import org.testng.annotations.Test;
 import GlobalFiles.CommonFunctions;
 
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 	public class LoginTest {
 		public static WebDriver driver=null;
 	  @Test

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -17,7 +18,7 @@ import ObjectRepository.AddCategoryDialogboxInsideAddRegisterPageElements;
 import ObjectRepository.AddRegisterDialogboxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateRegisterTest {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
