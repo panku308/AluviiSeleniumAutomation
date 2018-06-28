@@ -19,8 +19,8 @@ public class Debug {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		
-		
-		  
+		String option="Add Employee";
+		 System.out.println("//*[@id='ddEmployeeTask_listbox']/li[text()='"+option+"']");
 
 	}
 	public static void GetGuestRecordRowsFromAccountTabl(WebDriver driver)
@@ -73,4 +73,6 @@ public class Debug {
 		 System.out.println(TableRows.size());
 		 return TableRows.size();		 
 	}
+	
+	
 }

@@ -123,8 +123,9 @@ public class CommonFunctions {
 
 	}
 	
-	public static void filterTable(String input) {
+	public static void filterTable(WebDriver driver,String input) {
 
+		try{Thread.sleep(2000);}catch(Exception e){}
 		driver.findElement(By.xpath("//span[text()='Filter']")).click();
 		try{Thread.sleep(2000);}catch(Exception e){}
 		driver.findElement(By.xpath("//select[@title='Operator']/..")).click();

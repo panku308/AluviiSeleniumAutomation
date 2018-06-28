@@ -26,18 +26,10 @@ private static WebElement element = null;
 	}
 	
 	public static WebElement selectOptions(WebDriver driver, String option)
-	{
-	
-		List<WebElement> element;
-		element = driver.findElements(By.xpath("//*[@id='ddEmployeeTask_listbox']/li"));
+	{	
 		
-		for(int i=0;i<element.size();i++)
-		{
-			if(element.get(i).getText().equals(option))
-				return element.get(i);
-		}
-		
-		return null;
+		element = driver.findElement(By.xpath("//li[text()='"+option+"']"));
+		return element;
 	}
 	
 	public static WebElement getEmailColumn(WebDriver driver)
