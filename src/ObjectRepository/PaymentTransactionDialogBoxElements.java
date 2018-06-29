@@ -48,4 +48,14 @@ public class PaymentTransactionDialogBoxElements {
 		element =driver.findElement(By.id("btnCompletePayment"));
 		return element;
 	}
+	public static WebElement GetMoreOptoin_StoredValue(WebDriver driver)
+	{
+		element =driver.findElement(By.id("spn_StoredValue"));
+		return element;
+	}
+	public static WebElement GetMoreOptoin_PrepaidCouopon(WebDriver driver)
+	{
+		element =driver.findElement(By.id("spn_1"));
+		return element;
+	}
 }
