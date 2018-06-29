@@ -8,20 +8,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.DashboardPageElements;
-import ObjectRepository.PaymentThroughCreditCardDialogBoxElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
+import ObjectRepository.PrePaidCouponDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import ObjectRepository.SimpleCashPaymentDialogBox;
-@Listeners (GlobalFiles.ReportCustomization.class) 
-public class SellProduct_Cash_Test {
-	  public static WebDriver driver=null;
+import ObjectRepository.StoredValueDialogBoxElements;
+
+public class SellProduct_PrepaidCoupon_Test {
+	
+
+	//fname1530097726899
+	public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
@@ -29,7 +32,7 @@ public class SellProduct_Cash_Test {
 		  Thread.sleep(5000);
 	  }
 	  @Test
-	  public static void SellProduct_PaymentTypeCash() throws Exception {
+	  public static void SellProduct_PaymentTypeStoredValue() throws Exception {
 		  CommonFunctions.Login(driver);
 		  Thread.sleep(5000);
 		  DashboardPageElements.GetEmployeeRegistersLink(driver).click();
@@ -41,21 +44,22 @@ public class SellProduct_Cash_Test {
 		  CashierRegisterPageElements.GetCategoryProductElement(driver, "2 Hour Adventurer").click();
 		  Thread.sleep(2000);
 		  CashierRegisterPageElements.GetPayButton(driver).click();
-		  Thread.sleep(2000);
+		  Thread.sleep(5000);
 		  
 		  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));		  
 		  System.out.println("iframe length = " + iframeElements.size());		  
 		  driver.switchTo().frame(0);		
-		  
-		  PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
+		  PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
 		  Thread.sleep(2000);
+		  PaymentTransactionDialogBoxElements.GetMoreOptoin_PrepaidCouopon(driver).click();
+		  Thread.sleep(5000);
+		  
 		  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));		  
 		  System.out.println("iframe length = " + iframeElements.size());		  
 		  driver.switchTo().frame(0);
 		  
-		  
-		  SimpleCashPaymentDialogBox.GetCashReceivedField(driver).sendKeys(SimpleCashPaymentDialogBox.GetTotalDueField(driver).getAttribute("value"));
-		  SimpleCashPaymentDialogBox.GetSubmitButton(driver).click();		  
+		  PrePaidCouponDialogBoxElements.GetAmountReceivedField(driver).sendKeys(PrePaidCouponDialogBoxElements.GetPaymentAmountField(driver).getAttribute("value"));
+		  PrePaidCouponDialogBoxElements.GetSubmitButton(driver).click();		  
 		  Thread.sleep(5000);
 		  
 		  driver.switchTo().parentFrame();
@@ -63,7 +67,7 @@ public class SellProduct_Cash_Test {
 		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
 		  Thread.sleep(5000);
 		  
-		  iframeElements1 = driver.findElements(By.tagName("iframe"));		  
+		  iframeElements = driver.findElements(By.tagName("iframe"));		  
 		  System.out.println("iframe length = " + iframeElements.size());		  
 		  driver.switchTo().frame(0);
 		  
@@ -73,4 +77,6 @@ public class SellProduct_Cash_Test {
 		  
 	  }
 	
+	
+
 }
