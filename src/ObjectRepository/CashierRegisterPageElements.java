@@ -22,9 +22,19 @@ private static WebElement element = null;
 	}
 	
 	public static WebElement GetPayButton(WebDriver driver)
-	{
-		
+	{		
 		element =driver.findElement(By.id("btnPayment"));
 		return element;
 	}
+	public static WebElement GetSellArcadeCardLink(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//a[@title='Sell Arcade Card']"));
+		return element;
+	}
+	public static WebElement GetSellGiftCardLink(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//a[@title='Sell Gift Card']"));
+		return element;
+	}
+	
 }

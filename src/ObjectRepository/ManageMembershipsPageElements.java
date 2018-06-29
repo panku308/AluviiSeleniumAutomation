@@ -59,6 +59,7 @@ private static WebElement element = null;
 	{
 		
 		//element = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/table/tbody/tr[2]/td/div/div/div[1]/div[2]/table/tbody/tr["+(row)+"]/td[3]/div/ul/li[1]/h3"));
+		                                         
 		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[3]/div/ul/li[1]/h3"));
 		return element;
 	}
@@ -117,4 +118,29 @@ private static WebElement element = null;
 		 return TableRows.size();		 
 	}
 	
+	public static WebElement GetAccountGuestAddMembership(WebDriver driver, int row)
+	{
+		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]/div[1]/button"));
+		return element;
+	}
+	public static WebElement GetCheckoutTab_PaymentButton(WebDriver driver)
+	{
+		element = driver.findElement(By.xpath("//button[text() = 'Payment']"));
+		return element;
+	}
+	public static WebElement GetCheckoutTab_OpenCashDrawerButton(WebDriver driver)
+	{
+		element = driver.findElement(By.xpath("//button[text() = 'Open Cash Drawer']"));
+		return element;
+	}
+	public static WebElement GetCheckoutTab_ClearCheckoutButton(WebDriver driver)
+	{
+		element = driver.findElement(By.id("btnClearItems"));
+		return element;
+	}
+	public static WebElement GetCheckoutTab_CompAllButton(WebDriver driver)
+	{
+		element = driver.findElement(By.id("btnCompAll"));
+		return element;
+	}
 }	
