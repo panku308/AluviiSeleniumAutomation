@@ -27,7 +27,7 @@ public class CreateProductTest {
 
 	  public static WebDriver driver=null;
 	  String expectedResult="", actualResult="";
-	  String ProductName="";
+	  public static String ProductName="";
 	  
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {

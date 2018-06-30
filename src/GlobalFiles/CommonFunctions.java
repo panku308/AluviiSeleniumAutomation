@@ -2,6 +2,7 @@ package GlobalFiles;
 
 
 import java.io.File;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -129,6 +130,12 @@ public class CommonFunctions {
         
         String path = "<a href="+ filePath + "> Testcase_"+testName+"_Result Screenshot </a>";
         Reporter.log(path);
+	}
+	public static void MoveControToFrame(WebDriver driver)
+	{
+		 List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));
+		  System.out.println("iframe length = " + iframeElements1.size());
+		  driver.switchTo().frame(0);
 	}
 	
 }
