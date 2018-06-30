@@ -14,5 +14,10 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@id='listView']//h1[text()='"+RegisterName+"']"));
 		return element;
 	}
+	public static WebElement GetLastPageButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//a[@title='Go to the last page']"));
+		return element;
+	}
 
 }

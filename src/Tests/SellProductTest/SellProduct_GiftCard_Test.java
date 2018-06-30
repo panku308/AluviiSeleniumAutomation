@@ -18,6 +18,9 @@ import ObjectRepository.PaymentThroughCreditCardDialogBoxElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
+import Tests.RegisterManagementTest.CreateCategoryTest;
+import Tests.RegisterManagementTest.CreateProductTest;
+import Tests.RegisterManagementTest.CreateRegisterTest;
 
 public class SellProduct_GiftCard_Test {
 	
@@ -26,20 +29,21 @@ public class SellProduct_GiftCard_Test {
 	 
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
-		  driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
-		  Thread.sleep(5000);
+		  driver = CommonFunctions.driver;
 	  }
 	  @Test
 	  public static void SellProduct_PaymentTypeCreditcard() throws Exception {
-		  CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
-		  Thread.sleep(5000);
+		  
 		  DashboardPageElements.GetEmployeeRegistersLink(driver).click();
 		  Thread.sleep(5000);
-		  RegisterListPageElements.GetRegisterLink(driver, " Ticketing 1").click();
+		  CommonFunctions.ScrollUptoElement(driver, RegisterListPageElements.GetLastPageButton(driver));		  
+		  RegisterListPageElements.GetLastPageButton(driver).click();
 		  Thread.sleep(5000);
-		  CashierRegisterPageElements.GetCategoryElement(driver, "Groups").click();
+		  RegisterListPageElements.GetRegisterLink(driver, " "+CreateRegisterTest.RegisterName).click();
 		  Thread.sleep(5000);
-		  CashierRegisterPageElements.GetCategoryProductElement(driver, "2 Hour Adventurer").click();
+		  CashierRegisterPageElements.GetCategoryElement(driver, CreateCategoryTest.CategoryName).click();
+		  Thread.sleep(5000);
+		  CashierRegisterPageElements.GetCategoryProductElement(driver, CreateProductTest.ProductName).click();
 		  Thread.sleep(2000);
 		  CashierRegisterPageElements.GetPayButton(driver).click();
 		  Thread.sleep(2000);

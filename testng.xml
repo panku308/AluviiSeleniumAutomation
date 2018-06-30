@@ -8,27 +8,34 @@
 	</classes>
 	
 </test>
-
+<!-- 
 <test name="CreateMemberTest" >
 	<classes>
 		<class name="Tests.ManageMembershipsTest.CreateMemberTest">  </class>		
 	</classes>
 </test>
-
+ -->
 <test name="CreateProductTest">
 	<classes>
 		<class name="Tests.RegisterManagementTest.CreateCategoryTest">  </class>
 		<class name="Tests.RegisterManagementTest.CreateProductTest">  </class>	
-		<class name="Tests.RegisterManagementTest.CreateRegisterTest">  </class>		
+		<class name="Tests.RegisterManagementTest.CreateRegisterTest">  </class>	
+		<class name="Tests.SellProductTest.AddProductActivityToCurrentUser"></class>	
 	</classes>
 </test>   
-<test name="AdddWaiver-SignWaiver-VerifyWaiver-Test">
+<test name = "Sell Product Test">
+	<classes>
+		<class name = "Tests.SellProductTest.SellProduct_Cash_Test">
+		</class>
+	</classes>
+</test>
+<!-- <test name="AdddWaiver-SignWaiver-VerifyWaiver-Test">
 	<classes>
 		<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestToSign">  </class>
 		<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestOverMinAgeTest">  </class>
 		<class name="Tests.WaiverTest.AddWaiver_OnlyOneGuestTest">  </class>		
 	</classes>
-</test>
+</test> -->
 
  
 </suite> <!-- Suite -->

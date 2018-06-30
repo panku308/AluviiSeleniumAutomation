@@ -29,8 +29,7 @@ public class CreateCategoryTest {
 	  @Test
 	  public static void AddCategoryTest()throws Exception
 	  {
-		/*  CommonFunctions.Login(driver);
-		  Thread.sleep(5000);*/
+		
 		  CategoryName="category_" + System.currentTimeMillis();
 		  DashboardPageElements.GetRegisterManagementLink(driver).click();
 		  Thread.sleep(5000);
