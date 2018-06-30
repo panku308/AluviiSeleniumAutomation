@@ -1,8 +1,11 @@
 package ObjectRepository;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class DashboardPageElements {
 private static WebElement element = null;
@@ -41,5 +44,34 @@ private static WebElement element = null;
 		return element;
 	}
 	
-
+	public static WebElement GetCashControlLink(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Cash Control"));		
+		return element;
+	}
+	
+	
+	public static WebElement getUserMenu(WebDriver driver)
+	{
+		element =driver.findElement(By.id("username"));		
+		return element;
+	}
+	public static WebElement getLogoutButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[@id='user-menu-dropdown']//a[contains(text(),'Logout')]"));		
+		return element;
+	}
+	
+	public static WebElement getSidebarMenu(WebDriver driver, String menu)
+	{
+		element =driver.findElement(By.xpath("//*[@id='sidebar']//li//span[text()='"+menu+"']"));		
+		return element;
+	}
+	
+	public static WebElement getCurrentTillStatus(WebDriver driver)
+	{
+		element =driver.findElement(By.id("current-till-status"));		
+		return element;
+	}
+	
 }

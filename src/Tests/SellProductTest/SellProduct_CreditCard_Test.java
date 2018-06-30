@@ -29,7 +29,7 @@ public class SellProduct_CreditCard_Test {
 	  }
 	  @Test
 	  public static void SellProduct_PaymentTypeCreditcard() throws Exception {
-		  CommonFunctions.Login(driver);
+		  CommonFunctions.Login(driver,"ceo@aluvii.com","Admin@123");
 		  Thread.sleep(5000);
 		  DashboardPageElements.GetEmployeeRegistersLink(driver).click();
 		  Thread.sleep(5000);

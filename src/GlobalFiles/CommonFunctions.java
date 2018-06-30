@@ -61,13 +61,13 @@ public class CommonFunctions {
 		ObjSelect.selectByVisibleText(OptName);
 	}
 	
-	public static void Login(WebDriver driver) throws InterruptedException
+	public static void Login(WebDriver driver, String username, String password) throws InterruptedException
 	{
 	
 		clearLoginFields();
 		
-		LoginPageElements.GetUsernameField(driver).sendKeys(UserName);
-		LoginPageElements.GetPasswordField(driver).sendKeys(Password);
+		LoginPageElements.GetUsernameField(driver).sendKeys(username);
+		LoginPageElements.GetPasswordField(driver).sendKeys(password);
 		LoginPageElements.GetLoginButton(driver).click();
 		Thread.sleep(5000);
 		
@@ -114,28 +114,19 @@ public class CommonFunctions {
 		Thread.sleep(10000);
 	}
 	
-	public static String generateRandomIndex() {
+	public static void filterTable(WebDriver driver,String input) throws InterruptedException {
 
-		int minimum = 0;
-		int maximum = 99999;
-
-		return String.valueOf(ThreadLocalRandom.current().nextInt(minimum,maximum));
-
-	}
-	
-	public static void filterTable(WebDriver driver,String input) {
-
-		try{Thread.sleep(2000);}catch(Exception e){}
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[text()='Filter']")).click();
-		try{Thread.sleep(2000);}catch(Exception e){}
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//select[@title='Operator']/..")).click();
-		try{Thread.sleep(2000);}catch(Exception e){}
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//li[text()='Is equal to']")).click();
-		try{Thread.sleep(2000);}catch(Exception e){}
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);;
-		try{Thread.sleep(2000);}catch(Exception e){}
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[text()='Filter']")).click();
-		try{Thread.sleep(2000);}catch(Exception e){}
+		Thread.sleep(2000);
 
 	}
 	

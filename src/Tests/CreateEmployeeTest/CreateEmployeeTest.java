@@ -20,7 +20,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.HRManagementPageElements;
 import ObjectRepository.EditEmployeeDialogBox;
 
-public class CreateEmployee {
+public class CreateEmployeeTest {
 
 	public static WebDriver driver=null;
 
@@ -38,6 +38,7 @@ public class CreateEmployee {
 			DashboardPageElements.GetHRManagementLink(driver).click();		  
 			HRManagementPageElements.getManageEmployeeTab(driver).click();
 			HRManagementPageElements.openSelectOptions(driver).click();
+			Thread.sleep(2000);
 			HRManagementPageElements.selectOptions(driver, "Add Employee").click();
 
 			List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
@@ -46,6 +47,8 @@ public class CreateEmployee {
 
 			String emailToBeRegistered="TestEmail"+System.currentTimeMillis()+"@aluvii.com";
 			System.out.println(emailToBeRegistered);
+			String passwordToBeRegistered="Admin@123";
+			System.out.println(passwordToBeRegistered);
 
 			AddEmployeeDialogBox.getEmployeeEmail(driver).sendKeys(emailToBeRegistered);
 			AddEmployeeDialogBox.getFirstName(driver).sendKeys("TestFirstName");
@@ -90,17 +93,26 @@ public class CreateEmployee {
 
 			driver.switchTo().frame(0);
 			EditEmployeeDialogBox.getSetPasswordMenuLink(driver).click();
-			EditEmployeeDialogBox.getNewPasswordInputBox(driver).sendKeys("Admin@123");
-			EditEmployeeDialogBox.getConfirmPasswordInputBox(driver).sendKeys("Admin@123");
+			EditEmployeeDialogBox.getNewPasswordInputBox(driver).sendKeys(passwordToBeRegistered);
+			EditEmployeeDialogBox.getConfirmPasswordInputBox(driver).sendKeys(passwordToBeRegistered);
 			EditEmployeeDialogBox.getUpdatePasswordButton(driver).click();
 
 			driver.switchTo().defaultContent();
 
 			Thread.sleep(2000);
-			
+
 			EditEmployeeDialogBox.getPopupCloseButton(driver).click();
 
+			//logout;
+			Thread.sleep(2000);
+			action.moveToElement(DashboardPageElements.getUserMenu(driver)).clickAndHold();
+			Thread.sleep(2000);
+			action.moveToElement(DashboardPageElements.getLogoutButton(driver)).click().build().perform();
+			Thread.sleep(2000);
 
+			//Login
+			CommonFunctions.Login(driver, emailToBeRegistered ,passwordToBeRegistered);
+			Assert.assertTrue(DashboardPageElements.getSidebarMenu(driver, "Administration").isDisplayed());
 			Thread.sleep(10000);
 
 		}catch(Exception e)
