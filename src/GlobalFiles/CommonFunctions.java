@@ -1,10 +1,15 @@
 package GlobalFiles;
 
 
+
+import java.util.concurrent.ThreadLocalRandom;
+
+
 import java.io.File;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -66,13 +71,13 @@ public class CommonFunctions {
 		ObjSelect.selectByVisibleText(OptName);
 	}
 	
-	public static void Login(WebDriver driver) throws InterruptedException
+	public static void Login(WebDriver driver, String username, String password) throws InterruptedException
 	{
 	
 		clearLoginFields();
 		
-		LoginPageElements.GetUsernameField(driver).sendKeys(UserName);
-		LoginPageElements.GetPasswordField(driver).sendKeys(Password);
+		LoginPageElements.GetUsernameField(driver).sendKeys(username);
+		LoginPageElements.GetPasswordField(driver).sendKeys(password);
 		LoginPageElements.GetLoginButton(driver).click();
 		Thread.sleep(5000);
 		
@@ -136,6 +141,22 @@ public class CommonFunctions {
 		 List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));
 		  System.out.println("iframe length = " + iframeElements1.size());
 		  driver.switchTo().frame(0);
+	}
+	
+	public static void filterTable(WebDriver driver,String input) throws InterruptedException {
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[text()='Filter']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//select[@title='Operator']/..")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//li[text()='Is equal to']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);;
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[text()='Filter']")).click();
+		Thread.sleep(2000);
+
 	}
 	
 }

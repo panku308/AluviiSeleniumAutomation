@@ -13,7 +13,7 @@ import org.testng.annotations.AfterSuite;
 		public static WebDriver driver=null;
 	  @Test
 	  public void Login() throws InterruptedException {
-		  CommonFunctions.Login(driver);
+		  CommonFunctions.Login(driver,"ceo@aluvii.com","Admin@123");
 		  Thread.sleep(5000);
 	  }
 	  @BeforeSuite
