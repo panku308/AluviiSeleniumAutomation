@@ -35,11 +35,7 @@ private static WebElement element = null;
 		element =driver.findElement(By.linkText("Employee Scheduling"));
 		return element;
 	}
-	public static WebElement GetHRManagementLink(WebDriver driver)
-	{
-		element =driver.findElement(By.linkText("HR Management"));
-		return element;
-	}
+	
 	public static WebElement GetShiftManagementLink(WebDriver driver)
 	{
 		element =driver.findElement(By.linkText("Shift Management"));
@@ -50,11 +46,7 @@ private static WebElement element = null;
 		element =driver.findElement(By.linkText("Timekeeping"));
 		return element;
 	}
-	public static WebElement GetCashControlLink(WebDriver driver)
-	{
-		element =driver.findElement(By.linkText("Cash Control"));
-		return element;
-	}
+	
 	public static WebElement GetGiftCardManagementLink(WebDriver driver)
 	{
 		element =driver.findElement(By.linkText("Gift Card Management"));

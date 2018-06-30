@@ -30,7 +30,7 @@ public class SellProduct_Cash_Test {
 	  }
 	  @Test
 	  public static void SellProduct_PaymentTypeCash() throws Exception {
-		  CommonFunctions.Login(driver);
+		  CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
 		  Thread.sleep(5000);
 		  DashboardPageElements.GetEmployeeRegistersLink(driver).click();
 		  Thread.sleep(5000);

@@ -32,7 +32,7 @@ public class AddMembershipThroughGiftCard_Test {
 	  @Test
 	  public static void AddMembership_cashPayment() throws Exception
 	  {
-		  CommonFunctions.Login(driver);
+		  CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
 		  Thread.sleep(5000);
 		  int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, "selenium1530097693202@gmail.com");
 		  if(i==1)

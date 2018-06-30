@@ -33,7 +33,7 @@ public class SellProduct_PrepaidCoupon_Test {
 	  }
 	  @Test
 	  public static void SellProduct_PaymentTypeStoredValue() throws Exception {
-		  CommonFunctions.Login(driver);
+		  CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
 		  Thread.sleep(5000);
 		  DashboardPageElements.GetEmployeeRegistersLink(driver).click();
 		  Thread.sleep(5000);
