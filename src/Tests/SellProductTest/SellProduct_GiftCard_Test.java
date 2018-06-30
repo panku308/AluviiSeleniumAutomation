@@ -31,7 +31,7 @@ public class SellProduct_GiftCard_Test {
 	  }
 	  @Test
 	  public static void SellProduct_PaymentTypeCreditcard() throws Exception {
-		  CommonFunctions.Login(driver);
+		  CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
 		  Thread.sleep(5000);
 		  DashboardPageElements.GetEmployeeRegistersLink(driver).click();
 		  Thread.sleep(5000);
