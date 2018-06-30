@@ -1,16 +1,26 @@
 package GlobalFiles;
 
 
+
 import java.util.concurrent.ThreadLocalRandom;
+
+
+import java.io.File;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.LoginPageElements;
@@ -112,6 +122,25 @@ public class CommonFunctions {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();",element);
 		Thread.sleep(10000);
+	}
+	public static void TakeScreenShot(String testName)throws Exception
+	{
+		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File desFile = new File("C:\\AutomationScriptTest\\"+testName+"\\"+(testName+System.currentTimeMillis())+".png");
+
+        FileUtils.copyFile(scrFile, desFile);
+        
+             
+        String filePath = desFile.toString();
+        
+        String path = "<a href="+ filePath + "> Testcase_"+testName+"_Result Screenshot </a>";
+        Reporter.log(path);
+	}
+	public static void MoveControToFrame(WebDriver driver)
+	{
+		 List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));
+		  System.out.println("iframe length = " + iframeElements1.size());
+		  driver.switchTo().frame(0);
 	}
 	
 	public static void filterTable(WebDriver driver,String input) throws InterruptedException {

@@ -9,15 +9,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddCategoryDialogBoxElements;
 import ObjectRepository.AddCategoryDialogboxInsideAddRegisterPageElements;
+import ObjectRepository.AddProductDialogboxInsideAddRegisterPageElements;
 import ObjectRepository.AddRegisterDialogboxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateRegisterTest {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
@@ -80,7 +82,19 @@ public class CreateRegisterTest {
 		  AddCategoryDialogboxInsideAddRegisterPageElements.GetAddCategoryButton(driver).click();
 		  Thread.sleep(2000);
 		  driver.switchTo().parentFrame();
-		  		  
+		  AddRegisterDialogboxElements.GetAddProductButton(driver).click();
+		  Thread.sleep(2000);
+		  //CommonFunctions.MoveControToFrame(driver);
+		  iframeElements1 = driver.findElements(By.tagName("iframe"));
+		  System.out.println("iframe length = " + iframeElements1.size());
+		  driver.switchTo().frame(0);
+		  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
+		  Thread.sleep(2000);
+		  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName);
+		  Thread.sleep(2000);
+		  AddProductDialogboxInsideAddRegisterPageElements.GetAddProductButton(driver).click();
+		  Thread.sleep(2000);
+		  driver.switchTo().parentFrame();		  
 		  AddRegisterDialogboxElements.GetSaveChangesButton(driver).click();
 		  Thread.sleep(5000);
 		  driver.switchTo().defaultContent();

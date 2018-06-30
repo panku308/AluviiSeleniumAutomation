@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -12,7 +13,7 @@ import ObjectRepository.AddWaiverDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.SignWaiverPageElements;
 import ObjectRepository.WaiverManagementPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddWaiver_OnlyOneGuestTest {
 	 public static WebDriver driver=null;
 	 String WaiverName="";

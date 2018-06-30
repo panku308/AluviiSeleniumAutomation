@@ -8,18 +8,20 @@
 	</classes>
 	
 </test>
+
 <test name="CreateMemberTest" >
 	<classes>
 		<class name="Tests.ManageMembershipsTest.CreateMemberTest">  </class>		
 	</classes>
 </test>
+
 <test name="CreateProductTest">
 	<classes>
 		<class name="Tests.RegisterManagementTest.CreateCategoryTest">  </class>
 		<class name="Tests.RegisterManagementTest.CreateProductTest">  </class>	
 		<class name="Tests.RegisterManagementTest.CreateRegisterTest">  </class>		
 	</classes>
-</test>  
+</test>   
 <test name="AdddWaiver-SignWaiver-VerifyWaiver-Test">
 	<classes>
 		<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestToSign">  </class>
@@ -28,4 +30,5 @@
 	</classes>
 </test>
 
+ 
 </suite> <!-- Suite -->

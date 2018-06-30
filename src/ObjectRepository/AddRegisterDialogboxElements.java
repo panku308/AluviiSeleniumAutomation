@@ -67,5 +67,9 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("Save"));
 		return element;
 	}
-
+	public static WebElement GetAddProductButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("btnAddProduct"));
+		return element;
+	}
 }

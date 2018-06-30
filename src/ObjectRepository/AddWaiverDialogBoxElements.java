@@ -66,9 +66,14 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("btnCancel"));
 		return element;
 	}
-	public static WebElement SelectOptionFromSelectOptionDD(WebDriver driver, String OptName)
+	public static WebElement SelectDynamicFromMembershipPackageDD(WebDriver driver, String OptName)
 	{
 		element =driver.findElement(By.xpath("//li[text() = '"+OptName+"']"));
+		return element;
+	}
+	public static WebElement SelectFirstOptionFromMembershipPackageDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//ul[@id='MembershipPackageId_listbox']/li[1]"));
 		return element;
 	}
 	
@@ -104,7 +109,7 @@ private static WebElement element = null;
 		  AddWaiverDialogBoxElements.GetWaiverNameField(driver).sendKeys(WaiverName);
 		  AddWaiverDialogBoxElements.GetMemberShipDropDown(driver).click();
 		  Thread.sleep(3000);		  
-		  AddWaiverDialogBoxElements.SelectOptionFromSelectOptionDD(driver, "2018 Waiver").click();
+		  AddWaiverDialogBoxElements.SelectFirstOptionFromMembershipPackageDD(driver).click();
 		  // switching to child frame.
 		  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));
 		  System.out.println("iframe length = " + iframeElements1.size());
