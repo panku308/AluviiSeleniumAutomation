@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddCategoryDialogBoxElements;
 import ObjectRepository.AddCategoryDialogboxInsideAddRegisterPageElements;
+import ObjectRepository.AddProductDialogboxInsideAddRegisterPageElements;
 import ObjectRepository.AddRegisterDialogboxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
@@ -81,7 +82,19 @@ public class CreateRegisterTest {
 		  AddCategoryDialogboxInsideAddRegisterPageElements.GetAddCategoryButton(driver).click();
 		  Thread.sleep(2000);
 		  driver.switchTo().parentFrame();
-		  		  
+		  AddRegisterDialogboxElements.GetAddProductButton(driver).click();
+		  Thread.sleep(2000);
+		  //CommonFunctions.MoveControToFrame(driver);
+		  iframeElements1 = driver.findElements(By.tagName("iframe"));
+		  System.out.println("iframe length = " + iframeElements1.size());
+		  driver.switchTo().frame(0);
+		  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
+		  Thread.sleep(2000);
+		  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName);
+		  Thread.sleep(2000);
+		  AddProductDialogboxInsideAddRegisterPageElements.GetAddProductButton(driver).click();
+		  Thread.sleep(2000);
+		  driver.switchTo().parentFrame();		  
 		  AddRegisterDialogboxElements.GetSaveChangesButton(driver).click();
 		  Thread.sleep(5000);
 		  driver.switchTo().defaultContent();
