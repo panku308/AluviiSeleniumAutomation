@@ -23,7 +23,9 @@ import ObjectRepository.RegisterManagementDashboardPageElements;
 public class CreateRegisterTest {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
-	  public static String RegisterName="Register_" + System.currentTimeMillis();
+	  public static String RegisterName="";
+	  public static String LoginActivity="";
+	  public static String Location="";
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
@@ -52,6 +54,7 @@ public class CreateRegisterTest {
 		  AddRegisterDialogboxElements.GetLocationDD(driver).click();
 		  Thread.sleep(2000);
 		  AddRegisterDialogboxElements.SelectFirstOptionFromLocationDD(driver);
+		  Location = AddRegisterDialogboxElements.GetSelectedLocationValue(driver);
 		  
 		  AddRegisterDialogboxElements.GetThermalReceiptDD(driver).click();
 		  Thread.sleep(2000);
@@ -105,6 +108,7 @@ public class CreateRegisterTest {
 		  RegisterManagementDashboardPageElements.GetRegistersTab_SubTab_Registers_IDColumn(driver).click();
 		  Thread.sleep(5000);
 		  actualResult = RegisterManagementDashboardPageElements.GetRegistersTab_SubTab_Registers_FirstRowRegisterNameCloumn(driver).getText();
+		  LoginActivity = Location+"- "+ RegisterName+" (Register)";		  
 		  assertEquals(actualResult, RegisterName);
 		  
 	  }
