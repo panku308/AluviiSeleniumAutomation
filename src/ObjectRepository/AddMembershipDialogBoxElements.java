@@ -8,24 +8,14 @@ public class AddMembershipDialogBoxElements {
 private static WebElement element = null;
 	
 	
-	public static WebElement GetAdventureSeasonPassLink(WebDriver driver)
+	public static WebElement GetDynamicPassLink(WebDriver driver, String passName)
 	{
-		element =driver.findElement(By.xpath("//div[@id = 'guestMemberships_listview']//div[ text() = 'Adventurer Season Pass']"));
+		element =driver.findElement(By.xpath("//div[@id = 'guestMemberships_listview']//div[ text() = '"+passName+"']"));
 		return element;
 	}
-	public static WebElement GetJuniorAdventureSeasonPassLink(WebDriver driver)
+	public static WebElement GetStaticPassLink(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id = 'guestMemberships_listview']//div[text() = 'Junior Adventurer Season Pass']"));
-		return element;
-	}
-	public static WebElement GetSeniorAdventureSeasonPassLink(WebDriver driver)
-	{
-		element =driver.findElement(By.xpath("//div[@id = 'guestMemberships_listview']//div[text() = 'Senior Adventurer Season Pass']"));
-		return element;
-	}
-	public static WebElement Get10PunchPass(WebDriver driver)
-	{
-		element =driver.findElement(By.xpath("//div[@id = 'guestMemberships_listview']//div[text() = '10 Punch Pass']"));
+		element =driver.findElement(By.xpath("//div[@id = 'guestMemberships_listview']/div[1]"));
 		return element;
 	}
 	public static WebElement GetSendToCheckoutButton(WebDriver driver)

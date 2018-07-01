@@ -46,7 +46,7 @@ public class AddMembershipThroughCash_Test {
 			  System.out.println("iframe length = " + iframeElements.size());			  
 			  driver.switchTo().frame(0);
 			  
-			  AddMembershipDialogBoxElements.GetAdventureSeasonPassLink(driver).click();
+			  AddMembershipDialogBoxElements.GetStaticPassLink(driver).click();
 			  Thread.sleep(2000);
 			  AddMembershipDialogBoxElements.GetSendToCheckoutButton(driver).click();
 			  Thread.sleep(5000);

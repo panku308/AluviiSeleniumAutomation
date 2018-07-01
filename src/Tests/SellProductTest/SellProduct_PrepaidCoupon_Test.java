@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -22,7 +23,7 @@ import ObjectRepository.StoredValueDialogBoxElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellProduct_PrepaidCoupon_Test {
 	
 
