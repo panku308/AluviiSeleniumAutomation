@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -21,7 +22,7 @@ import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellProduct_GiftCard_Test {
 	
 	public static WebDriver driver=null;
@@ -58,7 +59,7 @@ public class SellProduct_GiftCard_Test {
 		  System.out.println("iframe length = " + iframeElements.size());		  
 		  driver.switchTo().frame(0);
 		  
-		  GiftCardPaymentDialogBoxElements.GetGiftCardBarcode(driver).sendKeys("123456");
+		  GiftCardPaymentDialogBoxElements.GetGiftCardBarcode(driver).sendKeys(SellGiftCard_Cash_Test.GiftCardBarcode);
 		  GiftCardPaymentDialogBoxElements.GetBalanaceButton(driver).click();
 		  Thread.sleep(2000);
 		  GiftCardPaymentDialogBoxElements.GetPayWithGiftCardButton(driver).click();		  

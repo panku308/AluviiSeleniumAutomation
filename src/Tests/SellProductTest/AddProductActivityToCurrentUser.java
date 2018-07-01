@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -13,7 +14,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.HRManagementPageElements;
 import Tests.RegisterManagementTest.CreateRegisterTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddProductActivityToCurrentUser {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";

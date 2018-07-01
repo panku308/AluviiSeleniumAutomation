@@ -9,6 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 
@@ -22,7 +23,7 @@ import ObjectRepository.RegisterListPageElements;
 import ObjectRepository.SellGiftCardDialogBoxElements;
 import ObjectRepository.SimpleCashPaymentDialogBox;
 import Tests.RegisterManagementTest.CreateRegisterTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellGiftCard_Cash_Test {
 	public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";

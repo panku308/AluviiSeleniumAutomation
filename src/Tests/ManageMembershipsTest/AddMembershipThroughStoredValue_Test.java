@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -18,7 +19,7 @@ import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.SimpleCashPaymentDialogBox;
 import ObjectRepository.StoredValueDialogBoxElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddMembershipThroughStoredValue_Test {
 	
 	public static WebDriver driver=null;
@@ -46,7 +47,7 @@ public class AddMembershipThroughStoredValue_Test {
 			  System.out.println("iframe length = " + iframeElements.size());			  
 			  driver.switchTo().frame(0);
 			  
-			  AddMembershipDialogBoxElements.GetAdventureSeasonPassLink(driver).click();
+			  AddMembershipDialogBoxElements.GetStaticPassLink(driver).click();
 			  Thread.sleep(2000);
 			  AddMembershipDialogBoxElements.GetSendToCheckoutButton(driver).click();
 			  Thread.sleep(5000);

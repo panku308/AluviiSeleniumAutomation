@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -18,7 +19,8 @@ import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.SimpleCashPaymentDialogBox;
-
+import Tests.SellProductTest.SellGiftCard_Cash_Test;
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddMembershipThroughGiftCard_Test {
 	public static WebDriver driver=null;
 	  public static boolean actualResult=false;
@@ -45,7 +47,7 @@ public class AddMembershipThroughGiftCard_Test {
 			  System.out.println("iframe length = " + iframeElements.size());			  
 			  driver.switchTo().frame(0);
 			  
-			  AddMembershipDialogBoxElements.GetAdventureSeasonPassLink(driver).click();
+			  AddMembershipDialogBoxElements.GetStaticPassLink(driver).click();
 			  Thread.sleep(2000);
 			  AddMembershipDialogBoxElements.GetSendToCheckoutButton(driver).click();
 			  Thread.sleep(5000);
@@ -63,7 +65,7 @@ public class AddMembershipThroughGiftCard_Test {
 			  System.out.println("iframe length = " + iframeElements.size());		  
 			  driver.switchTo().frame(0);
 			  
-			  GiftCardPaymentDialogBoxElements.GetGiftCardBarcode(driver).sendKeys("123456");
+			  GiftCardPaymentDialogBoxElements.GetGiftCardBarcode(driver).sendKeys(SellGiftCard_Cash_Test.GiftCardBarcode);
 			  GiftCardPaymentDialogBoxElements.GetBalanaceButton(driver).click();
 			  Thread.sleep(2000);
 			  GiftCardPaymentDialogBoxElements.GetPayWithGiftCardButton(driver).click();		  

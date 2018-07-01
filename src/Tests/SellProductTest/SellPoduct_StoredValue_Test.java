@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -21,7 +22,7 @@ import ObjectRepository.StoredValueDialogBoxElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellPoduct_StoredValue_Test {
 	//fname1530097726899
 	public static WebDriver driver=null;

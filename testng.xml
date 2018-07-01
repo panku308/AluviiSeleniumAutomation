@@ -5,16 +5,20 @@
 <test name="Login" >
 	<classes>
 		<class name="Tests.LoginTest.LoginTest">  </class>		
-	</classes>
-	
+	</classes>	
 </test>
-<!-- 
+
 <test name="CreateMemberTest" >
 	<classes>
 		<class name="Tests.ManageMembershipsTest.CreateMemberTest">  </class>		
 	</classes>
 </test>
- -->
+<test name="Add Stored Value"  >
+	<classes>
+		<class name="Tests.ManageMembershipsTest.AddStoredValueIntoMember_Cash_Test">  </class>
+						
+	</classes>
+</test>
 <test name="CreateProductTest">
 	<classes>
 		<class name="Tests.RegisterManagementTest.CreateCategoryTest">  </class>
@@ -22,20 +26,43 @@
 		<class name="Tests.RegisterManagementTest.CreateRegisterTest">  </class>	
 		<class name="Tests.SellProductTest.AddProductActivityToCurrentUser"></class>	
 	</classes>
-</test>   
-<test name = "Sell Product Test">
+</test>
+
+<test name="Sell Gift card through cash" >
 	<classes>
-		<class name = "Tests.SellProductTest.SellProduct_Cash_Test">
-		</class>
+		<class name="Tests.SellProductTest.SellGiftCard_Cash_Test">  </class>				
 	</classes>
 </test>
-<!-- <test name="AdddWaiver-SignWaiver-VerifyWaiver-Test">
+
+<test name="AddMembershipt through differnet Payment menthods" >
+	<classes>
+		
+		<class name="Tests.ManageMembershipsTest.AddMembershipThroughCash_Test">  </class>		
+		<class name="Tests.ManageMembershipsTest.AddMembershipThroughGiftCard_Test">  </class>
+		<class name="Tests.ManageMembershipsTest.AddMembershipThroughPrepaidCoupon_Test">  </class>
+		<class name="Tests.ManageMembershipsTest.AddMembershipThroughStoredValue_Test">  </class>
+		<!-- <class name="Tests.ManageMembershipsTest.AddMembershipThroughCreditCard_Test">  </class> -->		
+	</classes>
+</test>
+
+<test name = "Sell Product Test">
+	<classes>
+		<class name = "Tests.SellProductTest.SellProduct_Cash_Test"> </class>		
+		<class name = "Tests.SellProductTest.SellPoduct_StoredValue_Test"></class>
+		<!-- <class name = "Tests.SellProductTest.SellProduct_CreditCard_Test"></class> -->
+		<class name = "Tests.SellProductTest.SellProduct_GiftCard_Test"></class>
+		<class name = "Tests.SellProductTest.SellProduct_PrepaidCoupon_Test"></class>
+		
+	</classes>
+</test>
+ <test name="AdddWaiver-SignWaiver-VerifyWaiver-Test">
 	<classes>
 		<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestToSign">  </class>
 		<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestOverMinAgeTest">  </class>
 		<class name="Tests.WaiverTest.AddWaiver_OnlyOneGuestTest">  </class>		
 	</classes>
-</test> -->
+</test>   
+
 
  
 </suite> <!-- Suite -->

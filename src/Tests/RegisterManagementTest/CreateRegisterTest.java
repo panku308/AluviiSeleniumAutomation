@@ -31,7 +31,7 @@ public class CreateRegisterTest {
 		  driver = CommonFunctions.driver;
 		  
 	  }
-	  @Test
+	  @Test 
 	  public static void AddRegisterTest()throws Exception
 	  {
 		  RegisterName="Register_" + System.currentTimeMillis();
