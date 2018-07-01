@@ -31,7 +31,7 @@ public class AddMembershipThroughGiftCard_Test {
 		  driver = CommonFunctions.driver;
 	  }
 	  @Test
-	  public static void AddMembership_cashPayment() throws Exception
+	  public static void AddMembership_GiftCardPayment() throws Exception
 	  {
 		  int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, CreateMemberTest.EmailID);
 		  if(i==1)
