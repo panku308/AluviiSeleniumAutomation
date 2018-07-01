@@ -30,7 +30,7 @@ public class AddStoredValueIntoMember_Cash_Test {
 		  driver = CommonFunctions.driver;
 	  }
 	  @Test
-	  public static void AddMembership_cashPayment() throws Exception
+	  public static void AddStoredValueIntoMember_CashPayment() throws Exception
 	  {
 		  int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, CreateMemberTest.EmailID);
 		  if(i==1)
