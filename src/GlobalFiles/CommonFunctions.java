@@ -158,5 +158,9 @@ public class CommonFunctions {
 		Thread.sleep(2000);
 
 	}
+	public static void SelectOptionFromDropdownList(WebDriver driver, String optionName)
+	{
+		driver.findElement(By.xpath("//li[text()='"+optionName+"']")).click();
+	}
 	
 }

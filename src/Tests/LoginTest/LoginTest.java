@@ -24,7 +24,7 @@ import org.testng.annotations.AfterSuite;
 	
 	  @AfterSuite
 	  public void afterSuite() {
-	//	  driver.quit();
+		  driver.quit();
 	  }
 	
 }
