@@ -13,18 +13,18 @@ import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddMembershipDialogBoxElements;
-import ObjectRepository.GiftCardPaymentDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.SimpleCashPaymentDialogBox;
+import Tests.RegisterManagementTest.CreateRegisterTest;
 
-public class AddMembershipThroughGiftCard_Test {
-	public static WebDriver driver=null;
+public class AddStoredValueIntoMember_Cash_Test {
+	 public static WebDriver driver=null;
 	  public static boolean actualResult=false;
 	  public static String EmailID="";
-	  
-	  @BeforeClass
+	
+	@BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
 	  }
@@ -38,42 +38,40 @@ public class AddMembershipThroughGiftCard_Test {
 			  assertEquals(actualResult, true);
 			  ManageMembershipsPageElements.GetExpandArrowElement(driver).click();
 			  Thread.sleep(4000);
-			  ManageMembershipsPageElements.GetAccountGuestAddMembership(driver, 1).click();
+			  ManageMembershipsPageElements.GetAccountGuest_StoredValueLink(driver).click();
 			  Thread.sleep(5000);
+			  		  
 			  
-			  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));			  
-			  System.out.println("iframe length = " + iframeElements.size());			  
-			  driver.switchTo().frame(0);
 			  
-			  AddMembershipDialogBoxElements.GetAdventureSeasonPassLink(driver).click();
+			  ManageMembershipsPageElements.GetStoredValue_AddAmountField(driver).sendKeys("10000");
 			  Thread.sleep(2000);
-			  AddMembershipDialogBoxElements.GetSendToCheckoutButton(driver).click();
+			  ManageMembershipsPageElements.GetStoredValue_AddToCartButton(driver).click();
 			  Thread.sleep(5000);
 			  driver.switchTo().defaultContent();
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
-			  Thread.sleep(5000);
+			  Thread.sleep(2000);
 			  
-			  iframeElements = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
+			  		  
 			  driver.switchTo().frame(0);		
 			  
-			  PaymentTransactionDialogBoxElements.GetGiftCardButton(driver).click();
+			  PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
 			  Thread.sleep(2000);
-			  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
+			  		  
 			  driver.switchTo().frame(0);
 			  
-			  GiftCardPaymentDialogBoxElements.GetGiftCardBarcode(driver).sendKeys("123456");
-			  GiftCardPaymentDialogBoxElements.GetBalanaceButton(driver).click();
-			  Thread.sleep(2000);
-			  GiftCardPaymentDialogBoxElements.GetPayWithGiftCardButton(driver).click();		  
+			  System.out.println("total due = "+ SimpleCashPaymentDialogBox.GetTotalDueField(driver).getAttribute("value"));
+			  SimpleCashPaymentDialogBox.GetCashReceivedField(driver).sendKeys(SimpleCashPaymentDialogBox.GetTotalDueField(driver).getAttribute("value"));
+			  SimpleCashPaymentDialogBox.GetSubmitButton(driver).click();		  
 			  Thread.sleep(5000);
+			  
 			  driver.switchTo().parentFrame();
-			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();
+			  
+			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
 			  Thread.sleep(5000);
-			  iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);		  
+			  
+			  		  
+			  driver.switchTo().frame(0);
+			  
 			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
@@ -84,6 +82,7 @@ public class AddMembershipThroughGiftCard_Test {
 		  {
 			  assertEquals(false, true);
 		  }
-	
+		  
 	  }
+	
 }

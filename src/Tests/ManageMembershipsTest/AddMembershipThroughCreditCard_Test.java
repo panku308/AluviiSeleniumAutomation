@@ -26,15 +26,12 @@ public class AddMembershipThroughCreditCard_Test {
 	  
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
-		  driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
-		  Thread.sleep(5000);
+		  driver = CommonFunctions.driver;
 	  }
 	  @Test
 	  public static void AddMembership_CreditCardPayment() throws Exception
 	  {
-		  CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
-		  Thread.sleep(5000);
-		  int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, "selenium1530097693202@gmail.com");
+		  int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, CreateMemberTest.EmailID);
 		  if(i==1)
 		  {
 			  actualResult=true;
