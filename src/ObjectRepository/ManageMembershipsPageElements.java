@@ -123,6 +123,11 @@ private static WebElement element = null;
 		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]/div[1]/button"));
 		return element;
 	}
+	public static WebElement GetAccountGuest_StoredValueLink(WebDriver driver)
+	{
+		element = driver.findElement(By.linkText("Stored Value"));
+		return element;
+	}
 	public static WebElement GetCheckoutTab_PaymentButton(WebDriver driver)
 	{
 		element = driver.findElement(By.xpath("//button[text() = 'Payment']"));
@@ -143,4 +148,15 @@ private static WebElement element = null;
 		element = driver.findElement(By.id("btnCompAll"));
 		return element;
 	}
+	public static WebElement GetStoredValue_AddAmountField(WebDriver driver)
+	{
+		element = driver.findElement(By.xpath("//div[@class='form-row displayBlock']//input[@class='k-formatted-value k-input']"));
+		return element;
+	}
+	public static WebElement GetStoredValue_AddToCartButton(WebDriver driver)
+	{
+		element = driver.findElement(By.xpath("//span[ contains(@id, 'btnAddToCart_')]"));
+		return element;
+	}
+	
 }	
