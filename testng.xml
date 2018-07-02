@@ -7,7 +7,7 @@
 		<class name="Tests.LoginTest.LoginTest">  </class>		
 	</classes>	
 </test>
-
+ 
 <test name="CreateMemberTest" >
 	<classes>
 		<class name="Tests.ManageMembershipsTest.CreateMemberTest">  </class>		
@@ -27,7 +27,7 @@
 		<class name="Tests.SellProductTest.AddProductActivityToCurrentUser"></class>	
 	</classes>
 </test>
-
+ 
 <test name="Sell Gift card through cash" >
 	<classes>
 		<class name="Tests.SellProductTest.SellGiftCard_Cash_Test">  </class>				
@@ -39,9 +39,9 @@
 		
 		<class name="Tests.ManageMembershipsTest.AddMembershipThroughCash_Test">  </class>		
 		<class name="Tests.ManageMembershipsTest.AddMembershipThroughGiftCard_Test">  </class>
-		<!-- <class name="Tests.ManageMembershipsTest.AddMembershipThroughPrepaidCoupon_Test">  </class> -->
+		<class name="Tests.ManageMembershipsTest.AddMembershipThroughPrepaidCoupon_Test">  </class>
 		<class name="Tests.ManageMembershipsTest.AddMembershipThroughStoredValue_Test">  </class>
-		<!-- <class name="Tests.ManageMembershipsTest.AddMembershipThroughCreditCard_Test">  </class> -->		
+		<class name="Tests.ManageMembershipsTest.AddMembershipThroughCreditCard_Test">  </class>		
 	</classes>
 </test>
 
@@ -49,9 +49,9 @@
 	<classes>
 		<class name = "Tests.SellProductTest.SellProduct_Cash_Test"> </class>		
 		<class name = "Tests.SellProductTest.SellPoduct_StoredValue_Test"></class>
-		<!-- <class name = "Tests.SellProductTest.SellProduct_CreditCard_Test"></class> -->
+		<class name = "Tests.SellProductTest.SellProduct_CreditCard_Test"></class>
 		<class name = "Tests.SellProductTest.SellProduct_GiftCard_Test"></class>
-		<!-- <class name = "Tests.SellProductTest.SellProduct_PrepaidCoupon_Test"></class> -->
+		<class name = "Tests.SellProductTest.SellProduct_PrepaidCoupon_Test"></class>
 		
 	</classes>
 </test>

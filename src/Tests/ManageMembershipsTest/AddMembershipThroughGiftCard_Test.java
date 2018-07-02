@@ -13,6 +13,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
+import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.AddMembershipDialogBoxElements;
 import ObjectRepository.GiftCardPaymentDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
@@ -54,29 +55,9 @@ public class AddMembershipThroughGiftCard_Test {
 			  driver.switchTo().defaultContent();
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
 			  Thread.sleep(5000);
-			  
-			  iframeElements = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
+					  
 			  driver.switchTo().frame(0);		
-			  
-			  PaymentTransactionDialogBoxElements.GetGiftCardButton(driver).click();
-			  Thread.sleep(2000);
-			  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);
-			  
-			  GiftCardPaymentDialogBoxElements.GetGiftCardBarcode(driver).sendKeys(SellGiftCard_Cash_Test.GiftCardBarcode);
-			  GiftCardPaymentDialogBoxElements.GetBalanaceButton(driver).click();
-			  Thread.sleep(2000);
-			  GiftCardPaymentDialogBoxElements.GetPayWithGiftCardButton(driver).click();		  
-			  Thread.sleep(5000);
-			  driver.switchTo().parentFrame();
-			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();
-			  Thread.sleep(5000);
-			  iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);		  
-			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+			PaymentTransactionType.PaymentThroughGiftCard(driver);
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
 			  

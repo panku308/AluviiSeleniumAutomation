@@ -23,7 +23,8 @@ public class CreateMemberTest {
 
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
-	  public static String EmailID="";
+	  public static String EmailID="", fname="", lname="";
+	  
 	  
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
@@ -34,6 +35,8 @@ public class CreateMemberTest {
 	  public void CreateMemeberTest() throws Exception
 	  {
 		  EmailID="selenium" + System.currentTimeMillis() +"@gmail.com";
+		  fname="fname"+System.currentTimeMillis();
+		  lname = "lname" + System.currentTimeMillis();
 		  Thread.sleep(5000);
 		  DashboardPageElements.GetManageMemberShipLink(driver).click();
 		  Thread.sleep(5000);
@@ -53,8 +56,8 @@ public class CreateMemberTest {
 		  CreateNewAccountDialogBoxElements.Get_Add_StateField(driver).sendKeys("UT");
 		  CreateNewAccountDialogBoxElements.Get_Add_NextButton(driver).click();
 		  Thread.sleep(5000);
-		  CreateNewAccountDialogBoxElements.GetFirstnameField(driver).sendKeys("fname"+System.currentTimeMillis());
-		  CreateNewAccountDialogBoxElements.GetLastname(driver).sendKeys("lname"+System.currentTimeMillis());
+		  CreateNewAccountDialogBoxElements.GetFirstnameField(driver).sendKeys(fname);
+		  CreateNewAccountDialogBoxElements.GetLastname(driver).sendKeys(lname);
 		  CreateNewAccountDialogBoxElements.GetSubmitButton(driver).click();
 		  
 		  Thread.sleep(30000);

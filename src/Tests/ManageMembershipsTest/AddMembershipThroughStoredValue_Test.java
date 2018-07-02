@@ -13,6 +13,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
+import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.AddMembershipDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
@@ -54,38 +55,9 @@ public class AddMembershipThroughStoredValue_Test {
 			  driver.switchTo().defaultContent();
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
 			  Thread.sleep(2000);
-			  
-			  iframeElements = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
+			  		  
 			  driver.switchTo().frame(0);		
-			  PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
-			  Thread.sleep(2000);
-			  PaymentTransactionDialogBoxElements.GetMoreOptoin_StoredValue(driver).click();
-			  Thread.sleep(5000);
-			  
-			  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);
-			  
-			  StoredValueDialogBoxElements.GetSearchUserAccountField(driver).sendKeys("fname1530097726899");
-			  Thread.sleep(2000);
-			  StoredValueDialogBoxElements.GetSearchIconField(driver).click();
-			  Thread.sleep(2000);
-			  StoredValueDialogBoxElements.GetSearchRecordElement(driver).click();
-			  Thread.sleep(2000);
-			  StoredValueDialogBoxElements.GetUseValueButton(driver).click();
-			  Thread.sleep(5000);
-			  
-			  driver.switchTo().parentFrame();
-			  
-			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);
-			  
-			  iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);
-			  
-			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+			  PaymentTransactionType.PaymentThroughStoredValue(driver);
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
 			  
