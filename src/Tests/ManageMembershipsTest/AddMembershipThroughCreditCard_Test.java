@@ -13,6 +13,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
+import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.AddMembershipDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.PaymentThroughCreditCardDialogBoxElements;
@@ -54,30 +55,8 @@ public class AddMembershipThroughCreditCard_Test {
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
 			  Thread.sleep(2000);
 			  
-			  iframeElements = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
 			  driver.switchTo().frame(0);		
-			  
-			  PaymentTransactionDialogBoxElements.GetCreditCardButton(driver).click();
-			  Thread.sleep(2000);
-			  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);
-			  
-			  CommonFunctions.SelectOptionFromDropdownByVisibleText(PaymentThroughCreditCardDialogBoxElements.GetCardTypeDD(driver), "Visa");		  
-			  PaymentThroughCreditCardDialogBoxElements.GetNameOnCardElement(driver).sendKeys("asdfasdf");
-			  PaymentThroughCreditCardDialogBoxElements.GetCardNumberElement(driver).sendKeys("4111111111111111");
-			  PaymentThroughCreditCardDialogBoxElements.GetCardExpirationDateField(driver).sendKeys("1219");
-			  PaymentThroughCreditCardDialogBoxElements.GetCVVField(driver).sendKeys("123");
-			  PaymentThroughCreditCardDialogBoxElements.GetProcessPaymentButton(driver).click();
-			  Thread.sleep(5000);
-			  driver.switchTo().parentFrame();
-			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();
-			  Thread.sleep(5000);
-			  iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);		  
-			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+			  PaymentTransactionType.PaymentThroughCardKnox(driver);
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
 			  

@@ -13,6 +13,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
+import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.AddMembershipDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
@@ -56,33 +57,8 @@ public class AddMembershipThroughPrepaidCoupon_Test {
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
 			  Thread.sleep(2000);
 			  
-			  iframeElements = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
 			  driver.switchTo().frame(0);		
-			  
-			  PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
-			  Thread.sleep(2000);
-			  PaymentTransactionDialogBoxElements.GetMoreOptoin_PrepaidCouopon(driver).click();
-			  Thread.sleep(5000);
-			  
-			  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);
-			  
-			  PrePaidCouponDialogBoxElements.GetAmountReceivedField(driver).sendKeys(PrePaidCouponDialogBoxElements.GetPaymentAmountField(driver).getAttribute("value"));
-			  PrePaidCouponDialogBoxElements.GetSubmitButton(driver).click();		  
-			  Thread.sleep(5000);
-			  
-			  driver.switchTo().parentFrame();
-			  
-			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);
-			  
-			  iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-			  System.out.println("iframe length = " + iframeElements.size());		  
-			  driver.switchTo().frame(0);
-			  
-			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+			  PaymentTransactionType.PaymentThroughPrepaidCoupon(driver);
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
 			  

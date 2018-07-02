@@ -12,6 +12,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
+import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
@@ -47,38 +48,9 @@ public class SellPoduct_StoredValue_Test {
 		  Thread.sleep(2000);
 		  CashierRegisterPageElements.GetPayButton(driver).click();
 		  Thread.sleep(2000);
-		  
-		  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));		  
-		  System.out.println("iframe length = " + iframeElements.size());		  
-		  driver.switchTo().frame(0);		
-		  PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
-		  Thread.sleep(2000);
-		  PaymentTransactionDialogBoxElements.GetMoreOptoin_StoredValue(driver).click();
-		  Thread.sleep(5000);
-		  
-		  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));		  
-		  System.out.println("iframe length = " + iframeElements.size());		  
 		  driver.switchTo().frame(0);
+		  PaymentTransactionType.PaymentThroughStoredValue(driver);
 		  
-		  StoredValueDialogBoxElements.GetSearchUserAccountField(driver).sendKeys("fname1530097726899");
-		  Thread.sleep(2000);
-		  StoredValueDialogBoxElements.GetSearchIconField(driver).click();
-		  Thread.sleep(2000);
-		  StoredValueDialogBoxElements.GetSearchRecordElement(driver).click();
-		  Thread.sleep(2000);
-		  StoredValueDialogBoxElements.GetUseValueButton(driver).click();
-		  Thread.sleep(5000);
-		  
-		  driver.switchTo().parentFrame();
-		  
-		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-		  Thread.sleep(5000);
-		  
-		  iframeElements = driver.findElements(By.tagName("iframe"));		  
-		  System.out.println("iframe length = " + iframeElements.size());		  
-		  driver.switchTo().frame(0);
-		  
-		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();
 		  

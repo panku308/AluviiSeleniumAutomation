@@ -13,6 +13,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
+import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.AddMembershipDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
@@ -50,30 +51,9 @@ public class AddStoredValueIntoMember_Cash_Test {
 			  Thread.sleep(5000);
 			  driver.switchTo().defaultContent();
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
-			  Thread.sleep(2000);
-			  
-			  		  
+			  Thread.sleep(5000);
 			  driver.switchTo().frame(0);		
-			  
-			  PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
-			  Thread.sleep(2000);
-			  		  
-			  driver.switchTo().frame(0);
-			  
-			  System.out.println("total due = "+ SimpleCashPaymentDialogBox.GetTotalDueField(driver).getAttribute("value"));
-			  SimpleCashPaymentDialogBox.GetCashReceivedField(driver).sendKeys(SimpleCashPaymentDialogBox.GetTotalDueField(driver).getAttribute("value"));
-			  SimpleCashPaymentDialogBox.GetSubmitButton(driver).click();		  
-			  Thread.sleep(5000);
-			  
-			  driver.switchTo().parentFrame();
-			  
-			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);
-			  
-			  		  
-			  driver.switchTo().frame(0);
-			  
-			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+			 PaymentTransactionType.PaymentThroughCash(driver);
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
 			  
