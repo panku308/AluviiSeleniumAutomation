@@ -115,14 +115,15 @@ private static WebElement element = null;
 	{
 		
 		//element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[2]/fieldset/div/div[2]/div[2]/div/div/div/span/span/span/span[1]/span"));
-		element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span/span[1]/span"));
+		//element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span/span[1]/span"));
+		element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span[@title = 'Increase value']/span"));
 		return element;
 	}
 	public static WebElement GetUnitPriceDecreaseArrow(WebDriver driver)
 	{
 		
 		//element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[2]/fieldset/div/div[2]/div[2]/div/div/div/span/span/span/span[2]/span"));
-		element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span/span[2]/span"));
+		element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span[@title = 'Decrease value']/span"));
 		return element;
 	}
 
