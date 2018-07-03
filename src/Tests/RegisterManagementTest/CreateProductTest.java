@@ -62,11 +62,13 @@ public class CreateProductTest {
 			  Thread.sleep(5000);
 			  CommonFunctions.ScrollUptoElement(driver, CategoryDialogBoxElements.GetDynamicCategoryName(driver,CreateCategoryTest.CategoryName));
 			  Thread.sleep(2000);
-			  CategoryDialogBoxElements.GetDynamicCategoryName(driver,CreateCategoryTest.CategoryName).click();  
+			  CategoryDialogBoxElements.GetDynamicCategoryName(driver,CreateCategoryTest.CategoryName).click();
+			  Thread.sleep(2000);
 		  }
 		  else
 		  {
 			  CategoryDialogBoxElements.GetStaticCategoryName(driver).click();
+			  Thread.sleep(2000);
 		  }
 		  
 		  

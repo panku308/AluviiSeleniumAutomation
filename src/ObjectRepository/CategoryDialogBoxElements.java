@@ -9,7 +9,8 @@ public class CategoryDialogBoxElements {
 	public static WebElement GetStaticCategoryName(WebDriver driver)
 	{		
 				
-		element =driver.findElement(By.xpath("//div[@id='windowInnerPopup']//table/tbody/tr[1]/td[2]"));
+		element =driver.findElement(By.xpath("//div[@id='windowInnerPopup']//table/tbody/tr[1]/td[2]/a"));
+		
 		return element;
 	}
 	public static WebElement GetDynamicCategoryName(WebDriver driver, String CategoryName)
