@@ -29,7 +29,7 @@ public class AssignModifierToProduct {
 		  Thread.sleep(5000);
 		  RegisterManagementDashboardPageElements.GetProductsTab_SubTab_Products_ProductNameColumnSettingsIcon(driver).click();
 		  Thread.sleep(2000);
-		  CommonFunctions.filterTable(driver,"product1530583570385");
+		  CommonFunctions.filterTable(driver,CreateProductTest.ProductName);
 		  RegisterManagementDashboardPageElements.Get_ProductTable_FirstRowProductNameCloumn(driver).click();
 		  Thread.sleep(2000);
 		  RegisterManagementDashboardPageElements.GetProductsTab_SubTab_Products_SelectOptionDropdown(driver).click();

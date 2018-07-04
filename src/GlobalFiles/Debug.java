@@ -18,106 +18,67 @@ import ObjectRepository.AddModifierDialogBoxElements;
 import ObjectRepository.AddModifierDialogBoxInsideAssignProductModifer;
 import ObjectRepository.AddProductDialogBoxElements;
 import ObjectRepository.AssignProductModifiersDialogBoxElements;
+import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ManageMembershipsPageElements;
+import ObjectRepository.ProductModifierInsideCashierRegisterElements;
+import ObjectRepository.RegisterListPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
+import Tests.RegisterManagementTest.CreateProductModifier;
+import Tests.RegisterManagementTest.CreateProductTest;
+import Tests.RegisterManagementTest.CreateRegisterTest;
 
 public class Debug {
 	public static WebDriver driver=null;
 	public static String ModifierName="";
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws Exception {
 		 driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		 Thread.sleep(5000);
 		 CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
 		 Thread.sleep(5000);
-		 
-		 ModifierName = "Modifer_" + System.currentTimeMillis();
-		 DashboardPageElements.GetRegisterManagementLink(driver).click();
-		 Thread.sleep(5000);
-		 RegisterManagementDashboardPageElements.GetProductsTab(driver).click();
-		 Thread.sleep(5000);
-		 RegisterManagementDashboardPageElements.GetProductsTab_subtab_Modifiers(driver).click();
-		 Thread.sleep(5000);
-		 RegisterManagementDashboardPageElements.GetProductsTab_SubTab_Modifiers_SelectOptionDropdown(driver).click();
-		 Thread.sleep(3000);
-		 RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Modifier").click();
-		 Thread.sleep(3000);
-		 driver.switchTo().frame(0);
-		 AddModifierDialogBoxElements.GetModifierName(driver).sendKeys(ModifierName);
-		 AddModifierDialogBoxElements.GetModifierTypeDD(driver).click();
-		 Thread.sleep(3000);
-		 RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Single").click();
-		 Thread.sleep(2000);
-
-		 for(int i=1;i<=2;i++)
-		 {
-			
-				 AddModifierDialogBoxElements.GetAddButton(driver).click();
-				 Thread.sleep(2000);				 
-				 CommonFunctions.ActionBuilder_EnterValueInTextbox(driver, AddModifierDialogBoxElements.GetModifierValueColumn(driver, i),"MV1");
-				 Thread.sleep(2000);			 
-				 CommonFunctions.ActionBuilder_EnterValueInTextbox(driver, AddModifierDialogBoxElements.GetPriceAdjustmentColumn(driver, i),"2");
-				 Thread.sleep(2000);
-				 
-				/* CommonFunctions.ActionBuilder_OpenDropdownFromGridView(driver, AddModifierDialogBoxElements.GetProductOrGroupColumn(driver, i));
-				 Thread.sleep(5000);
-				 CommonFunctions.ActionBuilder_OpenDropdownFromGridView(driver, AddModifierDialogBoxElements.GetProductOrGroupColumn(driver, i));
-				 Thread.sleep(5000);
-				 
-				 try
-				 {
-					 AddModifierDialogBoxElements.SelectFirstOptionFromProductOrGroupDropdown(driver);
-					 Thread.sleep(2000);
-				 }
-				 catch (Exception e)
-				 {
-					 CommonFunctions.ActionBuilder_OpenDropdownFromGridView(driver, AddModifierDialogBoxElements.GetProductOrGroupColumn(driver, i));
-					 Thread.sleep(5000);
-					 AddModifierDialogBoxElements.SelectFirstOptionFromProductOrGroupDropdown(driver);
-					 Thread.sleep(2000);
-				 }*/
-				 
-				 
-				 
-				 CommonFunctions.ActionBuilder_EnterValueInTextbox(driver,AddModifierDialogBoxElements.GetQuantityColumn(driver, i),"11");
-				 Thread.sleep(2000);
-				 
-				 CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddModifierDialogBoxElements.GetAddOrRemoveColumn(driver, i));
-				 Thread.sleep(5000);			 
-				 CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddModifierDialogBoxElements.GetAddOrRemoveColumn(driver, i));
-				 Thread.sleep(5000);
-				 try
-				 {
-					 AddModifierDialogBoxElements.SelectDynamicOptionFromAddOrRemoveDD(driver, "Add");
-					 Thread.sleep(2000);
-				 }
-				 catch(Exception e)
-				 {
-					 CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddModifierDialogBoxElements.GetAddOrRemoveColumn(driver, i));
-					 Thread.sleep(5000);
-					 AddModifierDialogBoxElements.SelectDynamicOptionFromAddOrRemoveDD(driver, "Add");
-					 Thread.sleep(2000);
-				 }
-				 
-			
-		 }
-		 AddModifierDialogBoxElements.GetSaveButton(driver).click();
-		 Thread.sleep(5000);
-		 driver.switchTo().defaultContent();
 		 try
 		 {
-			 VerifyModifierRecord(driver);
-			 
+			 f();
 		 }
-		 catch(Exception e)
+		 catch (Exception e)
 		 {
 			 System.out.println(e);
 		 }
-		 
+		
 	}
-	
+	public static void f() throws Exception {
+		 DashboardPageElements.GetEmployeeRegistersLink(driver).click();
+		  Thread.sleep(5000);
+		  CommonFunctions.ScrollUptoElement(driver, RegisterListPageElements.GetLastPageButton(driver));		  
+		  RegisterListPageElements.GetLastPageButton(driver).click();
+		  Thread.sleep(5000);
+		  RegisterListPageElements.GetRegisterLink(driver, " Register_1530706620498").click();
+		  Thread.sleep(5000);
+		  CashierRegisterPageElements.GetCategoryElement(driver, "category_1530706295109").click();
+		  Thread.sleep(5000);
+		  CashierRegisterPageElements.GetCategoryProductElement(driver, "product1530706339812").click();
+		  Thread.sleep(2000);
+		  driver.switchTo().frame(0);
+		  ProductModifierInsideCashierRegisterElements.GetModifierButton(driver, "MV_1530706458170").click();
+		  Thread.sleep(2000);
+		  ProductModifierInsideCashierRegisterElements.GetAddButton(driver).click();
+		  Thread.sleep(2000);
+		  driver.switchTo().defaultContent();
+		  if(CashierRegisterPageElements.GetModifierFieldInShopingCardSection(driver, "product1530706339812", "MV_1530706458170").isDisplayed())
+		  {
+			  assertEquals(CashierRegisterPageElements.GetModifierFieldInShopingCardSection(driver, "product1530706339812","MV_1530706458170" ).getText().trim(), "- MV_1530706458170");
+		  }
+		  driver.navigate().refresh();
+		  CashierRegisterPageElements.GetPayButton(driver).click();
+		  Thread.sleep(5000);		  	  
+		  driver.switchTo().frame(0);
+		  
+		  PaymentTransactionType.PaymentThroughCash(driver);
+		  assertTrue(true);
+		  driver.switchTo().defaultContent();	 
+	}
 	public static void VerifyModifierRecord(WebDriver driver) throws InterruptedException
 	{
 		RegisterManagementDashboardPageElements.GetProductsTab_SubTab_Modifier_ModifierNameColumnSettingsIcon(driver).click();

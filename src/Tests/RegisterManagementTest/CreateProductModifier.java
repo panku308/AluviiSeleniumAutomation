@@ -17,6 +17,7 @@ public class CreateProductModifier {
 	public static WebDriver driver=null;
 	public static String expectedResult="", actualResult="";
 	public static String ModifierName="";
+	public static String ModifierValue[] = new String[2];
 	@BeforeClass
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
@@ -24,6 +25,7 @@ public class CreateProductModifier {
 	@Test
 	public static void CreateModifier()throws Exception
 	{
+		
 		ModifierName = "Modifer_" + System.currentTimeMillis();
 		 DashboardPageElements.GetRegisterManagementLink(driver).click();
 		 Thread.sleep(5000);
@@ -44,12 +46,12 @@ public class CreateProductModifier {
 
 		 for(int i=1;i<=2;i++)
 		 {
-			
+			 	 ModifierValue[i-1]="MV_"+System.currentTimeMillis();
 				 AddModifierDialogBoxElements.GetAddButton(driver).click();
 				 Thread.sleep(2000);				 
-				 CommonFunctions.ActionBuilder_EnterValueInTextbox(driver, AddModifierDialogBoxElements.GetModifierValueColumn(driver, i),"MV1");
+				 CommonFunctions.ActionBuilder_EnterValueInTextbox(driver, AddModifierDialogBoxElements.GetModifierValueColumn(driver, i),ModifierValue[i-1]);
 				 Thread.sleep(2000);			 
-				 CommonFunctions.ActionBuilder_EnterValueInTextbox(driver, AddModifierDialogBoxElements.GetPriceAdjustmentColumn(driver, i),"2");
+				 CommonFunctions.ActionBuilder_EnterValueInTextbox(driver, AddModifierDialogBoxElements.GetPriceAdjustmentColumn(driver, i),String.valueOf(i));
 				 Thread.sleep(2000);
 				 
 				/* CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddModifierDialogBoxElements.GetProductOrGroupColumn(driver, i));
