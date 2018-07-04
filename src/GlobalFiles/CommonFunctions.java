@@ -17,12 +17,16 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
+import ObjectRepository.AddModifierDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
+import ObjectRepository.HRManagementPageElements;
 import ObjectRepository.LoginPageElements;
 
 public class CommonFunctions {
@@ -152,7 +156,7 @@ public class CommonFunctions {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//li[text()='Is equal to']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);;
+		driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[text()='Filter']")).click();
 		Thread.sleep(2000);
@@ -162,5 +166,22 @@ public class CommonFunctions {
 	{
 		driver.findElement(By.xpath("//li[text()='"+optionName+"']")).click();
 	}
-	
+	public static void ActionBuilder_EnterValueInTextbox(WebDriver driver, WebElement element, String str)
+	{
+		Actions actions = new Actions(driver);
+		 actions.moveToElement(element);
+		 actions.click();
+		 actions.sendKeys(str);
+		 actions.build().perform();
+	}
+	public static void ActionBuilder_PerformClickEventOnElement(WebDriver driver, WebElement element) throws InterruptedException
+	{
+		
+		Actions actions = new Actions(driver);
+		 actions.moveToElement(element);
+		 actions.click();
+		 actions.build().perform();		 
+		 
+		 
+	}
 }
