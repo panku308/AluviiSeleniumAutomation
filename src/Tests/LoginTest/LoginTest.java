@@ -23,8 +23,6 @@ import org.testng.annotations.AfterSuite;
 	  }
 	  @BeforeSuite
 	  public void beforeSuite() throws InterruptedException {
-		  File dir1 = new File("C:\\AutomationScriptTest"); 
-		  dir1.delete();
 		  driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		  Thread.sleep(5000);
 	  }
