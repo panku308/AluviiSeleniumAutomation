@@ -16,8 +16,15 @@ private static WebElement element = null;
 	}
 	public static WebElement GetCategoryProductElement(WebDriver driver, String ProductName)
 	{
+		try
+		{
+			element =driver.findElement(By.xpath("//div[@id='productContainer']//span[.='"+ProductName+"']"));	
+		}
+		catch(Exception e)
+		{
+			element =driver.findElement(By.xpath("//div[@id='productContainer']//div[text() ='"+ProductName+"']"));
+		}
 		
-		element =driver.findElement(By.xpath("//div[@id='productContainer']//span[.='"+ProductName+"']"));
 		return element;
 	}
 	
@@ -34,6 +41,11 @@ private static WebElement element = null;
 	public static WebElement GetSellGiftCardLink(WebDriver driver)
 	{		
 		element =driver.findElement(By.xpath("//a[@title='Sell Gift Card']"));
+		return element;
+	}
+	public static WebElement GetModifierFieldInShopingCardSection(WebDriver driver, String ProductName, String ModifierName)
+	{		
+		element =driver.findElement(By.xpath("//div[text() = '"+ProductName+"']//span[text()=' - "+ModifierName+" ']"));
 		return element;
 	}
 	
