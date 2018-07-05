@@ -69,7 +69,7 @@ public class PaymentTransactionType {
 		ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 	}
 	public static void PaymentThroughCash(WebDriver driver) throws Exception{
-		   PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
+		  PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
 		  Thread.sleep(2000);
 		  	  
 		  driver.switchTo().frame(0);

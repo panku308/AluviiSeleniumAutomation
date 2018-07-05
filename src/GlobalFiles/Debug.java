@@ -34,6 +34,7 @@ public class Debug {
 	public static WebDriver driver=null;
 	public static String ModifierName="";
 	public static void main(String[] args) throws Exception {
+		
 		 driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		 Thread.sleep(5000);
 		 CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
@@ -71,6 +72,7 @@ public class Debug {
 			  assertEquals(CashierRegisterPageElements.GetModifierFieldInShopingCardSection(driver, "product1530706339812","MV_1530706458170" ).getText().trim(), "- MV_1530706458170");
 		  }
 		  driver.navigate().refresh();
+		  Thread.sleep(5000);
 		  CashierRegisterPageElements.GetPayButton(driver).click();
 		  Thread.sleep(5000);		  	  
 		  driver.switchTo().frame(0);
