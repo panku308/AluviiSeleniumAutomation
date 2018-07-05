@@ -65,6 +65,11 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-4']//span[.='Select Option']"));
 		return element;
 	}
+	public static WebElement GetProductsTab_SubTab_ProductGroups_SelectOptionDropdown(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-3']//span[.='Select Option']"));
+		return element;
+	}
 	public static WebElement SelectOptionFromSelectOptionDD(WebDriver driver, String OptName)
 	{
 		element =driver.findElement(By.xpath("//li[text() = '"+OptName+"']"));
@@ -133,6 +138,17 @@ private static WebElement element = null;
 	public static WebElement GetProductsTab_SubTab_Products_ProductNameColumnSettingsIcon(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//*[@id='productsgrid']//th[@data-title = 'Product Name']/a[1]"));
+		return element;
+	}
+	public static WebElement Get_ProductGroupTable_IDColumn(WebDriver driver)
+	{
+		
+		element =driver.findElement(By.xpath("//div[@id='productGroupGrid']//a[ .= 'ID']"));
+		return element;
+	}
+	public static WebElement Get_ProductGroupTable_FirstRowProductGroupNameCloumn(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='productGroupGrid']//div[@class='k-grid-content']/table/tbody/tr[1]/td[2]"));		
 		return element;
 	}
 }

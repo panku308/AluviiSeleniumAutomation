@@ -6,6 +6,7 @@ import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddProductDialogBoxElements;
 import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
+import ObjectRepository.ProductModifierInsideCashierRegisterElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 
 import org.testng.annotations.BeforeClass;
@@ -28,7 +29,7 @@ public class CreateProductTest {
 	  public static WebDriver driver=null;
 	  String expectedResult="", actualResult="";
 	  public static String ProductName="";
-	  
+	 
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
@@ -45,12 +46,8 @@ public class CreateProductTest {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Product").click();
 		  Thread.sleep(3000);
-		  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
-		  System.out.println("iframe length = " + iframeElements.size());
 		  driver.switchTo().frame(0);
 		
-		  
-		  
 		  AddProductDialogBoxElements.GetProductName(driver).sendKeys(ProductName);
 		  
 		  AddProductDialogBoxElements.GetCategory(driver).click();		  

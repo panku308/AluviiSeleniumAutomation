@@ -17,8 +17,21 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("btnSave"));
 		return element;
 	}
-	public static void SelectValueFromProductDD(WebDriver driver, String productName)
+	public static WebElement GetCancelButton(WebDriver driver)
 	{
-		driver.findElement(By.xpath("//li[text()='"+productName+" (Product)']")).click();
+		element =driver.findElement(By.xpath("//input[@value='Cancel']"));
+		return element;
+	}
+	public static void SelectValueFromProductDD(WebDriver driver, String OptionName, String ProductType)
+	{
+		if(ProductType.trim().toLowerCase().equals("product"))
+		{
+			OptionName = OptionName+" (Product)";
+		}		
+		else if(ProductType.trim().toLowerCase().equals("group"))
+		{
+			OptionName = OptionName+" (Group)";
+		}
+		driver.findElement(By.xpath("//li[text()='"+OptionName+"']")).click();
 	}
 }

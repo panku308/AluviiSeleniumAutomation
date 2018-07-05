@@ -93,11 +93,28 @@ public class CreateRegisterTest {
 		  driver.switchTo().frame(0);
 		  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
 		  Thread.sleep(2000);
-		  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName);
+		  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
 		  Thread.sleep(2000);
 		  AddProductDialogboxInsideAddRegisterPageElements.GetAddProductButton(driver).click();
 		  Thread.sleep(2000);
-		  driver.switchTo().parentFrame();		  
+		  driver.switchTo().parentFrame();
+		  // Add product group
+		  try {
+			  AddRegisterDialogboxElements.GetAddProductButton(driver).click();
+			  Thread.sleep(2000);			  
+			  driver.switchTo().frame(0);
+			  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
+			  Thread.sleep(2000);
+			  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductGroupTest.ProductGroupName, "group");
+			  Thread.sleep(2000);
+			  AddProductDialogboxInsideAddRegisterPageElements.GetAddProductButton(driver).click();
+			  Thread.sleep(2000);
+			  driver.switchTo().parentFrame();
+		  }catch(Exception e)
+		  {
+			  AddProductDialogboxInsideAddRegisterPageElements.GetCancelButton(driver).click();
+			  System.out.println(e);
+		  }
 		  AddRegisterDialogboxElements.GetSaveChangesButton(driver).click();
 		  Thread.sleep(5000);
 		  driver.switchTo().defaultContent();
