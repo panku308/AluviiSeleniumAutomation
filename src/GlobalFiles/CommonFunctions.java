@@ -6,7 +6,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
@@ -43,6 +45,8 @@ public class CommonFunctions {
 	public static int ProductsCountForProductGroup=2;
 	//-------------------------------------------------------------------------------------------------------------------
 	public static WebDriver driver = null;
+	
+	public static Map<String, String> map = new HashMap<String, String>();
 	
 	
 	public static WebDriver SetupEnvironment(String url, String Browser)
