@@ -110,10 +110,6 @@ public static String SignWaiverEmailID="";
 		{
 			  String actualResult="";
 			 
-			 
-			 
-			  
-			  
 			  GuestFnameLname = new String[WaiverCount];
 			  WaiverManagementPageElements.GetWaiverNameOfFirstRow(driver).click();
 			  WaiverManagementPageElements.GetSelectOptionDropdown(driver).click();
