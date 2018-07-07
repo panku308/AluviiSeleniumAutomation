@@ -3,8 +3,10 @@ package GlobalFiles;
 
 
 import java.util.concurrent.ThreadLocalRandom;
-
-
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
@@ -187,6 +189,24 @@ public class CommonFunctions {
 		 actions.click();
 		 actions.build().perform();		 
 		 
-		 
+	}
+	public static void UploadFile(String FilePath) throws Exception
+	{
+		 //put path to your image in a clipboard
+
+    	StringSelection ss = new StringSelection(FilePath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+        //imitate mouse events like ENTER, CTRL+C, CTRL+V
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+    	
 	}
 }

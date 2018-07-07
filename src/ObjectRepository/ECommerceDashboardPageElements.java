@@ -22,6 +22,49 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@id='tbsTicket']//a[text()='Products']"));
 		return element;
 	}
+	public static WebElement GetProductsTab_SubTab_Products(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='tbsTicket-3']//div[@id='tabstrip_products']//a[text()='Products']"));
+		return element;
+	}
+	public static WebElement GetProductsTab_SubTab_Products_SelectOptionDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='tabstrip_products-1']//span[text()='Select Option']"));
+		return element;
+	}
+	public static WebElement GetProductsTab_SubTab_Products_ProductNameColumnSettingsIcon(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='productsGrid']//a[@title='Column Settings']"));
+		return element;
+	}
+	public static WebElement GetProductsTab_SubTab_Products_FirstRowProductsNameColumn(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='productsGrid']//div[@class='k-grid-content']//table//tbody/atr[1]/td[2]"));
+		return element;
+	}
+	
+	
+	public static WebElement GetProductsTab_SubTab_Categories(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='tbsTicket-3']//div[@id='tabstrip_products']//a[text()='Categories']"));
+		return element;
+	}
+	
+	public static WebElement GetProductsTab_SubTab_Categories_SelectOptionDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='tabstrip_products-2']//span[text()='Select Option']"));
+		return element;
+	}
+	public static WebElement GetProductsTab_SubTab_Categories_CaetegoryNameColumnSettingsIcon(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='categoriesGrid']//th[@data-title = 'Category Name']/a[1]"));
+		return element;
+	}
+	public static WebElement GetProductsTab_SubTab_Categories_FirstRowCategoryNameColumn(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='categoriesGrid']//div[@class='k-grid-content']//table//tbody/tr[1]/td[2]"));
+		return element;
+	}
 	public static WebElement GetSetupTab(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//div[@id='tbsTicket']//a[text()='Setup']"));
