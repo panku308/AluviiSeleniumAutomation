@@ -7,14 +7,22 @@
 		<class name="Tests.LoginTest.LoginTest">  </class>		
 	</classes>	
 </test>
+<test name="ChangeCardProcessor" >
+	<classes>
+		<class name="Tests.AdministrationTest.ChangeCardProcessorToKnox">  </class>
+		<class name="Tests.AdministrationTest.ChangeCardProcessorToUSAePayTest">  </class>		
+	</classes>	
+</test>
 
+<!-- 
 <test name="Create ecommerce Website" >
 	<classes>
 		<class name="Tests.ECommerceTest.CreateWebsiteTest">  </class>
 		<class name="Tests.ECommerceTest.CreateEcommerceCategoryTest">  </class>		
 	</classes>	
 </test>
-<!-- <test name="CreateMemberTest" >
+
+<test name="CreateMemberTest" >
 	<classes>
 		<class name="ManageMembershipsTest.CreateMemberTest">  </class>		
 	</classes>
