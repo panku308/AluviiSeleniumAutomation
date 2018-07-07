@@ -32,5 +32,17 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("lnkManageMyAccount"));		
 		return element;
 	}
+	public static WebElement GetCategoriesDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='wrap']//a[contains(@href,'/store/shop/categories?')]"));		
+		return element;
+	}
 	
+	//----------------categories page elements start------------------------
+	public static WebElement GetCategoryFromCategoryList(WebDriver driver, String categoryName)
+	{
+		element =driver.findElement(By.xpath("//div[@id='category-list-container']//span[.='"+categoryName+"']"));		
+		return element;
+	}
+	//----------------categories page elements End--------------------------
 }

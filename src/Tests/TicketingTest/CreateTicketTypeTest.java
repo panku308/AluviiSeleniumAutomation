@@ -45,7 +45,7 @@ public class CreateTicketTypeTest {
 		  AddTicketTypeDialogBoxElements.GetTicketNotes(driver).sendKeys("Note-"+System.currentTimeMillis());
 		  AddTicketTypeDialogBoxElements.GetTicketTemplateDD(driver).click();
 		  Thread.sleep(3000);
-		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "TicketTemplate-1530862382945").click();
+		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, CreateTicketTemplateTest.TicketTemplateName).click();
 		  AddTicketTypeDialogBoxElements.GetNextButton(driver).click();
 		  Thread.sleep(5000);
 		  AddTicketTypeDialogBoxElements.GetCompositionOptionsDD(driver).click();
