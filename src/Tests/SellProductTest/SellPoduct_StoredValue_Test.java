@@ -50,6 +50,8 @@ public class SellPoduct_StoredValue_Test {
 		  Thread.sleep(2000);
 		  driver.switchTo().frame(0);
 		  PaymentTransactionType.PaymentThroughStoredValue(driver);
+		  driver.switchTo().frame(0);
+		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();

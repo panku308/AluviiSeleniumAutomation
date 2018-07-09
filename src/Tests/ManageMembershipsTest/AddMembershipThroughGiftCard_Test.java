@@ -58,6 +58,8 @@ public class AddMembershipThroughGiftCard_Test {
 					  
 			  driver.switchTo().frame(0);		
 			PaymentTransactionType.PaymentThroughGiftCard(driver);
+			driver.switchTo().frame(0);	
+			ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
 			  

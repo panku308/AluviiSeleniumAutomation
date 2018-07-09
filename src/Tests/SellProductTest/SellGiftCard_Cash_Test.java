@@ -58,6 +58,8 @@ public class SellGiftCard_Cash_Test {
 		  Thread.sleep(2000);
 		  driver.switchTo().frame(0);		
 		  PaymentTransactionType.PaymentThroughCash(driver);
+		  driver.switchTo().frame(0);
+		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();
 	  }

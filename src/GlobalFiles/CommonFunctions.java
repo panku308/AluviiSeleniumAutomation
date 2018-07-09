@@ -189,6 +189,15 @@ public class CommonFunctions {
 		 actions.click();
 		 actions.build().perform();		 
 		 
+	
+	}
+	public static void ActionBuilder_PerformMouseHoverEventOnElement(WebDriver driver, WebElement element) throws InterruptedException
+	{
+		
+		Actions actions = new Actions(driver);
+		 actions.moveToElement(element);		 
+		 actions.build().perform();		 
+		 
 	}
 	public static void UploadFile(String FilePath) throws Exception
 	{

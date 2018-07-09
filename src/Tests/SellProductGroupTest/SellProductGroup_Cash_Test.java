@@ -11,6 +11,7 @@ import GlobalFiles.CommonFunctions;
 import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.DashboardPageElements;
+import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductGroupTest;
@@ -41,6 +42,8 @@ public class SellProductGroup_Cash_Test {
 		  Thread.sleep(2000);		  	  
 		  driver.switchTo().frame(0);
 		  PaymentTransactionType.PaymentThroughCash(driver);
+		  driver.switchTo().frame(0);
+		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();
 

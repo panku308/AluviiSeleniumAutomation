@@ -54,6 +54,8 @@ public class SellProduct_PrepaidCoupon_Test {
 		  driver.switchTo().frame(0);
 		  
 		  PaymentTransactionType.PaymentThroughPrepaidCoupon(driver);
+		  driver.switchTo().frame(0);
+		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();
 		  

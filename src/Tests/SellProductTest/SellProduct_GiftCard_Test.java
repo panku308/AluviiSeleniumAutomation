@@ -52,6 +52,8 @@ public class SellProduct_GiftCard_Test {
 		  driver.switchTo().frame(0);		
 		  
 		  PaymentTransactionType.PaymentThroughGiftCard(driver);
+		  driver.switchTo().frame(0);	
+		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();
 		  

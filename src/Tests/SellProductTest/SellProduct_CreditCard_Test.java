@@ -56,6 +56,8 @@ public class SellProduct_CreditCard_Test {
 		  
 		  //PaymentTransactionType.PaymentThroughCreditCard(driver);
 		  PaymentTransactionType.PaymentThroughCardKnox(driver);
+		  driver.switchTo().frame(0);
+		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();

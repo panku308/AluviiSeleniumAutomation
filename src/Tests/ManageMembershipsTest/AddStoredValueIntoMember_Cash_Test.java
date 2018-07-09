@@ -54,6 +54,7 @@ public class AddStoredValueIntoMember_Cash_Test {
 			  Thread.sleep(5000);
 			  driver.switchTo().frame(0);		
 			 PaymentTransactionType.PaymentThroughCash(driver);
+			 driver.switchTo().frame(0);
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
 			  
