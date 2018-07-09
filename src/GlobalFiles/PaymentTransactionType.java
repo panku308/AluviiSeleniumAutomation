@@ -21,9 +21,7 @@ import Tests.SellProductTest.SellGiftCard_Cash_Test;
 public class PaymentTransactionType {
 	
 	public static void PaymentThroughStoredValue(WebDriver driver) throws Exception
-	{
-			  
-				
+	{		
 		  PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
 		  Thread.sleep(2000);
 		  PaymentTransactionDialogBoxElements.GetMoreOptoin_StoredValue(driver).click();
@@ -44,10 +42,7 @@ public class PaymentTransactionType {
 		  
 		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
 		  Thread.sleep(5000);
-				  
-		  driver.switchTo().frame(0);
-		  
-		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+			
 	}
 	public static void PaymentThroughCardKnox(WebDriver driver) throws InterruptedException
 	{
@@ -59,14 +54,15 @@ public class PaymentTransactionType {
 		CommonFunctions.SelectOptionFromDropdownByValue(CardKnoxDialogBoxElements.GetMonthDD(driver), "12");
 		CommonFunctions.SelectOptionFromDropdownByValue(CardKnoxDialogBoxElements.GetYearDD(driver), "20");
 		CardKnoxDialogBoxElements.GetCVVField(driver).sendKeys("123");
+		CardKnoxDialogBoxElements.GetNameOnCardField(driver).clear();
 		CardKnoxDialogBoxElements.GetNameOnCardField(driver).sendKeys("test");
 		CardKnoxDialogBoxElements.GetSubmitButton(driver).click();
 		Thread.sleep(5000);
 		driver.switchTo().parentFrame();
 		PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();
 		Thread.sleep(5000);
-		driver.switchTo().frame(0);		  
-		ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+				  
+		
 	}
 	public static void PaymentThroughCash(WebDriver driver) throws Exception{
 		  PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
@@ -79,22 +75,33 @@ public class PaymentTransactionType {
 		  driver.switchTo().parentFrame();
 		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
 		  Thread.sleep(5000);
-		  driver.switchTo().frame(0);		 
-		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
-
-		
+		  		
 	}
 	public static void PaymentThroughCreditCard(WebDriver driver) throws InterruptedException
 	{
-		PaymentTransactionDialogBoxElements.GetCreditCardButton(driver).click();
-		Thread.sleep(2000);
-		driver.switchTo().frame(0);
-		CommonFunctions.SelectOptionFromDropdownByVisibleText(PaymentThroughCreditCardDialogBoxElements.GetCardTypeDD(driver), "Visa");		  
+		try
+		{
+			PaymentTransactionDialogBoxElements.GetCreditCardButton(driver).click();
+			Thread.sleep(2000);
+			driver.switchTo().frame(0);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		CommonFunctions.SelectOptionFromDropdownByVisibleText(PaymentThroughCreditCardDialogBoxElements.GetCardTypeDD(driver), "Visa");
+		PaymentThroughCreditCardDialogBoxElements.GetNameOnCardElement(driver).clear();
 		PaymentThroughCreditCardDialogBoxElements.GetNameOnCardElement(driver).sendKeys("asdfasdf");
+		PaymentThroughCreditCardDialogBoxElements.GetCardNumberElement(driver).clear();
 		PaymentThroughCreditCardDialogBoxElements.GetCardNumberElement(driver).sendKeys("4111111111111111");
+		PaymentThroughCreditCardDialogBoxElements.GetCardExpirationDateField(driver).clear();
 		PaymentThroughCreditCardDialogBoxElements.GetCardExpirationDateField(driver).sendKeys("1219");
+		PaymentThroughCreditCardDialogBoxElements.GetCVVField(driver).clear();
 		PaymentThroughCreditCardDialogBoxElements.GetCVVField(driver).sendKeys("123");
 		PaymentThroughCreditCardDialogBoxElements.GetProcessPaymentButton(driver).click();
+		Thread.sleep(5000);
+			
 	}
 	public static void PaymentThroughGiftCard(WebDriver driver) throws Exception
 	{
@@ -111,9 +118,7 @@ public class PaymentTransactionType {
 		  driver.switchTo().parentFrame();
 		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();
 		  Thread.sleep(5000);
-		  		  
-		  driver.switchTo().frame(0);		  
-		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+		  
 	}
 	public static void PaymentThroughPrepaidCoupon(WebDriver driver) throws InterruptedException
 	{
@@ -133,10 +138,5 @@ public class PaymentTransactionType {
 		  
 		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
 		  Thread.sleep(5000);
-		  
-		  		  
-		  driver.switchTo().frame(0);
-		  
-		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 	}
 }

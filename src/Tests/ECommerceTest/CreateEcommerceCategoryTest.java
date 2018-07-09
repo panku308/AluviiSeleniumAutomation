@@ -16,7 +16,7 @@ import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
 
 public class CreateEcommerceCategoryTest {
-	public static WebDriver driver=null;
+	  public static WebDriver driver=null;
 	  public static String actualResult="";
 	  public static String EcommerceCategoryName="";
 	  
@@ -27,7 +27,7 @@ public class CreateEcommerceCategoryTest {
 	  @Test
 	  public void CreateEcommerceCategory()throws Exception
 	  {
-		  EcommerceCategoryName = "category-"+System.currentTimeMillis();
+		  EcommerceCategoryName = "Ecom-category-"+System.currentTimeMillis();
 		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetEcommerceLink(driver));
 		  Thread.sleep(2000);
 		  DashboardPageElements.GetEcommerceLink(driver).click();

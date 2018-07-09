@@ -13,6 +13,7 @@ import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ProductModifierInsideCashierRegisterElements;
+import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductModifier;
@@ -58,6 +59,8 @@ public class SellProductWithModifier_Cash_Test {
 		  driver.switchTo().frame(0);
 		  
 		  PaymentTransactionType.PaymentThroughCash(driver);
+		  driver.switchTo().frame(0);
+		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();	
 		  

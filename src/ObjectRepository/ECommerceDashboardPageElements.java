@@ -34,12 +34,12 @@ private static WebElement element = null;
 	}
 	public static WebElement GetProductsTab_SubTab_Products_ProductNameColumnSettingsIcon(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='productsGrid']//a[@title='Column Settings']"));
+		element =driver.findElement(By.xpath("//div[@id='productsGrid']//th[@data-title = 'Product Name']/a[1]"));
 		return element;
 	}
 	public static WebElement GetProductsTab_SubTab_Products_FirstRowProductsNameColumn(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='productsGrid']//div[@class='k-grid-content']//table//tbody/atr[1]/td[2]"));
+		element =driver.findElement(By.xpath("//div[@id='productsGrid']//div[@class='k-grid-content']//table//tbody/tr[1]/td[2]"));
 		return element;
 	}
 	
