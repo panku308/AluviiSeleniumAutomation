@@ -54,6 +54,12 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("btnSaveProduct"));
 		return element;
 	}
+	public static WebElement GetSaveButton(WebDriver driver)
+	{
+		
+		element =driver.findElement(By.name("EditProduct"));
+		return element;
+	}
 	public static WebElement GetCancelButton(WebDriver driver)
 	{
 		
@@ -128,7 +134,32 @@ private static WebElement element = null;
 	}
 
 //===================================Ticket Tab Elements============================================
-	
+	public static WebElement GetTicketTab_IsATicketCheckbox(WebDriver driver)
+	{		
+		element =driver.findElement(By.id("isTicketingItem"));
+		return element;
+	}
+	public static WebElement GetTicketTab_AutomaticallyConsumeTicketCheckbox(WebDriver driver)
+	{		
+		element =driver.findElement(By.id("autoConsume"));
+		return element;
+	}
+	public static WebElement GetTicketTab_TicketTemplateDD(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//span[@aria-owns='SecondaryTicketTemplateId_listbox']/span/span[2]"));
+		return element;
+	}
+	public static WebElement GetTicketTab_TicketTypeDD(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//span[@aria-owns='TicketTypeId_listbox']/span/span[2]"));
+		return element;
+	}
+	public static WebElement GetTicketTab_EntitlementToConsumeDD(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//span[@aria-owns='CompositionId_listbox']/span/span[2]"));
+		return element;
+	}
+	///html/body/div[1]/div/form/div/div/div[3]/fieldset/div/div[2]/div[1]/div[1]/span/span/span[2]
 //===================================Inventory Tab Elements============================================
 //===================================Sales Tax Tab Elements============================================
 	

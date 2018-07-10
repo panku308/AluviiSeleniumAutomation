@@ -8,6 +8,10 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -218,4 +222,31 @@ public class CommonFunctions {
         robot.keyRelease(KeyEvent.VK_ENTER);
     	
 	}
+	public static String GetCurrentDatte()
+	{
+		Date date = new Date();
+		String d=String.valueOf(date.getDate());
+		d = String.format("%02d", d);
+		return d ;
+	}
+	public static String GetCurrentMonth()
+	{
+				
+		Date date = new Date();
+		String m=String.valueOf(date.getMonth()+1);
+		m = String.format("%02d", m);
+		return m ;
+	}
+	public static String GetCurrentYear()
+	{
+		Date date = new Date();
+		String y=String.valueOf(date.getYear()+1900);
+		return y ;
+	}
+	public static String getCurrentDateInMMddyyyyFormat()
+	{
+		String date= LocalDate.now().format(DateTimeFormatter.ofPattern("MM_dd_yyyy"));		
+		return date;
+	}
+	
 }

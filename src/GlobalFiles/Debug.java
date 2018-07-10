@@ -35,14 +35,15 @@ public class Debug {
 	public static String ModifierName="";
 	public static void main(String[] args) throws Exception {
 		
-		
+		System.out.println(CommonFunctions.getCurrentDateInMMddyyyyFormat());
+		System.out.println(CommonFunctions.GetCurrentMonth());
+		System.out.println(CommonFunctions.GetCurrentYear());
 		String str = "/store/shop/productdetails?id=5&productId=16";
 		System.out.println("Index of Product id " + str.indexOf("productId"));
 		System.out.println("Index of Product id " + str.substring(str.indexOf("productId"),str.length()));
 		String str1 = str.substring(str.indexOf("productId"),str.length());
 		String str2 = str1.substring(str1.indexOf("=")+1,str1.length());
 		System.out.println(str2);
-		
 		 driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		 Thread.sleep(5000);
 		 CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
