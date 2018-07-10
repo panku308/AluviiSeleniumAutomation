@@ -66,7 +66,7 @@ public class PaymentTransactionType {
 	}
 	public static void PaymentThroughCash(WebDriver driver) throws Exception{
 		  PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
-		  Thread.sleep(2000);
+		  Thread.sleep(5000);
 		  	  
 		  driver.switchTo().frame(0);
 		  SimpleCashPaymentDialogBox.GetCashReceivedField(driver).sendKeys(SimpleCashPaymentDialogBox.GetTotalDueField(driver).getAttribute("value"));
