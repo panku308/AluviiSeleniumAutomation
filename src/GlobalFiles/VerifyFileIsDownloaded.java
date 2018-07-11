@@ -14,6 +14,7 @@ public class VerifyFileIsDownloaded {
 		        if (dir_contents[i].getName().equals(fileName))
 		            return flag=true;
 		            }
+		    
 
 		    return flag;
 		}

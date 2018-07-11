@@ -22,12 +22,20 @@ public class PaymentTransactionType {
 	
 	public static void PaymentThroughStoredValue(WebDriver driver) throws Exception
 	{		
-		  PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
-		  Thread.sleep(2000);
-		  PaymentTransactionDialogBoxElements.GetMoreOptoin_StoredValue(driver).click();
-		  Thread.sleep(5000);
-		   
-		  driver.switchTo().frame(0);
+		try
+		{
+			PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
+			  Thread.sleep(2000);
+			  PaymentTransactionDialogBoxElements.GetMoreOptoin_StoredValue(driver).click();
+			  Thread.sleep(5000);
+			   
+			  driver.switchTo().frame(0);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		  
 		  
 		  StoredValueDialogBoxElements.GetSearchUserAccountField(driver).sendKeys(CreateMemberTest.fname);
 		  Thread.sleep(2000);
@@ -37,18 +45,33 @@ public class PaymentTransactionType {
 		  Thread.sleep(2000);
 		  StoredValueDialogBoxElements.GetUseValueButton(driver).click();
 		  Thread.sleep(5000);
+		  try
+		  {
+			  driver.switchTo().parentFrame();
+			  
+			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
+			  Thread.sleep(5000);  
+		  }
+		  catch (Exception e)
+		  {
+			  
+		  }
 		  
-		  driver.switchTo().parentFrame();
-		  
-		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-		  Thread.sleep(5000);
 			
 	}
 	public static void PaymentThroughCardKnox(WebDriver driver) throws InterruptedException
 	{
-		PaymentTransactionDialogBoxElements.GetCreditCardButton(driver).click();
-		Thread.sleep(2000);
-		driver.switchTo().frame(0);
+		try
+		{
+			PaymentTransactionDialogBoxElements.GetCreditCardButton(driver).click();
+			Thread.sleep(2000);
+			driver.switchTo().frame(0);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
 		
 		CardKnoxDialogBoxElements.GetCardNumberField(driver).sendKeys("4111111111111111");
 		CommonFunctions.SelectOptionFromDropdownByValue(CardKnoxDialogBoxElements.GetMonthDD(driver), "12");
@@ -58,23 +81,43 @@ public class PaymentTransactionType {
 		CardKnoxDialogBoxElements.GetNameOnCardField(driver).sendKeys("test");
 		CardKnoxDialogBoxElements.GetSubmitButton(driver).click();
 		Thread.sleep(5000);
-		driver.switchTo().parentFrame();
-		PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();
-		Thread.sleep(5000);
-				  
+		try
+		  {
+			  driver.switchTo().parentFrame();
+			  
+			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
+			  Thread.sleep(5000);  
+		  }
+		  catch (Exception e)
+		  {
+			  
+		  }
 		
 	}
 	public static void PaymentThroughCash(WebDriver driver) throws Exception{
-		  PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
-		  Thread.sleep(5000);
-		  	  
-		  driver.switchTo().frame(0);
+		try {
+			PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
+			  Thread.sleep(5000);		  	  
+			  driver.switchTo().frame(0);
+			 
+		}catch(Exception e) {
+			
+		}
+		   
 		  SimpleCashPaymentDialogBox.GetCashReceivedField(driver).sendKeys(SimpleCashPaymentDialogBox.GetTotalDueField(driver).getAttribute("value"));
 		  SimpleCashPaymentDialogBox.GetSubmitButton(driver).click();		  
 		  Thread.sleep(5000);
-		  driver.switchTo().parentFrame();
-		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-		  Thread.sleep(5000);
+		  try
+		  {
+			  driver.switchTo().parentFrame();
+			  
+			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
+			  Thread.sleep(5000);  
+		  }
+		  catch (Exception e)
+		  {
+			  
+		  }
 		  		
 	}
 	public static void PaymentThroughCreditCard(WebDriver driver) throws InterruptedException
@@ -101,42 +144,83 @@ public class PaymentTransactionType {
 		PaymentThroughCreditCardDialogBoxElements.GetCVVField(driver).sendKeys("123");
 		PaymentThroughCreditCardDialogBoxElements.GetProcessPaymentButton(driver).click();
 		Thread.sleep(5000);
+		try
+		  {
+			  driver.switchTo().parentFrame();
+			  
+			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
+			  Thread.sleep(5000);  
+		  }
+		  catch (Exception e)
+		  {
+			  
+		  }
 			
 	}
 	public static void PaymentThroughGiftCard(WebDriver driver) throws Exception
 	{
-		PaymentTransactionDialogBoxElements.GetGiftCardButton(driver).click();
-		  Thread.sleep(2000);
-		  		  
-		  driver.switchTo().frame(0);
+		try
+		{
+			PaymentTransactionDialogBoxElements.GetGiftCardButton(driver).click();
+			  Thread.sleep(2000);
+			  		  
+			  driver.switchTo().frame(0);
+				
+		}
+		catch (Exception e)
+		{
+			
+		}
 		  
 		  GiftCardPaymentDialogBoxElements.GetGiftCardBarcode(driver).sendKeys(SellGiftCard_Cash_Test.GiftCardBarcode);
 		  GiftCardPaymentDialogBoxElements.GetBalanaceButton(driver).click();
 		  Thread.sleep(2000);
 		  GiftCardPaymentDialogBoxElements.GetPayWithGiftCardButton(driver).click();		  
 		  Thread.sleep(5000);
-		  driver.switchTo().parentFrame();
-		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();
-		  Thread.sleep(5000);
-		  
+		  try
+		  {
+			  driver.switchTo().parentFrame();
+			  
+			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
+			  Thread.sleep(5000);  
+		  }
+		  catch (Exception e)
+		  {
+			  
+		  }
 	}
 	public static void PaymentThroughPrepaidCoupon(WebDriver driver) throws InterruptedException
 	{
-		PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
-		  Thread.sleep(2000);
-		  PaymentTransactionDialogBoxElements.GetMoreOptoin_PrepaidCouopon(driver).click();
-		  Thread.sleep(5000);
-		  
-		  		  
-		  driver.switchTo().frame(0);
+		try
+		{
+			PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
+			  Thread.sleep(2000);
+			  PaymentTransactionDialogBoxElements.GetMoreOptoin_PrepaidCouopon(driver).click();
+			  Thread.sleep(5000);
+			  
+			  		  
+			  driver.switchTo().frame(0);
+				
+		}
+		catch (Exception e)
+		{
+			
+		}
 		  
 		  PrePaidCouponDialogBoxElements.GetAmountReceivedField(driver).sendKeys(PrePaidCouponDialogBoxElements.GetPaymentAmountField(driver).getAttribute("value"));
 		  PrePaidCouponDialogBoxElements.GetSubmitButton(driver).click();		  
-		  Thread.sleep(5000);
+		  Thread.sleep(5000); 
 		  
-		  driver.switchTo().parentFrame();
-		  
-		  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-		  Thread.sleep(5000);
+		  try
+		  {
+			  driver.switchTo().parentFrame();
+			  
+			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
+			  Thread.sleep(5000);  
+		  }
+		  catch (Exception e)
+		  {
+			  
+		  }
 	}
 }
