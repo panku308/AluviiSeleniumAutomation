@@ -12,6 +12,9 @@ import com.gargoylesoftware.htmlunit.javascript.host.payment.PaymentRequest;
 
 import GlobalFiles.CommonFunctions;
 import GlobalFiles.PaymentTransactionType;
+import GlobalFiles.VerifyFileIsDownloaded;
+import ObjectRepository.CardKnoxDialogBoxElements;
+import ObjectRepository.CardKnoxDialogBox_OpenWebsite_Elements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.PaymentTransactionDialogBoxElements;
@@ -23,7 +26,7 @@ public class SellEcommerceProduct_CreditCard_Test {
 	
 	public static WebDriver driver=null;
 	  public static String actualResult="";
-	  public static String EcommerceCategoryName="";
+	  public static String EcommerceCategoryName="", TransactionID="";
 	  
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
@@ -63,7 +66,7 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  WebsiteOpenPageElements.GetMiniCartCheckoutButton(driver).click();
 		  Thread.sleep(10000);
 		  WebsiteOpenPageElements.GetMiniCartCheckoutButton(driver).click();
-		  //driver.switchTo().frame(0);
+		  
 		  Thread.sleep(2000);
 		  WebsiteOpenPageElements.GetGuestCheckOutButton(driver).click();
 		  Thread.sleep(10000);
@@ -72,17 +75,25 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  WebsiteOpenPageElements.GetGuestLastNameField(driver).sendKeys("lname");
 		  WebsiteOpenPageElements.GetGuestEmailField(driver).sendKeys("Email"+System.currentTimeMillis()+"@gmail.com");
 		  WebsiteOpenPageElements.GetGuestContinueButton(driver).click();
-		  Thread.sleep(15000);
+		  Thread.sleep(30000);
+		  TransactionID = CardKnoxDialogBox_OpenWebsite_Elements.GetTransactionID(driver);
 		  driver.switchTo().frame(0);
-		  PaymentTransactionType.PaymentThroughCreditCard(driver);
+		  PaymentTransactionType.PaymentThroughCardKnox(driver);
+		//  PaymentTransactionType.PaymentThroughCreditCard(driver);
 		  Thread.sleep(10000);
 		 
 		  assertEquals(WebsiteOpenPageElements.GetPaymentSuccessMessage(driver).getText().trim(), "Congrats! Your payment has completed successfully.");
 		  
-		  
+		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded("C:\\Users\\DELL\\Downloads", GetFileName()),true);
 		  driver.close();
 		  driver.switchTo().window(windowHandles.get(0));
 		  
-		  
 	  }
+	  public static String GetFileName()
+		 {
+			 String FileName = "TicketTransaction-"+TransactionID+"_"+ CommonFunctions.getCurrentDateInMMddyyyyFormat()+".pdf";	
+			 System.out.println("Expected File name = "+FileName);
+			 return FileName;		 
+		 }
+
 }

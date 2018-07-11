@@ -4,9 +4,11 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -34,6 +36,9 @@ public class Debug {
 	public static WebDriver driver=null;
 	public static String ModifierName="";
 	public static void main(String[] args) throws Exception {
+		PDDocument doc = PDDocument.load(new File("C:\\Users\\DELL\\Downloads\\TicketTransaction-21038_07_11_2018.pdf"));
+		int count = doc.getNumberOfPages();
+		System.out.println("count = " + count);
 		
 		System.out.println(CommonFunctions.getCurrentDateInMMddyyyyFormat());
 		System.out.println(CommonFunctions.GetCurrentMonth());
