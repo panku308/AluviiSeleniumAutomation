@@ -80,7 +80,7 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  driver.switchTo().frame(0);
 		  PaymentTransactionType.PaymentThroughCardKnox(driver);
 		//  PaymentTransactionType.PaymentThroughCreditCard(driver);
-		  Thread.sleep(10000);
+		  Thread.sleep(10000); 
 		 
 		  assertEquals(WebsiteOpenPageElements.GetPaymentSuccessMessage(driver).getText().trim(), "Congrats! Your payment has completed successfully.");
 		  

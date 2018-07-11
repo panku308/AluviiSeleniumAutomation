@@ -10,7 +10,7 @@ public class CardKnoxDialogBox_OpenWebsite_Elements {
 	{
 		String TransactionID = driver.findElement(By.id("popupWindow_wnd_title")).getText();
 		TransactionID =TransactionID.substring(TransactionID.indexOf("#")+1, TransactionID.length());
-		return TransactionID;
+		return TransactionID; 
 	}
 
 }

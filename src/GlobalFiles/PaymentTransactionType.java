@@ -209,7 +209,7 @@ public class PaymentTransactionType {
 		  
 		  PrePaidCouponDialogBoxElements.GetAmountReceivedField(driver).sendKeys(PrePaidCouponDialogBoxElements.GetPaymentAmountField(driver).getAttribute("value"));
 		  PrePaidCouponDialogBoxElements.GetSubmitButton(driver).click();		  
-		  Thread.sleep(5000);
+		  Thread.sleep(5000); 
 		  
 		  try
 		  {
