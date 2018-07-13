@@ -165,6 +165,12 @@ private static WebElement element = null;
 		return element;
 	}
 	
+	public static WebElement GetAdminstrationLink(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Administration"));		
+		return element;
+	}
+	
 	public static WebElement GetCashControlLink(WebDriver driver)
 	{
 		element =driver.findElement(By.linkText("Cash Control"));		
