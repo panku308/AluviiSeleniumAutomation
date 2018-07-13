@@ -3,46 +3,32 @@ package Tests.CreateEventManagementTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddAssignmentsEventManagementDialogBoxElements;
-import ObjectRepository.AddCategoryEventManagementDialogBoxElements;
-import ObjectRepository.AddEmployeeDialogBox;
-import ObjectRepository.AddLoginActivityDialogBox;
-import ObjectRepository.AddScheduleEventManagementDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
-import ObjectRepository.HRManagementPageElements;
-import ObjectRepository.EditEmployeeDialogBox;
-import ObjectRepository.EditScheduleEventManagementDialogBoxElements;
 import ObjectRepository.EventManagementPageElements;
+import baseSetup.TestSetup;
+import util.DriverManager;
 
-public class CreateAssignmentTest {
+public class CreateAssignmentTest extends TestSetup {
 
-	public static WebDriver driver=null;
+	//public static WebDriver driver=DriverManager.getDriver();
 
-	@BeforeClass
+	/*@BeforeClass
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
-	}
+	}*/
 
-	@Test
+	@Test()
 	public static void createAssignment()throws Exception
 	{
-		try {
+		
+			WebDriver driver=DriverManager.getDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 			DashboardPageElements.GetEventManagementLink(driver).click();		
@@ -96,18 +82,16 @@ public class CreateAssignmentTest {
 			Assert.assertEquals(EventManagementPageElements.getAssignmentNameFilteredValue(driver).getText(), AssignmentName);
 			
 			Thread.sleep(2000);
+			
+			
+			CommonFunctions.map.put("Assignment", AssignmentName);
 
-		}catch(Exception e)
-		{
-			Thread.sleep(10000);
-			System.out.println(e.getMessage());
-			System.out.println(e.getStackTrace());
-		}
+		
 	}
 
-	@AfterClass
+	/*@AfterClass
 	public void afterClass() {
 		//driver.quit();
 
-	}
+	}*/
 }

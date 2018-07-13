@@ -174,7 +174,12 @@ private static WebElement element = null;
 	
 	public static WebElement getUserMenu(WebDriver driver)
 	{
+		try {
 		element =driver.findElement(By.id("username"));		
+		}catch(Exception e)
+		{
+			element =driver.findElement(By.id("name-user"));		
+		}
 		return element;
 	}
 	public static WebElement getLogoutButton(WebDriver driver)
@@ -187,6 +192,13 @@ private static WebElement element = null;
 	{
 		element =driver.findElement(By.xpath("//*[@id='sidebar']//li//span[text()='"+menu+"']"));		
 		return element;
+	}
+	
+	public static int getAddedActivityMenuSize(WebDriver driver) {
+
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='sidebar']//li"));
+		return element.size();
 	}
 	
 	public static WebElement getCurrentTillStatus(WebDriver driver)

@@ -2,7 +2,10 @@ package Tests.LoginTest;
 
 import org.testng.annotations.Test;
 
+
 import GlobalFiles.CommonFunctions;
+import baseSetup.TestSetup;
+import util.DriverManager;
 
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
@@ -12,16 +15,18 @@ import java.io.File;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-	public class LoginTest {
+	public class LoginTest extends TestSetup {
 		public static WebDriver driver=null;
-	  @Test
+		
+		
+	  @Test()
 	  public void Login() throws InterruptedException {
 
 		  
-		  CommonFunctions.Login(driver,CommonFunctions.UserName,CommonFunctions.Password);
-		  Thread.sleep(5000);
+		  CommonFunctions.Login(DriverManager.getDriver(),CommonFunctions.UserName,CommonFunctions.Password);
+		  Thread.sleep(3000);
 	  }
-	  @BeforeSuite
+	/*  @BeforeSuite
 	  public void beforeSuite() throws InterruptedException {
 		  driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		  Thread.sleep(5000);
@@ -30,6 +35,6 @@ import org.testng.annotations.AfterSuite;
 	  @AfterSuite
 	  public void afterSuite() {
 		//  driver.quit();
-	  }
+	  }*/
 	
 }
