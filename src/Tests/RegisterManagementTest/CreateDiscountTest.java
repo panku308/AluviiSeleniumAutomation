@@ -126,7 +126,7 @@ public class CreateDiscountTest extends TestSetup {
 			AddDiscountPackageDialogBoxElements.getPackageDescriptionField(driver).sendKeys(packageDescription);
 			Thread.sleep(2000);
 			
-			String fromDate=CommonFunctions.getDate();
+			String fromDate=CommonFunctions.getPresentDate();
 			String toDate=fromDate.replaceAll("2018", "2019");
 	
 			Thread.sleep(2000);
