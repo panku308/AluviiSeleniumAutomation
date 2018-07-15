@@ -2,8 +2,10 @@ package Tests.ECommerceTest;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.File;
 import java.util.ArrayList;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -43,8 +45,8 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  Thread.sleep(2000);
 		  ECommerceDashboardPageElements.GetWebsiteTab_WebsiteNameClolumnSettingIcon(driver).click();
 		  Thread.sleep(2000);
-		  CommonFunctions.filterTable(driver, CreateWebsiteTest.WebsiteName);
-		//  CommonFunctions.filterTable(driver, "website-1530796168185");
+		//  CommonFunctions.filterTable(driver, CreateWebsiteTest.WebsiteName);
+		  CommonFunctions.filterTable(driver, "website-1530796168185");
 		   
 		  Thread.sleep(2000);
 		  ECommerceDashboardPageElements.GetWebsiteTab_FirstRowWebsiteNameColumn(driver).click();
@@ -57,14 +59,17 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  
 		  CommonFunctions.ActionBuilder_PerformMouseHoverEventOnElement(driver, WebsiteOpenPageElements.GetCategoriesDD(driver));
 		  Thread.sleep(2000);
-		  WebsiteOpenPageElements.SelectCategory(driver, CreateEcommerceCategoryTest.EcommerceCategoryName);
-	//	  WebsiteOpenPageElements.SelectCategory(driver, "category-1530931970396");
+		  //WebsiteOpenPageElements.SelectCategory(driver, CreateEcommerceCategoryTest.EcommerceCategoryName);
+		  WebsiteOpenPageElements.SelectCategory(driver, "category-1530931970396");
 		  Thread.sleep(2000);
-		  WebsiteOpenPageElements.GetCaetgoryProductAddToCartButton(driver, CreateEcommereceProductTest.EcommerceProductName).click();
-		  //WebsiteOpenPageElements.GetCaetgoryProductAddToCartButton(driver, "1531114700645").click();
+		//  WebsiteOpenPageElements.GetCaetgoryProductAddToCartButton(driver, CreateEcommereceProductTest.EcommerceProductName).click();
+		  WebsiteOpenPageElements.GetCaetgoryProductAddToCartButton(driver, "1531114700645").click();
 		  Thread.sleep(2000);
 		  WebsiteOpenPageElements.GetMiniCartCheckoutButton(driver).click();
 		  Thread.sleep(10000);
+		  WebsiteOpenPageElements.GetQuantityField(driver).clear();
+		  WebsiteOpenPageElements.GetQuantityField(driver).sendKeys(String.valueOf(CommonFunctions.ECommereceProductQuantity));
+		  Thread.sleep(2000);
 		  WebsiteOpenPageElements.GetMiniCartCheckoutButton(driver).click();
 		  
 		  Thread.sleep(2000);
@@ -79,21 +84,23 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  TransactionID = CardKnoxDialogBox_OpenWebsite_Elements.GetTransactionID(driver);
 		  driver.switchTo().frame(0);
 		  PaymentTransactionType.PaymentThroughCardKnox(driver);
-		//  PaymentTransactionType.PaymentThroughCreditCard(driver);
+		//PaymentTransactionType.PaymentThroughCreditCard(driver);
 		  Thread.sleep(10000); 
 		 
 		  assertEquals(WebsiteOpenPageElements.GetPaymentSuccessMessage(driver).getText().trim(), "Congrats! Your payment has completed successfully.");
 		  
 		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded("C:\\Users\\DELL\\Downloads", GetFileName()),true);
+		  assertEquals(VerifyFileIsDownloaded.getNumberOfPagesFromPDFFile("C:\\Users\\DELL\\Downloads\\"+GetFileName()), CommonFunctions.ECommereceProductQuantity);
 		  driver.close();
 		  driver.switchTo().window(windowHandles.get(0));
 		  
 	  }
 	  public static String GetFileName()
-		 {
+	  {
 			 String FileName = "TicketTransaction-"+TransactionID+"_"+ CommonFunctions.getCurrentDateInMMddyyyyFormat()+".pdf";	
 			 System.out.println("Expected File name = "+FileName);
 			 return FileName;		 
-		 }
+	  }
+	 
 
 }

@@ -100,6 +100,10 @@ private static WebElement element = null;
 		element = driver.findElement(By.xpath("//div[@class='alert alert-success']"));
 		return element;
 	}
-	
+	public static WebElement GetQuantityField(WebDriver driver)
+	{
+		element = driver.findElement(By.xpath("//table[@id='eCartTable']/tbody/tr/td[2]/input"));		
+		return element;
+	}
 	
 }
