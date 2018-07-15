@@ -49,6 +49,7 @@ public class CommonFunctions {
 	public static int CreateProduct_unitPrice=5, CreateProductGroup_UnitPrice=5;
 	public static int AddWaiver_MinAge=15;
 	public static int ProductsCountForProductGroup=2;
+	public static int ECommereceProductQuantity=20;
 	//-------------------------------------------------------------------------------------------------------------------
 	public static WebDriver driver = null;
 	
