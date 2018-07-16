@@ -24,23 +24,26 @@ import ObjectRepository.AddLoginActivityDialogBox;
 import ObjectRepository.AddScheduleEventManagementDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.HRManagementPageElements;
+import baseSetup.TestSetup;
+import util.DriverManager;
 import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.EditScheduleEventManagementDialogBoxElements;
 import ObjectRepository.EventManagementPageElements;
 
-public class CreateScheduleTest {
+public class CreateScheduleTest extends TestSetup {
 
-	public static WebDriver driver=null;
+	//public static WebDriver driver=DriverManager.getDriver();
 
-	@BeforeClass
+	/*@BeforeClass
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
-	}
+	}*/
 
 	@Test
 	public static void createSchedule()throws Exception
 	{
-		try {
+			
+			WebDriver driver=DriverManager.getDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 			DashboardPageElements.GetEventManagementLink(driver).click();		
@@ -108,18 +111,12 @@ public class CreateScheduleTest {
 			Thread.sleep(2000);
 			
 			CommonFunctions.map.put("Schedule", ScheduleName);
-
-		}catch(Exception e)
-		{
-			Thread.sleep(10000);
-			System.out.println(e.getMessage());
-			System.out.println(e.getStackTrace());
-		}
+		
 	}
 
-	@AfterClass
+	/*@AfterClass
 	public void afterClass() {
 		//driver.quit();
 
-	}
+	}*/
 }

@@ -45,6 +45,21 @@ private static WebElement element = null;
 		return element;
 	}
 	
+	public static WebElement getPackageSelectOptionDropdownButton(WebDriver driver)
+	{
+	
+		element =driver.findElement(By.xpath("//*[@id='tbsVenMgmt-2']//*[text()='Select Option']"));
+		return element;
+	}
+	
+	public static WebElement getPackageSelectOptionDropdownList(WebDriver driver, String list)
+	{
+	
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='ddlPackageOpt_listbox']/li[text()='"+list+"']"));
+		return element.get(element.size()-1);
+	}
+	
 	public static WebElement getSchedulesSelectOptionDropdownList(WebDriver driver, String list)
 	{
 	
@@ -93,6 +108,8 @@ private static WebElement element = null;
 		return element;
 	}
 	
+	
+	
 	public static WebElement getCategoryNameFilteredValue(WebDriver driver)
 	{
 		List<WebElement> element;
@@ -121,6 +138,20 @@ private static WebElement element = null;
 	{
 		List<WebElement> element;
 		element =driver.findElements(By.xpath("//*[@id='grdVenAssign']//td[1]"));
+		return element.get(element.size()-1);
+	}
+	
+	public static WebElement getColumn_PackageName(WebDriver driver)
+	{
+	
+		element =driver.findElement(By.xpath("//*[@id='grdEventPackage']//*[text()='Package Name']/..//a[1]"));
+		return element;
+	}
+	
+	public static WebElement getPackageNameFilteredValue(WebDriver driver)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='grdEventPackage']//td[2]"));
 		return element.get(element.size()-1);
 	}
 	

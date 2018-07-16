@@ -19,22 +19,24 @@ import ObjectRepository.AddLoginActivityDialogBox;
 import ObjectRepository.CashControlPageElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.HRManagementPageElements;
+import baseSetup.TestSetup;
+import util.DriverManager;
 import ObjectRepository.EditEmployeeDialogBox;
 
-public class CreateTillTest {
+public class CreateTillTest extends TestSetup {
 
-	public static WebDriver driver=null;
+	/*public static WebDriver driver=null;
 
 	@BeforeClass
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		Thread.sleep(5000);
 	}
-
+*/
 	@Test
 	public static void createEmployee()throws Exception
 	{
-		try {
+		WebDriver driver=DriverManager.getDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			CommonFunctions.Login(driver, "TestEmail464@aluvii.com", "Admin@123");
 			DashboardPageElements.GetCashControlLink(driver).click();		  
@@ -104,17 +106,7 @@ public class CreateTillTest {
 			
 			Thread.sleep(10000);
 
-		}catch(Exception e)
-		{
-			Thread.sleep(10000);
-			System.out.println(e.getMessage());
-			System.out.println(e.getStackTrace());
-		}
 	}
 
-	@AfterClass
-	public void afterClass() {
-		driver.quit();
-
-	}
+	
 }
