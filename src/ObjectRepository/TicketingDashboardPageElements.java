@@ -66,4 +66,14 @@ public class TicketingDashboardPageElements {
 		element =driver.findElement(By.xpath("//div[@id='ticketTypesGrid']//div[@class='k-grid-content']//table/tbody/tr[1]/td[2]"));		
 		return element;
 	}
+	public static WebElement GetTicketGroupsTab_TicketGroupNameCollomnSettings(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//th[@data-field='TicketGroupName']/a[@title='Column Settings']"));		
+		return element;
+	}
+	public static WebElement GetTicketGroupTab_FirstRowTicketGroupNameColumn(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//div[@id='ticketGroupsGrid']//table/tbody/tr[1]/td[2]"));		
+		return element;
+	}
 }

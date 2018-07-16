@@ -26,9 +26,14 @@ public class AddTicketTemplateDialog {
 		element =driver.findElement(By.xpath("//div[@id='ticketTemplateBody1']//span[@aria-owns='ticketPlaceHolder_listbox']//span/span[1]"));		
 		return element;
 	}
-	public static WebElement GetTicketBodyField(WebDriver driver)
+	public static WebElement GetPDFTicketBodyField(WebDriver driver)
 	{		
 		element =driver.findElement(By.xpath("//div[@id='ticketTemplateBody1']//iframe"));
+		return element;
+	}
+	public static WebElement GetBOCATicketBodyField(WebDriver driver)
+	{		
+		element =driver.findElement(By.id("TicketBody"));
 		return element;
 	}
 	public static WebElement GetViewPDFButton(WebDriver driver)
