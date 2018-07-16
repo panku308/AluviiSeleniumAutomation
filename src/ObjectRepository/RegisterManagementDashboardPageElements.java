@@ -20,6 +20,21 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@id='tabstrip']//a[.='Registers']"));
 		return element;
 	}
+	public static WebElement GetDiscountTab(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Discount"));
+		return element;
+	}
+	public static WebElement GetDiscount_subTab_DiscountRules(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Discount Rules"));
+		return element;
+	}
+	public static WebElement GetDiscount_subTab_DiscountPackage(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Discount Package"));
+		return element;
+	}
 	public static WebElement GetRegistersTab_subtab_Registers(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//div[@id='tabstrip-1']//a[.='Registers']"));
@@ -53,6 +68,16 @@ private static WebElement element = null;
 	public static WebElement GetProductsTab_SubTab_Categories_SelectOptionDropdown(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-2']//span[.='Select Option']"));
+		return element;
+	}
+	public static WebElement GetDiscountsTab_SubTab_DiscountRule_SelectOptionDropdown(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='tabstrip_discount-2']//span[.='Select Option']"));
+		return element;
+	}
+	public static WebElement GetDiscountsTab_SubTab_DiscountPackage_SelectOptionDropdown(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='tabstrip_discount-1']//span[.='Select Option']"));
 		return element;
 	}
 	public static WebElement GetRegistersTab_SubTab_Registers_SelectOptionDropdown(WebDriver driver)
@@ -150,5 +175,29 @@ private static WebElement element = null;
 	{
 		element =driver.findElement(By.xpath("//div[@id='productGroupGrid']//div[@class='k-grid-content']/table/tbody/tr[1]/td[2]"));		
 		return element;
+	}
+	public static WebElement getColumn_DiscountRuleName(WebDriver driver)
+	{
+	
+		element =driver.findElement(By.xpath("//*[@id='gridDiscountsRule']//*[text()='Discount Rule Name']/..//a[1]"));
+		return element;
+	}
+	public static WebElement getDiscountRuleNameFilteredValue(WebDriver driver)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='gridDiscountsRule']//td[2]"));
+		return element.get(element.size()-1);
+	}
+	public static WebElement getColumn_DiscountPackageName(WebDriver driver)
+	{
+	
+		element =driver.findElement(By.xpath("//*[@id='discountGrid']//*[text()='Discount Package Name']/..//a[1]"));
+		return element;
+	}
+	public static WebElement getDiscountPackageNameFilteredValue(WebDriver driver)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='discountGrid']//td[2]"));
+		return element.get(element.size()-1);
 	}
 }

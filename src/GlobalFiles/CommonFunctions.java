@@ -2,13 +2,12 @@ package GlobalFiles;
 
 
 
-import java.util.concurrent.ThreadLocalRandom;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -25,17 +24,14 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
-import ObjectRepository.AddModifierDialogBoxElements;
-import ObjectRepository.DashboardPageElements;
-import ObjectRepository.HRManagementPageElements;
 import ObjectRepository.LoginPageElements;
+import util.DriverManager;
 
 public class CommonFunctions {
 	//--------------------------------------------Global Variables-------------------------------------------------------
@@ -44,18 +40,18 @@ public class CommonFunctions {
 	public static String UserName="ceo@aluvii.com";
 	public static String Password="Admin@123";
 	public static String chromeDriverPath="C:\\chromedriver_win32\\chromedriver.exe";
-	
-	
+
+
 	public static int CreateProduct_unitPrice=5, CreateProductGroup_UnitPrice=5;
 	public static int AddWaiver_MinAge=15;
 	public static int ProductsCountForProductGroup=2;
 	public static int ECommereceProductQuantity=20;
 	//-------------------------------------------------------------------------------------------------------------------
-	public static WebDriver driver = null;
-	
+	public static WebDriver driver = DriverManager.getDriver();
+
 	public static Map<String, String> map = new HashMap<String, String>();
-	
-	
+
+
 	public static WebDriver SetupEnvironment(String url, String Browser)
 	{
 		if (Browser.toLowerCase().equals("chrome"))			
@@ -249,5 +245,10 @@ public class CommonFunctions {
 		String date= LocalDate.now().format(DateTimeFormatter.ofPattern("MM_dd_yyyy"));		
 		return date;
 	}
-	
+	public static String getPresentDate()
+	{
+		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");  
+		Date date = new Date();  
+		return formatter.format(date);  
+	}
 }
