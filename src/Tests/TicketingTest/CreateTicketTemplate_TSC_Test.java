@@ -1,26 +1,18 @@
 package Tests.TicketingTest;
 
-
-
 import static org.testng.Assert.assertEquals;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddTicketTemplateDialog;
 import ObjectRepository.DashboardPageElements;
-import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.TicketingDashboardPageElements;
 
-public class CreateTicketTemplateTest {
+public class CreateTicketTemplate_TSC_Test {
 	public static WebDriver driver=null;
 	  public static String actualResult="";
 	  public static String TicketTemplateName="";
@@ -30,9 +22,9 @@ public class CreateTicketTemplateTest {
 		  driver = CommonFunctions.driver;
 	  }
 	  @Test
-	  public void CreateTicketTemplate() throws Exception
+	  public void CreateTSCTicketTemplate() throws Exception
 	  {
-		  TicketTemplateName = "PDFTicketTemplate-"+System.currentTimeMillis();
+		  TicketTemplateName = "TSCTemplate-"+System.currentTimeMillis();
 		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetTicketingLink(driver));
 		  Thread.sleep(2000);
 		  DashboardPageElements.GetTicketingLink(driver).click();
@@ -47,27 +39,22 @@ public class CreateTicketTemplateTest {
 		  AddTicketTemplateDialog.GetTicketTemplateNameField(driver).sendKeys(TicketTemplateName);
 		  AddTicketTemplateDialog.GetPrintFormatDD(driver).click();
 		  Thread.sleep(2000);
-		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "PDF").click();
+		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "TSC").click();
 		  AddTicketTemplateDialog.GetNextButton(driver).click();
 		  Thread.sleep(3000);
+		  String TicketBody = "setup{Width=25.4|Height=247.142|PrintSpeed=4|PrintDensity=8|SensorType=1|VerticalGapHeight=0|ShiftDistance=0}\n" + 
+		  		"\n" + 
+		  		"text{ x=175 | y=700 | height=30 | rotation=90 | windowsfontstyle=Bold  | underlined=false | windowsFont=Arial | Content=Stomping Grounds  [[Guest Call Name]]  }\n" + 
+		  		"\n" + 
+		  		"\n" + 
+		  		"text{ x=90 | y=1200 | height=35 | rotation=90 | windowsfontstyle=Bold  | underlined=false | windowsFont=Arial | Content=[[Ticket Notes]]}\n" + 
+		  		"\n" + 
+		  		"text{ x=140 | y=1200 | height=45 | rotation=90 | windowsfontstyle=Bold  | underlined=true | windowsFont=Arial | Content=2 Hour Pass}\n" + 
+		  		"\n" + 
+		  		"text{ x=50 | y=1200 | height=30 | rotation=90 | windowsfontstyle=Normal  | underlined=false | windowsFont=Arial | Content=Expires Today}"; 
+				  AddTicketTemplateDialog.GetBOCATicketBodyField(driver).sendKeys(TicketBody);     
 		  
-		  driver.switchTo().frame(AddTicketTemplateDialog.GetPDFTicketBodyField(driver));     
 		  
-		  driver.findElement(By.cssSelector("body")).sendKeys("Ticket");
-		  driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);
-		  driver.findElement(By.cssSelector("body")).sendKeys("[[Ticket Name]]");
-		  driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);
-		  driver.findElement(By.cssSelector("body")).sendKeys("[[Ticket Notes]]");
-		  driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);
-		  driver.findElement(By.cssSelector("body")).sendKeys("[[Ticket Expiration]]");
-		  driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);
-		  driver.findElement(By.cssSelector("body")).sendKeys("[[Ticket List]]");
-		  driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);
-		  driver.findElement(By.cssSelector("body")).sendKeys("[[Ticket Value]]");
-		  driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);
-		  driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);
-		  driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);		
-		  driver.switchTo().parentFrame();
 		  AddTicketTemplateDialog.GetSaveButton(driver).click();
 		  Thread.sleep(5000);
 		  driver.switchTo().defaultContent();
