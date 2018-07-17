@@ -52,10 +52,10 @@ public class CreateTicketGroupTest {
 		  Thread.sleep(3000);
 		  
 		  AddTicketGroupDialogBoxElements.GetTicketTypeDD(driver).click();
-		  AddTicketGroupDialogBoxElements.SelectStaticTicketType(driver);
-		  //AddTicketGroupDialogBoxElements.SelectDynamicTicketType(driver, CreateTicketTypeTest.TicketTypeName);
+		  //AddTicketGroupDialogBoxElements.SelectStaticTicketType(driver);
+		  AddTicketGroupDialogBoxElements.SelectDynamicTicketType(driver, CreateTicketTypeTest.TicketTypeName);
 		  CommonFunctions.ScrollUptoElement(driver, AddTicketGroupDialogBoxElements.GetNumberOfTickets(driver));
-		  for (int i=0;i<3;i++)
+		  for (int i=0;i<2;i++)
 		  {
 			 AddTicketGroupDialogBoxElements.GetNumberOfTicketsIncreaseArrow(driver).click(); 
 		  }
