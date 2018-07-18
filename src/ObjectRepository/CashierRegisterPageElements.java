@@ -26,11 +26,30 @@ private static WebElement element = null;
 		}
 		
 		return element;
-	}
-	
+	}	
 	public static WebElement GetPayButton(WebDriver driver)
 	{		
 		element =driver.findElement(By.id("btnPayment"));
+		return element;
+	}
+	public static WebElement GetAddGuestButton(WebDriver driver)
+	{		
+		element =driver.findElement(By.id("btnAddGuest"));
+		return element;
+	}
+	public static WebElement GetSubTotalValue(WebDriver driver)
+	{		
+		element =driver.findElement(By.id("lblSubTotal"));
+		return element;
+	}
+	public static WebElement GetDiscountValue(WebDriver driver)
+	{		
+		element =driver.findElement(By.id("lblDiscount"));
+		return element;
+	}
+	public static WebElement GetTaxValue(WebDriver driver)
+	{		
+		element =driver.findElement(By.id("lblTax"));
 		return element;
 	}
 	public static WebElement GetSellArcadeCardLink(WebDriver driver)

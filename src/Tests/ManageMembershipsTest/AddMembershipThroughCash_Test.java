@@ -61,8 +61,6 @@ public class AddMembershipThroughCash_Test {
 			 ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
-			  
-			  
 		  }
 		  else
 		  {
@@ -70,5 +68,4 @@ public class AddMembershipThroughCash_Test {
 		  }
 		  
 	  }
-	
 }

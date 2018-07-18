@@ -71,4 +71,10 @@ public class PaymentTransactionDialogBoxElements {
 		TransactionID = TransactionTitle.substring(TransactionTitle.indexOf("#")+1, TransactionTitle.length());
 		return TransactionID;
 	}
+	public static WebElement getTotalDueField(WebDriver driver)
+	{
+		
+		element =driver.findElement(By.id("grandTotal"));
+		return element;
+	}
 }

@@ -36,6 +36,10 @@ public class Debug {
 	public static WebDriver driver=null;
 	public static String ModifierName="";
 	public static void main(String[] args) throws Exception {
+		
+		String str = "Exp 10 Left";
+		System.out.println(str.substring(4,str.length()-5));
+		System.out.println(str.split("Left"));
 		PDDocument doc = PDDocument.load(new File("C:\\Users\\DELL\\Downloads\\TicketTransaction-21038_07_11_2018.pdf"));
 		int count = doc.getNumberOfPages();
 		System.out.println("count = " + count);
@@ -43,7 +47,7 @@ public class Debug {
 		System.out.println(CommonFunctions.getCurrentDateInMMddyyyyFormat());
 		System.out.println(CommonFunctions.GetCurrentMonth());
 		System.out.println(CommonFunctions.GetCurrentYear());
-		String str = "/store/shop/productdetails?id=5&productId=16";
+		 str = "/store/shop/productdetails?id=5&productId=16";
 		System.out.println("Index of Product id " + str.indexOf("productId"));
 		System.out.println("Index of Product id " + str.substring(str.indexOf("productId"),str.length()));
 		String str1 = str.substring(str.indexOf("productId"),str.length());
