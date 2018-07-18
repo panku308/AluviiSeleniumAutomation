@@ -158,5 +158,37 @@ private static WebElement element = null;
 		element = driver.findElement(By.xpath("//span[ contains(@id, 'btnAddToCart_')]"));
 		return element;
 	}
+	public static WebElement GetMembershipPackageName(WebDriver driver, int row)
+	{
+		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]//div[2]/div[1]/div/div[1]"));																													
+		return element;
+	}
+	public static WebElement GetMembershipPackageExp(WebDriver driver, int row)
+	{
+		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]//div[2]/div[1]/div/div[2]"));
+		
+		return element;
+	}
+	public static WebElement GetActionButton(WebDriver driver, int row)
+	{
+		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]//button[contains(text(),'ACTION')]/following::button"));
+		
+		return element;
+	}
+	public static WebElement GetActionModifyOption(WebDriver driver, int row)
+	{
+		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]//li/a[contains(text(),'Modify')]"));
+		return element;
+	}
+	public static WebElement GetActionValidatOrScanOption(WebDriver driver, int row)
+	{
+		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]//li/a[contains(text(),'Validate/Scan')]"));
+		return element;
+	}
+	public static WebElement GetActionHistoryOption(WebDriver driver, int row)
+	{
+		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]//li/a[contains(text(),'History')]"));
+		return element;
+	}
 	
 }	
