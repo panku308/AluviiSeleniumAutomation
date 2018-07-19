@@ -172,6 +172,7 @@ public class CommonFunctions {
 	}
 	public static void SelectOptionFromDropdownList(WebDriver driver, String optionName)
 	{
+		System.out.println("optiono = " + optionName);
 		driver.findElement(By.xpath("//li[text()='"+optionName+"']")).click();
 	}
 	public static void ActionBuilder_EnterValueInTextbox(WebDriver driver, WebElement element, String str)
