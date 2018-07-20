@@ -46,6 +46,10 @@ private static WebElement element = null;
 	{
 		driver.findElement(By.xpath("//*[@id='LocationId_listbox']//li[1]")).click();
 	}
+	public static void SelectDynamicLocation(WebDriver driver, String Location)
+	{
+		driver.findElement(By.xpath("//*[@id='LocationId_listbox']//li[text()='"+Location+"']")).click();
+	}
 	public static void SelectOptionFromEmailRecTemplateDD(WebDriver driver, String option)
 	{
 		driver.findElement(By.xpath("//*[@id='ddEcommerceEmailReceiptTemplate_listbox']//li[text()='"+option+"']")).click();

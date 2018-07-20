@@ -19,6 +19,8 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
+import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
+import Tests.CreateEmployeeTest.CreateEmployeeTest;
 @Listeners (GlobalFiles.ReportCustomization.class)
 public class CreateWebsiteTest {
 	
@@ -51,7 +53,8 @@ public class CreateWebsiteTest {
 		  
 		  AddWebsiteDialogBoxElements.GetLocationDD(driver).click();
 		  Thread.sleep(2000);
-		  AddWebsiteDialogBoxElements.SelectFirstOptionFromLocationDD(driver);
+		  //AddWebsiteDialogBoxElements.SelectFirstOptionFromLocationDD(driver);
+		  AddWebsiteDialogBoxElements.SelectDynamicLocation(driver,CreateLocationDepartmentSiteTest.Location);
 		  
 		  AddWebsiteDialogBoxElements.GetEmailRecTemplateDD(driver).click();
 		  Thread.sleep(2000);

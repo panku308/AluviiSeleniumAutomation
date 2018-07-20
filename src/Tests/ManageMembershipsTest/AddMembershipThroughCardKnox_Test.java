@@ -9,19 +9,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.AddMembershipDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
-import ObjectRepository.PaymentThroughCreditCardDialogBoxElements;
-import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
-import ObjectRepository.SimpleCashPaymentDialogBox;
-@Listeners (GlobalFiles.ReportCustomization.class) 
-public class AddMembershipThroughCreditCard_Test {
+
+public class AddMembershipThroughCardKnox_Test {
 	public static WebDriver driver=null;
 	  public static boolean actualResult=false;
 	  public static String EmailID="";
@@ -56,7 +52,7 @@ public class AddMembershipThroughCreditCard_Test {
 			  Thread.sleep(2000);
 			  
 			  driver.switchTo().frame(0);		
-			  PaymentTransactionType.PaymentThroughCreditCard(driver);
+			  PaymentTransactionType.PaymentThroughCardKnox(driver);
 			  driver.switchTo().frame(0);
 			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 			  assertTrue(true);

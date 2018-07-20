@@ -2,29 +2,22 @@ package Tests.ECommerceTest;
 
 import static org.testng.Assert.assertEquals;
 
-import java.io.File;
 import java.util.ArrayList;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.gargoylesoftware.htmlunit.javascript.host.payment.PaymentRequest;
-
 import GlobalFiles.CommonFunctions;
 import GlobalFiles.PaymentTransactionType;
 import GlobalFiles.VerifyFileIsDownloaded;
-import ObjectRepository.CardKnoxDialogBoxElements;
 import ObjectRepository.CardKnoxDialogBox_OpenWebsite_Elements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ECommerceDashboardPageElements;
-import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
-import Tests.RegisterManagementTest.CreateProductTest;
 
-public class SellEcommerceProduct_CreditCard_Test {
+public class SellEcommerceProduct_CardKnox_Test {
 	
 	public static WebDriver driver=null;
 	  public static String actualResult="";
@@ -46,7 +39,7 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  ECommerceDashboardPageElements.GetWebsiteTab_WebsiteNameClolumnSettingIcon(driver).click();
 		  Thread.sleep(2000);
 		  CommonFunctions.filterTable(driver, CreateWebsiteTest.WebsiteName);
-//		  CommonFunctions.filterTable(driver, "website-1530796168185");
+		//  CommonFunctions.filterTable(driver, "website-1530796168185");
 		   
 		  Thread.sleep(2000);
 		  ECommerceDashboardPageElements.GetWebsiteTab_FirstRowWebsiteNameColumn(driver).click();
@@ -83,8 +76,8 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  Thread.sleep(30000);
 		  TransactionID = CardKnoxDialogBox_OpenWebsite_Elements.GetTransactionID(driver);
 		  driver.switchTo().frame(0);
+		  PaymentTransactionType.PaymentThroughCardKnox(driver);
 
-		  PaymentTransactionType.PaymentThroughCreditCard(driver);
 		  Thread.sleep(10000); 
 		 
 		  assertEquals(WebsiteOpenPageElements.GetPaymentSuccessMessage(driver).getText().trim(), "Congrats! Your payment has completed successfully.");
