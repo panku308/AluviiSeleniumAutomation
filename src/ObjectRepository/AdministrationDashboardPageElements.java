@@ -21,6 +21,11 @@ private static WebElement element = null;
 		
 		return element;
 	}
+	public static WebElement getLocation_subTaxOptionTab(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Tax Option"));
+		return element;
+	}
 	public static WebElement GetConfigTab_GatewayActionURLField(WebDriver driver)
 	{
 		element =driver.findElement(By.id("txtActionUrl"));
