@@ -1,32 +1,22 @@
 package Tests.SellProductTest;
 
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import GlobalFiles.PaymentTransactionType;
-import ObjectRepository.CardKnoxDialogBoxElements;
 import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.DashboardPageElements;
-import ObjectRepository.PaymentThroughCreditCardDialogBoxElements;
-import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
-@Listeners (GlobalFiles.ReportCustomization.class) 
-public class SellProduct_CreditCard_Test {
+
+public class SellProduct_CardKnox_Test {
 	
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
@@ -54,8 +44,8 @@ public class SellProduct_CreditCard_Test {
 		  
 		  driver.switchTo().frame(0);		
 		  
-		  PaymentTransactionType.PaymentThroughCreditCard(driver);
-		  //PaymentTransactionType.PaymentThroughCardKnox(driver);
+		  //PaymentTransactionType.PaymentThroughCreditCard(driver);
+		  PaymentTransactionType.PaymentThroughCardKnox(driver);
 		  driver.switchTo().frame(0);
 		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  

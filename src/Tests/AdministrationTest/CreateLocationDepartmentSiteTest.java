@@ -1,37 +1,22 @@
-package Tests.CreateLocationDepartmentSiteTest;
+package Tests.AdministrationTest;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddDepartmentDialogBoxElements;
-import ObjectRepository.AddEmployeeDialogBox;
 import ObjectRepository.AddLocationDialogBoxElements;
-import ObjectRepository.AddLoginActivityDialogBox;
-import ObjectRepository.AddScheduleEventManagementDialogBoxElements;
 import ObjectRepository.AddSiteDialogBoxElements;
 import ObjectRepository.AdministrationDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
-import ObjectRepository.HRManagementPageElements;
-import baseSetup.TestSetup;
-//import sun.security.krb5.internal.crypto.Des;
 import util.DriverManager;
-import ObjectRepository.EditEmployeeDialogBox;
-import ObjectRepository.EventManagementPageElements;
 
-public class CreateLocationDepartmentSiteTest extends TestSetup{
-
+public class CreateLocationDepartmentSiteTest {
+	public static String Location="", Department="", Site="";
 	
 	@Test(priority=1)
 	public static void createLocation()throws Exception
@@ -54,6 +39,7 @@ public class CreateLocationDepartmentSiteTest extends TestSetup{
 		Thread.sleep(2000);
 		
 		String LocationName="TestLocation"+System.currentTimeMillis();
+		Location = LocationName;
 		String Phone="8812345678";
 		String Address="123 Main St.";
 		String Zip="12345";
@@ -109,6 +95,7 @@ public class CreateLocationDepartmentSiteTest extends TestSetup{
 		Thread.sleep(2000);
 		
 		String DepartmentName="TestDepartment"+System.currentTimeMillis();
+		Department=DepartmentName;
 		String Description="Test Description";
 		
 
@@ -157,7 +144,7 @@ public class CreateLocationDepartmentSiteTest extends TestSetup{
 		
 		String SiteName="TestSite"+System.currentTimeMillis();
 		String Description="Test Description";
-		
+		Site = SiteName;
 
 		AddSiteDialogBoxElements.GetSiteNameField(driver).sendKeys(SiteName);
 		Thread.sleep(2000);

@@ -24,8 +24,8 @@ public class PunchPassScanTest {
 	  @Test
 	  public static void VerifyPunchPassScan()throws Exception
 	  {
-		 // int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, CreateMemberTest.EmailID);
-		  int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, "shawnmiles13@gmail.com");
+		  int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, CreateMemberTest.EmailID);
+		 // int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, "shawnmiles13@gmail.com");
 		  if(i==1)
 		  {
 			  assertTrue(true);

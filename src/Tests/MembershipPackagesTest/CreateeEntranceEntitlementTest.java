@@ -14,6 +14,8 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.MembershipPackagesPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
+import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
+
 
 public class CreateeEntranceEntitlementTest {
 	 public static WebDriver driver=null;
@@ -43,18 +45,20 @@ public class CreateeEntranceEntitlementTest {
 		  AddEntranceEntitlementDialogBoxElements.GetEntitlementName(driver).sendKeys(EntranceEntitlement);
 		  AddEntranceEntitlementDialogBoxElements.GetLocationDD(driver).click();
 		  Thread.sleep(2000);
-		  AddEntranceEntitlementDialogBoxElements.SelectStaticLocation(driver);
+		  //AddEntranceEntitlementDialogBoxElements.SelectStaticLocation(driver);
+		AddEntranceEntitlementDialogBoxElements.SelectDynamicLocation(driver, CreateLocationDepartmentSiteTest.Location);
 		  Thread.sleep(2000);
-		  //AddEntranceEntitlementDialogBoxElements.SelectDynamicLocation(driver, Location);
+		  
 		  AddEntranceEntitlementDialogBoxElements.GetDepartmentDD(driver).click();
 		  Thread.sleep(2000);
-		  AddEntranceEntitlementDialogBoxElements.SelectStaticDepartment(driver);
+		  //AddEntranceEntitlementDialogBoxElements.SelectStaticDepartment(driver);
+		  AddEntranceEntitlementDialogBoxElements.SelectDynamicDepartment(driver, CreateLocationDepartmentSiteTest.Department);
 		  Thread.sleep(2000);
-		  //AddEntranceEntitlementDialogBoxElements.SelectDynamicDepartment(driver, Dept);
+
 		  AddEntranceEntitlementDialogBoxElements.GetSiteDD(driver).click();
 		  Thread.sleep(2000);
-		  AddEntranceEntitlementDialogBoxElements.SelectStaticSite(driver);
-		  //AddEntranceEntitlementDialogBoxElements.SelectDynamicSite(driver, Dept);
+		  //AddEntranceEntitlementDialogBoxElements.SelectStaticSite(driver);
+		  AddEntranceEntitlementDialogBoxElements.SelectDynamicSite(driver, CreateLocationDepartmentSiteTest.Site);
 		  AddEntranceEntitlementDialogBoxElements.GetExternalDescriptionField(driver).sendKeys("External Desc");
 		  AddEntranceEntitlementDialogBoxElements.GetNextButton(driver).click();
 		  Thread.sleep(5000);
