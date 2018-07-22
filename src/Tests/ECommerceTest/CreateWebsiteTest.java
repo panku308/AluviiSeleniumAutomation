@@ -53,8 +53,8 @@ public class CreateWebsiteTest {
 		  
 		  AddWebsiteDialogBoxElements.GetLocationDD(driver).click();
 		  Thread.sleep(2000);
-		  //AddWebsiteDialogBoxElements.SelectFirstOptionFromLocationDD(driver);
-		  AddWebsiteDialogBoxElements.SelectDynamicLocation(driver,CreateLocationDepartmentSiteTest.Location);
+		  AddWebsiteDialogBoxElements.SelectFirstOptionFromLocationDD(driver);
+		 // AddWebsiteDialogBoxElements.SelectDynamicLocation(driver,CreateLocationDepartmentSiteTest.Location);
 		  
 		  AddWebsiteDialogBoxElements.GetEmailRecTemplateDD(driver).click();
 		  Thread.sleep(2000);
@@ -85,6 +85,7 @@ public class CreateWebsiteTest {
 		  ECommerceDashboardPageElements.GetWebsiteTab_WebsiteNameClolumnSettingIcon(driver).click();
 		  Thread.sleep(2000);
 		  CommonFunctions.filterTable(driver, WebsiteName);
+		  Thread.sleep(2000);
 		  actualResult = ECommerceDashboardPageElements.GetWebsiteTab_FirstRowWebsiteNameColumn(driver).getText().toLowerCase().trim().toLowerCase();
 		  assertEquals(actualResult, WebsiteName.toLowerCase());
 		  OpenWebiste();

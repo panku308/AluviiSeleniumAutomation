@@ -70,7 +70,7 @@ public class CreateMemberTest {
 		  Thread.sleep(5000);
 		  actualResult = ManageMembershipsPageElements.GetAccountsTableFirstRowEmailColum(driver).getText();
 		  assertEquals(actualResult, EmailID);
-		  		  
+		  Thread.sleep(5000);		  
 		  
 	  }
 	  

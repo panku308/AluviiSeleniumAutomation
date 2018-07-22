@@ -29,8 +29,9 @@ public class CreateCategoryTest {
 	  @Test
 	  public static void AddCategoryTest()throws Exception
 	  {
-		
+		  driver.navigate().refresh();
 		  CategoryName="category_" + System.currentTimeMillis();
+		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		  DashboardPageElements.GetRegisterManagementLink(driver).click();
 		  Thread.sleep(5000);
 		  RegisterManagementDashboardPageElements.GetProductsTab(driver).click();

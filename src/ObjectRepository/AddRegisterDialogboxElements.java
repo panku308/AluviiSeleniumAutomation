@@ -43,7 +43,7 @@ private static WebElement element = null;
 	}
 	public static void SelectDynamicaLocation(WebDriver driver, String Location)
 	{
-		driver.findElement(By.xpath("//*[@id='LocationId_listbox']//li[text()='"+Location+"'")).click();
+		driver.findElement(By.xpath("//*[@id='LocationId_listbox']//li[text()='"+Location+"']")).click();
 	}
 	public static String GetSelectedLocationValue(WebDriver driver)
 	{
