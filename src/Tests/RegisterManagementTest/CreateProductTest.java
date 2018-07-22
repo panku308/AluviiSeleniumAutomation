@@ -38,6 +38,7 @@ public class CreateProductTest {
 	  public void AddProductTest()throws Exception
 	  {
 		  ProductName="product" + System.currentTimeMillis();
+		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		  DashboardPageElements.GetRegisterManagementLink(driver).click();
 		  Thread.sleep(5000);
 		  RegisterManagementDashboardPageElements.GetProductsTab(driver).click();

@@ -28,6 +28,7 @@ public class CreateProductModifier {
 	{
 		
 		ModifierName = "Modifer_" + System.currentTimeMillis();
+		 CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		 DashboardPageElements.GetRegisterManagementLink(driver).click();
 		 Thread.sleep(5000);
 		 RegisterManagementDashboardPageElements.GetProductsTab(driver).click();

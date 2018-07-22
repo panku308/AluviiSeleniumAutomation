@@ -36,7 +36,7 @@ public class CreateRegisterTest {
 	  public static void AddRegisterTest()throws Exception
 	  {
 		  RegisterName="Register_" + System.currentTimeMillis();
-		  
+		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		  DashboardPageElements.GetRegisterManagementLink(driver).click();
 		  Thread.sleep(5000);
 		  RegisterManagementDashboardPageElements.GetRegistersTab(driver).click();

@@ -55,6 +55,7 @@ public class AddStoredValueIntoMember_Cash_Test {
 			  driver.switchTo().frame(0);		
 			 PaymentTransactionType.PaymentThroughCash(driver);
 			 driver.switchTo().frame(0);
+			 ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();
 			  

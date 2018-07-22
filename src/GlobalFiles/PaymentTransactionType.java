@@ -50,7 +50,7 @@ public class PaymentTransactionType {
 			  driver.switchTo().parentFrame();
 			  
 			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);  
+			  Thread.sleep(10000);  
 		  }
 		  catch (Exception e)
 		  {
@@ -86,7 +86,7 @@ public class PaymentTransactionType {
 			  driver.switchTo().parentFrame();
 			  
 			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);  
+			  Thread.sleep(10000);  
 		  }
 		  catch (Exception e)
 		  {
@@ -112,7 +112,7 @@ public class PaymentTransactionType {
 			  driver.switchTo().parentFrame();
 			  
 			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);  
+			  Thread.sleep(10000);  
 		  }
 		  catch (Exception e)
 		  {
@@ -149,7 +149,7 @@ public class PaymentTransactionType {
 			  driver.switchTo().parentFrame();
 			  
 			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);  
+			  Thread.sleep(10000);  
 		  }
 		  catch (Exception e)
 		  {
@@ -182,7 +182,7 @@ public class PaymentTransactionType {
 			  driver.switchTo().parentFrame();
 			  
 			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);  
+			  Thread.sleep(10000);  
 		  }
 		  catch (Exception e)
 		  {
@@ -209,14 +209,14 @@ public class PaymentTransactionType {
 		  
 		  PrePaidCouponDialogBoxElements.GetAmountReceivedField(driver).sendKeys(PrePaidCouponDialogBoxElements.GetPaymentAmountField(driver).getAttribute("value"));
 		  PrePaidCouponDialogBoxElements.GetSubmitButton(driver).click();		  
-		  Thread.sleep(5000); 
+		  Thread.sleep(10000); 
 		  
 		  try
 		  {
 			  driver.switchTo().parentFrame();
 			  
 			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
-			  Thread.sleep(5000);  
+			  Thread.sleep(10000);  
 		  }
 		  catch (Exception e)
 		  {

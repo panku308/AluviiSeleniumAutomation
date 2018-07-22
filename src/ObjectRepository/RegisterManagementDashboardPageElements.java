@@ -67,7 +67,7 @@ private static WebElement element = null;
 	}
 	public static WebElement GetProductsTab_SubTab_Categories_SelectOptionDropdown(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-2']//span[.='Select Option']"));
+		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-4']//span[.='Select Option']"));
 		return element;
 	}
 	public static WebElement GetDiscountsTab_SubTab_DiscountRule_SelectOptionDropdown(WebDriver driver)
@@ -87,12 +87,12 @@ private static WebElement element = null;
 	}
 	public static WebElement GetProductsTab_SubTab_Modifiers_SelectOptionDropdown(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-4']//span[.='Select Option']"));
+		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-3']//span[.='Select Option']"));
 		return element;
 	}
 	public static WebElement GetProductsTab_SubTab_ProductGroups_SelectOptionDropdown(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-3']//span[.='Select Option']"));
+		element =driver.findElement(By.xpath("//div[@id='tabstrip_product-2']//span[.='Select Option']"));
 		return element;
 	}
 	public static WebElement SelectOptionFromSelectOptionDD(WebDriver driver, String OptName)
