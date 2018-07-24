@@ -33,7 +33,7 @@ import ObjectRepository.EventManagementPageElements;
 
 public class CreatePriceRuleTest extends TestSetup {
 
-
+public static String priceRuleName="";
 	@Test
 	public static void createPriceRule()throws Exception
 	{
@@ -54,7 +54,7 @@ public class CreatePriceRuleTest extends TestSetup {
 			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
-			String priceRuleName = "Deposit_"+System.currentTimeMillis();
+			 priceRuleName = "Deposit_"+System.currentTimeMillis();
 			String displayAndDesc = "TestData_"+System.currentTimeMillis();
 			
 			

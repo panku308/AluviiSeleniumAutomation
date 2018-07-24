@@ -53,6 +53,15 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@id='TaxOptionGrid']//div[@class ='k-grid-content']/table/tbody/tr[1]/td[2]"));
 		return element;
 	}
+	public static WebElement GetSalesTax_LocationNameColumnSettingsIcon(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='TaxOptionGrid']//th[@data-title='Location Name']/a[1]"));
+		return element;
+	}
+	public static void SelectDynamicTaxOptionFromDD(WebDriver driver,String TaxOption)
+	{
+		  driver.findElement(By.xpath("//*[@id='TaxOptionName_listbox']//li[text()='"+TaxOption+"']")).click();
+	}
 	public static WebElement GetAddButton(WebDriver driver)
 	{		
 		element =driver.findElement(By.name("Add"));

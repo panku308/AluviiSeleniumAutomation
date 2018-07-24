@@ -42,6 +42,7 @@ public class CreateCategoryTest extends TestSetup {
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
 	}*/
+	public static String CategoryName="";
 
 	@Test
 	public static void createCategory()throws Exception
@@ -62,7 +63,7 @@ public class CreateCategoryTest extends TestSetup {
 			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
-			String CategoryName="TestCategory_"+System.currentTimeMillis();
+			 CategoryName="TestCategory_"+System.currentTimeMillis();
 			
 			AddCategoryEventManagementDialogBoxElements.getCategoryNameField(driver).sendKeys(CategoryName);
 			AddCategoryEventManagementDialogBoxElements.getCategoryDescField(driver).sendKeys("Test Category Description");

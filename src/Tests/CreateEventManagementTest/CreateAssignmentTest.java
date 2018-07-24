@@ -23,7 +23,7 @@ public class CreateAssignmentTest extends TestSetup {
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
 	}*/
-
+public static String AssignmentName="";
 	@Test()
 	public static void createAssignment()throws Exception
 	{
@@ -43,7 +43,7 @@ public class CreateAssignmentTest extends TestSetup {
 			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
-			String AssignmentName="TestAssignment_"+System.currentTimeMillis();
+			AssignmentName="TestAssignment_"+System.currentTimeMillis();
 			AddAssignmentsEventManagementDialogBoxElements.getAssignmentNameField(driver).sendKeys(AssignmentName);
 			AddAssignmentsEventManagementDialogBoxElements.getCategoryButton(driver).click();
 			Thread.sleep(2000);

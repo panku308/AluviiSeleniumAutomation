@@ -18,6 +18,8 @@ import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ProductDialogboxInsideAddProductGroupElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
+import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
+import Tests.AdministrationTest.CreateTaxOptionTest;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateProductGroupTest {
@@ -89,11 +91,15 @@ public class CreateProductGroupTest {
 		
 				
 		}
-	    
+		AddProductGroupDialogBoxElements.GetSalesTax_LocationNameColumnSettingsIcon(driver).click();
+		Thread.sleep(2000);
+		CommonFunctions.filterTable(driver, CreateLocationDepartmentSiteTest.Location);
+		Thread.sleep(3000);
 		AddProductGroupDialogBoxElements.GetSalesTax_FirstRowOfTaxOptionNameColumn(driver).click();
 		AddProductGroupDialogBoxElements.GetSalesTax_FirstRowOfTaxOptionNameColumn(driver).click();
 		Thread.sleep(2000);
-		AddProductGroupDialogBoxElements.SelectfirstOptionFromTaxOptionDropdown(driver);
+		//AddProductGroupDialogBoxElements.SelectfirstOptionFromTaxOptionDropdown(driver);
+		AddProductGroupDialogBoxElements.SelectDynamicTaxOptionFromDD(driver, CreateTaxOptionTest.TaxOptionName);
 		Thread.sleep(2000);
 		AddProductGroupDialogBoxElements.GetAddButton(driver).click();
 		Thread.sleep(10000);
