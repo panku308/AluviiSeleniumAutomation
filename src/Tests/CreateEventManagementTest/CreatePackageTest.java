@@ -34,7 +34,7 @@ import ObjectRepository.EditScheduleEventManagementDialogBoxElements;
 import ObjectRepository.EventManagementPageElements;
 
 public class CreatePackageTest extends TestSetup {
-
+	public static String packageName="";
 
 	@Test
 	public static void createPackage()throws Exception
@@ -56,7 +56,7 @@ public class CreatePackageTest extends TestSetup {
 			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
-			String packageName = "TestPackage_"+System.currentTimeMillis();
+			 packageName = "TestPackage_"+System.currentTimeMillis();
 			String description = "TestDescription_"+System.currentTimeMillis();		
 
 			AddPackageDialogBoxElements.getPackageNameField(driver).sendKeys(packageName);

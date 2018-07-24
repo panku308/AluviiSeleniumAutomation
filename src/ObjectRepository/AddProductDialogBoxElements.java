@@ -171,7 +171,7 @@ private static WebElement element = null;
 	}
 	public static WebElement GetSalesTax_LocationNameColumnSettingsIcon(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//th[@data-title='Location Name']/a[@title='Column Settings']"));
+		element =driver.findElement(By.xpath("//div[@id='TaxOptionGrid']//th[@data-title='Location Name']/a[1]"));
 		return element;
 	}
 	

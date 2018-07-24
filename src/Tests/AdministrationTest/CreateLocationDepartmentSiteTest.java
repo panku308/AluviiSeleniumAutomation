@@ -18,7 +18,7 @@ import util.DriverManager;
 public class CreateLocationDepartmentSiteTest {
 	public static String Location="", Department="", Site="";
 	
-	@Test()
+	@Test(priority=1) 
 	public static void createLocation()throws Exception
 	{
 		WebDriver driver=DriverManager.getDriver();
@@ -34,7 +34,7 @@ public class CreateLocationDepartmentSiteTest {
 		Thread.sleep(2000);
 		AdministrationDashboardPageElements.getLocationSelectOptionDropdownList(driver, "Add Location").click();
 		
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.switchTo().frame(0);
 		Thread.sleep(2000);
 		
@@ -73,7 +73,7 @@ public class CreateLocationDepartmentSiteTest {
 		
 	}
 
-	@Test()
+	@Test(priority=2)
 	public static void createDepartment()throws Exception
 	{
 		
@@ -90,7 +90,7 @@ public class CreateLocationDepartmentSiteTest {
 		Thread.sleep(2000);
 		AdministrationDashboardPageElements.getDepartmentSelectOptionDropdownList(driver, "Add Department").click();
 		
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.switchTo().frame(0);
 		Thread.sleep(2000);
 		
@@ -121,7 +121,7 @@ public class CreateLocationDepartmentSiteTest {
 		
 		
 	}
-	@Test()
+	@Test(priority=3)
 	public static void createSite()throws Exception
 	{
 		
@@ -138,7 +138,7 @@ public class CreateLocationDepartmentSiteTest {
 		Thread.sleep(2000);
 		AdministrationDashboardPageElements.getSiteSelectOptionDropdownList(driver, "Add Site").click();
 		
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.switchTo().frame(0);
 		Thread.sleep(2000);
 		

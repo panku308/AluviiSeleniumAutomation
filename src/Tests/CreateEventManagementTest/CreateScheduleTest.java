@@ -38,7 +38,7 @@ public class CreateScheduleTest extends TestSetup {
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
 	}*/
-
+	public static String ScheduleName="";
 	@Test
 	public static void createSchedule()throws Exception
 	{
@@ -58,7 +58,7 @@ public class CreateScheduleTest extends TestSetup {
 			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
-			String ScheduleName="TestSchedule"+System.currentTimeMillis();
+			 ScheduleName="TestSchedule"+System.currentTimeMillis();
 			AddScheduleEventManagementDialogBoxElements.getScheduleNameField(driver).sendKeys(ScheduleName);
 			AddScheduleEventManagementDialogBoxElements.getSelectTimeZoneButton(driver).click();
 			Thread.sleep(2000);

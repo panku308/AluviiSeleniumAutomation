@@ -36,14 +36,6 @@ public class TestSetup {
 
 		DriverFactory.setChromeExeFilePath(System.getProperty("user.dir")
 				+ "\\resources\\chromedriver.exe");
-
-	}
-
-	@BeforeTest
-	public void beforeTest() {
-
-
-		//System.out.println("before class called");
 		configProperty = PropertyFileManager.createConfigFileProperty();
 
 		WebDriver driver = null;
@@ -53,6 +45,15 @@ public class TestSetup {
 			driver = DriverFactory.createDriverInstance(configProperty.getProperty("browser"));
 			DriverManager.getDriver().navigate().to(configProperty.getProperty("aluviiSite"));
 		}
+
+	}
+
+	@BeforeTest
+	public void beforeTest() {
+
+
+		//System.out.println("before class called");
+
 
 	}
 

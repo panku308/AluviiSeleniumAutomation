@@ -14,7 +14,7 @@ import baseSetup.TestSetup;
 import util.DriverManager;
 
 public class CreateTaxOptionTest extends TestSetup{
-
+	public static String TaxOptionName="";
 	
 	@Test()
 	public static void createTaxOption()throws Exception
@@ -36,7 +36,7 @@ public class CreateTaxOptionTest extends TestSetup{
 		driver.switchTo().frame(0);
 		Thread.sleep(2000);
 		
-		String TaxOptionName="TestTax"+System.currentTimeMillis();
+		TaxOptionName="TestTax"+System.currentTimeMillis();
 
 		AddTaxOptionDialogBoxElements.getTaxOptionName(driver).sendKeys(TaxOptionName);
 		Thread.sleep(2000);
