@@ -24,13 +24,7 @@ import ObjectRepository.EditEmployeeDialogBox;
 
 public class CreateEmployeeTest extends TestSetup{
 
-	//public static WebDriver driver=DriverManager.getDriver();
-
-	/*@BeforeClass
-	public void beforeClass() throws InterruptedException {
-		driver = CommonFunctions.driver;
-	}
-	 */
+	
 	@Test()
 	public static void createEmployee()throws Exception
 	{
@@ -44,17 +38,21 @@ public class CreateEmployeeTest extends TestSetup{
 		HRManagementPageElements.selectOptions(driver, "Add Employee").click();
 
 		List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
-		System.out.println("iframe length = " + iframeElements.size());
+		//System.out.println("iframe length = " + iframeElements.size());
 		driver.switchTo().frame(0);
 
 		String emailToBeRegistered="TestEmail"+System.currentTimeMillis()+"@aluvii.com";
-		System.out.println(emailToBeRegistered);
+		//System.out.println(emailToBeRegistered);
 		String passwordToBeRegistered="Admin@123";
-		System.out.println(passwordToBeRegistered);
-
+		//System.out.println(passwordToBeRegistered);
+		String firstName="TestFirstName"+System.currentTimeMillis();
+		String lastName="TestLastName"+System.currentTimeMillis();
+		
+		
+		
 		AddEmployeeDialogBox.getEmployeeEmail(driver).sendKeys(emailToBeRegistered);
-		AddEmployeeDialogBox.getFirstName(driver).sendKeys("TestFirstName");
-		AddEmployeeDialogBox.getLastName(driver).sendKeys("TestLastName");
+		AddEmployeeDialogBox.getFirstName(driver).sendKeys(firstName);
+		AddEmployeeDialogBox.getLastName(driver).sendKeys(lastName);
 		Thread.sleep(2000);
 		AddEmployeeDialogBox.getSave(driver).click();
 
@@ -80,12 +78,12 @@ public class CreateEmployeeTest extends TestSetup{
 		EditEmployeeDialogBox.getLoginActivityMenuLink(driver).click();
 		driver.switchTo().defaultContent();
 		Thread.sleep(2000);
-		
+
 
 		int menuSize=1;
 		do
 		{
-			
+
 			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			EditEmployeeDialogBox.getAddLoginActivityButton(driver).click();
@@ -94,19 +92,19 @@ public class CreateEmployeeTest extends TestSetup{
 			Thread.sleep(2000);
 			AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
 			Thread.sleep(2000);
-			
+
 			if(AddLoginActivityDialogBox.getActivityMenu(driver).getText().contains("(Activity)"))
 			{
-				
+
 				Thread.sleep(2000);
 				AddLoginActivityDialogBox.getActivityMenu(driver).click();
 
 				Thread.sleep(2000);
 				AddLoginActivityDialogBox.getAddActivityButton(driver).click();
 				Thread.sleep(2000);
-				
+
 				menuSize++;
-				
+
 			}
 			else
 			{
@@ -124,10 +122,10 @@ public class CreateEmployeeTest extends TestSetup{
 
 		driver.switchTo().defaultContent();
 		Thread.sleep(2000);
-		
+
 		driver.switchTo().frame(0);
 		Thread.sleep(2000);
-		
+
 		EditEmployeeDialogBox.getSetPasswordMenuLink(driver).click();
 		EditEmployeeDialogBox.getNewPasswordInputBox(driver).sendKeys(passwordToBeRegistered);
 		EditEmployeeDialogBox.getConfirmPasswordInputBox(driver).sendKeys(passwordToBeRegistered);
@@ -142,9 +140,10 @@ public class CreateEmployeeTest extends TestSetup{
 
 		//logout;
 		Thread.sleep(3000);
-		action.moveToElement(DashboardPageElements.getUserMenu(driver)).clickAndHold();
+		DashboardPageElements.getUserMenu(driver).click();
 		Thread.sleep(3000);
-		action.moveToElement(DashboardPageElements.getLogoutButton(driver)).click().build().perform();
+		action.moveToElement(DashboardPageElements.getLogoutButton(driver));
+		action.click().build().perform();
 		Thread.sleep(2000);
 
 		//Login
@@ -153,11 +152,18 @@ public class CreateEmployeeTest extends TestSetup{
 		Assert.assertEquals(DashboardPageElements.getAddedActivityMenuSize(driver), menuSize);
 		Thread.sleep(2000);
 
+		//logout;
+		Thread.sleep(3000);
+		DashboardPageElements.getUserMenu(driver).click();
+		Thread.sleep(3000);
+		action.moveToElement(DashboardPageElements.getLogoutButton(driver));
+		action.click().build().perform();
+		Thread.sleep(2000);
+
+		CommonFunctions.map.put("EmployeeEmail", emailToBeRegistered);
+		CommonFunctions.map.put("EmployeePass", passwordToBeRegistered);
+		CommonFunctions.map.put("EmployeeFirstName", firstName);
+		CommonFunctions.map.put("EmployeeLastName", lastName);
+
 	}
-
-	/*@AfterClass
-	public void afterClass() {
-		driver.quit();
-
-	}*/
 }

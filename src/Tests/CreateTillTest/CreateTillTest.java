@@ -25,20 +25,12 @@ import ObjectRepository.EditEmployeeDialogBox;
 
 public class CreateTillTest extends TestSetup {
 
-	/*public static WebDriver driver=null;
-
-	@BeforeClass
-	public void beforeClass() throws InterruptedException {
-		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
-		Thread.sleep(5000);
-	}
-*/
 	@Test
-	public static void createEmployee()throws Exception
+	public static void createandCloseTill()throws Exception
 	{
 		WebDriver driver=DriverManager.getDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			CommonFunctions.Login(driver, "TestEmail464@aluvii.com", "Admin@123");
+			CommonFunctions.Login(driver, CommonFunctions.map.get("EmployeeEmail"), CommonFunctions.map.get("EmployeePass"));
 			DashboardPageElements.GetCashControlLink(driver).click();		  
 			CashControlPageElements.getOpenTillTab(driver).click();
 			CashControlPageElements.openSelectOptions(driver).click();
@@ -54,7 +46,7 @@ public class CreateTillTest extends TestSetup {
 			CashControlPageElements.selectLocation(driver).click();
 			Thread.sleep(2000);
 			CashControlPageElements.selectLocationOption(driver, "Adventure").click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			CashControlPageElements.selectDepartment(driver).click();
 			Thread.sleep(2000);
 			CashControlPageElements.selectDepartmentOption(driver, "Retail").click();
@@ -66,7 +58,7 @@ public class CreateTillTest extends TestSetup {
 			CashControlPageElements.employeeAssigned(driver).click();
 			Thread.sleep(2000);			
 			
-			CashControlPageElements.employeeAssignedList(driver, "TestFirstName29853 TestLastName8342").click();
+			CashControlPageElements.employeeAssignedList(driver, CommonFunctions.map.get("EmployeeFirstName")+" "+CommonFunctions.map.get("EmployeeLastName")).click();
 			Thread.sleep(2000);
 			
 			CashControlPageElements.setInitialValue(driver).sendKeys("00");
@@ -82,7 +74,7 @@ public class CreateTillTest extends TestSetup {
 			DashboardPageElements.GetCashControlLink(driver).click();
 			CashControlPageElements.getAssigendToColumn(driver).click();
 			Thread.sleep(2000);
-			CommonFunctions.filterTable(driver,"TestFirstName29853 TestLastName8342");
+			CommonFunctions.filterTable(driver,CommonFunctions.map.get("EmployeeFirstName")+" "+CommonFunctions.map.get("EmployeeLastName"));
 			Thread.sleep(2000);
 			CashControlPageElements.getFilteredRow(driver).click();
 			
@@ -107,6 +99,4 @@ public class CreateTillTest extends TestSetup {
 			Thread.sleep(10000);
 
 	}
-
-	
 }
