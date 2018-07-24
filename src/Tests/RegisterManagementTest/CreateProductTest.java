@@ -8,6 +8,7 @@ import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ProductModifierInsideCashierRegisterElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
+import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -77,10 +78,15 @@ public class CreateProductTest {
 		  AddProductDialogBoxElements.SetUnitPrice(driver, CommonFunctions.CreateProduct_unitPrice);
 		  AddProductDialogBoxElements.GetSalesTaxTab(driver).click();
 		  Thread.sleep(3000);
+		  AddProductDialogBoxElements.GetSalesTax_LocationNameColumnSettingsIcon(driver).click();
+		  Thread.sleep(2000);
+		  CommonFunctions.filterTable(driver, CreateLocationDepartmentSiteTest.Location);
+		  Thread.sleep(2000);
 		  AddProductDialogBoxElements.GetSalesTax_FirstRowOfTaxOptionNameColumn(driver).click();
 		  AddProductDialogBoxElements.GetSalesTax_FirstRowOfTaxOptionNameColumn(driver).click();
 		  Thread.sleep(2000);
-		  AddProductDialogBoxElements.SelectfirstOptionFromTaxOptionDropdown(driver);
+		  AddProductDialogBoxElements.SelectDynamicTaxOptionFromDD(driver, "");
+		  //AddProductDialogBoxElements.SelectfirstOptionFromTaxOptionDropdown(driver);
 		  Thread.sleep(2000);
 		  AddProductDialogBoxElements.GetAddButton(driver).click();
 		  Thread.sleep(10000);

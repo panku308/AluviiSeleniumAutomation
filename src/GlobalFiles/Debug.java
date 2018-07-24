@@ -19,6 +19,7 @@ import org.openqa.selenium.interactions.Actions;
 import ObjectRepository.AddModifierDialogBoxElements;
 import ObjectRepository.AddModifierDialogBoxInsideAssignProductModifer;
 import ObjectRepository.AddProductDialogBoxElements;
+import ObjectRepository.AddProductDialogboxInsideAddRegisterPageElements;
 import ObjectRepository.AssignProductModifiersDialogBoxElements;
 import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.CategoryDialogBoxElements;
@@ -31,12 +32,17 @@ import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductModifier;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
+import util.DriverManager;
 
 public class Debug {
 	public static WebDriver driver=null;
 	public static String ModifierName="";
 	public static void main(String[] args) throws Exception {
+		  driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
+		  Thread.sleep(5000);
+		  
 		
+		 
 		String str = "Exp 10 Left";
 		System.out.println(str.substring(4,str.length()-5));
 		System.out.println(str.split("Left"));
