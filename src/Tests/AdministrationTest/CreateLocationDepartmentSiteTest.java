@@ -18,7 +18,7 @@ import util.DriverManager;
 public class CreateLocationDepartmentSiteTest {
 	public static String Location="", Department="", Site="";
 	
-	@Test(priority=1)
+	@Test()
 	public static void createLocation()throws Exception
 	{
 		WebDriver driver=DriverManager.getDriver();
@@ -73,7 +73,7 @@ public class CreateLocationDepartmentSiteTest {
 		
 	}
 
-	@Test(priority=2)
+	@Test()
 	public static void createDepartment()throws Exception
 	{
 		
@@ -121,7 +121,7 @@ public class CreateLocationDepartmentSiteTest {
 		
 		
 	}
-	@Test(priority=3)
+	@Test()
 	public static void createSite()throws Exception
 	{
 		
