@@ -19,7 +19,9 @@ private static WebElement element = null;
 	}
 	public static WebElement GetCancelButton(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//input[@value='Cancel']"));
+	
+		element =driver.findElement(By.xpath("//input[@value='Cancel']"));		
+		
 		return element;
 	}
 	public static void SelectValueFromProductDD(WebDriver driver, String OptionName, String ProductType)

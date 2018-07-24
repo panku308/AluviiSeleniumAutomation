@@ -72,6 +72,7 @@ public class CreateDiscountTest extends TestSetup {
 			Thread.sleep(2000);
 			AddDiscountRuleDialogBoxElements.selectDiscountItemButton(driver).click();
 			Thread.sleep(3000);
+			//need to add product name related line.
 			AddDiscountRuleDialogBoxElements.selectProduct(driver, "Adventurer Thermal").click();
 			Thread.sleep(3000);
 			AddDiscountRuleDialogBoxElements.getExternalDescriptionField(driver).sendKeys(externalDescription);

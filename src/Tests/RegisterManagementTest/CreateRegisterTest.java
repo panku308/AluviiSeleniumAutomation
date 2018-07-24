@@ -54,6 +54,7 @@ public class CreateRegisterTest {
 		  
 		  AddRegisterDialogboxElements.GetLocationDD(driver).click();
 		  Thread.sleep(2000);
+		  //AddRegisterDialogboxElements.SelectFirstOptionFromLocationDD(driver);
 		  AddRegisterDialogboxElements.SelectDynamicaLocation(driver, CreateLocationDepartmentSiteTest.Location);
 		  //Location = AddRegisterDialogboxElements.GetSelectedLocationValue(driver);
 		  
@@ -82,6 +83,7 @@ public class CreateRegisterTest {
 		  AddCategoryDialogboxInsideAddRegisterPageElements.GetCategoryDD(driver).click();
 		  Thread.sleep(2000);
 		  AddCategoryDialogboxInsideAddRegisterPageElements.SelectValueFromCategoryDD(driver, CreateCategoryTest.CategoryName);
+		  //AddCategoryDialogboxInsideAddRegisterPageElements.SelectValueFromCategoryDD(driver, "category_1532270092594");
 		  Thread.sleep(2000);
 		  AddCategoryDialogboxInsideAddRegisterPageElements.GetAddCategoryButton(driver).click();
 		  Thread.sleep(2000);
@@ -95,6 +97,7 @@ public class CreateRegisterTest {
 		  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
 		  Thread.sleep(2000);
 		  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
+		  //AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");
 		  Thread.sleep(2000);
 		  AddProductDialogboxInsideAddRegisterPageElements.GetAddProductButton(driver).click();
 		  Thread.sleep(2000);
@@ -113,7 +116,11 @@ public class CreateRegisterTest {
 			  driver.switchTo().parentFrame();
 		  }catch(Exception e)
 		  {
+			  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
+			  Thread.sleep(2000);
 			  AddProductDialogboxInsideAddRegisterPageElements.GetCancelButton(driver).click();
+			  Thread.sleep(2000);
+			  driver.switchTo().parentFrame();
 			  System.out.println(e);
 		  }
 		  AddRegisterDialogboxElements.GetSaveChangesButton(driver).click();
