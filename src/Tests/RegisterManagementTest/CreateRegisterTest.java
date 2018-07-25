@@ -49,7 +49,7 @@ public class CreateRegisterTest {
 		  Thread.sleep(3000);
 		  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
 		  System.out.println("iframe length = " + iframeElements.size());
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddRegisterDialogboxElements.GetRegisterNameField(driver).sendKeys(RegisterName);
 		  
 		  AddRegisterDialogboxElements.GetLocationDD(driver).click();
@@ -78,7 +78,7 @@ public class CreateRegisterTest {
 		  Thread.sleep(2000);
 		  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));
 		  System.out.println("iframe length = " + iframeElements1.size());
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  
 		  AddCategoryDialogboxInsideAddRegisterPageElements.GetCategoryDD(driver).click();
 		  Thread.sleep(2000);
@@ -93,7 +93,7 @@ public class CreateRegisterTest {
 		  //CommonFunctions.MoveControToFrame(driver);
 		  iframeElements1 = driver.findElements(By.tagName("iframe"));
 		  System.out.println("iframe length = " + iframeElements1.size());
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
 		  Thread.sleep(2000);
 		  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
@@ -106,7 +106,7 @@ public class CreateRegisterTest {
 		  try {
 			  AddRegisterDialogboxElements.GetAddProductButton(driver).click();
 			  Thread.sleep(2000);			  
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 			  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
 			  Thread.sleep(2000);
 			  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductGroupTest.ProductGroupName, "group");

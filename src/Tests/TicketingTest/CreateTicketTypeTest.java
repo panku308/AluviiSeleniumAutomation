@@ -37,7 +37,7 @@ public class CreateTicketTypeTest {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Ticket Type").click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddTicketTypeDialogBoxElements.GetTicketTypeNameField(driver).sendKeys(TicketTypeName);
 		  AddTicketTypeDialogBoxElements.setEndDate(driver);
 		  AddTicketTypeDialogBoxElements.GetNumberOfDaysInputField(driver).sendKeys("365");
@@ -54,7 +54,7 @@ public class CreateTicketTypeTest {
 		  Thread.sleep(2000);
 		  AddTicketTypeDialogBoxElements.SelectFirstOptionFromCompositionDD(driver);
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddEnteranceEntitlementDialogboxElements.GetStaticEnteranceEntitlementName(driver).click();
 		  Thread.sleep(3000);
 		  driver.switchTo().parentFrame();

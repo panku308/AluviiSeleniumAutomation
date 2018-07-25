@@ -47,7 +47,7 @@ public class AddMembershipThroughPrepaidCoupon_Test {
 			  
 			  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));			  
 			  System.out.println("iframe length = " + iframeElements.size());			  
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 			  
 			  AddMembershipDialogBoxElements.GetStaticPassLink(driver).click();
 			  Thread.sleep(2000);
@@ -57,9 +57,9 @@ public class AddMembershipThroughPrepaidCoupon_Test {
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
 			  Thread.sleep(2000);
 			  
-			  driver.switchTo().frame(0);		
+			  CommonFunctions.SwitchToContentFrame(driver);		
 			  PaymentTransactionType.PaymentThroughPrepaidCoupon(driver);
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();

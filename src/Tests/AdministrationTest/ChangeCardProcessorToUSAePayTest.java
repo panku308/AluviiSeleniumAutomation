@@ -34,8 +34,10 @@ public class ChangeCardProcessorToUSAePayTest {
 		AdministrationDashboardPageElements.GetConfigTab_GatewayOnlineKeyField(driver).sendKeys("GZaIjl8ExwvIxnHbifc69qB58t87Iixu");
 		AdministrationDashboardPageElements.GetConfigTab_GatewayOnlinePin(driver).clear();
 		AdministrationDashboardPageElements.GetConfigTab_GatewayOnlinePin(driver).sendKeys("1111");
+		Thread.sleep(2000);
+		CommonFunctions.ScrollUptoElement(driver, AdministrationDashboardPageElements.GetConfigTab_SaveChangesButton(driver));
+		Thread.sleep(2000);
 		AdministrationDashboardPageElements.GetConfigTab_SaveChangesButton(driver).click();
 		Thread.sleep(5000);
-		
 	}
 }

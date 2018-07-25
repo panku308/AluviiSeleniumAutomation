@@ -28,8 +28,7 @@ public class PaymentTransactionType {
 			  Thread.sleep(2000);
 			  PaymentTransactionDialogBoxElements.GetMoreOptoin_StoredValue(driver).click();
 			  Thread.sleep(5000);
-			   
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 		}
 		catch(Exception e)
 		{
@@ -65,7 +64,7 @@ public class PaymentTransactionType {
 		{
 			PaymentTransactionDialogBoxElements.GetCreditCardButton(driver).click();
 			Thread.sleep(2000);
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 		}
 		catch(Exception e)
 		{
@@ -98,7 +97,7 @@ public class PaymentTransactionType {
 		try {
 			PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
 			  Thread.sleep(5000);		  	  
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 			 
 		}catch(Exception e) {
 			
@@ -126,7 +125,7 @@ public class PaymentTransactionType {
 		{
 			PaymentTransactionDialogBoxElements.GetCreditCardButton(driver).click();
 			Thread.sleep(2000);
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 		}
 		catch(Exception e)
 		{
@@ -164,7 +163,7 @@ public class PaymentTransactionType {
 			PaymentTransactionDialogBoxElements.GetGiftCardButton(driver).click();
 			  Thread.sleep(2000);
 			  		  
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 				
 		}
 		catch (Exception e)
@@ -199,7 +198,7 @@ public class PaymentTransactionType {
 			  Thread.sleep(5000);
 			  
 			  		  
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 				
 		}
 		catch (Exception e)

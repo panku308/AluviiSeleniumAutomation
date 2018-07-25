@@ -53,7 +53,8 @@ public class CreatePackageTest extends TestSetup {
 			EventManagementPageElements.getPackageSelectOptionDropdownList(driver, "Add Package").click();
 			Thread.sleep(2000);
 			
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			Thread.sleep(2000);
 			
 			 packageName = "TestPackage_"+System.currentTimeMillis();

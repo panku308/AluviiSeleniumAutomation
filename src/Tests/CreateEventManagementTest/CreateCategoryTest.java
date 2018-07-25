@@ -60,7 +60,8 @@ public class CreateCategoryTest extends TestSetup {
 			EventManagementPageElements.getOtherSettingsSelectOptionDropdownList(driver, "Add Category").click();
 			Thread.sleep(2000);
 			
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			Thread.sleep(2000);
 			
 			 CategoryName="TestCategory_"+System.currentTimeMillis();

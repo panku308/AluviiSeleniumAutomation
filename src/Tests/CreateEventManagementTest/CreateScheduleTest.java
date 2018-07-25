@@ -55,7 +55,8 @@ public class CreateScheduleTest extends TestSetup {
 			EventManagementPageElements.getSchedulesSelectOptionDropdownList(driver, "Add Schedule").click();
 			Thread.sleep(2000);
 			
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			Thread.sleep(2000);
 			
 			 ScheduleName="TestSchedule"+System.currentTimeMillis();

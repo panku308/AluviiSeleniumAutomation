@@ -51,7 +51,7 @@ public class CreateProductGroupTest {
 		Thread.sleep(3000);
 		RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Product Group").click();
 		Thread.sleep(3000);
-		driver.switchTo().frame(0);
+		CommonFunctions.SwitchToContentFrame(driver);
 		AddProductGroupDialogBoxElements.GetProductGroupNameField(driver).sendKeys(ProductGroupName);
 		AddProductGroupDialogBoxElements.GetDescriptionField(driver).sendKeys("Desc_" + System.currentTimeMillis());
 		
@@ -63,7 +63,7 @@ public class CreateProductGroupTest {
 		
 		AddProductGroupDialogBoxElements.GetPopupCategoryWindowIcon(driver).click();
 		Thread.sleep(5000);
-	//	driver.switchTo().frame(0);
+	//	CommonFunctions.SwitchToContentFrame(driver);
 		CommonFunctions.ScrollUptoElement(driver, CategoryDialogBoxElements.GetLastPageButton(driver));
 		System.out.println("After category lastpage button");
 		CategoryDialogBoxElements.GetLastPageButton(driver).click();
@@ -125,7 +125,7 @@ public class CreateProductGroupTest {
 	  Thread.sleep(3000);
 	  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
 	  System.out.println("iframe length = " + iframeElements.size());
-	  driver.switchTo().frame(0);
+	  CommonFunctions.SwitchToContentFrame(driver);
 	
 	  AddProductDialogBoxElements.GetProductName(driver).sendKeys(ProductName);
 	  

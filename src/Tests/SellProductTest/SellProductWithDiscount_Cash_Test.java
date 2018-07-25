@@ -42,9 +42,9 @@ public class SellProductWithDiscount_Cash_Test {
 		  ApplyAndVerifyDiscount();
 		  CashierRegisterPageElements.GetPayButton(driver).click();
 		  Thread.sleep(2000);		  	  
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  PaymentTransactionType.PaymentThroughCash(driver);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();
@@ -54,7 +54,7 @@ public class SellProductWithDiscount_Cash_Test {
 	  {
 		  CashierRegisterPageElements.GetAddGuestButton(driver).click();
 		  Thread.sleep(5000);		  	  
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddGuestDialogBoxInsideSellProductElements.GetSearchForGuestRadioButton(driver).click();
 		  AddGuestDialogBoxInsideSellProductElements.GetSearchField(driver).sendKeys("Krishna Shankar");
 		  AddGuestDialogBoxInsideSellProductElements.GetSearchButton(driver).click();		  

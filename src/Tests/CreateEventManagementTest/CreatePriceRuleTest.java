@@ -51,7 +51,8 @@ public static String priceRuleName="";
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownList(driver, "Add Price Rule").click();
 			Thread.sleep(2000);
 			
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			Thread.sleep(2000);
 			
 			 priceRuleName = "Deposit_"+System.currentTimeMillis();

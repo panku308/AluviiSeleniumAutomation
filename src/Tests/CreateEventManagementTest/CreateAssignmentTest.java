@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -40,7 +41,8 @@ public static String AssignmentName="";
 			EventManagementPageElements.getAssignmentsSelectOptionDropdownList(driver, "Add Assignment").click();
 			Thread.sleep(2000);
 			
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			Thread.sleep(2000);
 			
 			AssignmentName="TestAssignment_"+System.currentTimeMillis();

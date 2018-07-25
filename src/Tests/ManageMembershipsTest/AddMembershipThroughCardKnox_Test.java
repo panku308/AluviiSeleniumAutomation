@@ -41,7 +41,7 @@ public class AddMembershipThroughCardKnox_Test {
 			  
 			  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));			  
 			  System.out.println("iframe length = " + iframeElements.size());			  
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 			  
 			  AddMembershipDialogBoxElements.GetStaticPassLink(driver).click();
 			  Thread.sleep(2000);
@@ -49,11 +49,10 @@ public class AddMembershipThroughCardKnox_Test {
 			  Thread.sleep(5000);
 			  driver.switchTo().defaultContent();
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
-			  Thread.sleep(2000);
-			  
-			  driver.switchTo().frame(0);		
+			  Thread.sleep(2000);			  
+			  CommonFunctions.SwitchToContentFrame(driver);		
 			  PaymentTransactionType.PaymentThroughCardKnox(driver);
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 			  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();

@@ -154,6 +154,10 @@ public class CommonFunctions {
 		  System.out.println("iframe length = " + iframeElements1.size());
 		  driver.switchTo().frame(0);
 	}
+	public static void SwitchToContentFrame(WebDriver driver)
+	{
+		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
+	}
 	
 	public static void filterTable(WebDriver driver,String input) throws InterruptedException {
 

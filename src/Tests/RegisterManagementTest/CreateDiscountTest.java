@@ -58,7 +58,7 @@ public class CreateDiscountTest extends TestSetup {
 			String discountRuleName="TestDiscountRule_"+System.currentTimeMillis();
 			String externalDescription="TestDescription_"+System.currentTimeMillis();
 			
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			AddDiscountRuleDialogBoxElements.getDiscountRuleName(driver).sendKeys(discountRuleName);
 			Thread.sleep(2000);
@@ -115,7 +115,7 @@ public class CreateDiscountTest extends TestSetup {
 			String discountPackageName="TestDiscountPackage_"+System.currentTimeMillis();
 			String packageDescription="TestPackageDescription_"+System.currentTimeMillis();
 			
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			
 			Thread.sleep(2000);
 			AddDiscountPackageDialogBoxElements.getDiscountPackageName(driver).sendKeys(discountPackageName);
@@ -138,7 +138,7 @@ public class CreateDiscountTest extends TestSetup {
 			AddDiscountPackageDialogBoxElements.GetAddButton(driver).click();
 			Thread.sleep(3000);
 			
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			
 			Thread.sleep(2000);
 			AddDiscountPackageDialogBoxElements.getColumn_DiscountRuleName(driver).click();
@@ -150,7 +150,7 @@ public class CreateDiscountTest extends TestSetup {
 			Thread.sleep(2000);
 			driver.switchTo().defaultContent();
 			Thread.sleep(2000);
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			
 			AddDiscountPackageDialogBoxElements.GetSaveChangesButton(driver).click();
@@ -171,7 +171,7 @@ public class CreateDiscountTest extends TestSetup {
 			Thread.sleep(2000);
 			RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Manage Discount Codes").click();
 			Thread.sleep(2000);
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			
 			String discountCode="Code"+System.currentTimeMillis();

@@ -39,7 +39,7 @@ public class CreateTicketGroupTest {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Ticket Group").click();
 		  Thread.sleep(5000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddTicketGroupDialogBoxElements.GetTicketGroupName(driver).sendKeys(TicketGroupName);
 		  
 		  driver.switchTo().frame(AddTicketGroupDialogBoxElements.GetInternalDescription((driver))); 

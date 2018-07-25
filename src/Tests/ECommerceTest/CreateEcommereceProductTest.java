@@ -48,7 +48,7 @@ public class CreateEcommereceProductTest {
 		  Thread.sleep(2000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Product").click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  
 		  AddProduct_Ecommerce_DialogboxElements.GetProductName(driver).sendKeys(EcommerceProductName);
 		  
@@ -92,7 +92,7 @@ public class CreateEcommereceProductTest {
 		  Thread.sleep(5000);
 		  List<WebElement> frametag = driver.findElements(By.tagName("iframe"));
 		  System.out.println("frame tag = " + frametag.size());
-		  driver.switchTo().frame(1);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSelectfilesButton(driver));
 		  Thread.sleep(3000);
 		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");
@@ -101,7 +101,7 @@ public class CreateEcommereceProductTest {
 		  
 		  AddProduct_Ecommerce_DialogboxElements.GetEcommerceProductThumbnailUploadButton(driver).click();		  
 		  Thread.sleep(5000);
-		  driver.switchTo().frame(1);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSelectfilesButton(driver));
 		  Thread.sleep(3000);
 		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");

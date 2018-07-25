@@ -39,7 +39,7 @@ public class CreateProductModifier {
 		 Thread.sleep(3000);
 		 RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Modifier").click();
 		 Thread.sleep(3000);
-		 driver.switchTo().frame(0);
+		 CommonFunctions.SwitchToContentFrame(driver);
 		 AddModifierDialogBoxElements.GetModifierName(driver).sendKeys(ModifierName);
 		 AddModifierDialogBoxElements.GetModifierTypeDD(driver).click();
 		 Thread.sleep(3000);

@@ -42,7 +42,7 @@ public class SellProductWithModifier_Cash_Test {
 		  Thread.sleep(5000);
 		  CashierRegisterPageElements.GetCategoryProductElement(driver, CreateProductTest.ProductName).click();
 		  Thread.sleep(2000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  ProductModifierInsideCashierRegisterElements.GetModifierButton(driver, CreateProductModifier.ModifierValue[0]).click();
 		  Thread.sleep(2000);
 		  ProductModifierInsideCashierRegisterElements.GetAddButton(driver).click();
@@ -56,10 +56,10 @@ public class SellProductWithModifier_Cash_Test {
 		  Thread.sleep(5000);
 		  CashierRegisterPageElements.GetPayButton(driver).click();
 		  Thread.sleep(5000);		  	  
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  
 		  PaymentTransactionType.PaymentThroughCash(driver);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();	

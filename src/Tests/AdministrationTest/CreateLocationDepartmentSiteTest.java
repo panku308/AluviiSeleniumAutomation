@@ -2,6 +2,7 @@ package Tests.AdministrationTest;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -35,7 +36,8 @@ public class CreateLocationDepartmentSiteTest {
 		AdministrationDashboardPageElements.getLocationSelectOptionDropdownList(driver, "Add Location").click();
 		
 		Thread.sleep(5000);
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
+		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 		Thread.sleep(2000);
 		
 		String LocationName="TestLocation"+System.currentTimeMillis();
@@ -91,7 +93,8 @@ public class CreateLocationDepartmentSiteTest {
 		AdministrationDashboardPageElements.getDepartmentSelectOptionDropdownList(driver, "Add Department").click();
 		
 		Thread.sleep(5000);
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
+		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 		Thread.sleep(2000);
 		
 		String DepartmentName="TestDepartment"+System.currentTimeMillis();
@@ -139,7 +142,8 @@ public class CreateLocationDepartmentSiteTest {
 		AdministrationDashboardPageElements.getSiteSelectOptionDropdownList(driver, "Add Site").click();
 		
 		Thread.sleep(5000);
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
+		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 		Thread.sleep(2000);
 		
 		String SiteName="TestSite"+System.currentTimeMillis();

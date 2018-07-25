@@ -52,9 +52,9 @@ public class AddStoredValueIntoMember_Cash_Test {
 			  driver.switchTo().defaultContent();
 			  ManageMembershipsPageElements.GetCheckoutTab_PaymentButton(driver).click();
 			  Thread.sleep(5000);
-			  driver.switchTo().frame(0);		
+			  CommonFunctions.SwitchToContentFrame(driver);		
 			 PaymentTransactionType.PaymentThroughCash(driver);
-			 driver.switchTo().frame(0);
+			 CommonFunctions.SwitchToContentFrame(driver);
 			 ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 			  assertTrue(true);
 			  driver.switchTo().defaultContent();

@@ -44,7 +44,7 @@ public class CreateCategoryTest {
 		  Thread.sleep(3000);
 		  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
 		  System.out.println("iframe length = " + iframeElements.size());
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  
 		  AddCategoryDialogBoxElements.GetCategoryNameField(driver).sendKeys(CategoryName);
 		  AddCategoryDialogBoxElements.GetCategoryDescField(driver).sendKeys("categorydescription_"+System.currentTimeMillis());
