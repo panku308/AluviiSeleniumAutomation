@@ -37,10 +37,10 @@ public class AssignModifierToProduct {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Assign Modifiers").click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AssignProductModifiersDialogBoxElements.GetAddModifierToProductElement(driver).click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  
 		  CommonFunctions.ScrollUptoElement(driver, AddModifierDialogBoxInsideAssignProductModifer.GetLastPageButton(driver));
 		  Thread.sleep(2000);

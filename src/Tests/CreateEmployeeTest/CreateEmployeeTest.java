@@ -39,7 +39,8 @@ public class CreateEmployeeTest extends TestSetup{
 
 		List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
 		//System.out.println("iframe length = " + iframeElements.size());
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
+		CommonFunctions.SwitchToContentFrame(driver);
 
 		String emailToBeRegistered="TestEmail"+System.currentTimeMillis()+"@aluvii.com";
 		//System.out.println(emailToBeRegistered);
@@ -74,7 +75,8 @@ public class CreateEmployeeTest extends TestSetup{
 
 		Thread.sleep(2000);
 
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
+		CommonFunctions.SwitchToContentFrame(driver);
 		EditEmployeeDialogBox.getLoginActivityMenuLink(driver).click();
 		driver.switchTo().defaultContent();
 		Thread.sleep(2000);
@@ -84,11 +86,13 @@ public class CreateEmployeeTest extends TestSetup{
 		do
 		{
 
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			EditEmployeeDialogBox.getAddLoginActivityButton(driver).click();
 			Thread.sleep(2000);
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
 			Thread.sleep(2000);
@@ -123,7 +127,7 @@ public class CreateEmployeeTest extends TestSetup{
 		driver.switchTo().defaultContent();
 		Thread.sleep(2000);
 
-		driver.switchTo().frame(0);
+		CommonFunctions.SwitchToContentFrame(driver);
 		Thread.sleep(2000);
 
 		EditEmployeeDialogBox.getSetPasswordMenuLink(driver).click();

@@ -52,11 +52,11 @@ public class SellProduct_CreditCard_Test {
 		  CashierRegisterPageElements.GetPayButton(driver).click();
 		  Thread.sleep(2000);
 		  
-		  driver.switchTo().frame(0);		
+		  CommonFunctions.SwitchToContentFrame(driver);		
 		  
 		  PaymentTransactionType.PaymentThroughCreditCard(driver);
 		  //PaymentTransactionType.PaymentThroughCardKnox(driver);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  
 		  assertTrue(true);

@@ -37,7 +37,7 @@ public class EditProduct_WithTicketTypeAndTemplate_Test {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Edit Product").click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddProductDialogBoxElements.GetTicketTab(driver).click();
 		  Thread.sleep(2000);
 		  AddProductDialogBoxElements.GetTicketTab_IsATicketCheckbox(driver).click();

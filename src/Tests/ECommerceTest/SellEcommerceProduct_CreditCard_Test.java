@@ -75,14 +75,14 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  Thread.sleep(2000);
 		  WebsiteOpenPageElements.GetGuestCheckOutButton(driver).click();
 		  Thread.sleep(10000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  WebsiteOpenPageElements.GetGuestFirstnameField(driver).sendKeys("fname");
 		  WebsiteOpenPageElements.GetGuestLastNameField(driver).sendKeys("lname");
 		  WebsiteOpenPageElements.GetGuestEmailField(driver).sendKeys("Email"+System.currentTimeMillis()+"@gmail.com");
 		  WebsiteOpenPageElements.GetGuestContinueButton(driver).click();
 		  Thread.sleep(30000);
 		  TransactionID = CardKnoxDialogBox_OpenWebsite_Elements.GetTransactionID(driver);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 
 		  PaymentTransactionType.PaymentThroughCreditCard(driver);
 		  Thread.sleep(10000); 

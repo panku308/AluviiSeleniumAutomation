@@ -43,7 +43,7 @@ public class CreateTicketTemplateTest {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Ticket Template").click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddTicketTemplateDialog.GetTicketTemplateNameField(driver).sendKeys(TicketTemplateName);
 		  AddTicketTemplateDialog.GetPrintFormatDD(driver).click();
 		  Thread.sleep(2000);

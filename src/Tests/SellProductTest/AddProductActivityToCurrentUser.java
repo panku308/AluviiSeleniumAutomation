@@ -41,14 +41,14 @@ public class AddProductActivityToCurrentUser {
 
 			Thread.sleep(5000);
 
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			EditEmployeeDialogBox.getLoginActivityMenuLink(driver).click();
 			Thread.sleep(5000);
 			EditEmployeeDialogBox.getAddLoginActivityButton(driver).click();
 
 			Thread.sleep(4000);
 
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
 			Thread.sleep(2000);
 			AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterTest.LoginActivity).click();

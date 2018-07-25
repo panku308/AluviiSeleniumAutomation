@@ -32,6 +32,9 @@ public class ChangeCardProcessorToKnox {
 		AdministrationDashboardPageElements.GetConfigTab_GatewayActionURLField(driver).sendKeys("https://x1.cardknox.com/gateway");
 		AdministrationDashboardPageElements.GetConfigTab_GatewayOnlineKeyField(driver).clear();
 		AdministrationDashboardPageElements.GetConfigTab_GatewayOnlineKeyField(driver).sendKeys("AluviiDev_Test");
+		Thread.sleep(2000);
+		CommonFunctions.ScrollUptoElement(driver, AdministrationDashboardPageElements.GetConfigTab_SaveChangesButton(driver));
+		Thread.sleep(2000);
 		AdministrationDashboardPageElements.GetConfigTab_SaveChangesButton(driver).click();
 		Thread.sleep(5000);
 		

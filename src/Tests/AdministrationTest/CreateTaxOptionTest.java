@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import GlobalFiles.CommonFunctions;
@@ -33,7 +34,8 @@ public class CreateTaxOptionTest extends TestSetup{
 		AdministrationDashboardPageElements.getTaxSelectOptionDropdownList(driver, "Add Tax Option").click();
 		
 		Thread.sleep(2000);
-		driver.switchTo().frame(0);
+		//driver.switchTo().frame(0);
+		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 		Thread.sleep(2000);
 		
 		TaxOptionName="TestTax"+System.currentTimeMillis();

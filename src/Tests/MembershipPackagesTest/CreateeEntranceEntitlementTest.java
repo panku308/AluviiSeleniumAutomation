@@ -41,7 +41,8 @@ public class CreateeEntranceEntitlementTest {
 		  Thread.sleep(2000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Entrance Entitlement").click();
 		  Thread.sleep(8000);
-		  driver.switchTo().frame(0);
+		  //driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddEntranceEntitlementDialogBoxElements.GetEntitlementName(driver).sendKeys(EntranceEntitlement);
 		  AddEntranceEntitlementDialogBoxElements.GetLocationDD(driver).click();
 		  Thread.sleep(2000);

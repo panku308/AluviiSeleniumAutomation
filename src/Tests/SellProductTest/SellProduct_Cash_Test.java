@@ -50,9 +50,9 @@ public class SellProduct_Cash_Test {
 		  Thread.sleep(2000);
 		  CashierRegisterPageElements.GetPayButton(driver).click();
 		  Thread.sleep(2000);		  	  
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  PaymentTransactionType.PaymentThroughCash(driver);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();

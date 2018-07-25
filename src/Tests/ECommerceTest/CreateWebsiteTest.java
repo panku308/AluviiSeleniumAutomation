@@ -46,7 +46,7 @@ public class CreateWebsiteTest {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Website").click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddWebsiteDialogBoxElements.GetWebSiteNameField(driver).sendKeys(WebsiteName);
 		  AddWebsiteDialogBoxElements.GetShowCategoriesCheckbox(driver).click();
 		  AddWebsiteDialogBoxElements.GetSourceWebsiteURLField(driver).sendKeys("https://aluvii.com");

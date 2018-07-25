@@ -40,7 +40,7 @@ public class CreateEcommerceCategoryTest {
 		  Thread.sleep(2000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Category").click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetCategoryName(driver).sendKeys(EcommerceCategoryName);
 		  AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetWebsiteDD(driver).click();
 		  Thread.sleep(2000);
@@ -49,7 +49,7 @@ public class CreateEcommerceCategoryTest {
 		  
 		  AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetUploadButton(driver).click();
 		  Thread.sleep(5000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetSelectfilesButton(driver));
 		  
 		  Thread.sleep(3000);

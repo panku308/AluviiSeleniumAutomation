@@ -49,7 +49,7 @@ public class CreateProductTest {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Product").click();
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		
 		  AddProductDialogBoxElements.GetProductName(driver).sendKeys(ProductName);
 		  

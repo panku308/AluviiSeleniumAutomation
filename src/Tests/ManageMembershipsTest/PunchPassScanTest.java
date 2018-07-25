@@ -37,7 +37,7 @@ public class PunchPassScanTest {
 			  Thread.sleep(2000);
 			  ManageMembershipsPageElements.GetActionValidatOrScanOption(driver, 1).click();
 			  Thread.sleep(10000);
-			  driver.switchTo().frame(0);
+			  CommonFunctions.SwitchToContentFrame(driver);
 			  SelectEntitlementDialogboxInsideManageMembershipElements.GetEntitlementButton(driver).click();
 			  Thread.sleep(2000);
 			  SelectEntitlementDialogboxInsideManageMembershipElements.GetYesButton(driver).click();

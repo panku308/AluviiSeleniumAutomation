@@ -48,10 +48,10 @@ public class SellProductWithTicket_Cash {
 		  CashierRegisterPageElements.GetPayButton(driver).click();
 		  Thread.sleep(5000);		  	  
 		  TransactionID = PaymentTransactionDialogBoxElements.GetTransactionID(driver);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  PaymentTransactionType.PaymentThroughCash(driver);
 		  Thread.sleep(3000);
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();

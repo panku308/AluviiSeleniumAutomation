@@ -46,7 +46,7 @@ public class CreateMemberTest {
 		  Thread.sleep(10000);
 		  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
 		  System.out.println("iframe length = " + iframeElements.size());
-		  driver.switchTo().frame(0);
+		  CommonFunctions.SwitchToContentFrame(driver);
 		  CreateNewAccountDialogBoxElements.GetAccountNameField(driver).sendKeys("selenium" + System.currentTimeMillis());
 		  CreateNewAccountDialogBoxElements.GetPrimayEmailField(driver).sendKeys(EmailID);
 		  CreateNewAccountDialogBoxElements.GetPhoneNumberField(driver).sendKeys("8015566689");	
