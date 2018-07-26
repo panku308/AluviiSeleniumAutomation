@@ -53,8 +53,8 @@ public class CreateWebsiteTest {
 		  
 		  AddWebsiteDialogBoxElements.GetLocationDD(driver).click();
 		  Thread.sleep(2000);
-		  AddWebsiteDialogBoxElements.SelectFirstOptionFromLocationDD(driver);
-		 // AddWebsiteDialogBoxElements.SelectDynamicLocation(driver,CreateLocationDepartmentSiteTest.Location);
+		 // AddWebsiteDialogBoxElements.SelectFirstOptionFromLocationDD(driver);
+		  AddWebsiteDialogBoxElements.SelectDynamicLocation(driver,CreateLocationDepartmentSiteTest.Location);
 		  
 		  AddWebsiteDialogBoxElements.GetEmailRecTemplateDD(driver).click();
 		  Thread.sleep(2000);

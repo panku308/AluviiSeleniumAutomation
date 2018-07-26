@@ -60,7 +60,7 @@ public class CreateEcommereceProductTest {
 		  AddProduct_Ecommerce_DialogboxElements.GetSelectProductDD(driver).click();
 		  Thread.sleep(2000);
 		  CommonFunctions.SelectOptionFromDropdownList(driver, CreateProductTest.ProductName);
-		  //CommonFunctions.SelectOptionFromDropdownList(driver, "product1530522203642");
+		  //CommonFunctions.SelectOptionFromDropdownList(driver, "product1530583344369");
 		  Thread.sleep(2000);
 		  
 		  AddProduct_Ecommerce_DialogboxElements.GetWebsiteDD(driver).click();
@@ -103,15 +103,15 @@ public class CreateEcommereceProductTest {
 		  Thread.sleep(5000);
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSelectfilesButton(driver));
-		  Thread.sleep(3000);
+		  Thread.sleep(5000);
 		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");
 		  Thread.sleep(10000);
-		  driver.switchTo().parentFrame();
-		  
+		  driver.switchTo().parentFrame();	
+		  CommonFunctions.ScrollUptoElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSaveButton(driver));
+		  Thread.sleep(2000);
 		  AddProduct_Ecommerce_DialogboxElements.GetSaveButton(driver).click();
 		  Thread.sleep(10000);
 		  driver.switchTo().defaultContent();
-		  
 		  ECommerceDashboardPageElements.GetProductsTab_SubTab_Products_ProductNameColumnSettingsIcon(driver).click();
 		  Thread.sleep(2000);
 		  CommonFunctions.filterTable(driver, EcommerceProductName);
@@ -122,12 +122,13 @@ public class CreateEcommereceProductTest {
 	  
 	  public void VerifyEcommerceProductOnWebsite() throws InterruptedException
 	  {
+		  driver.navigate().refresh();
+		  Thread.sleep(5000);
 		  ECommerceDashboardPageElements.GetWebSiteTab(driver).click();
-		  Thread.sleep(2000);
+		  Thread.sleep(5000);
 		  ECommerceDashboardPageElements.GetWebsiteTab_WebsiteNameClolumnSettingIcon(driver).click();
-		  Thread.sleep(2000);
-		  CommonFunctions.filterTable(driver, CreateWebsiteTest.WebsiteName);
-		   
+		  Thread.sleep(5000);
+		  CommonFunctions.filterTable(driver, CreateWebsiteTest.WebsiteName);		   
 		  Thread.sleep(2000);
 		  ECommerceDashboardPageElements.GetWebsiteTab_FirstRowWebsiteNameColumn(driver).click();
 		  ECommerceDashboardPageElements.GetWebsiteTab_SelectOptionDD(driver).click();
@@ -135,18 +136,14 @@ public class CreateEcommereceProductTest {
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Open Website").click();
 		  Thread.sleep(10000);
 		  ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
-		  driver.switchTo().window(windowHandles.get(1));		  
-		  
+		  driver.switchTo().window(windowHandles.get(1));
 		  CommonFunctions.ActionBuilder_PerformMouseHoverEventOnElement(driver, WebsiteOpenPageElements.GetCategoriesDD(driver));
 		  Thread.sleep(2000);
-		  WebsiteOpenPageElements.SelectCategory(driver, CreateEcommerceCategoryTest.EcommerceCategoryName);
-		  
+		  WebsiteOpenPageElements.SelectCategory(driver, CreateEcommerceCategoryTest.EcommerceCategoryName);		  
 		  Thread.sleep(2000);
 		  assertEquals(WebsiteOpenPageElements.GetCaetgoryProduct(driver, EcommerceProductName).getText(), EcommerceProductName);
-		  
-		  
 		  driver.close();
 		  driver.switchTo().window(windowHandles.get(0));
-		  
 	  }
+	  
 }
