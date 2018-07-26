@@ -56,7 +56,8 @@ private static WebElement element = null;
 		String str = driver.findElement(By.xpath("//a[text() ='"+ProductName+"']")).getAttribute("href"); 
 		String str1 = str.substring(str.indexOf("productId"),str.length());
 		String str2 = str1.substring(str1.indexOf("=")+1,str1.length());
-		element = driver.findElement(By.xpath("//span[@data-product-id='16']"));
+		element = driver.findElement(By.xpath("//span[@data-product-id='"+str2+"']"));
+		
 				
 		return element;
 	}

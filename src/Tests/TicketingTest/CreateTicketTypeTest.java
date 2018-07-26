@@ -12,6 +12,7 @@ import ObjectRepository.AddTicketTypeDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.TicketingDashboardPageElements;
+import Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest;
 
 public class CreateTicketTypeTest {
 	public static WebDriver driver=null;
@@ -49,13 +50,15 @@ public class CreateTicketTypeTest {
 		  AddTicketTypeDialogBoxElements.GetNextButton(driver).click();
 		  Thread.sleep(5000);
 		  AddTicketTypeDialogBoxElements.GetCompositionOptionsDD(driver).click();
-		  
-		  
 		  Thread.sleep(2000);
 		  AddTicketTypeDialogBoxElements.SelectFirstOptionFromCompositionDD(driver);
 		  Thread.sleep(3000);
 		  CommonFunctions.SwitchToContentFrame(driver);
-		  AddEnteranceEntitlementDialogboxElements.GetStaticEnteranceEntitlementName(driver).click();
+		  AddEnteranceEntitlementDialogboxElements.GetEntranceEntitlementColumnSettingsIcon(driver).click();
+		  Thread.sleep(2000);
+		  CommonFunctions.filterTable(driver, CreateeEntranceEntitlementTest.EntranceEntitlement);
+		  Thread.sleep(2000);
+		  AddEnteranceEntitlementDialogboxElements.GetFirstRowEnteranceEntitlementName(driver).click();
 		  Thread.sleep(3000);
 		  driver.switchTo().parentFrame();
 		  AddTicketTypeDialogBoxElements.GetNextButton(driver).click();

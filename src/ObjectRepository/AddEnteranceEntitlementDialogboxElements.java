@@ -7,7 +7,13 @@ import org.openqa.selenium.WebElement;
 public class AddEnteranceEntitlementDialogboxElements {
 
 	private static WebElement element = null;
-	public static WebElement GetStaticEnteranceEntitlementName(WebDriver driver)
+	public static WebElement GetEntranceEntitlementColumnSettingsIcon(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='gridEntranceEntitlement']//th[@data-field='EntranceEntitlementName']/a[1]"));		
+		return element;
+	}
+	
+	public static WebElement GetFirstRowEnteranceEntitlementName(WebDriver driver)
 	{						
 		element =driver.findElement(By.xpath("//div[contains(@id, 'Entitlement')]//div[@class='k-grid-content']//table/tbody/tr[1]/td[1]/a"));		
 		return element;
