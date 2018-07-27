@@ -21,5 +21,16 @@ public class AddCategoryDialogboxInsideAddRegisterPageElements {
 	{
 		driver.findElement(By.xpath("//li[text()='"+category+"']")).click();
 	}
+	public static WebElement GetListOptionElement(WebDriver driver, String category)
+	{
+		element = driver.findElement(By.xpath("//li[text()='"+category+"']"));
+		return element;
+	}
+	public static WebElement GetWindowTitle(WebDriver driver)
+	{
+		element = driver.findElement(By.xpath("//span[.='Add Category']"));
+		return element;
+	}
+	
 
 }

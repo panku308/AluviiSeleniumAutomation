@@ -47,8 +47,6 @@ public class CreateRegisterTest {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Register").click();
 		  Thread.sleep(3000);
-		  List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
-		  System.out.println("iframe length = " + iframeElements.size());
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddRegisterDialogboxElements.GetRegisterNameField(driver).sendKeys(RegisterName);
 		  
@@ -75,12 +73,13 @@ public class CreateRegisterTest {
 		  AddRegisterDialogboxElements.SelectFirstOptionFromEmailConfigurationDD(driver);
 		  
 		  AddRegisterDialogboxElements.GetAddCategoryButton(driver).click();		  
-		  Thread.sleep(2000);
-		  List<WebElement> iframeElements1 = driver.findElements(By.tagName("iframe"));
-		  System.out.println("iframe length = " + iframeElements1.size());
+		  Thread.sleep(4000);
+		  CommonFunctions.ActionBuilder_PerformDoubleClickEventOnElement(driver, AddCategoryDialogboxInsideAddRegisterPageElements.GetWindowTitle(driver));		  
 		  CommonFunctions.SwitchToContentFrame(driver);
-		  
+		
 		  AddCategoryDialogboxInsideAddRegisterPageElements.GetCategoryDD(driver).click();
+		  Thread.sleep(4000);
+		  System.out.println("Category = " + CreateCategoryTest.CategoryName);
 		  Thread.sleep(2000);
 		  AddCategoryDialogboxInsideAddRegisterPageElements.SelectValueFromCategoryDD(driver, CreateCategoryTest.CategoryName);
 		  //AddCategoryDialogboxInsideAddRegisterPageElements.SelectValueFromCategoryDD(driver, "category_1532270092594");
@@ -91,8 +90,6 @@ public class CreateRegisterTest {
 		  AddRegisterDialogboxElements.GetAddProductButton(driver).click();
 		  Thread.sleep(2000);
 		  //CommonFunctions.MoveControToFrame(driver);
-		  iframeElements1 = driver.findElements(By.tagName("iframe"));
-		  System.out.println("iframe length = " + iframeElements1.size());
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
 		  Thread.sleep(2000);
@@ -123,6 +120,8 @@ public class CreateRegisterTest {
 			  driver.switchTo().parentFrame();
 			  System.out.println(e);
 		  }
+		  CommonFunctions.ScrollUptoElement(driver, AddRegisterDialogboxElements.GetSaveChangesButton(driver));
+		  Thread.sleep(2000);
 		  AddRegisterDialogboxElements.GetSaveChangesButton(driver).click();
 		  Thread.sleep(5000);
 		  driver.switchTo().defaultContent();
