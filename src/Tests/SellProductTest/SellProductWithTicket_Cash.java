@@ -37,16 +37,17 @@ public class SellProductWithTicket_Cash {
 		  RegisterListPageElements.GetLastPageButton(driver).click();
 		  Thread.sleep(5000);
 		  RegisterListPageElements.GetRegisterLink(driver, " "+CreateRegisterTest.RegisterName).click();
-		 // RegisterListPageElements.GetRegisterLink(driver, " "+"Register_1530895585416").click();
+		 // RegisterListPageElements.GetRegisterLink(driver, " "+"Register_1532613770670").click();
 		  Thread.sleep(5000);
 		  CashierRegisterPageElements.GetCategoryElement(driver, CreateCategoryTest.CategoryName).click();
-		  //CashierRegisterPageElements.GetCategoryElement(driver, "category_1530895456886").click();
+		 // CashierRegisterPageElements.GetCategoryElement(driver, "category_1532613595066").click();
 		  Thread.sleep(5000);
 		  CashierRegisterPageElements.GetCategoryProductElement(driver, CreateProductTest.ProductName).click();
-		  //CashierRegisterPageElements.GetCategoryProductElement(driver, "product1530895499408").click();
+		  //CashierRegisterPageElements.GetCategoryProductElement(driver, "product1532613651249").click();
 		  Thread.sleep(2000);
 		  CashierRegisterPageElements.GetPayButton(driver).click();
-		  Thread.sleep(5000);		  	  
+		  Thread.sleep(5000);		  	  		  
+		  
 		  TransactionID = PaymentTransactionDialogBoxElements.GetTransactionID(driver);
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  PaymentTransactionType.PaymentThroughCash(driver);

@@ -8,6 +8,8 @@ import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddProductDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
+import Tests.TicketingTest.CreateTicketTemplateTest;
+import Tests.TicketingTest.CreateTicketTypeTest;
 
 public class EditProduct_WithTicketTypeAndTemplate_Test {
 	
@@ -29,7 +31,7 @@ public class EditProduct_WithTicketTypeAndTemplate_Test {
 		  
 		  RegisterManagementDashboardPageElements.GetProductsTab_SubTab_Products_ProductNameColumnSettingsIcon(driver).click();
 		  Thread.sleep(3000);
-		  CommonFunctions.filterTable(driver, "product1530895499408");
+		  CommonFunctions.filterTable(driver, CreateProductTest.ProductName);
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.Get_ProductTable_FirstRowProductNameCloumn(driver).click();
 		  Thread.sleep(3000);
@@ -44,10 +46,10 @@ public class EditProduct_WithTicketTypeAndTemplate_Test {
 		  Thread.sleep(2000);
 		  AddProductDialogBoxElements.GetTicketTab_TicketTemplateDD(driver).click();
 		  Thread.sleep(2000);
-		  CommonFunctions.SelectOptionFromDropdownList(driver, "TicketTemplate-1530920045740");
+		  CommonFunctions.SelectOptionFromDropdownList(driver, CreateTicketTemplateTest.TicketTemplateName);
 		  AddProductDialogBoxElements.GetTicketTab_TicketTypeDD(driver).click();
 		  Thread.sleep(2000);
-		  CommonFunctions.SelectOptionFromDropdownList(driver, "TicketType-1530879540217");
+		  CommonFunctions.SelectOptionFromDropdownList(driver, CreateTicketTypeTest.TicketTypeName);
 		  AddProductDialogBoxElements.GetSaveButton(driver).click();
 		  Thread.sleep(5000);
 		  driver.switchTo().defaultContent();

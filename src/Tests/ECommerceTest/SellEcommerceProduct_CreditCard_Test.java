@@ -61,18 +61,18 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  Thread.sleep(2000);
 		  WebsiteOpenPageElements.SelectCategory(driver, CreateEcommerceCategoryTest.EcommerceCategoryName);
 		 // WebsiteOpenPageElements.SelectCategory(driver, "category-1530931970396");
-		  Thread.sleep(2000);
+		  Thread.sleep(5000);
 		  WebsiteOpenPageElements.GetCaetgoryProductAddToCartButton(driver, CreateEcommereceProductTest.EcommerceProductName).click();
 		//  WebsiteOpenPageElements.GetCaetgoryProductAddToCartButton(driver, "1531114700645").click();
-		  Thread.sleep(2000);
+		  Thread.sleep(5000);
 		  WebsiteOpenPageElements.GetMiniCartCheckoutButton(driver).click();
 		  Thread.sleep(10000);
 		  WebsiteOpenPageElements.GetQuantityField(driver).clear();
 		  WebsiteOpenPageElements.GetQuantityField(driver).sendKeys(String.valueOf(CommonFunctions.ECommereceProductQuantity));
-		  Thread.sleep(2000);
+		  Thread.sleep(5000);
 		  WebsiteOpenPageElements.GetMiniCartCheckoutButton(driver).click();
 		  
-		  Thread.sleep(2000);
+		  Thread.sleep(5000);
 		  WebsiteOpenPageElements.GetGuestCheckOutButton(driver).click();
 		  Thread.sleep(10000);
 		  CommonFunctions.SwitchToContentFrame(driver);

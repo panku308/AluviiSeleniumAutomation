@@ -193,6 +193,18 @@ public class CommonFunctions {
 		Actions actions = new Actions(driver);
 		 actions.moveToElement(element);
 		 actions.click();
+		 
+		 actions.build().perform();		 
+		 
+	
+	}
+	public static void ActionBuilder_PerformDoubleClickEventOnElement(WebDriver driver, WebElement element) throws InterruptedException
+	{
+		
+		Actions actions = new Actions(driver);
+		 actions.moveToElement(element);
+		 actions.doubleClick();
+		 
 		 actions.build().perform();		 
 		 
 	
