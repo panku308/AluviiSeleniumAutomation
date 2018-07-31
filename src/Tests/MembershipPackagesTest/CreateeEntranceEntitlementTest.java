@@ -71,5 +71,8 @@ public class CreateeEntranceEntitlementTest {
 		  MembershipPackagesPageElements.GetEntranceEntitlementTab_EntrnaceEntitlementIDColumn(driver).click();
 		  Thread.sleep(5000);
 		  assertEquals(MembershipPackagesPageElements.GetEntranceEntitlementTab_FirstRowNameColumn(driver).getText().trim(), EntranceEntitlement);
+	 
+		  CommonFunctions.map.put("Entrance_Entitlement", EntranceEntitlement);
+	  
 	  }
 }
