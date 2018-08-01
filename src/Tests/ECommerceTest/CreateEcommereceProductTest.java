@@ -95,7 +95,7 @@ public class CreateEcommereceProductTest {
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSelectfilesButton(driver));
 		  Thread.sleep(3000);
-		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");
+		  CommonFunctions.UploadFile(System.getProperty("user.dir") + "\\resources\\index.jpg");
 		  Thread.sleep(10000);
 		  driver.switchTo().parentFrame();
 		  
@@ -104,7 +104,7 @@ public class CreateEcommereceProductTest {
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSelectfilesButton(driver));
 		  Thread.sleep(5000);
-		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");
+		  CommonFunctions.UploadFile(System.getProperty("user.dir") + "\\resources\\index.jpg");
 		  Thread.sleep(10000);
 		  driver.switchTo().parentFrame();	
 		  CommonFunctions.ScrollUptoElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSaveButton(driver));

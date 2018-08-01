@@ -104,7 +104,7 @@ public static String SignWaiverEmailID="";
 		  int l_ChildOrAdultCount = ChildOrAdultCount;
 		  int WaiverBirthYear = 0,  WaiverBirtMonth=0,  WaiverBirthDate=0;		  
 		  Date d = new Date();
-		  WaiverBirtMonth = d.getMonth();
+		  WaiverBirtMonth = d.getMonth()+1;
 		  WaiverBirthDate = d.getDate();
 		if(WaiverCount==(AdultParentOrChildCount+ChildOrAdultCount) && AdultParentOrChildCount>=0)
 		{
