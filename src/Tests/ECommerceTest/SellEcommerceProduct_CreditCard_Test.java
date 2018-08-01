@@ -88,9 +88,9 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  Thread.sleep(10000); 
 		 
 		  assertEquals(WebsiteOpenPageElements.GetPaymentSuccessMessage(driver).getText().trim(), "Congrats! Your payment has completed successfully.");
-		  
-		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded("C:\\Users\\DELL\\Downloads", GetFileName()),true);
-		  assertEquals(VerifyFileIsDownloaded.getNumberOfPagesFromPDFFile("C:\\Users\\DELL\\Downloads\\"+GetFileName()), CommonFunctions.ECommereceProductQuantity);
+		  String downloadPath = System.getProperty("user.home")+"\\Downloads";
+		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded(downloadPath, GetFileName()),true);
+		  assertEquals(VerifyFileIsDownloaded.getNumberOfPagesFromPDFFile(downloadPath+GetFileName()), CommonFunctions.ECommereceProductQuantity);
 		  driver.close();
 		  driver.switchTo().window(windowHandles.get(0));
 		  

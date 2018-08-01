@@ -53,7 +53,7 @@ public class CreateEcommerceCategoryTest {
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetSelectfilesButton(driver));
 		  
 		  Thread.sleep(3000);
-		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");
+		  CommonFunctions.UploadFile(System.getProperty("user.dir") + "\\resources\\index.jpg");
 		  Thread.sleep(30000);
 		  driver.switchTo().parentFrame();
 		  AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetSaveButton(driver).click();

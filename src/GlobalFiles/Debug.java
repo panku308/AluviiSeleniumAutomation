@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import ObjectRepository.AddCategoryDialogBoxInsideEcommerceProductsTabElements;
 import ObjectRepository.AddModifierDialogBoxElements;
 import ObjectRepository.AddModifierDialogBoxInsideAssignProductModifer;
 import ObjectRepository.AddProductDialogBoxElements;
@@ -24,6 +25,7 @@ import ObjectRepository.AssignProductModifiersDialogBoxElements;
 import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
+import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.ProductModifierInsideCashierRegisterElements;
 import ObjectRepository.RegisterListPageElements;
@@ -38,9 +40,33 @@ public class Debug {
 	public static WebDriver driver=null;
 	public static String ModifierName="";
 	public static void main(String[] args) throws Exception {
+		String home = System.getProperty("user.home");
+		System.out.println(home);
 		  driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		  Thread.sleep(5000);
+		  CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
+		  Thread.sleep(5000);
+		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetEcommerceLink(driver));
+		  Thread.sleep(2000);
+		  DashboardPageElements.GetEcommerceLink(driver).click();
+		  Thread.sleep(5000);
+		  ECommerceDashboardPageElements.GetProductsTab(driver).click();
+		  Thread.sleep(2000);
+		  ECommerceDashboardPageElements.GetProductsTab_SubTab_Categories(driver).click();
+		  Thread.sleep(3000);
+		  ECommerceDashboardPageElements.GetProductsTab_SubTab_Categories_SelectOptionDD(driver).click();
+		  Thread.sleep(2000);
+		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Category").click();
+		  Thread.sleep(3000);
+		  CommonFunctions.SwitchToContentFrame(driver);
+		  AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetUploadButton(driver).click();
+		  Thread.sleep(5000);
+		  CommonFunctions.SwitchToContentFrame(driver);
+		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetSelectfilesButton(driver));
 		  
+		  Thread.sleep(3000);
+		  CommonFunctions.UploadFile(System.getProperty("user.dir") + "\\resources\\index.jpg");
+		  Thread.sleep(30000);
 		
 		 
 		String str = "Exp 10 Left";

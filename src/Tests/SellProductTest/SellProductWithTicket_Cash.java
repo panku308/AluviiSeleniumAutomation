@@ -57,7 +57,8 @@ public class SellProductWithTicket_Cash {
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();
 		  Thread.sleep(10000);
-		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded("C:\\Users\\DELL\\Downloads", GetFileName()),true);
+		  String downloadPath = System.getProperty("user.home")+"\\Downloads";
+		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded(downloadPath, GetFileName()),true);
 		  
 		  
 	  }
