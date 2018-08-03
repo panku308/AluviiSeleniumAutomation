@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<suite-files>
+    <suite-file path="TestSuites\\Suite1\\commonTestForSuit1.xml"></suite-file>
+     <suite-file path="TestSuites\\Suite1\\AddMembershipTests.xml"></suite-file>  
+     <suite-file path="TestSuites\\Suite1\\CreateAndSellProduct.xml"></suite-file>
+     <suite-file path="TestSuites\\Suite1\\CreateTicketType_SellProductWithTicket_EcommerceTest.xml"></suite-file>
+     <suite-file path="TestSuites\\Suite1\\SellProductWithModifier.xml"></suite-file>
+    <suite-file path="TestSuites\\Suite1\\WaiverTest.xml"></suite-file>     
+</suite-files>
+
+</suite> <!-- Suite -->
