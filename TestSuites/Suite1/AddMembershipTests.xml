@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Add Membership">
+	<test name="Add Membership_Cash">
+		<classes>
+			<class name="Tests.ManageMembershipsTest.AddMembershipThroughCash_Test"/>			
+		</classes>
+	</test>
+	
+	<test name="Add Membership_PrepaidCoupon">
+		<classes>
+			<class name="Tests.ManageMembershipsTest.AddMembershipThroughPrepaidCoupon_Test"/>
+				
+		</classes>
+	</test>
+	
+	<test name="Add Membership_StroedValue">
+		<classes>
+		
+			<class name="Tests.ManageMembershipsTest.AddMembershipThroughStoredValue_Test"/>
+			 
+	
+		</classes>
+	</test> 
+	<test name="Add Membership_CardKnox">
+		<classes>
+			<class name="Tests.AdministrationTest.ChangeCardProcessorToKnox"/>
+			<class name="Tests.ManageMembershipsTest.AddMembershipThroughCardKnox_Test"/>
+						
+		</classes>
+	</test>
+	<test name="Add Membership_CreditCard">
+		<classes>
+			<class name="Tests.AdministrationTest.ChangeCardProcessorToUSAePayTest"/>
+			<class name="Tests.ManageMembershipsTest.AddMembershipThroughCreditCard_Test"/>
+					
+		</classes>
+	</test> 
+		
+	<!-- Need to uncomment this once scan related code finalize and we create register before this. 
+	<test name="Manage Membership Test">
+		<classes>
+			
+		
+			Unable to test until we create register.
+		 	<class name="Tests.SellProductTest.SellGiftCard_Cash_Test"/>
+			<class name="Tests.ManageMembershipsTest.AddMembershipThroughGiftCard_Test"/>
+			
+			 
+			 <class name="Tests.ManageMembershipsTest.PunchPassScanTest"/>
+			Need to figure out how to test punch scan "PunchPassScanTest" (We can increase the number of scan per day)
+				
+		</classes>
+	</test> -->
+ 	 
+	
+
+</suite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Add Waiver and verify waiver">
+
+	<test name="Waiver Test">
+		<classes>
+			<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestToSign"/>
+			<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestOverMinAgeTest"/>
+			<class name="Tests.WaiverTest.AddWaiver_OnlyOneGuestTest"/>
+		</classes>
+	</test>
+</suite>
