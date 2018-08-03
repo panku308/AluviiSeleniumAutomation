@@ -25,6 +25,7 @@ private static WebElement element = null;
 		element =driver.findElement(By.linkText("Access Control"));
 		return element;
 	}
+	
 	public static WebElement GetMembershipPackagesLink(WebDriver driver)
 	{
 		element =driver.findElement(By.linkText("Membership Packages"));
