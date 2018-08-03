@@ -11,6 +11,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -19,7 +20,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.TicketingDashboardPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateTicketTemplateTest {
 	public static WebDriver driver=null;
 	  public static String actualResult="";

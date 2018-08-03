@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -13,7 +14,7 @@ import ObjectRepository.AddTicketTemplateDialog;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.TicketingDashboardPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateTicketTemplate_BOCA_Test {
 	public static WebDriver driver=null;
 	  public static String actualResult="";

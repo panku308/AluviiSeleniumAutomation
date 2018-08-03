@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -14,7 +15,7 @@ import ObjectRepository.AccessControlPageElements;
 import ObjectRepository.DashboardPageElements;
 import Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest;
 import org.openqa.selenium.WebElement;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class ScanAndVerifyBarcode {
 	public static WebDriver driver=null;
 	public static String ExpResult="Sorry, but your Ticket is not valid at current Entrance.",ActResult="";

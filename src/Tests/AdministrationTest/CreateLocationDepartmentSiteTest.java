@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -15,7 +16,7 @@ import ObjectRepository.AddSiteDialogBoxElements;
 import ObjectRepository.AdministrationDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
 import util.DriverManager;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateLocationDepartmentSiteTest {
 	public static String Location="", Department="", Site="";
 	
