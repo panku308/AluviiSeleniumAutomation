@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Create Ticket and Sell product with ticket">
+
+ 	<test name="Create Ticket Type template and group">
+		<classes>
+				<class name="Tests.TicketingTest.CreateTicketTemplate_BOCA_Test"/>
+				<class name="Tests.TicketingTest.CreateTicketTemplate_TSC_Test"/>
+				<class name="Tests.TicketingTest.CreateTicketTemplateTest"/>
+				<class name="Tests.TicketingTest.CreateTicketTypeTest"/>				
+				<class name="Tests.TicketingTest.CreateTicketGroupTest"/>
+	
+		</classes>
+	</test> 
+	
+	<test name="Sell product with ticket">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateCategoryTest"/>
+			<class name="Tests.RegisterManagementTest.CreateProductTest"/>
+			<class name="Tests.RegisterManagementTest.CreateRegisterTest"/>
+			<class name="Tests.HRManagementTest.AddProductActivityToCurrentUser"/>
+			<class name="Tests.RegisterManagementTest.EditProduct_WithTicketTypeAndTemplate_Test"/>
+			<class name="Tests.SellProductTest.SellProductWithTicket_Cash"/>
+	
+		</classes>
+	</test>
+	<test name="Ecommerce Test">
+		<classes>
+				<class name="Tests.ECommerceTest.CreateWebsiteTest"/>
+				<class name="Tests.ECommerceTest.CreateEcommerceCategoryTest"/>
+				<class name="Tests.ECommerceTest.CreateEcommereceProductTest"/>
+				<class name="Tests.AdministrationTest.ChangeCardProcessorToKnox"/>
+				<class name="Tests.ECommerceTest.SellEcommerceProduct_CardKnox_Test"/>
+				<class name="Tests.AdministrationTest.ChangeCardProcessorToUSAePayTest"/>
+				<class name="Tests.ECommerceTest.SellEcommerceProduct_CreditCard_Test"/>
+		</classes>
+	</test>
+	 
+</suite>
