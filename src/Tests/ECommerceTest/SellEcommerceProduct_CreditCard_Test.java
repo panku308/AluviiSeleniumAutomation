@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.gargoylesoftware.htmlunit.javascript.host.payment.PaymentRequest;
@@ -23,7 +24,7 @@ import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
 import Tests.RegisterManagementTest.CreateProductTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellEcommerceProduct_CreditCard_Test {
 	
 	public static WebDriver driver=null;
@@ -88,9 +89,9 @@ public class SellEcommerceProduct_CreditCard_Test {
 		  Thread.sleep(10000); 
 		 
 		  assertEquals(WebsiteOpenPageElements.GetPaymentSuccessMessage(driver).getText().trim(), "Congrats! Your payment has completed successfully.");
-		  
-		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded("C:\\Users\\DELL\\Downloads", GetFileName()),true);
-		  assertEquals(VerifyFileIsDownloaded.getNumberOfPagesFromPDFFile("C:\\Users\\DELL\\Downloads\\"+GetFileName()), CommonFunctions.ECommereceProductQuantity);
+		  String downloadPath = System.getProperty("user.home")+"\\Downloads";
+		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded(downloadPath, GetFileName()),true);
+		  assertEquals(VerifyFileIsDownloaded.getNumberOfPagesFromPDFFile(downloadPath+"\\"+GetFileName()), CommonFunctions.ECommereceProductQuantity);
 		  driver.close();
 		  driver.switchTo().window(windowHandles.get(0));
 		  

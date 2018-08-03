@@ -4,11 +4,12 @@ import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.ManageMembershipsPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class VerifyMembershipPackage {
 	
 	 public static WebDriver driver=null;

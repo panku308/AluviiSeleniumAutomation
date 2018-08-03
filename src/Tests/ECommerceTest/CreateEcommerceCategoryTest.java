@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -14,7 +15,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateEcommerceCategoryTest {
 	  public static WebDriver driver=null;
 	  public static String actualResult="";
@@ -53,7 +54,7 @@ public class CreateEcommerceCategoryTest {
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetSelectfilesButton(driver));
 		  
 		  Thread.sleep(3000);
-		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");
+		  CommonFunctions.UploadFile(System.getProperty("user.dir") + "\\resources\\index.jpg");
 		  Thread.sleep(30000);
 		  driver.switchTo().parentFrame();
 		  AddCategoryDialogBoxInsideEcommerceProductsTabElements.GetSaveButton(driver).click();

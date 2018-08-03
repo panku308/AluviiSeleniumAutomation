@@ -5,6 +5,7 @@ import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -18,7 +19,7 @@ import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellProductWithTicket_Cash {
 	 public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
@@ -57,7 +58,8 @@ public class SellProductWithTicket_Cash {
 		  assertTrue(true);
 		  driver.switchTo().defaultContent();
 		  Thread.sleep(10000);
-		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded("C:\\Users\\DELL\\Downloads", GetFileName()),true);
+		  String downloadPath = System.getProperty("user.home")+"\\Downloads";
+		  assertEquals(VerifyFileIsDownloaded.isFileDownloaded(downloadPath, GetFileName()),true);
 		  
 		  
 	  }

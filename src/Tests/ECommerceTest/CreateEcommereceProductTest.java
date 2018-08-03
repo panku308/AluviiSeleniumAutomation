@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -20,7 +21,7 @@ import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.TicketingTest.CreateTicketTypeTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateEcommereceProductTest {
 	
 	
@@ -95,7 +96,7 @@ public class CreateEcommereceProductTest {
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSelectfilesButton(driver));
 		  Thread.sleep(3000);
-		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");
+		  CommonFunctions.UploadFile(System.getProperty("user.dir") + "\\resources\\index.jpg");
 		  Thread.sleep(10000);
 		  driver.switchTo().parentFrame();
 		  
@@ -104,7 +105,7 @@ public class CreateEcommereceProductTest {
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  CommonFunctions.ActionBuilder_PerformClickEventOnElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSelectfilesButton(driver));
 		  Thread.sleep(5000);
-		  CommonFunctions.UploadFile("C:\\Users\\DELL\\Downloads\\index.jpg");
+		  CommonFunctions.UploadFile(System.getProperty("user.dir") + "\\resources\\index.jpg");
 		  Thread.sleep(10000);
 		  driver.switchTo().parentFrame();	
 		  CommonFunctions.ScrollUptoElement(driver, AddProduct_Ecommerce_DialogboxElements.GetSaveButton(driver));

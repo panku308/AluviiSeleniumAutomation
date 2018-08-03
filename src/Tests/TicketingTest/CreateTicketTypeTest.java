@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -13,7 +14,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.TicketingDashboardPageElements;
 import Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateTicketTypeTest {
 	public static WebDriver driver=null;
 	

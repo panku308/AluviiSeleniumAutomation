@@ -2,6 +2,7 @@ package Tests.RegisterManagementTest;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -10,7 +11,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import Tests.TicketingTest.CreateTicketTemplateTest;
 import Tests.TicketingTest.CreateTicketTypeTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class EditProduct_WithTicketTypeAndTemplate_Test {
 	
 	 public static WebDriver driver=null;

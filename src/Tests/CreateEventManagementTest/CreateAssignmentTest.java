@@ -3,6 +3,8 @@ package Tests.CreateEventManagementTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -15,7 +17,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EventManagementPageElements;
 import baseSetup.TestSetup;
 import util.DriverManager;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateAssignmentTest extends TestSetup {
 
 	//public static WebDriver driver=DriverManager.getDriver();

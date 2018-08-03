@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -16,7 +17,7 @@ import ObjectRepository.MembershipPackagesPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
 
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateeEntranceEntitlementTest {
 	 public static WebDriver driver=null;
 	  public static String actualResult="";

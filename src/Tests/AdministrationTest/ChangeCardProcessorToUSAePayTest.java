@@ -2,12 +2,13 @@ package Tests.AdministrationTest;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.AdministrationDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class ChangeCardProcessorToUSAePayTest {
 	
 	public static WebDriver driver=null;
