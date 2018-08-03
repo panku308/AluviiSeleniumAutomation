@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.gargoylesoftware.htmlunit.javascript.host.Map;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.AssertJUnit;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -33,7 +34,7 @@ import util.DriverManager;
 import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.EditScheduleEventManagementDialogBoxElements;
 import ObjectRepository.EventManagementPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateCategoryTest extends TestSetup {
 
 	//public static WebDriver driver=DriverManager.getDriver();

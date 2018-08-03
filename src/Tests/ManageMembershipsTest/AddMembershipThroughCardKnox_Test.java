@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -16,7 +17,7 @@ import GlobalFiles.PaymentTransactionType;
 import ObjectRepository.AddMembershipDialogBoxElements;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddMembershipThroughCardKnox_Test {
 	public static WebDriver driver=null;
 	  public static boolean actualResult=false;

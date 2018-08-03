@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -22,7 +23,7 @@ import ObjectRepository.HRManagementPageElements;
 import baseSetup.TestSetup;
 import util.DriverManager;
 import ObjectRepository.EditEmployeeDialogBox;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateTillTest extends TestSetup {
 
 	@Test

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.gargoylesoftware.htmlunit.javascript.host.payment.PaymentRequest;
@@ -23,7 +24,7 @@ import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
 import Tests.RegisterManagementTest.CreateProductTest;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellEcommerceProduct_CreditCard_Test {
 	
 	public static WebDriver driver=null;

@@ -6,12 +6,13 @@ import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.SelectEntitlementDialogboxInsideManageMembershipElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class PunchPassScanTest {
 	  public static WebDriver driver=null;
 	  public static boolean actualResult=false;

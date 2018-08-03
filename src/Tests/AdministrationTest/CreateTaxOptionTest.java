@@ -1,6 +1,7 @@
 package Tests.AdministrationTest;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +14,7 @@ import ObjectRepository.AdministrationDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
 import baseSetup.TestSetup;
 import util.DriverManager;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateTaxOptionTest extends TestSetup{
 	public static String TaxOptionName="";
 	

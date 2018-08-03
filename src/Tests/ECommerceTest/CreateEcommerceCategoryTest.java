@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
@@ -14,7 +15,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
-
+@Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateEcommerceCategoryTest {
 	  public static WebDriver driver=null;
 	  public static String actualResult="";
