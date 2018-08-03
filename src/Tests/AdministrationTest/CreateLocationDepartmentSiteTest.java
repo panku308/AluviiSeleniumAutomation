@@ -72,7 +72,7 @@ public class CreateLocationDepartmentSiteTest {
 		
 		Assert.assertEquals(AdministrationDashboardPageElements.getLocationNameFilteredValue(driver).getText(), LocationName);
 		
-		CommonFunctions.map.put("Location", LocationName);
+		//CommonFunctions.map.put("Location", LocationName);
 		
 	}
 
@@ -107,7 +107,7 @@ public class CreateLocationDepartmentSiteTest {
 		Thread.sleep(2000);
 		AddDepartmentDialogBoxElements.selectLocation(driver).click();
 		Thread.sleep(2000);
-		AddDepartmentDialogBoxElements.selectLocationOption(driver, CommonFunctions.map.get("Location")).click();
+		AddDepartmentDialogBoxElements.selectLocationOption(driver, Location).click();
 		Thread.sleep(2000);
 		AddDepartmentDialogBoxElements.GetDescriptionField(driver).sendKeys(Description);
 		Thread.sleep(2000);
@@ -159,11 +159,11 @@ public class CreateLocationDepartmentSiteTest {
 		Thread.sleep(2000);
 		AddSiteDialogBoxElements.selectLocation(driver).click();
 		Thread.sleep(2000);
-		AddSiteDialogBoxElements.selectLocationOption(driver, CommonFunctions.map.get("Location")).click();
+		AddSiteDialogBoxElements.selectLocationOption(driver, Location).click();
 		Thread.sleep(2000);
 		AddSiteDialogBoxElements.selectDepartment(driver).click();
 		Thread.sleep(2000);
-		AddSiteDialogBoxElements.selectDepartmentOption(driver, CommonFunctions.map.get("Department")).click();
+		AddSiteDialogBoxElements.selectDepartmentOption(driver, Department).click();
 		Thread.sleep(2000);
 		AddSiteDialogBoxElements.GetDescriptionField(driver).sendKeys(Description);
 		Thread.sleep(2000);
