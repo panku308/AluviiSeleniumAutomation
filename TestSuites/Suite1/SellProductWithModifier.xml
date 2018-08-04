@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sell Product with modifier">
+ 	<test name="Sell product with modifier">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateCategoryTest"/>
+			<class name="Tests.RegisterManagementTest.CreateProductTest"/>
+			<class name="Tests.RegisterManagementTest.CreateProductModifier"/>
+			<class name="Tests.RegisterManagementTest.AssignModifierToProduct"/>
+			<class name="Tests.RegisterManagementTest.CreateRegisterTest"/>
+			<class name="Tests.HRManagementTest.AddProductActivityToCurrentUser"/>
+			<class name="Tests.SellProductTest.SellProductWithModifier_Cash_Test"/>
+	
+		</classes>
+	</test>
+
+	
+
+</suite>
