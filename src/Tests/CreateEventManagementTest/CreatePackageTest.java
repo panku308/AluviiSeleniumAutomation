@@ -81,7 +81,8 @@ public class CreatePackageTest extends TestSetup {
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.setPriceRuleFromList(driver, CommonFunctions.map.get("PriceRule")).click();
 			
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			driver.switchTo().frame(driver.findElement(By.className("k-content")));
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getFullDescriptionField(driver).sendKeys(description);
 			
@@ -89,7 +90,8 @@ public class CreatePackageTest extends TestSetup {
 			
 			driver.switchTo().defaultContent();
 			
-			driver.switchTo().frame(0);
+			//driver.switchTo().frame(0);
+			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			AddPackageDialogBoxElements.getSubmitButton(driver).click();
 			Thread.sleep(2000);
 

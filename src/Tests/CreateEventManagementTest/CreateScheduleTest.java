@@ -98,8 +98,8 @@ public class CreateScheduleTest extends TestSetup {
 			action.moveToElement(EventManagementPageElements.getScheduleNameFilteredValue(driver)).doubleClick();
 			action.perform();
 			
-			
-			driver.switchTo().frame(0);
+			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
+			//driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
 			EditScheduleEventManagementDialogBoxElements.gettab(driver, "View Calendar").click();
