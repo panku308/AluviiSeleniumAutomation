@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<test name="booking">
+	<classes>
+		<class name="Tests.LoginTest.LoginTest"></class>
+		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
+		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
+		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePackageTest" />
+	</classes>
+</test>
+</suite>

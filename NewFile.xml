@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+	<test name="Login">
+		<classes>
+			<class name="Tests.LoginTest.LoginTest"></class>
+		</classes>
+	</test>
+	<test name="Create Location Department and Site">
+		<classes>
+			<class
+				name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
+		</classes>
+	</test>
+	<test name="Create Tax Option">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateTaxOptionTest"></class>
+		</classes>
+	</test>
+	<test name=" Create Member">
+		<classes>
+			<class name="Tests.ManageMembershipsTest.CreateMemberTest" />
+		</classes>
+	</test>
+	<test name="Create enterance Entitlement">
+		<classes>
+			<class
+				name="Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest"></class>
+		</classes>
+	</test>
+
+	<test name="DiscountEntitlementTest" preserve-order="true"
+		enabled="true">
+		<classes>
+			<class
+				name="Tests.MembershipPackagesTest.CreateDiscountEntitlementTest" />
+		</classes>
+	</test>
+	<test name="MembershipPackagesTest" preserve-order="true"
+		enabled="true">
+		<classes>
+			<class
+				name="Tests.MembershipPackagesTest.CreateMembershipPackageTest" />
+		</classes>
+	</test>
+	<test thread-count="5" name="MembershipPackage_10PunchPassTest"
+		preserve-order="true" enabled="true">
+		<classes>
+			<class
+				name="Tests.MembershipPackagesTest.CreateMembershipPackage10PunchPassTest" />
+		</classes>
+	</test>
+
+
+	<test thread-count="5" name="CreateEmployeeandTillTest"
+		preserve-order="true" enabled="true">
+		<classes>
+			<class name="Tests.CreateEmployeeTest.CreateEmployeeTest" />
+			<class name="Tests.CreateTillTest.CreateTillTest" />
+		</classes>
+	</test>
+
+	<test name="EventManagementTest" preserve-order="true"
+		enabled="true">
+		<classes>
+			<class
+				name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+			<class
+				name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
+			<class
+				name="Tests.CreateEventManagementTest.CreateCategoryTest" />
+			<class
+				name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
+			<class name="Tests.CreateEventManagementTest.CreatePackageTest" />
+		</classes>
+	</test>
+
+
+
+	<test name="Add Membership_Cash">
+		<classes>
+			<class
+				name="Tests.ManageMembershipsTest.AddMembershipThroughCash_Test" />
+		</classes>
+	</test>
+	<test name="Add Membership_PrepaidCoupon">
+		<classes>
+			<class
+				name="Tests.ManageMembershipsTest.AddMembershipThroughPrepaidCoupon_Test" />
+		</classes>
+	</test>
+	<test name="Add Membership_StroedValue">
+		<classes>
+			<class
+				name="Tests.ManageMembershipsTest.AddStoredValueIntoMember_Cash_Test" />
+			<class
+				name="Tests.ManageMembershipsTest.AddMembershipThroughStoredValue_Test" />
+		</classes>
+	</test>
+	<test name="Add Membership_CardKnox">
+		<classes>
+			<class
+				name="Tests.AdministrationTest.ChangeCardProcessorToKnox" />
+			<class
+				name="Tests.ManageMembershipsTest.AddMembershipThroughCardKnox_Test" />
+		</classes>
+	</test>
+	<test name="Add Membership_CreditCard">
+		<classes>
+			<class
+				name="Tests.AdministrationTest.ChangeCardProcessorToUSAePayTest" />
+			<class
+				name="Tests.ManageMembershipsTest.AddMembershipThroughCreditCard_Test" />
+		</classes>
+	</test>
+
+
+		<!-- 
+	<test name="Manage Membership Test">
+		<classes>
+			
+		
+			Unable to test until we create register.
+		 	<class name="Tests.SellProductTest.SellGiftCard_Cash_Test"/>
+			<class name="Tests.ManageMembershipsTest.AddMembershipThroughGiftCard_Test"/>
+			<class name="Tests.ManageMembershipsTest.VerifyMembershipPackage"/>
+			 
+			 <class name="Tests.ManageMembershipsTest.PunchPassScanTest"/>
+			Need to figure out how to test punch scan "PunchPassScanTest" (We can increase the number of scan per day)
+				
+		</classes>
+	</test> -->
+
+
+	<test name="Register Management">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateCategoryTest" />
+			<class name="Tests.RegisterManagementTest.CreateProductTest" />
+		<!-- 	<class
+				name="Tests.RegisterManagementTest.CreateProductGroupTest" /> -->
+			<class name="Tests.RegisterManagementTest.CreateRegisterTest" />
+			<class
+				name="Tests.HRManagementTest.AddProductActivityToCurrentUser" />
+		</classes>
+	</test>
+	<test name="Sell product and product group">
+		<classes>
+<!-- 			<class
+				name="Tests.SellProductGroupTest.SellProductGroup_Cash_Test" /> -->
+			<class name="Tests.SellProductTest.SellGiftCard_Cash_Test" />
+			<class name="Tests.SellProductTest.SellPoduct_StoredValue_Test" />
+			<class name="Tests.SellProductTest.SellProduct_Cash_Test" />
+			<class
+				name="Tests.AdministrationTest.ChangeCardProcessorToUSAePayTest" />
+			<class name="Tests.SellProductTest.SellProduct_CreditCard_Test" />
+			<class
+				name="Tests.AdministrationTest.ChangeCardProcessorToKnox" />
+			<class name="Tests.SellProductTest.SellProduct_CardKnox_Test" />
+			<class name="Tests.SellProductTest.SellProduct_GiftCard_Test" />
+			<class
+				name="Tests.SellProductTest.SellProduct_PrepaidCoupon_Test" />
+		</classes>
+	</test>
+	<test name="Create Ticket Type template and group">
+		<classes>
+			<class
+				name="Tests.TicketingTest.CreateTicketTemplate_BOCA_Test" />
+			<class name="Tests.TicketingTest.CreateTicketTemplate_TSC_Test" />
+			<class name="Tests.TicketingTest.CreateTicketTemplateTest" />
+			<class name="Tests.TicketingTest.CreateTicketTypeTest" />
+			<class name="Tests.TicketingTest.CreateTicketGroupTest" />
+		</classes>
+	</test>
+	<test name="Sell product with ticket">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateCategoryTest" />
+			<class name="Tests.RegisterManagementTest.CreateProductTest" />
+			<class name="Tests.RegisterManagementTest.CreateRegisterTest" />
+			<class
+				name="Tests.HRManagementTest.AddProductActivityToCurrentUser" />
+			<class
+				name="Tests.RegisterManagementTest.EditProduct_WithTicketTypeAndTemplate_Test" />
+			<class name="Tests.SellProductTest.SellProductWithTicket_Cash" />
+		</classes>
+	</test>
+	<test name="Ecommerce Test">
+		<classes>
+			<class name="Tests.ECommerceTest.CreateWebsiteTest" />
+			<class name="Tests.ECommerceTest.CreateEcommerceCategoryTest" />
+			<class name="Tests.ECommerceTest.CreateEcommereceProductTest" />
+			<class
+				name="Tests.AdministrationTest.ChangeCardProcessorToKnox" />
+			<class
+				name="Tests.ECommerceTest.SellEcommerceProduct_CardKnox_Test" />
+			<class
+				name="Tests.AdministrationTest.ChangeCardProcessorToUSAePayTest" />
+			<class
+				name="Tests.ECommerceTest.SellEcommerceProduct_CreditCard_Test" />
+		</classes>
+	</test>
+	<test name="Sell product with modifier">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateCategoryTest" />
+			<class name="Tests.RegisterManagementTest.CreateProductTest" />
+			<class
+				name="Tests.RegisterManagementTest.CreateProductModifier" />
+			<class
+				name="Tests.RegisterManagementTest.AssignModifierToProduct" />
+			<class name="Tests.RegisterManagementTest.CreateRegisterTest" />
+			<class
+				name="Tests.HRManagementTest.AddProductActivityToCurrentUser" />
+			<class
+				name="Tests.SellProductTest.SellProductWithModifier_Cash_Test" />
+		</classes>
+	</test>
+	<test name="Waiver Test">
+		<classes>
+			<class name="Tests.WaiverTest.AddWaiver_ReqAllGuestToSign" />
+			<class
+				name="Tests.WaiverTest.AddWaiver_ReqAllGuestOverMinAgeTest" />
+			<class name="Tests.WaiverTest.AddWaiver_OnlyOneGuestTest" />
+		</classes>
+	</test>
+	
+
+
+
+
+</suite> <!-- Suite -->
