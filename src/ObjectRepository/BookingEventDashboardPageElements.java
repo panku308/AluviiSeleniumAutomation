@@ -84,7 +84,7 @@ private static WebElement element = null;
 	}
 	public static WebElement GetOrderNumberOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[11]/span"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[11]"));
 		return element;
 	}
 	

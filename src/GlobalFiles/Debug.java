@@ -43,8 +43,16 @@ import util.DriverManager;
 public class Debug {
 	public static WebDriver driver=null;
 	public static String ModifierName="";
+	public static Double ExpBalanceDue=0.0, ActBalanceDue=0.0;
+	public static Double  DepoSitVaue=0.0, GrandTotal=0.0;
+	public static Double AmountPaid=0.0; 
+	public static int TotalSpots = 40, BookedQuantity=10, ActBookedQuantity=0;
+	public static int ExpTotalSpotsLeft=10,ActTotalSpotLeft=0;
+	
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws Exception {
+		
+				
 		Date dt = new Date();
 		System.out.println(dt.getDay());
 		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
@@ -52,18 +60,13 @@ public class Debug {
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
 		String time="1:00pm";  
-		  
-		  try
-		  {
+		 
 			  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetBookingsLink(driver));
 				DashboardPageElements.GetBookingsLink(driver).click();
 				Thread.sleep(5000);
+			
 				
-				BookingEventDashboardPageElements.GetOrderIDColumnSettingIcon(driver).click();
-				filterTable(driver, "23060");
-				Thread.sleep(5000);
-				
-				CommonFunctions.ActionBuilder_PerformMouseHoverEventOnElement(driver, BookingEventDashboardPageElements.GetBookingPlusIcon(driver));
+			/*	CommonFunctions.ActionBuilder_PerformMouseHoverEventOnElement(driver, BookingEventDashboardPageElements.GetBookingPlusIcon(driver));
 				Thread.sleep(2000);
 				BookingEventDashboardPageElements.GetAddBookingOption(driver).click();
 				Thread.sleep(5000);
@@ -74,8 +77,10 @@ public class Debug {
 				BookingDashboardPageElements.SelectCategory(driver, "Brandon Party");
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver).click();
-				Thread.sleep(30000);
+				Thread.sleep(60000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TimeField(driver, time).click();
+				Thread.sleep(20000);
+				CommonFunctions.ScrollUptoElement(driver, BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver));
 				Thread.sleep(5000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).click();
 				Thread.sleep(2000);
@@ -83,25 +88,31 @@ public class Debug {
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys("10");
 				
-				Thread.sleep(2000);
+				Thread.sleep(5000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield2(driver).click();
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield2(driver).clear();
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield2(driver).sendKeys("25");
 				
-				
-				Thread.sleep(2000);
+				Thread.sleep(5000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield3(driver).click();
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield3(driver).clear();
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield3(driver).sendKeys("5");
 				
+				
+				
+				
+				
+				
+				
+				
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield3(driver).sendKeys(Keys.TAB);
 				
 				CommonFunctions.ScrollUptoElement(driver, BookingDashboardPageElements.GetBookingDataTab(driver));
-				Thread.sleep(3000);
+				Thread.sleep(3000);*/
 				BookingDashboardPageElements.GetBookingDataTab(driver).click();
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_BookingDataTab_FirstNameField(driver).sendKeys("fname"+System.currentTimeMillis());
@@ -112,36 +123,87 @@ public class Debug {
 				Thread.sleep(5000);
 				BookingDashboardPageElements.Get_BookingDataTab_CreateAccountButton(driver).click();
 				Thread.sleep(5000);
-				BookingDashboardPageElements.GetFinalizeTab(driver).click();
-				Thread.sleep(5000);
-				BookingDashboardPageElements.Get_FinalizeTab_PayDepositOnly(driver).click();
-				Thread.sleep(5000);
-				CommonFunctions.SwitchToContentFrame(driver);		
-				PaymentTransactionType.PaymentThroughCash(driver);
-				CommonFunctions.SwitchToContentFrame(driver);
-				ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
-				assertTrue(true);
-				driver.switchTo().defaultContent();
+				PayDepoistOnly();
 				String OrderID = BookingDashboardPageElements.Get_PaymentTab_OrderID(driver).getText();
-				Thread.sleep(3000);
+				Thread.sleep(3000);				
 				BookingEventDashboardPageElements.GetBackToBookingsButton(driver).click();
 				Thread.sleep(3000);
 				BookingEventDashboardPageElements.GetOrderIDColumnSettingIcon(driver).click();
 				filterTable(driver, OrderID);
-				Thread.sleep(5000);
+				Thread.sleep(5000);				
+				assertEquals(BookingEventDashboardPageElements.GetOrderNumberOfFirstRow(driver).getText(), OrderID);
 				BookingEventDashboardPageElements.GetViewButtonOfFirstRow(driver).click();
+				VerifyBookedQtyAndSpotsLeftAfterBooking();
+				VerifyBalanceDueOnFinalizeTab();
+				VerifyBalanceDueOnPaymentTab();
 				
-				
-			
-		  }
-		  catch(Exception e)
-		  {
-			  System.out.println(e);
-		  }
-		  
-			
-	
+		  	
+	}
+	public static void PayDepoistOnly() throws Exception
+	{
+		Thread.sleep(5000);
+		BookingDashboardPageElements.GetFinalizeTab(driver).click();
+		Thread.sleep(5000);
+		GrandTotal = Double.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_FinalizeTab_GrandTotal(driver)));
+		AmountPaid = Double.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_FinalizeTab_RequireDepositField(driver)));
+		BookingDashboardPageElements.Get_FinalizeTab_PayDepositOnly(driver).click();
+		Thread.sleep(10000);
+		CommonFunctions.SwitchToContentFrame(driver);		
+		PaymentTransactionType.PaymentThroughCash(driver);
+		CommonFunctions.SwitchToContentFrame(driver);
+		ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+		assertTrue(true);
+		driver.switchTo().defaultContent();
+	}
+	public static void PayFullAmount()throws Exception
+	{
+		Thread.sleep(5000);
+		BookingDashboardPageElements.GetFinalizeTab(driver).click();
+		Thread.sleep(5000);
+		GrandTotal = Double.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_FinalizeTab_GrandTotal(driver)));
+		AmountPaid = Double.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_FinalizeTab_GrandTotal(driver)));
+		BookingDashboardPageElements.Get_FinalizeTab_PayFullAmount(driver).click();
+		Thread.sleep(10000);
+		CommonFunctions.SwitchToContentFrame(driver);		
+		PaymentTransactionType.PaymentThroughCash(driver);
+		CommonFunctions.SwitchToContentFrame(driver);
+		ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
+		assertTrue(true);
+		driver.switchTo().defaultContent();
+	}
+	public static void VerifyBalanceDueOnFinalizeTab() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		BookingDashboardPageElements.GetFinalizeTab(driver).click();
+		Thread.sleep(5000);		
+		assertEquals(Double.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_FinalizeTab_BalanceDueField(driver))), GrandTotal-AmountPaid);
+	}
+	public static void VerifyBalanceDueOnPaymentTab() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		BookingDashboardPageElements.GetPaymentTab(driver).click();
+		Thread.sleep(5000);
+		assertEquals(Double.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_PaymentTab_BookingTotal(driver))), GrandTotal);
+		assertEquals(Double.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_PaymentTab_TotalPaid(driver))), AmountPaid);
+		assertEquals(Double.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_PaymentTab_AmountRemaining(driver))), GrandTotal-AmountPaid);
 		
+	}
+	public static void VerifyBookedQtyAndSpotsLeftAfterBooking() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		assertEquals(Integer.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_BookingDetailsTab_SpotsLeftField(driver)) ), Integer.valueOf(TotalSpots-BookedQuantity));
+		assertEquals(Integer.valueOf(getElementTextWithout$Sign(BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver)) ), Integer.valueOf(BookedQuantity));
+		
+	}
+	public static String getElementTextWithout$Sign(WebElement element) throws InterruptedException
+	{
+		Thread.sleep(5000);
+		String strWithout$= element.getText();
+		//strWithout$ = strWithout$.substring(1, strWithout$.length());
+		strWithout$ = strWithout$.replace(",", "");
+		strWithout$ = strWithout$.replace("$", "");
+		
+		return strWithout$;
 	}
 	public static void filterTable(WebDriver driver,String input) throws InterruptedException {
 
