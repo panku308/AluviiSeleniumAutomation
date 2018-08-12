@@ -73,16 +73,21 @@ public class CreatePackageTest extends TestSetup {
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getSelectAssignmentButton(driver).click();
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.setAssignmentFromList(driver, CommonFunctions.map.get("Assignment")).click();
+			AddPackageDialogBoxElements.setAssignmentFromList(driver, CreateAssignmentTest.AssignmentName).click();
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getShortDescriptionField(driver).sendKeys(description);
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getPriceRuleButton(driver).click();
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.setPriceRuleFromList(driver, CommonFunctions.map.get("PriceRule")).click();
-			
+			AddPackageDialogBoxElements.setPriceRuleFromList(driver, CreatePriceRuleTest.PriceRule_TypeBasePrice).click();
+			Thread.sleep(2000);
+			AddPackageDialogBoxElements.getPriceRuleButton(driver).click();
+			Thread.sleep(2000);
+			AddPackageDialogBoxElements.setPriceRuleFromList(driver, CreatePriceRuleTest.PriceRule_TypeDeposit).click();
+			Thread.sleep(2000);
 			//driver.switchTo().frame(0);
-			driver.switchTo().frame(driver.findElement(By.className("k-content")));
+			//driver.switchTo().defaultContent();
+			driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@title,'Editable area')]")));
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getFullDescriptionField(driver).sendKeys(description);
 			

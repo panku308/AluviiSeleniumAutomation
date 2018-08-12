@@ -35,7 +35,7 @@ import util.DriverManager;
 
 public class CommonFunctions {
 	//--------------------------------------------Global Variables-------------------------------------------------------
-	public static String domainName="https://sessionqa";
+	public static String domainName="https://stagingqa";
 	public static String url=domainName+".aluvii.com/employee/";
 	public static String UserName="ceo@aluvii.com";
 	public static String Password="Admin@123";
@@ -267,5 +267,22 @@ public class CommonFunctions {
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");  
 		Date date = new Date();  
 		return formatter.format(date);  
+	}
+	
+	public static void minimizeChatWindow(WebDriver driver)
+	{
+		try {
+			driver.switchTo().frame(driver.findElement(By.xpath("//*[@data-test-id='ChatWidgetWindow-iframe']")));
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[contains(text(),'Chat with') and @class='jx_ui_Widget']")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@class='overlay jx_ui_Widget']")).click();
+		Thread.sleep(3000);
+		
+		}catch(Exception e)
+		{
+			
+		}
+		driver.switchTo().defaultContent();
 	}
 }
