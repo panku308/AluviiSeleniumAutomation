@@ -2,12 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="CommonTests">
 
-		<test name="Login">
+	<test name="Login">
 		<classes>
 			<class name="Tests.LoginTest.LoginTest"></class>
+			
 		</classes>
 	</test>
-
+	
+ 
  	<test name="Create Location Department and Site">
 		<classes>
 			<class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
@@ -31,5 +33,5 @@
 			<class name="Tests.ManageMembershipsTest.AddStoredValueIntoMember_Cash_Test"/>
 		</classes>
 	</test>
-
+ 
 </suite>

@@ -76,4 +76,26 @@ public class TicketingDashboardPageElements {
 		element =driver.findElement(By.xpath("//div[@id='ticketGroupsGrid']//table/tbody/tr[1]/td[2]"));		
 		return element;
 	}
+	public static WebElement GetTicketsTab_IdColumnSettingIcon(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//div[@id='ticketsGrid']//th[@data-field='TicketId']/a[1]"));		
+		return element;
+	}
+	public static WebElement GetTicketsTab_SortDescendingOption(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//span[text()='Sort Descending']"));		
+		return element;
+	}
+	
+	public static WebElement GetTicketTab_LatestTicketIDElement(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='ticketsGrid']//table/tbody/tr[1]/td[2]"));		
+		return element;
+	}
+	public static WebElement GetTicketTab_BarcodeValue(WebDriver driver, int Row)
+	{
+		element =driver.findElement(By.xpath("//div[@id='ticketsGrid']//table/tbody/tr["+Row+"]/td[3]"));		
+		return element;
+	}
+	
 }

@@ -44,7 +44,7 @@ public class ScanAndVerifyBarcode {
 			AccessControlPageElements.GetScanButton(driver).click();
 			Thread.sleep(5000);			
 			System.out.println("("+e.getText().trim()+"), (used="+isAlreadyUsed+")");
-			if(optionName.equals("Flight Experience") && isAlreadyUsed==false)
+			if(optionName.equals(CreateeEntranceEntitlementTest.EntranceEntitlement.trim()) && isAlreadyUsed==false)
 			{
 				assertEquals(AccessControlPageElements.GetApprovedOrDeniedMessage(driver).getText().trim(), "Approved");
 				ExpResult = "Welcome to the facility! Hope you enjoy your time";
