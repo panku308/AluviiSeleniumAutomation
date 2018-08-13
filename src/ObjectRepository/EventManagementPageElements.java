@@ -137,7 +137,7 @@ private static WebElement element = null;
 	public static WebElement getAssignmentNameFilteredValue(WebDriver driver)
 	{
 		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[@id='grdVenAssign']//td[1]"));
+		element =driver.findElements(By.xpath("//*[@id='grdVenAssign']//td[3]"));
 		return element.get(element.size()-1);
 	}
 	

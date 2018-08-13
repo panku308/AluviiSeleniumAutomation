@@ -97,7 +97,7 @@ public class TestSetup {
 	@AfterSuite
 	public void tearDown() {
 
-	//	DriverManager.getDriver().quit();
+	DriverManager.getDriver().quit();
 
 	}
 
