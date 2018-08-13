@@ -69,6 +69,7 @@ public class CreateTicketGroupTest {
 		  
 		  AddTicketGroupDialogBoxElements.GetTicketTypeDD(driver).click();
 		  //AddTicketGroupDialogBoxElements.SelectStaticTicketType(driver);
+		  Thread.sleep(3000);
 		  AddTicketGroupDialogBoxElements.SelectDynamicTicketType(driver, CreateTicketTypeTest.TicketTypeName);
 		 // AddTicketGroupDialogBoxElements.SelectDynamicTicketType(driver, "TicketType-1533571346733");
 		  // Entitlement-1533569809536

@@ -175,7 +175,7 @@ private static WebElement element = null;
 	}
 	public static WebElement Get_PaymentTab_BookingTotal(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//span[contains(text(),'total-to-pay')]"));		
+		element =driver.findElement(By.xpath("//span[contains(@class,'total-to-pay')]"));		
 		return element;
 	}
 	public static WebElement Get_PaymentTab_AmountRemaining(WebDriver driver)

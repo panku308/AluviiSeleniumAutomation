@@ -128,6 +128,25 @@ private static WebElement element = null;
 		element = driver.findElement(By.linkText("Stored Value"));
 		return element;
 	}
+	
+	public static WebElement GetAccountGuest_BarcodesLink(WebDriver driver)
+	{
+		element = driver.findElement(By.linkText("Barcodes"));
+		return element;
+	}
+	public static WebElement GetAccountGuest_BarcodeField(WebDriver driver)
+	{
+		//element = driver.findElement(By.xpath("//div[@class='guestBarcode k-barcode']//svg/g/g[1]/text"));
+	
+		WebElement BarcodeDiv = driver.findElement(By.xpath("//div[contains(@id,'barcode_') and @data-role='barcode']"));
+		WebElement svg = BarcodeDiv.findElement(By.tagName("svg"));
+		List<WebElement> Parent_g_Tag = svg.findElements(By.tagName("g"));
+		List<WebElement> Child_g_Tag = Parent_g_Tag.get(0).findElements(By.tagName("g"));
+		element = Child_g_Tag.get(0).findElement(By.tagName("text"));
+		
+		
+		return element;
+	}
 	public static WebElement GetCheckoutTab_PaymentButton(WebDriver driver)
 	{
 		element = driver.findElement(By.xpath("//button[text() = 'Payment']"));
