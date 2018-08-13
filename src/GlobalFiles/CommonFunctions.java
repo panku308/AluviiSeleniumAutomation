@@ -168,7 +168,7 @@ public class CommonFunctions {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//li[text()='Is equal to']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);
+		driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);		
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[text()='Filter']")).click();
 		Thread.sleep(2000);
