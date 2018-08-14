@@ -67,7 +67,7 @@ public class CreateAssignmentTest extends TestSetup {
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.setTaxOption(driver).click();
 		Thread.sleep(2000);
-		AddAssignmentsEventManagementDialogBoxElements.getCapacity(driver).sendKeys(Keys.BACK_SPACE);
+		AddAssignmentsEventManagementDialogBoxElements.getCapacity(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.setCapacity(driver).sendKeys("25");
 		AddAssignmentsEventManagementDialogBoxElements.setExclusiveUse(driver).sendKeys(Keys.SPACE);
@@ -91,7 +91,7 @@ public class CreateAssignmentTest extends TestSetup {
 		action.moveToElement(EventManagementPageElements.getAssignmentNameFilteredValue(driver)).doubleClick();
 		action.perform();
 
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 		Thread.sleep(2000);
 		

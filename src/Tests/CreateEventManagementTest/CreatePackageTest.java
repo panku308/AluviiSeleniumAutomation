@@ -63,7 +63,7 @@ public class CreatePackageTest extends TestSetup {
 
 			AddPackageDialogBoxElements.getPackageNameField(driver).sendKeys(packageName);
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.getDisplayPrice(driver).sendKeys(Keys.BACK_SPACE);
+			AddPackageDialogBoxElements.getDisplayPrice(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.setDisplayPrice(driver).sendKeys("25");
 			Thread.sleep(2000);
