@@ -108,16 +108,23 @@ public class PaymentTransactionType {
 		  Thread.sleep(5000);
 		  try
 		  {
-			  driver.switchTo().parentFrame();
-			  
+			  driver.switchTo().parentFrame();			  
 			  PaymentTransactionDialogBoxElements.GetCompletePaymentButton(driver).click();		  
 			  Thread.sleep(10000);  
 		  }
 		  catch (Exception e)
 		  {
 			  
+			  
 		  }
-		  		
+		  try
+		  {
+			  PaymentTransactionDialogBoxElements.GetSubmitButton_Booking(driver).click();
+		  }
+		  catch(Exception e) {
+			  
+		  }
+		  
 	}
 	public static void PaymentThroughCreditCard(WebDriver driver) throws InterruptedException
 	{

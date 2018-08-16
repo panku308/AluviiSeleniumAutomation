@@ -55,7 +55,8 @@ private static WebElement element = null;
 	}
 	public static WebElement Get_CategoryTab_Package_SelectButton(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='tmplPackageRowWrapper']//span[contains(@onclick,'managePackages(1)')]"));	
+		element =driver.findElement(By.xpath("//div[@id='tmplPackageRowWrapper']//span[contains(@onclick,'managePackages(')]"));
+		//element =driver.findElement(By.xpath("//span[ .='Select']"));
 		return element;
 	}
 	public static WebElement Get_BookingDetailsTab_CurrentDay(WebDriver driver)
@@ -65,12 +66,12 @@ private static WebElement element = null;
 	}
 	public static WebElement Get_BookingDetailsTab_TimeField(WebDriver driver, String time)
 	{
-		element =driver.findElement(By.xpath("//ul[@id='ulAvail1']//li[text()='"+time+"']"));		
+		element =driver.findElement(By.xpath("//ul[contains(@id,'ulAvail')]//li[text()='"+time+"']"));		
 		return element;
 	}
 	public static WebElement Get_BookingDetailsTab_TimeFieldAvailalbility(WebDriver driver, String time, String AMPM)
 	{
-		element =driver.findElement(By.xpath("//ul[@id='ulAvail1']//li[contains(@starttime,'"+time+"') and contains(@startampm,'"+AMPM+"')]"));		
+		element =driver.findElement(By.xpath("//ul[contains(@id,'ulAvail1')]//li[contains(@starttime,'"+time+"') and contains(@startampm,'"+AMPM+"')]"));		
 		return element;
 	}
 	public static WebElement Get_BookingDetailsTab_TicketQtyfield(WebDriver driver)
@@ -168,6 +169,18 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//span[text()='PAY FULL AMOUNT']"));		
 		return element;
 	}
+	public static WebElement Get_FinalizeTab_GetPaymentModal_PaymentAmount(WebDriver driver)
+	{
+		element =driver.findElement(By.id("txtPaymentAmount"));		
+		return element;
+	}
+	public static WebElement Get_FinalizeTab_GetPaymentModal_PayButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//span[text()=' Pay']"));		
+		return element;
+	}
+	
+	
 	public static WebElement Get_PaymentTab_OrderID(WebDriver driver)
 	{
 		element =driver.findElement(By.id("#orderId"));		

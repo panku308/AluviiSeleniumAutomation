@@ -12,10 +12,12 @@ import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import GlobalFiles.PaymentTransactionType;
+import ObjectRepository.AddPriceRuleDialogBoxElements;
 import ObjectRepository.BookingDashboardPageElements;
 import ObjectRepository.BookingEventDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
+import Tests.CreateEventManagementTest.CreateCategoryTest;
 @Listeners (GlobalFiles.ReportCustomization.class)
 public class AddBooking {
 	public static WebDriver driver=null;
@@ -24,9 +26,9 @@ public class AddBooking {
 		public static Double ExpBalanceDue=0.0, ActBalanceDue=0.0;
 		public static Double  DepoSitVaue=0.0, GrandTotal=0.0;
 		public static Double AmountPaid=0.0; 
-		public static int TotalSpots = 40, BookedQuantity=10, ActBookedQuantity=0;
-		public static int ExpTotalSpotsLeft=10,ActTotalSpotLeft=0;
-public static String time="1:00pm";  
+		public static int TotalSpots = 25, BookedQuantity=10, ActBookedQuantity=0;
+		public static int ExpTotalSpotsLeft=15,ActTotalSpotLeft=0;
+public static String time="02:00pm";  
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
@@ -45,7 +47,8 @@ public static String time="1:00pm";
 			
 			BookingDashboardPageElements.Get_CategoryTab_CategoryDropdown(driver).click();
 			Thread.sleep(2000);
-			BookingDashboardPageElements.SelectCategory(driver, "Brandon Party");
+		BookingDashboardPageElements.SelectCategory(driver, "TestCategory_1534266226331");
+		//	BookingDashboardPageElements.SelectCategory(driver, CreateCategoryTest.CategoryName);
 			Thread.sleep(2000);
 			BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver).click();
 			Thread.sleep(60000);
@@ -58,7 +61,7 @@ public static String time="1:00pm";
 			BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).clear();
 			Thread.sleep(2000);
 			BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys("10");
-			BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield3(driver).sendKeys(Keys.TAB);
+			BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys(Keys.TAB);
 			
 			CommonFunctions.ScrollUptoElement(driver, BookingDashboardPageElements.GetBookingDataTab(driver));
 			Thread.sleep(3000);
@@ -73,7 +76,8 @@ public static String time="1:00pm";
 			Thread.sleep(5000);
 			BookingDashboardPageElements.Get_BookingDataTab_CreateAccountButton(driver).click();
 			Thread.sleep(5000);
-			PayDepoistOnly();
+			//PayDepoistOnly();
+			PayFullAmount();
 			String OrderID = BookingDashboardPageElements.Get_PaymentTab_OrderID(driver).getText();
 			Thread.sleep(3000);				
 			BookingEventDashboardPageElements.GetBackToBookingsButton(driver).click();
@@ -118,6 +122,10 @@ public static String time="1:00pm";
 			str = BookingDashboardPageElements.Get_FinalizeTab_GrandTotal(driver).getText();
 			AmountPaid = Double.valueOf(getElementTextWithout$Sign(str));
 			BookingDashboardPageElements.Get_FinalizeTab_PayFullAmount(driver).click();
+			Thread.sleep(5000);
+			BookingDashboardPageElements.Get_FinalizeTab_GetPaymentModal_PaymentAmount(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+			BookingDashboardPageElements.Get_FinalizeTab_GetPaymentModal_PaymentAmount(driver).sendKeys(String.valueOf(AmountPaid));
+			BookingDashboardPageElements.Get_FinalizeTab_GetPaymentModal_PayButton(driver).click();
 			Thread.sleep(10000);
 			CommonFunctions.SwitchToContentFrame(driver);		
 			PaymentTransactionType.PaymentThroughCash(driver);

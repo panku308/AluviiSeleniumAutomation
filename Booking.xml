@@ -3,12 +3,13 @@
 <suite name="Suite">
 <test name="booking">
 	<classes>
-		<class name="Tests.LoginTest.LoginTest"></class>
-		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+		<class name="Tests.LoginTest.LoginTest"></class>		
+		 <class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
 		<class name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
 		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
 		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
 		<class name="Tests.CreateEventManagementTest.CreatePackageTest" />
+		<class name="Tests.BookingTest.AddBooking" />
 	</classes>
 </test>
 </suite>

@@ -50,6 +50,12 @@ public class PaymentTransactionDialogBoxElements {
 		element =driver.findElement(By.id("btnCompletePayment"));
 		return element;
 	}
+	public static WebElement GetSubmitButton_Booking(WebDriver driver)
+	{
+		
+		element =driver.findElement(By.id("btnCompletePayment"));
+		return element;
+	}
 	public static WebElement GetMoreOptoin_StoredValue(WebDriver driver)
 	{
 		element =driver.findElement(By.id("spn_StoredValue"));
