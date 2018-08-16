@@ -55,6 +55,9 @@ public static String PriceRule_TypeBasePrice="";
 			AddPriceRuleDialogBoxElements.setPercentage(driver).sendKeys("50");
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.getDescriptionField(driver).sendKeys(displayAndDesc);
+			Thread.sleep(2000);
+			AddPriceRuleDialogBoxElements.getEventPortalCheckbox(driver).click();
+			AddPriceRuleDialogBoxElements.getEmployeePortalCheckbox(driver).click();
 			AddPriceRuleDialogBoxElements.getSaveButton(driver).click();
 			
 			driver.switchTo().defaultContent();

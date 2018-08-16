@@ -35,10 +35,10 @@ private static WebElement element = null;
 		return element;
 	}
 
-	public static WebElement selectLocationOption(WebDriver driver)
+	public static WebElement selectLocationOption(WebDriver driver, String Location)
 	{	
 
-		element = driver.findElement(By.xpath("//*[text()='Select Location']/..//li[1]"));
+		element = driver.findElement(By.xpath("//*[text()='Select Location']/..//li[text()='"+Location+"']"));
 		return element;
 	}
 	
