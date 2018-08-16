@@ -153,7 +153,7 @@ public class CreateLocationDepartmentSiteTest {
 
 		AddSiteDialogBoxElements.GetSiteNameField(driver).sendKeys(SiteName);
 		Thread.sleep(2000);
-		AddSiteDialogBoxElements.getCapacity(driver).sendKeys(Keys.BACK_SPACE);
+		AddSiteDialogBoxElements.getCapacity(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		Thread.sleep(2000);
 		AddSiteDialogBoxElements.setCapacity(driver).sendKeys("400");
 		Thread.sleep(2000);

@@ -28,6 +28,7 @@ import ObjectRepository.AddPriceRuleDialogBoxElements;
 import ObjectRepository.AddScheduleEventManagementDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.HRManagementPageElements;
+import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 import ObjectRepository.EditEmployeeDialogBox;
@@ -69,7 +70,7 @@ public class CreatePackageTest extends TestSetup {
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.selectLocation(driver).click();
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.selectLocationOption(driver).click();
+			AddPackageDialogBoxElements.selectLocationOption(driver, CreateLocationDepartmentSiteTest.Location).click();
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getSelectAssignmentButton(driver).click();
 			Thread.sleep(2000);

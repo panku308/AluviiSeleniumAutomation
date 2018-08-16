@@ -34,10 +34,10 @@ private static WebElement element = null;
 		return element;
 	}
 	
-	public static WebElement setLocation(WebDriver driver)
+	public static WebElement setLocation(WebDriver driver, String option)
 	{
 		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[@id='ddlLocation_listbox']//li[1]"));
+		element =driver.findElements(By.xpath("//*[@id='ddlLocation_listbox']//li[text()='"+option+"']"));
 		return element.get(element.size()-1);
 	}
 	public static WebElement getTaxOptionButton(WebDriver driver)
@@ -46,10 +46,10 @@ private static WebElement element = null;
 		return element;
 	}
 	
-	public static WebElement setTaxOption(WebDriver driver)
+	public static WebElement setTaxOption(WebDriver driver, String option)
 	{
 		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[@id='TaxOptionId_listbox']//li[1]"));
+		element =driver.findElements(By.xpath("//*[@id='TaxOptionId_listbox']//li[text()='"+option+"']"));
 		return element.get(element.size()-1);
 	}
 	public static WebElement getSiteButton(WebDriver driver)
@@ -58,10 +58,10 @@ private static WebElement element = null;
 		return element;
 	}
 	
-	public static WebElement setSiteOption(WebDriver driver)
+	public static WebElement setSiteOption(WebDriver driver, String option)
 	{
 		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[@id='SiteIdList_listbox']//li[1]"));
+		element =driver.findElements(By.xpath("//*[@id='SiteIdList_listbox']//li[text()='"+option+"']"));
 		return element.get(element.size()-1);
 	}
 	public static WebElement getscheduleOptionButton(WebDriver driver)
