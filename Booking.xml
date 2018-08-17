@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+<test name="Login">
+		<classes>
+			<class name="Tests.LoginTest.LoginTest"></class>
+			
+		</classes>
+	</test>
+	
+ 
+ 	<test name="Create Location Department and Site">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
+		</classes>
+	</test>
+	<test name="Create Tax Option">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateTaxOptionTest"></class>
+		</classes>
+	</test>
+
+	<test name="Create enterance Entitlement">
+		<classes>
+			<class name="Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest"></class>
+		</classes>
+	</test>
 <test name="booking">
 	<classes>
-		<class name="Tests.LoginTest.LoginTest"></class>
-		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+		 <class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
 		<class name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
 		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
 		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
 		<class name="Tests.CreateEventManagementTest.CreatePackageTest" />
+		<class name="Tests.BookingTest.AddBooking" />
 	</classes>
 </test>
 </suite>

@@ -47,7 +47,7 @@ public class CreateTaxOptionTest extends TestSetup{
 		Thread.sleep(2000);
 		AddTaxOptionDialogBoxElements.selectLocationOption(driver, CreateLocationDepartmentSiteTest.Location).click();
 		Thread.sleep(2000);
-		AddTaxOptionDialogBoxElements.getTaxRate(driver).sendKeys(Keys.BACK_SPACE);
+		AddTaxOptionDialogBoxElements.getTaxRate(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		Thread.sleep(2000);
 		AddTaxOptionDialogBoxElements.setTaxRate(driver).sendKeys("0.1");
 		Thread.sleep(2000);

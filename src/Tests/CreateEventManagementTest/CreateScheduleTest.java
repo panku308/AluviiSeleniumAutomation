@@ -66,7 +66,7 @@ public class CreateScheduleTest extends TestSetup {
 			Thread.sleep(2000);
 			AddScheduleEventManagementDialogBoxElements.setSelectTimeZone(driver, "Denver").click();;
 			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.getNormalDurationTime(driver).sendKeys(Keys.BACK_SPACE);
+			AddScheduleEventManagementDialogBoxElements.getNormalDurationTime(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddScheduleEventManagementDialogBoxElements.setNormalDurationTime(driver).sendKeys("120");
 			

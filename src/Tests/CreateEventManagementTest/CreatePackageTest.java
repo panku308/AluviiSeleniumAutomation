@@ -28,6 +28,7 @@ import ObjectRepository.AddPriceRuleDialogBoxElements;
 import ObjectRepository.AddScheduleEventManagementDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.HRManagementPageElements;
+import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 import ObjectRepository.EditEmployeeDialogBox;
@@ -63,13 +64,13 @@ public class CreatePackageTest extends TestSetup {
 
 			AddPackageDialogBoxElements.getPackageNameField(driver).sendKeys(packageName);
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.getDisplayPrice(driver).sendKeys(Keys.BACK_SPACE);
+			AddPackageDialogBoxElements.getDisplayPrice(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.setDisplayPrice(driver).sendKeys("25");
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.selectLocation(driver).click();
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.selectLocationOption(driver).click();
+			AddPackageDialogBoxElements.selectLocationOption(driver, CreateLocationDepartmentSiteTest.Location).click();
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getSelectAssignmentButton(driver).click();
 			Thread.sleep(2000);

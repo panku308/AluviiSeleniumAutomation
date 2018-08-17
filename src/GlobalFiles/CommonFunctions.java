@@ -285,4 +285,40 @@ public class CommonFunctions {
 		}
 		driver.switchTo().defaultContent();
 	}
+	public static int GetDayOfWeekIntFornat()
+	{
+		Date dt = new Date();
+		return dt.getDay();		
+	}
+	public static String GetDayOfWeekStringFormat_FirstThreeLetters()
+	{
+		int DayofWeek = GetDayOfWeekIntFornat();
+		String Day="";
+		if(DayofWeek==0)
+		{
+			Day="sun";
+		}
+		else if(DayofWeek==0)
+		{
+			Day="mon";
+		}
+		else if(DayofWeek==0)
+		{
+			Day="tue";
+		}else if(DayofWeek==0)
+		{
+			Day="wed";
+		}else if(DayofWeek==0)
+		{
+			Day="thu";
+		}else if(DayofWeek==0)
+		{
+			Day="fri";
+		}else if(DayofWeek==0)
+		{
+			Day="sat";
+		}
+		return Day;
+	}
+
 }
