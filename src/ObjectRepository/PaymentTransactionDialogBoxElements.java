@@ -53,7 +53,7 @@ public class PaymentTransactionDialogBoxElements {
 	public static WebElement GetSubmitButton_Booking(WebDriver driver)
 	{
 		
-		element =driver.findElement(By.id("btnCompletePayment"));
+		element =driver.findElement(By.id("btnClose"));
 		return element;
 	}
 	public static WebElement GetMoreOptoin_StoredValue(WebDriver driver)

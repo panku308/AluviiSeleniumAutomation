@@ -119,10 +119,11 @@ public class PaymentTransactionType {
 		  }
 		  try
 		  {
+				
 			  PaymentTransactionDialogBoxElements.GetSubmitButton_Booking(driver).click();
 		  }
 		  catch(Exception e) {
-			  
+			  System.out.println();
 		  }
 		  
 	}

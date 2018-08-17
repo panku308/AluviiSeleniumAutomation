@@ -49,49 +49,51 @@ private static WebElement element = null;
 	}
 	public static WebElement GetTimeOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[3]"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[6]"));
 		return element;
 	}
 	public static WebElement GetAssignmentOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[4]"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[7]"));
 		return element;
 	}
 	public static WebElement GetGuestNameOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[5]"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[8]"));
 		return element;
 	}
 	public static WebElement GetPackageNameOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[7]"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[10]"));
 		return element;
 	}
 	public static WebElement GetSiteOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[8]"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[11]"));
 		return element;
 	}
 	public static WebElement GetCategoryOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[9]"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[12]"));
 		return element;
 	}
 	public static WebElement GetPaymentStatusOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[10]"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[13]"));
 		return element;
 	}
 	public static WebElement GetOrderNumberOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[11]"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[14]"));
+		
 		return element;
 	}
 	
 
 	public static WebElement GetViewButtonOfFirstRow(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[14]/span"));
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr[2]/td[17]/span"));
+		
 		return element;
 	}
 	

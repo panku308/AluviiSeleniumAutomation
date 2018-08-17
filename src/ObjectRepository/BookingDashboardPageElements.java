@@ -59,6 +59,21 @@ private static WebElement element = null;
 		//element =driver.findElement(By.xpath("//span[ .='Select']"));
 		return element;
 	}
+	public static WebElement Get_BookingDetailsTab_NextWeekButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("divCalNextWk"));		
+		return element;
+	}
+	public static WebElement Get_BookingDetailsTab_PreviousWeekButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("divCalPrevWk"));		
+		return element;
+	}
+	public static WebElement Get_BookingDetailsTab_GetDateField(WebDriver driver, String day)
+	{
+		element =driver.findElement(By.xpath("//div[contains(text(), '"+day+"') and @class='wkDyTitle']"));		
+		return element;
+	}
 	public static WebElement Get_BookingDetailsTab_CurrentDay(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//div[@id='divCalWk']//div[@class='wkDy active']"));		
@@ -176,7 +191,8 @@ private static WebElement element = null;
 	}
 	public static WebElement Get_FinalizeTab_GetPaymentModal_PayButton(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//span[text()=' Pay']"));		
+		element =driver.findElement(By.xpath("//div[@id='paymentAmtModal']//div[@class='modal-body']/p[3]/span"));
+		
 		return element;
 	}
 	
