@@ -58,7 +58,7 @@ public class Debug {
 		
 				
 		Date dt = new Date();
-		System.out.println(dt.getDay());
+		System.out.println(CommonFunctions.GetDayOfWeekIntFornat());
 		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		Thread.sleep(5000);
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);

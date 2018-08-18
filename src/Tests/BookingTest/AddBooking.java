@@ -66,12 +66,12 @@ public class AddBooking {
 				Thread.sleep(5000);
 				BookingDashboardPageElements.Get_CategoryTab_CategoryDropdown(driver).click();
 				Thread.sleep(2000);
-			//	BookingDashboardPageElements.SelectCategory(driver, "TestCategory_1534440606631");
+			//	BookingDashboardPageElements.SelectCategory(driver, "TestCategory_1534561096616");
 				BookingDashboardPageElements.SelectCategory(driver, CreateCategoryTest.CategoryName);
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver).click();
 				Thread.sleep(30000);
-				if(i==3)
+				if(i==2)
 				{
 					if(CommonFunctions.GetDayOfWeekIntFornat()==6)
 					{
@@ -86,7 +86,7 @@ public class AddBooking {
 				Thread.sleep(5000);			
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 				Thread.sleep(2000);
-				System.out.println(BookedQuantity);
+				
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys(String.valueOf(BookedQuantity));
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys(Keys.TAB);
 				Thread.sleep(5000);
