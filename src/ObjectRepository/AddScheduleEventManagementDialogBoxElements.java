@@ -82,6 +82,12 @@ private static WebElement element = null;
 		return element.get(element.size()-1);
 	}
 	
+	public static WebElement GetEnableSession_YES_RadioButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("opYes"));
+		return element;
+	}
+	
 	public static WebElement GetAddButton(WebDriver driver)
 	{
 		element =driver.findElement(By.name("Add"));

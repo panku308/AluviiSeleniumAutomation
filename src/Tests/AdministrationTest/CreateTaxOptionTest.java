@@ -18,7 +18,7 @@ import util.DriverManager;
 public class CreateTaxOptionTest extends TestSetup{
 	public static String TaxOptionName="";
 	
-	@Test()
+	@Test
 	public static void createTaxOption()throws Exception
 	{
 		WebDriver driver=DriverManager.getDriver();

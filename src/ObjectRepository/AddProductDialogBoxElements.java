@@ -195,4 +195,49 @@ private static WebElement element = null;
 			  AddProductDialogBoxElements.GetUnitPriceIncreaseArrow(driver).click();
 		  }
 	 }
+	 
+	 public static WebElement getCheckbox_ThisProductIsASession(WebDriver driver)
+	  {
+		  element =driver.findElement(By.id("IsSessionProduct"));
+			return element;
+	  }
+	 public static WebElement selectSite(WebDriver driver)
+		{	
+
+			element = driver.findElement(By.xpath("//*[text()='Select Site']"));
+			return element;
+		}
+
+		public static WebElement selectSiteOption(WebDriver driver, String option)
+		{	
+
+			element = driver.findElement(By.xpath("//*[@id='ddlSiteId_listbox']/li[contains(text(),'"+option+"')]"));
+			return element;
+		}
+		public static WebElement selectSchedule(WebDriver driver)
+		{	
+
+			element = driver.findElement(By.xpath("//*[text()='Select Schedule']"));
+			return element;
+		}
+
+		public static WebElement selectScheduleOption(WebDriver driver, String option)
+		{	
+
+			element = driver.findElement(By.xpath("//*[@id='ddlScheduleId_listbox']/li[contains(text(),'"+option+"')]"));
+			return element;
+		}
+		public static WebElement selectWorkflowBuilder(WebDriver driver)
+		{	
+
+			element = driver.findElement(By.xpath("//*[text()='Work flow Builder']/..//*[text()='Select Option']"));
+			return element;
+		}
+
+		public static WebElement selectWorkflowBuilderOption(WebDriver driver, String option)
+		{	
+
+			element = driver.findElement(By.xpath("//*[@id='ddlWorkFlowId_listbox']/li[contains(text(),'"+option+"')]"));
+			return element;
+		}
 }
