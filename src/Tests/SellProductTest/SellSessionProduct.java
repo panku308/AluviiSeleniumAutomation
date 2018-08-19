@@ -87,6 +87,7 @@ public class SellSessionProduct extends TestSetup{
 		  SessionProductWindowElements.GetCloseButton(driver).click();
 		  
 		  
+		  
 	  }
 	  public static int GetAvailabelSlotsCount()
 	  {

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+	<test name="Login">
+		<classes>
+			<class name="Tests.LoginTest.LoginTest" />
+		</classes>
+	</test>
+	<test name="Create Location Department and Site">
+		<classes>
+			<class
+				name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
+		</classes>
+	</test>
+	<test name="Create Tax Option">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateTaxOptionTest"></class>
+	</classes>
+	</test>
+	<test name="Create WorkFlow">
+		<classes>
+			<class name="Tests.CreateWorkFlowTest.CreateWorkflowTest" />
+			<class
+				name="Tests.CreateEventManagementTest.CreateSchedule_withSessionTest" />
+
+		</classes>
+	</test>
+	<test name="Product Session test">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateCategoryTest" />
+			<class name="Tests.RegisterManagementTest.CreateProduct_withSessionTest" />
+			<class name="Tests.RegisterManagementTest.CreateRegisterTest" />
+			<class name="Tests.HRManagementTest.AddProductActivityToCurrentUser"/>
+			<class name="Tests.SellProductTest.SellSessionProduct" />
+		</classes>
+	</test>
+<test name="Ecommerce Session product sell Test">
+		<classes>
+				<class name="Tests.TicketingTest.CreateTicketTemplateTest"/>
+				<class name="Tests.TicketingTest.CreateTicketTypeTest"/>
+				<class name="Tests.ECommerceTest.CreateWebsiteTest"/>
+				<class name="Tests.ECommerceTest.CreateEcommerceCategoryTest"/>
+				<class name="Tests.ECommerceTest.CreateEcommereceProductTest"/>
+				<class name="Tests.AdministrationTest.ChangeCardProcessorToKnox"/>
+				<class name="Tests.ECommerceTest.SellSessionProduct_CardKnox_Test"></class>				
+		</classes>
+	</test>
+	
+
+</suite> <!-- Suite -->
