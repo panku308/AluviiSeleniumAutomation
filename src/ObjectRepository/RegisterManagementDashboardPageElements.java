@@ -210,4 +210,17 @@ private static WebElement element = null;
 		element =driver.findElements(By.xpath("//*[@id='discountGrid']//td[2]"));
 		return element.get(element.size()-1);
 	}
+	
+	public static WebElement getColumn_ProductName(WebDriver driver)
+	{
+	
+		element =driver.findElement(By.xpath("//*[@id='productsgrid']//*[text()='Product Name']/..//a[1]"));
+		return element;
+	}
+	public static WebElement getProductNameFilteredValue(WebDriver driver)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='productsgrid']//td[2]"));
+		return element.get(element.size()-1);
+	}
 }

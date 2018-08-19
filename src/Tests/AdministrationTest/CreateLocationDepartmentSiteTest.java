@@ -15,9 +15,10 @@ import ObjectRepository.AddLocationDialogBoxElements;
 import ObjectRepository.AddSiteDialogBoxElements;
 import ObjectRepository.AdministrationDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
+import baseSetup.TestSetup;
 import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class CreateLocationDepartmentSiteTest {
+public class CreateLocationDepartmentSiteTest extends TestSetup {
 	public static String Location="", Department="", Site="";
 	
 	@Test(priority=1) 
