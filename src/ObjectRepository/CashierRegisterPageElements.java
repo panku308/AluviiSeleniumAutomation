@@ -67,5 +67,15 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[text() = '"+ProductName+"']//span[text()=' - "+ModifierName+" ']"));
 		return element;
 	}
+	public static WebElement GetPaymentFrameWindowForSessionProduct(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//div[@id='popupWindow']/iframe[@class='k-content-frame']"));
+		return element;
+	}
+	public static WebElement GetSessionProductWindowFrame(WebDriver driver)
+	{		
+		element =driver.findElement(By.xpath("//div[@id='popupChildWindow']/iframe[@class='k-content-frame']"));
+		return element;
+	}
 	
 }

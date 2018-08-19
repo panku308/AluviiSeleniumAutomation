@@ -31,10 +31,13 @@ import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.ManageMembershipsPageElements;
+import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ProductModifierInsideCashierRegisterElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
+import ObjectRepository.SessionProductWindowElements;
+import Tests.BookingTest.AddBooking;
 import Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductModifier;
@@ -56,11 +59,21 @@ public class Debug {
 		
 				
 		Date dt = new Date();
-		System.out.println(dt.getDay());
+		System.out.println(CommonFunctions.GetDayOfWeekIntFornat());
 		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		Thread.sleep(5000);
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
+		  CashierRegisterPageElements.GetCategoryProductElement(driver, "product1534649218071").click();
+		  Thread.sleep(15000);
+		  driver.switchTo().frame(CashierRegisterPageElements.GetSessionProductWindowFrame(driver));
+		  driver.switchTo().defaultContent();
+		  SessionProductWindowElements.GetCloseButton(driver).click();
+		BookingDashboardPageElements.Get_BookingDetailsTab_GetDateField(driver, "mon").click();
+		
+		CommonFunctions.SwitchToContentFrame(driver);
+		 PaymentTransactionDialogBoxElements.GetSubmitButton_Booking(driver).click();
+		AddBooking.PayFullAmount();
 		System.out.println(ManageMembershipsPageElements.GetAccountGuest_BarcodeField(driver).getText());
 		String time="1:00pm";
 		 ManageMembershipsPageElements.GetAccountGuest_BarcodesLink(driver).click();

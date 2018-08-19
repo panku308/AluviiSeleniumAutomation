@@ -17,6 +17,7 @@ public class SimpleCashPaymentDialogBox {
 	public static WebElement GetCashReceivedField(WebDriver driver)
 	{
 		element =driver.findElement(By.id("TransactionTotal"));
+		//element =driver.findElement(By.id("grandTotal"));
 		return element;
 	}
 	public static WebElement GetChangeNeededField(WebDriver driver)
