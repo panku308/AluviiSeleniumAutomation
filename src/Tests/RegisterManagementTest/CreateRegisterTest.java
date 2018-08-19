@@ -93,9 +93,28 @@ public class CreateRegisterTest {
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
 		  Thread.sleep(2000);
-		  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
-		  //AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");
-		  Thread.sleep(2000);
+		  try
+		  {
+			  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
+			  //AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");
+			  Thread.sleep(2000);  
+		  }
+		  catch (Exception e)
+		  {
+			  
+		  }
+		  if(CreateProduct_withSessionTest.SessionProduct==1)
+		  {
+			  try {
+				  AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProduct_withSessionTest.ProductName2, "product");
+				  //AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");
+				  Thread.sleep(2000);
+			  }
+			  catch(Exception e)
+			  {
+				  
+			  }
+		  }
 		  AddProductDialogboxInsideAddRegisterPageElements.GetAddProductButton(driver).click();
 		  Thread.sleep(2000);
 		  driver.switchTo().parentFrame();

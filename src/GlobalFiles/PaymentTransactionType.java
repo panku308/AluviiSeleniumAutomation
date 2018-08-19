@@ -95,7 +95,7 @@ public class PaymentTransactionType {
 	}
 	public static void PaymentThroughCash(WebDriver driver) throws Exception{
 		try {
-			PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
+			  PaymentTransactionDialogBoxElements.GetCashButton(driver).click();
 			  Thread.sleep(5000);		  	  
 			  CommonFunctions.SwitchToContentFrame(driver);
 			 

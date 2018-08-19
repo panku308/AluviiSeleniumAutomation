@@ -20,6 +20,7 @@ import ObjectRepository.ECommerceDashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.WebsiteOpenPageElements;
 import Tests.RegisterManagementTest.CreateProductTest;
+import Tests.RegisterManagementTest.CreateProduct_withSessionTest;
 import Tests.TicketingTest.CreateTicketTypeTest;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateEcommereceProductTest {
@@ -36,6 +37,15 @@ public class CreateEcommereceProductTest {
 	  @Test
 	  public void CreateEcommerceProduct()throws Exception
 	  {
+		  String Product="";
+		  if(CreateProduct_withSessionTest.SessionProduct==1)
+		  {
+			  Product=CreateProduct_withSessionTest.ProductName2;
+		  }
+		  else
+		  {
+			  Product = CreateProductTest.ProductName;
+		  }
 		  EcommerceProductName = "EcommerceProduct-"+ System.currentTimeMillis();
 		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetEcommerceLink(driver));
 		  Thread.sleep(2000);
@@ -60,7 +70,7 @@ public class CreateEcommereceProductTest {
 		  
 		  AddProduct_Ecommerce_DialogboxElements.GetSelectProductDD(driver).click();
 		  Thread.sleep(2000);
-		  CommonFunctions.SelectOptionFromDropdownList(driver, CreateProductTest.ProductName);
+		  CommonFunctions.SelectOptionFromDropdownList(driver, Product);
 		  //CommonFunctions.SelectOptionFromDropdownList(driver, "product1530583344369");
 		  Thread.sleep(2000);
 		  

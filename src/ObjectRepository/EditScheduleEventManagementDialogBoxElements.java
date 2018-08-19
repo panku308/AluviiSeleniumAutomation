@@ -25,5 +25,11 @@ public class EditScheduleEventManagementDialogBoxElements {
 		else
 			return false;
 	}
+	
+	public static WebElement getSaveButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//input[@value='Save']"));
+		return element;
+	}
 
 }

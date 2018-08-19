@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class WebsiteOpenPageElements {
 private static WebElement element = null;
+private static String ProductID="";
 	
 	public static WebElement GetCategoriesField(WebDriver driver)
 	{
@@ -56,11 +57,13 @@ private static WebElement element = null;
 		String str = driver.findElement(By.xpath("//a[text() ='"+ProductName+"']")).getAttribute("href"); 
 		String str1 = str.substring(str.indexOf("productId"),str.length());
 		String str2 = str1.substring(str1.indexOf("=")+1,str1.length());
+		ProductID=str2;
 		element = driver.findElement(By.xpath("//span[@data-product-id='"+str2+"']"));
 		
 				
 		return element;
 	}
+	
 	//----------------categoriesProduct page elements End------------------------
 	public static void SelectCategory(WebDriver driver, String categoryName)
 	{
@@ -106,5 +109,32 @@ private static WebElement element = null;
 		element = driver.findElement(By.xpath("//table[@id='eCartTable']/tbody/tr/td[2]/input"));		
 		return element;
 	}
+	//------------------------------ Product session window elements-------------------------------
+	public static WebElement GetProductSessionWindow_FirstProductQuantityField(WebDriver driver,String product)
+	{
+		element =driver.findElement(By.xpath("//input[contains(@id, 'txtProductGroupQuantity') and @data.productname='"+product+"']"));
+		return element;
+	}
+	public static WebElement GetProductSessionWindow_FirstTimeSlot(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='dvTimeSlots']/div[1]/div[2]/span"));
+		return element;
+	}
+	public static WebElement GetProductSessionWindow_AddToCartButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("btnAddToCart"));
+		return element;
+	}
+	public static WebElement GetProductSessionWindow_FirstnameField(WebDriver driver, String ProductName, String ParticipantCount)
+	{
+		element =driver.findElement(By.id("txtParticipantFirstName-"+ProductID+"-"+ParticipantCount));
+		return element;
+	}
+	public static WebElement GetProductSessionWindow_LastnameField(WebDriver driver, String ProductName, String ParticipantCount)
+	{
+		element =driver.findElement(By.id("txtParticipantLastName-"+ProductID+"-"+ParticipantCount));
+		return element;
+	}
+	
 	
 }

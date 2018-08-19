@@ -17,18 +17,18 @@ import ObjectRepository.AddCategoryDialogBoxElements;
 import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
+import baseSetup.TestSetup;
+import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class CreateCategoryTest {
+public class CreateCategoryTest extends TestSetup {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
 	  public static String CategoryName="";
-	  @BeforeClass
-	  public void beforeClass() throws InterruptedException {
-		  driver = CommonFunctions.driver;
-	  }
+	 
 	  @Test
 	  public static void AddCategoryTest()throws Exception
 	  {
+		  WebDriver driver=DriverManager.getDriver();
 		  driver.navigate().refresh();
 		  CategoryName="category_" + System.currentTimeMillis();
 		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));

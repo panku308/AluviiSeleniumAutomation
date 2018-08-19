@@ -36,6 +36,7 @@ import ObjectRepository.ProductModifierInsideCashierRegisterElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
+import ObjectRepository.SessionProductWindowElements;
 import Tests.BookingTest.AddBooking;
 import Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest;
 import Tests.RegisterManagementTest.CreateCategoryTest;
@@ -63,6 +64,11 @@ public class Debug {
 		Thread.sleep(5000);
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
+		  CashierRegisterPageElements.GetCategoryProductElement(driver, "product1534649218071").click();
+		  Thread.sleep(15000);
+		  driver.switchTo().frame(CashierRegisterPageElements.GetSessionProductWindowFrame(driver));
+		  driver.switchTo().defaultContent();
+		  SessionProductWindowElements.GetCloseButton(driver).click();
 		BookingDashboardPageElements.Get_BookingDetailsTab_GetDateField(driver, "mon").click();
 		
 		CommonFunctions.SwitchToContentFrame(driver);
