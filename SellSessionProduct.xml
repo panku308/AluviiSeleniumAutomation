@@ -43,7 +43,7 @@
 				<class name="Tests.ECommerceTest.CreateEcommerceCategoryTest"/>
 				<class name="Tests.ECommerceTest.CreateEcommereceProductTest"/>
 				<class name="Tests.AdministrationTest.ChangeCardProcessorToKnox"/>
-				<class name="Tests.ECommerceTest.SellSessionProduct_CardKnox_Test"></class>				
+				<class name="Tests.ECommerceTest.SellSessionProduct_CardKnox_Test"> </class>				
 		</classes>
 	</test>
 	
