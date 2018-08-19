@@ -39,12 +39,13 @@ public class CreateProduct_withSessionTest extends TestSetup {
 	String expectedResult="", actualResult="";
 	public static String ProductName1="";
 	public static String ProductName2="";
+	public static int SessionProduct=0;
 
 	/* @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
 	  }*/
-	@Test(priority=1)
+	@Test
 	public void AddProductTest1()throws Exception
 	{
 		WebDriver driver = DriverManager.getDriver();
@@ -131,7 +132,7 @@ public class CreateProduct_withSessionTest extends TestSetup {
 
 
 	}
-	@Test(priority=2)
+	@Test
 	public void AddProductTest2()throws Exception
 	{
 		WebDriver driver = DriverManager.getDriver();
@@ -255,6 +256,7 @@ public class CreateProduct_withSessionTest extends TestSetup {
 		EditProductDialogBoxElements.GetSaveButton(driver).click();
 		Thread.sleep(5000);
 		driver.switchTo().defaultContent();
+		SessionProduct=1;
 
 	}
 

@@ -24,10 +24,7 @@ public class CreateCategoryTest extends TestSetup {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
 	  public static String CategoryName="";
-	 /* @BeforeClass
-	  public void beforeClass() throws InterruptedException {
-		  driver = CommonFunctions.driver;
-	  }*/
+	 
 	  @Test
 	  public static void AddCategoryTest()throws Exception
 	  {
