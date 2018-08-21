@@ -64,6 +64,7 @@ public class Debug {
 		Thread.sleep(5000);
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
+		CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		  CashierRegisterPageElements.GetCategoryProductElement(driver, "product1534649218071").click();
 		  Thread.sleep(15000);
 		  driver.switchTo().frame(CashierRegisterPageElements.GetSessionProductWindowFrame(driver));
