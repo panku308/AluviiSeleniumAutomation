@@ -37,6 +37,7 @@ import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.SessionProductWindowElements;
+import ObjectRepository.WorkflowBuilderPageElements;
 import Tests.BookingTest.AddBooking;
 import Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest;
 import Tests.RegisterManagementTest.CreateCategoryTest;
@@ -64,6 +65,13 @@ public class Debug {
 		Thread.sleep(5000);
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
+		try {
+			SetWaiverTemplate(driver);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
 		CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		  CashierRegisterPageElements.GetCategoryProductElement(driver, "product1534649218071").click();
 		  Thread.sleep(15000);
@@ -314,7 +322,37 @@ public class Debug {
 		 }
 		 
 	}
+	public static void SetWaiverTemplate(WebDriver driver) throws InterruptedException
+	{
+		CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetWorkflowLink(driver));
+		Thread.sleep(2000);
+		DashboardPageElements.GetWorkflowLink(driver).click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.getWorkflowTypeDD(driver).click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.GetWorkflowTypeDDOption(driver, "Waiver").click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.getWorkflowOptionDD(driver).click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.getWorkflowOptionDDOption(driver, "Waiver").click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.GetWaiverTeamplateDD(driver).click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.GetWaiverTeamplateDDOption(driver, "Aluvii Standard - 1").click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.GetReqAllGuestOverMinAgeRadioButton(driver).click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.GetMinAgeOfSignField(driver).sendKeys(Keys.chord(Keys.CONTROL, "a","18"));
+		Thread.sleep(2000);
 	
+		WorkflowBuilderPageElements.GetDisplayEmailOptOutDD(driver).click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.GetDisplayEmailOptOutDDOption(driver, "Yes").click();
+		Thread.sleep(5000);
+		WorkflowBuilderPageElements.GetReqSignerDD(driver).click();
+		Thread.sleep(2000);
+		WorkflowBuilderPageElements.GetReqSignerDDOption(driver, "Yes").click();
+	}
 	
 	
 	

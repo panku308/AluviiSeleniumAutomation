@@ -17,7 +17,8 @@ public class SignWaiverPageElements {
 private static WebElement element = null;
 public static String GuestFnameLname []=null;
 public static String SignWaiverEmailID="";
-	
+public static String PhoneNumber="",BirthDate="",GuestFirstName [] =null, GuestLastName []=null;
+public static String Street="", City="", ZipCode="", State="";
 	public static WebElement GetEmailIDField(WebDriver driver)
 	{
 		element =driver.findElement(By.id("EmailAddress"));
@@ -97,6 +98,131 @@ public static String SignWaiverEmailID="";
 	{
 		element =driver.findElement(By.id("signature-canvas-"+GuestNumber));
 		return element;
+	}
+	
+	public static WebElement GetIAcknowledgeCheckBox(WebDriver driver)
+	{
+		element =driver.findElement(By.id("IsSignerAcknowledge"));
+		return element;
+	}
+	public static WebElement GetEmailOptOutCheckBox(WebDriver driver)
+	{
+		element =driver.findElement(By.id("IsEmailForMarketing"));
+		return element;
+	}
+	public static void AddWaiverSign_Template1(WebDriver driver, int WaiverCount, int AdultParentOrChildCount, int ChildOrAdultCount) throws InterruptedException
+	{
+
+		 int ParentOrAdultCount = AdultParentOrChildCount;
+		  int l_ChildOrAdultCount = ChildOrAdultCount;
+		  int WaiverBirthYear = 0,  WaiverBirtMonth=0,  WaiverBirthDate=0;		  
+		  Date d = new Date();
+		  WaiverBirtMonth = d.getMonth()+1;
+		  WaiverBirthDate = d.getDate();
+		if(WaiverCount==(AdultParentOrChildCount+ChildOrAdultCount) && AdultParentOrChildCount>=0)
+		{
+			  String actualResult="";
+			 
+			  GuestFnameLname = new String[WaiverCount];
+			  GuestLastName = new String[WaiverCount];
+			  GuestFirstName = new String[WaiverCount];
+			  WaiverManagementPageElements.GetWaiverNameOfFirstRow(driver).click();
+			  WaiverManagementPageElements.GetSelectOptionDropdown(driver).click();
+			  Thread.sleep(3000);
+			  
+			  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "View Waiver Form").click();
+			  Thread.sleep(5000);
+			  
+			    
+			  
+			  ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+			  driver.switchTo().window(windowHandles.get(1));
+			  
+			  
+			  assertEquals( SignWaiver2PageElements.GetIAcknowledgeCheckBox(driver).isDisplayed(), true);
+			  assertEquals( SignWaiver2PageElements.GetEmailOptOutCheckBox(driver).isDisplayed(), true);
+			  SignWaiverEmailID = "Email"+ System.currentTimeMillis() +"@gmail.com";
+			  PhoneNumber = "1234567890";
+			  Street = "Street1";
+			  City = "New York";
+			  State = "New York";
+			  ZipCode = "12345";
+			  
+			  SignWaiverPageElements.GetEmailIDField(driver).sendKeys(SignWaiverEmailID);
+			  SignWaiverPageElements.GetPhoneNumberField(driver).sendKeys(PhoneNumber);
+			  SignWaiverPageElements.GetStreetAddressField(driver).sendKeys(Street);
+			  SignWaiverPageElements.GetCityField(driver).sendKeys(City);
+			  SignWaiverPageElements.GetStateField(driver).sendKeys(State);
+			  SignWaiverPageElements.GetZipCodeField(driver).sendKeys(ZipCode);
+			  
+			  if(!SignWaiverPageElements.GetEmailOptOutCheckBox(driver).isSelected())
+			  {
+				  SignWaiverPageElements.GetEmailOptOutCheckBox(driver).click();
+			  }
+			  if(!SignWaiverPageElements.GetIAcknowledgeCheckBox(driver).isSelected())
+			  {
+				  SignWaiverPageElements.GetIAcknowledgeCheckBox(driver).click();
+			  }
+			  Actions builder = null;
+			  Action drawAction = null;
+			  
+			  for (int i=1;i<=WaiverCount;i++)
+			  {
+				  if(ParentOrAdultCount>0)
+				  {
+					  WaiverBirthYear = d.getYear()+1900-30;
+					  
+					  ParentOrAdultCount--;
+					  
+				  }
+				  else if(ParentOrAdultCount==0 && l_ChildOrAdultCount>0)
+				  {
+					  WaiverBirthYear = d.getYear()+1900-15;
+					  l_ChildOrAdultCount--;
+				  }
+				  GuestFirstName[i-1] = "fname" + System.currentTimeMillis();
+				  GuestLastName [i-1] = "lname" + System.currentTimeMillis();
+				  GuestFnameLname[i-1]= GuestFirstName[i-1] + " " +GuestLastName[i-1];
+				  SignWaiverPageElements.GetFirstNameField(driver,i).sendKeys(GuestFirstName[i-1]);
+				  SignWaiverPageElements.GetLastNameField(driver,i).sendKeys(GuestLastName[i-1]);	
+				  
+				  BirthDate = String.valueOf(WaiverBirthDate)+"/"+String.valueOf(WaiverBirtMonth)+"/"+String.valueOf(WaiverBirthYear);
+				  CommonFunctions.SelectOptionFromDropdownByValue(SignWaiverPageElements.GetYearDropdown(driver,i) , String.valueOf(WaiverBirthYear));
+				  CommonFunctions.SelectOptionFromDropdownByValue(SignWaiverPageElements.GetMonthDropdown(driver,i) ,String.valueOf(WaiverBirtMonth));
+				  CommonFunctions.SelectOptionFromDropdownByValue(SignWaiverPageElements.GetDayDropdown(driver,i) , String.valueOf(WaiverBirthDate));
+				  
+				  builder = new Actions(driver);
+				  drawAction = builder.moveToElement(SignWaiverPageElements.GetSignatureField(driver,i),100,15).clickAndHold().moveByOffset(120, 30).moveByOffset(80, 40).release().build();
+				  drawAction.perform();
+				  if(i<WaiverCount)
+				  {
+					  SignWaiverPageElements.GetAddGuestButton(driver).click();  
+				  }
+				    
+			  }
+			  		  
+			  SignWaiverPageElements.GetIMFinishedButton(driver).click();
+			  Thread.sleep(5000);
+			  
+			  actualResult = WaiverFinalPageElements.GetSigningSuccessMsg(driver).getText();
+			  CommonFunctions.printString("Actual Result " + actualResult);
+			  assertEquals(actualResult.trim(), "Success!   Thank you for signing! Your waiver(s) have been submitted.");
+			  
+			  
+			  actualResult = WaiverFinalPageElements.GetMsgSendSuccessMsg(driver).getText();
+			  CommonFunctions.printString("Actual Result " + actualResult);
+			  assertEquals(actualResult.trim(), "Successfully Sent!   A copy of your signed waiver(s) have been sent to your inbox.");
+			  
+			  driver.close();
+			  driver.switchTo().window(windowHandles.get(0));
+			  //WaiverManagementPageElements.GetIDColumn(driver).click();
+		}
+		else
+		{
+			assertEquals(false, true);
+		}
+		  
+	
 	}
 	public static void AddWaiverSign(WebDriver driver, int WaiverCount, int AdultParentOrChildCount, int ChildOrAdultCount) throws InterruptedException
 	{
