@@ -65,7 +65,7 @@ public class CashControlPageElements {
 	public static WebElement selectDepartmentOption(WebDriver driver, String option)
 	{	
 
-		element = driver.findElement(By.xpath("//*[text()='Select Department']/..//li[text()='"+option+"']"));
+		element = driver.findElement(By.xpath("//*[text()='Select Department']/..//li[contains(text(),'"+option+"')]"));
 		return element;
 	}
 
@@ -79,7 +79,7 @@ public class CashControlPageElements {
 	public static WebElement selectSiteOption(WebDriver driver, String option)
 	{	
 
-		element = driver.findElement(By.xpath("//*[text()='Select Site']/..//li[text()='"+option+"']"));
+		element = driver.findElement(By.xpath("//*[text()='Select Site']/..//li[contains(text(),'"+option+"')]"));
 		return element;
 	}
 
@@ -97,13 +97,25 @@ public class CashControlPageElements {
 		element = driver.findElements(By.xpath("//*[@id='EmployeeIdNameList_listbox']//li[text()='"+option+"']"));
 		return element.get(element.size()-1);
 	}
+	
+	public static WebElement getInitialValue(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Initial Value')]/following-sibling::span//input[1]"));
+		return element;
+	}
 
 	public static WebElement setInitialValue(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Initial Value')]/following-sibling::span//input[2]"));
+		return element;
+	}
+
+	/*public static WebElement setInitialValue(WebDriver driver)
 	{	
 
 		element = driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div[1]/div[1]/div[3]/span/span/input[1]"));
 		return element;
-	}
+	}*/
 
 	public static WebElement saveCreateTill(WebDriver driver)
 	{	
