@@ -223,4 +223,14 @@ private static WebElement element = null;
 		element =driver.findElements(By.xpath("//*[@id='productsgrid']//td[2]"));
 		return element.get(element.size()-1);
 	}
+	public static WebElement GetIAcknowledgeCheckBox(WebDriver driver)
+	{
+		element =driver.findElement(By.id("IsSignerAcknowledge"));
+		return element;
+	}
+	public static WebElement GetEmailOptOutCheckBox(WebDriver driver)
+	{
+		element =driver.findElement(By.id("IsEmailForMarketing"));
+		return element;
+	}
 }
