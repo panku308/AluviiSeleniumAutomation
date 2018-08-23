@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
@@ -32,15 +33,16 @@ public class CreateTillTest extends TestSetup {
 		WebDriver driver=DriverManager.getDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			CommonFunctions.Login(driver, CommonFunctions.map.get("EmployeeEmail"), CommonFunctions.map.get("EmployeePass"));
+			//CommonFunctions.Login(driver, "pankaj@aluvii.com", "Admin@123");
 			DashboardPageElements.GetCashControlLink(driver).click();		  
 			CashControlPageElements.getOpenTillTab(driver).click();
 			CashControlPageElements.openSelectOptions(driver).click();
 			Thread.sleep(2000);
 			CashControlPageElements.selectOptions(driver, "Create Till").click();
 
-			List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
+			//List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
 			//System.out.println("iframe length = " + iframeElements.size());
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			
 
@@ -50,11 +52,11 @@ public class CreateTillTest extends TestSetup {
 			Thread.sleep(5000);
 			CashControlPageElements.selectDepartment(driver).click();
 			Thread.sleep(2000);
-			CashControlPageElements.selectDepartmentOption(driver, "Retail").click();
+			CashControlPageElements.selectDepartmentOption(driver, "Adventure").click();
 			Thread.sleep(2000);
 			CashControlPageElements.selectSite(driver).click();
 			Thread.sleep(2000);
-			CashControlPageElements.selectSiteOption(driver, "Gift Shop").click();
+			CashControlPageElements.selectSiteOption(driver, "Adventure").click();
 			Thread.sleep(4000);			
 			CashControlPageElements.employeeAssigned(driver).click();
 			Thread.sleep(2000);			
@@ -62,7 +64,9 @@ public class CreateTillTest extends TestSetup {
 			CashControlPageElements.employeeAssignedList(driver, CommonFunctions.map.get("EmployeeFirstName")+" "+CommonFunctions.map.get("EmployeeLastName")).click();
 			Thread.sleep(2000);
 			
-			CashControlPageElements.setInitialValue(driver).sendKeys("00");
+			CashControlPageElements.getInitialValue(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+			Thread.sleep(2000);
+			CashControlPageElements.setInitialValue(driver).sendKeys("100");
 			
 			CashControlPageElements.saveCreateTill(driver).click();
 			
@@ -83,7 +87,7 @@ public class CreateTillTest extends TestSetup {
 			CashControlPageElements.openSelectOptions(driver).click();
 			Thread.sleep(2000);
 			CashControlPageElements.selectOptions(driver, "Close Till").click();
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			CashControlPageElements.getCloseTillButton(driver).click();
 			Thread.sleep(2000);
