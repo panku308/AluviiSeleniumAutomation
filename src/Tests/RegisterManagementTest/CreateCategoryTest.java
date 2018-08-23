@@ -20,15 +20,20 @@ import ObjectRepository.RegisterManagementDashboardPageElements;
 import baseSetup.TestSetup;
 import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class CreateCategoryTest extends TestSetup {
+public class CreateCategoryTest {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
 	  public static String CategoryName="";
+	  @BeforeClass
+	  public void beforeClass() {
+		  driver = CommonFunctions.driver;
+		  
+	  }
 	 
 	  @Test
 	  public static void AddCategoryTest()throws Exception
 	  {
-		  WebDriver driver=DriverManager.getDriver();
+		 
 		  driver.navigate().refresh();
 		  CategoryName="category_" + System.currentTimeMillis();
 		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
