@@ -25,6 +25,12 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//span[.='Select Option']"));
 		return element;
 	}
+	public static WebElement GetWaiverNameColumnSettingsIcon(WebDriver driver)
+	{
+		//element =driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div/div[3]/div[1]/div/table/thead/tr/th[1]/a[2]"));
+		element =driver.findElement(By.xpath("//th[@data-field='WaiverName']/a"));
+		return element;
+	}
 	public static WebElement GetIDColumn(WebDriver driver)
 	{
 		//element =driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div/div[3]/div[1]/div/table/thead/tr/th[1]/a[2]"));
@@ -33,8 +39,9 @@ private static WebElement element = null;
 	}
 	public static WebElement GetWaiverNameOfFirstRow(WebDriver driver)
 	{
-		//element =driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div/div[3]/div[2]/table/tbody/tr[1]/td[2]"));
-		element =driver.findElement(By.xpath("//div[@id='waivergrid']//div[@class='k-grid-content']/table/tbody/tr[1]/td[2]"));
+		
+		//element =driver.findElement(By.xpath("//div[@id='waivergrid']//div[@class='k-grid-content']/table/tbody/tr[1]/td[2]"));
+		element =driver.findElement(By.xpath("//div[@id='waivergrid']//div[@class='k-grid-content']/table/tbody/tr[1]/td[3]"));
 		return element;
 	}
 	public static WebElement SelectOptionFromSelectOptionDD(WebDriver driver, String OptName)

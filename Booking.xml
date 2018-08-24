@@ -25,6 +25,9 @@
 			<class name="Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest"></class>
 		</classes>
 	</test>
+	
+	
+<!-- 	
 <test name="booking">
 	<classes>
 		 <class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
@@ -34,5 +37,5 @@
 		<class name="Tests.CreateEventManagementTest.CreatePackageTest" />
 		<class name="Tests.BookingTest.AddBooking" />
 	</classes>
-</test>
+</test> -->
 </suite>

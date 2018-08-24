@@ -2,6 +2,7 @@ package ObjectRepository;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -150,4 +151,57 @@ private static WebElement element = null;
 		  String actualResult = WaiverManagementPageElements.GetWaiverNameOfFirstRow(driver).getText();
 		  assertEquals(actualResult, WaiverName);
 	}
+	public static void AddWaiver_NewFlow(WebDriver driver, String WaiverName) throws InterruptedException
+	{
+		 WaiverManagementPageElements.GetSelectOptionDropdown(driver).click();
+		  Thread.sleep(3000);
+		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Add Waiver").click();
+		  Thread.sleep(5000);		  
+		  driver.switchTo().frame(0);		
+		  AddWaiverDialogBoxElements.GetWaiverNameField(driver).sendKeys(WaiverName);
+		  AddWaiverDialogBoxElements.GetMemberShipDropDown(driver).click();
+		  Thread.sleep(3000);		  
+		  AddWaiverDialogBoxElements.SelectFirstOptionFromMembershipPackageDD(driver).click();
+		  // switching to child frame.
+		  
+		  driver.switchTo().frame(0);
+		  driver.findElement(By.cssSelector("body")).sendKeys("test message");
+		  //Switching back to main frame.
+		  
+		  driver.switchTo().parentFrame();
+		  Thread.sleep(3000);	
+		  
+		  AddWaiverDialogBoxElements.GetSubmitWaiverButton(driver).click();
+		  Thread.sleep(10000);
+		  driver.switchTo().defaultContent();
+		  System.out.println(driver.getWindowHandle());
+		  
+		  driver.navigate().refresh();
+		  Thread.sleep(10000);
+		  WaiverManagementPageElements.GetWaiverNameColumnSettingsIcon(driver).click();
+		  Thread.sleep(3000);
+		  CommonFunctions.filterTable(driver, WaiverName);
+		  Thread.sleep(5000);
+		  String actualResult = WaiverManagementPageElements.GetWaiverNameOfFirstRow(driver).getText();
+		  assertEquals(actualResult, WaiverName);
+		  /*WaiverManagementPageElements.GetWaiverNameOfFirstRow(driver).click();
+		  WaiverManagementPageElements.GetSelectOptionDropdown(driver).click();
+		  Thread.sleep(3000);		  
+		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "View Waiver Form").click();
+		  Thread.sleep(5000);
+		  ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+		  driver.switchTo().window(windowHandles.get(1));
+		  if(driver.getCurrentUrl().contains("Waiver/SignWaiver?"))
+		  {
+			  assertEquals( SignWaiver2PageElements.GetIAcknowledgeCheckBox(driver).isDisplayed(), true);
+			  assertEquals( SignWaiver2PageElements.GetEmailOptOutCheckBox(driver).isDisplayed(), true);  
+		  }
+		  else if(driver.getCurrentUrl().contains("Waiver/SignWaiver?2"))
+		  {
+			  
+		  }
+		  driver.close();
+		  driver.switchTo().window(windowHandles.get(0));
+*/	
+		  }
 }
