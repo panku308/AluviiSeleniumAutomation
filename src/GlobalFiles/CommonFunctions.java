@@ -321,5 +321,64 @@ public class CommonFunctions {
 		}
 		return Day;
 	}
-
+	public static String GetCurrentSelectionOfDropdownField(WebDriver driver, WebElement element)
+	{
+		Select dd = new Select(element);
+		WebElement option = dd.getFirstSelectedOption();		
+		return option.getText();
+	}
+	public static String GetMonthNumberIntoMonthName(String str)
+	{
+		String month="";
+		if(str.equals("1"))
+		{
+			month= "January";
+		}
+		else if(str.equals("2"))
+		{
+			month= "February";
+		}
+		else if(str.equals("3"))
+		{
+			month= "March";
+		}
+		else if(str.equals("4"))
+		{
+			month= "April";
+		}
+		else if(str.equals("5"))
+		{
+			month= "May";
+		}
+		else if(str.equals("6"))
+		{
+			month= "June";
+		}
+		else if(str.equals("7"))
+		{
+			month= "July";
+		}
+		else if(str.equals("8"))
+		{
+			month= "August";
+		}
+		else if(str.equals("9"))
+		{
+			month= "September";
+		}
+		else if(str.equals("10"))
+		{
+			month= "October";
+		}
+		else if(str.equals("11"))
+		{
+			month= "November";
+		}
+		else if(str.equals("12"))
+		{
+			month= "December";
+		}		
+		return month;
+	}
+	
 }
