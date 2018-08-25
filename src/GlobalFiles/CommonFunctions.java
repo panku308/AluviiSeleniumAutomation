@@ -37,7 +37,7 @@ public class CommonFunctions {
 	//--------------------------------------------Global Variables-------------------------------------------------------
 	public static String domainName="https://stagingqa";
 	public static String url=domainName+".aluvii.com/employee/";
-	public static String UserName="ceo@aluvii.com";
+	public static String UserName="pankaj@aluvii.com";
 	public static String Password="Admin@123";
 	public static String chromeDriverPath="C:\\chromedriver_win32\\chromedriver.exe";
 
@@ -63,9 +63,10 @@ public class CommonFunctions {
 		driver.manage().window().maximize();
 		return driver;
 	}
-	public static void SelectOptionFromDropdownByValue(WebElement element, String OptName)
+	public static void SelectOptionFromDropdownByValue(WebElement element, String OptName) throws Exception
 	{
 		element.click();
+		Thread.sleep(2000);
 		Select ObjSelect = new Select(element);
 		ObjSelect.selectByValue(OptName);
 	}

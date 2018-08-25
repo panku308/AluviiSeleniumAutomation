@@ -65,6 +65,12 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("LastName"));
 		return element;
 	}
+	public static WebElement GetBirthDateField(WebDriver driver)
+	{
+		element =driver.findElement(By.id("BirthDate"));
+		return element;
+	}
+	
 	public static WebElement GetSubmitButton(WebDriver driver)
 	{
 		element =driver.findElement(By.id("btnSave"));

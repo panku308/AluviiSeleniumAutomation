@@ -58,7 +58,7 @@ public class PaymentTransactionType {
 		  
 			
 	}
-	public static void PaymentThroughCardKnox(WebDriver driver) throws InterruptedException
+	public static void PaymentThroughCardKnox(WebDriver driver) throws Exception
 	{
 		try
 		{

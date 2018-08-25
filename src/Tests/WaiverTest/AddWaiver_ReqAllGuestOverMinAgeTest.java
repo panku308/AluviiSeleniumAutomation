@@ -35,7 +35,7 @@ public class AddWaiver_ReqAllGuestOverMinAgeTest {
 		  AddWaiverDialogBoxElements.AddWaiver(driver, WaiverName, 2);
 	  }
 	 @Test(priority=5)
-	 public void SignWaiverTest() throws InterruptedException
+	 public void SignWaiverTest() throws Exception
 	 {
 		 SignWaiverPageElements.AddWaiverSign(driver, NumberOfWaiver, 1,2); 
 	 }

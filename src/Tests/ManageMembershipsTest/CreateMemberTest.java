@@ -14,6 +14,7 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.List;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,8 @@ public class CreateMemberTest {
 
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
-	  public static String EmailID="", fname="", lname="";
+	  public static String EmailID="", fname="", lname="", Street="", State="", City="",ZipCode="", PhoneNumber="" ;
+	  public static String Date="11",Month="11",Year="1984";
 	  
 	  
 	  @BeforeClass
@@ -37,6 +39,12 @@ public class CreateMemberTest {
 		  EmailID="selenium" + System.currentTimeMillis() +"@gmail.com";
 		  fname="fname"+System.currentTimeMillis();
 		  lname = "lname" + System.currentTimeMillis();
+		  Street="Street1";
+		  State="UT";
+		  City="PV";
+		  ZipCode="12345";
+		  PhoneNumber="1234567890";
+		  String DateString = Date+"/"+Month+"/"+Year;
 		  Thread.sleep(5000);
 		  DashboardPageElements.GetManageMemberShipLink(driver).click();
 		  Thread.sleep(5000);
@@ -49,15 +57,18 @@ public class CreateMemberTest {
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  CreateNewAccountDialogBoxElements.GetAccountNameField(driver).sendKeys("selenium" + System.currentTimeMillis());
 		  CreateNewAccountDialogBoxElements.GetPrimayEmailField(driver).sendKeys(EmailID);
-		  CreateNewAccountDialogBoxElements.GetPhoneNumberField(driver).sendKeys("8015566689");	
-		  CreateNewAccountDialogBoxElements.Get_Add_StreetField(driver).sendKeys("Add"+System.currentTimeMillis());
-		  CreateNewAccountDialogBoxElements.Get_Add_ZipCodeField(driver).sendKeys("94097");
-		  CreateNewAccountDialogBoxElements.Get_Add_CityField(driver).sendKeys("Orem");
-		  CreateNewAccountDialogBoxElements.Get_Add_StateField(driver).sendKeys("UT");
+		  CreateNewAccountDialogBoxElements.GetPhoneNumberField(driver).sendKeys(PhoneNumber);	
+		  PhoneNumber = "123-456-7890";
+		  CreateNewAccountDialogBoxElements.Get_Add_StreetField(driver).sendKeys(Street);
+		  CreateNewAccountDialogBoxElements.Get_Add_ZipCodeField(driver).sendKeys(ZipCode);
+		  CreateNewAccountDialogBoxElements.Get_Add_CityField(driver).sendKeys(City);
+		  CreateNewAccountDialogBoxElements.Get_Add_StateField(driver).sendKeys(State);
 		  CreateNewAccountDialogBoxElements.Get_Add_NextButton(driver).click();
 		  Thread.sleep(5000);
 		  CreateNewAccountDialogBoxElements.GetFirstnameField(driver).sendKeys(fname);
 		  CreateNewAccountDialogBoxElements.GetLastname(driver).sendKeys(lname);
+		  CreateNewAccountDialogBoxElements.GetBirthDateField(driver).clear();
+		  CreateNewAccountDialogBoxElements.GetBirthDateField(driver).sendKeys(DateString);
 		  CreateNewAccountDialogBoxElements.GetSubmitButton(driver).click();
 		  
 		  Thread.sleep(30000);
