@@ -324,7 +324,8 @@ public class CommonFunctions {
 	public static String GetCurrentSelectionOfDropdownField(WebDriver driver, WebElement element)
 	{
 		Select dd = new Select(element);
-		WebElement option = dd.getFirstSelectedOption();		
+		WebElement option = dd.getFirstSelectedOption();
+		System.out.println(option.getAttribute("value"));
 		return option.getText();
 	}
 	public static String GetMonthNumberIntoMonthName(String str)

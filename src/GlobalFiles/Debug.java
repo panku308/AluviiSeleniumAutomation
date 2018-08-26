@@ -37,6 +37,7 @@ import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.SessionProductWindowElements;
+import ObjectRepository.SignWaiver2PageElements;
 import ObjectRepository.SignWaiverPageElements;
 import ObjectRepository.WorkflowBuilderPageElements;
 import Tests.BookingTest.AddBooking;
@@ -68,7 +69,7 @@ public class Debug {
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
 		try {
-			SignWaiverPageElements.LoadAccountWaiver_Teamplate1(driver,"selenium1535169189285@gmail.com"); 
+			SignWaiver2PageElements.LoadAccountWaiver_Teamplate2(driver,"selenium1535169189285@gmail.com"); 
 		}
 		catch(Exception e)
 		{

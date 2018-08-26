@@ -184,8 +184,8 @@ public class SignWaiver2PageElements {
 			ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetBirthDateField(driver, ""));
 			assertEquals(ActualString, ExpectedString);
 			
-			ExpectedString = CreateMemberTest.Month;
-			ActualString = CommonFunctions.GetMonthNumberIntoMonthName(CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetBirthMonthField(driver, "")));
+			ExpectedString =  CommonFunctions.GetMonthNumberIntoMonthName(CreateMemberTest.Month);
+			ActualString =CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetBirthMonthField(driver, ""));
 			assertEquals(ActualString, ExpectedString);
 			
 			ExpectedString = CreateMemberTest.Year;
@@ -209,12 +209,13 @@ public class SignWaiver2PageElements {
 		  driver.switchTo().window(windowHandles.get(1));
 		  GetMyselfButton(driver).click();
 		  Thread.sleep(5000);
-		/*  assertEquals( SignWaiver2PageElements.GetIAcknowledgeCheckBox(driver).isDisplayed(), true);
+		  assertEquals( SignWaiver2PageElements.GetIAcknowledgeCheckBox(driver).isDisplayed(), true);
 		  assertEquals( SignWaiver2PageElements.GetEmailOptOutCheckBox(driver).isDisplayed(), true);
-		  */
+		 
 		  GetEmailIDField(driver).sendKeys(AccountEmail);
 		  GetEmailIDField(driver).sendKeys(Keys.TAB);
 		  Thread.sleep(5000);
+		  
 		  if(GetExistingGuestModal(driver).isDisplayed())
 		  {
 			  assertEquals(GetExistingModal_EmailID(driver).getText(), AccountEmail);
@@ -224,22 +225,25 @@ public class SignWaiver2PageElements {
 			  GetExistingModal_btnGuestSelection(driver).click();
 			  GetExistingModal_btnAddGuests(driver).click();
 			  Thread.sleep(15000);
+			  
+			
 			  System.out.println("fname="+GetFirstNameField(driver, "").getAttribute("value"));
 			  System.out.println("lname="+GetLastNameField(driver, "").getAttribute("value"));
 			  System.out.println("street="+GetStreetAddressField(driver).getAttribute("value"));
 			  System.out.println("zipcode="+GetZipCodeField(driver).getAttribute("value"));
 			  System.out.println("city="+GetCityField(driver).getAttribute("value"));
 			  System.out.println("phone="+GetPhoneNumberField(driver).getAttribute("value"));
-			  
+			    
 			  
 			  assertEquals(GetFirstNameField(driver, "").getAttribute("value").trim(),CreateMemberTest.fname);
 			  assertEquals(GetLastNameField(driver, "").getAttribute("value").trim(), CreateMemberTest.lname);
+			  VerifyDOBDropdownFieldValues(driver);
 			  assertEquals(GetStreetAddressField(driver).getAttribute("value").trim(), CreateMemberTest.Street);
 			  assertEquals(GetCityField(driver).getAttribute("value").trim(), CreateMemberTest.City);
 			  assertEquals(GetStateField(driver).getAttribute("value").trim(), CreateMemberTest.State);
 			  assertEquals(GetZipCodeField(driver).getAttribute("value").trim(), CreateMemberTest.ZipCode);
 			  assertEquals(GetPhoneNumberField(driver).getAttribute("value").trim(), CreateMemberTest.PhoneNumber);
-			  VerifyDOBDropdownFieldValues(driver);
+			  
 			  SignWaiver2PageElements.GetContinueButton(driver).click();
 			  Thread.sleep(10000);
 			  assertEquals( SignWaiver2PageElements.GetIAcknowledgeCheckBox(driver).isDisplayed(), true);
