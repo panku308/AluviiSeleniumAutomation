@@ -69,13 +69,6 @@ private static WebElement element = null;
 		return element.get(element.size()-1);
 	}
 	
-	public static WebElement GetPaymentTab_SelectOptionDropdownList(WebDriver driver, String list)
-	{
-		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[@id='ddlPaymentPlan_listbox']//li[text()='"+list+"']"));
-		return element.get(element.size()-1);
-	}
-	
 	public static WebElement getColumn_DiscountEntitlementName(WebDriver driver)
 	{
 	
@@ -104,20 +97,6 @@ private static WebElement element = null;
 	{
 		List<WebElement> element;
 		element =driver.findElements(By.xpath("//*[@id='ddlPackagesOptions_listbox']//li[text()='"+list+"']"));
-		return element.get(element.size()-1);
-	}
-	
-	public static WebElement getColumn_PaymentPlanName(WebDriver driver)
-	{
-	
-		element =driver.findElement(By.xpath("//*[@id='gridPaymentPlans']//*[text()='Name']/..//a[1]"));
-		return element;
-	}
-	
-	public static WebElement getPaymentPlanNameFilteredValue(WebDriver driver)
-	{
-		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[@id='gridPaymentPlans']//td[3]"));
 		return element.get(element.size()-1);
 	}
 	

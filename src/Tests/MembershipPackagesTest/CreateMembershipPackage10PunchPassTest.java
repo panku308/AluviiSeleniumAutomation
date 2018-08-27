@@ -42,7 +42,7 @@ public class CreateMembershipPackage10PunchPassTest extends TestSetup {
 			MembershipPackagesPageElements.GetPackageTab_SelectOptionDropdownList(driver, "Add Membership Package").click();
 			Thread.sleep(2000);
 			
-			CommonFunctions.SwitchToContentFrame(driver);
+			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
 			String PackageName="Test10PunchPassPackage_"+System.currentTimeMillis();
@@ -53,7 +53,7 @@ public class CreateMembershipPackage10PunchPassTest extends TestSetup {
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setTaxOption(driver, "Tourism ").click();
 			Thread.sleep(2000);
-			AddMembershipPackageDialogBoxElements.getSalePrice(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+			AddMembershipPackageDialogBoxElements.getSalePrice(driver).sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setSalePrice(driver).sendKeys("20");
 			Thread.sleep(2000);
@@ -61,13 +61,13 @@ public class CreateMembershipPackage10PunchPassTest extends TestSetup {
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setLengthType(driver, "Fixed Scans").click();
 			Thread.sleep(2000);
-			AddMembershipPackageDialogBoxElements.getScanQty(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+			AddMembershipPackageDialogBoxElements.getScanQty(driver).sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setScanQty(driver).sendKeys("10");
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.getMembershipCheckbox(driver).click();
 			Thread.sleep(2000);
-			AddMembershipPackageDialogBoxElements.getRenewablePrice(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+			AddMembershipPackageDialogBoxElements.getRenewablePrice(driver).sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setRenewablePrice(driver).sendKeys("80");
 			Thread.sleep(2000);
