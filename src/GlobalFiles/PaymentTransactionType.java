@@ -21,7 +21,7 @@ import Tests.SellProductTest.SellGiftCard_Cash_Test;
 public class PaymentTransactionType {
 	
 	public static void PaymentThroughStoredValue(WebDriver driver) throws Exception
-	{		
+	{		 
 		try
 		{
 			PaymentTransactionDialogBoxElements.GetMoreButton(driver).click();
@@ -58,7 +58,7 @@ public class PaymentTransactionType {
 		  
 			
 	}
-	public static void PaymentThroughCardKnox(WebDriver driver) throws InterruptedException
+	public static void PaymentThroughCardKnox(WebDriver driver) throws Exception
 	{
 		try
 		{

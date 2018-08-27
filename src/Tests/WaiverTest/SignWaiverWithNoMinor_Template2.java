@@ -8,10 +8,13 @@ import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.ManageMembershipsPageElements;
+import ObjectRepository.SignWaiver2PageElements;
 import ObjectRepository.SignWaiverPageElements;
- 
-public class SignWaiverWithNoMinor_Template1 {
-	public static WebDriver driver=null;
+
+public class SignWaiverWithNoMinor_Template2 {
+	 
+
+public static WebDriver driver=null;
 String WaiverName="";
 int NumberOfWaiver=1;
 String ActualGuestRows[]=null;
@@ -22,13 +25,13 @@ String ActualGuestRows[]=null;
 @Test (priority=2)
 public void SignWaiverTest() throws Exception
 {
-	 SignWaiverPageElements.AddWaiverSign_Template1(driver, NumberOfWaiver,1,0); 
+	 SignWaiver2PageElements.AddWaiverSign_Template2(driver, NumberOfWaiver,1,0); 
 }
 @Test (priority=3) 
 public void VerifySignedWaiverOnManageMemebershipTest() throws InterruptedException
 {
 	 boolean actualResult=false;
-	 int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, SignWaiverPageElements.SignWaiverEmailID);
+	 int i = ManageMembershipsPageElements.GetSearchRecordRowCountOfAccountTable(driver, SignWaiver2PageElements.SignWaiverEmailID);
 	 if(i==1)
 	 {
 		 actualResult=true;
@@ -37,23 +40,21 @@ public void VerifySignedWaiverOnManageMemebershipTest() throws InterruptedExcept
 		 Thread.sleep(4000);
 		 ActualGuestRows= ManageMembershipsPageElements.GetGuestRecordRowsFromAccountTable(driver);
 		 System.out.println("Actual Guest Row"  + ActualGuestRows.length);
-		 if(ActualGuestRows.length==SignWaiverPageElements.GuestFnameLname.length)
+		 if(ActualGuestRows.length==SignWaiver2PageElements.GuestFnameLname.length)
 		 {
-			 assertEquals(CommonFunctions.CompareSingleDimensionStringArray(ActualGuestRows, SignWaiverPageElements.GuestFnameLname), true);
+			 assertEquals(CommonFunctions.CompareSingleDimensionStringArray(ActualGuestRows, SignWaiver2PageElements.GuestFnameLname), true);
 		 }
 		 else
 		 {
-			 assertEquals(ActualGuestRows, SignWaiverPageElements.GuestFnameLname);
+			 assertEquals(ActualGuestRows, SignWaiver2PageElements.GuestFnameLname);
 		 }
-		 
-		 
+		  
 	 }
 	 else
 	 {
 		 assertEquals(false, true);
 	 }
 	 
-}
-
+	}
 
 }

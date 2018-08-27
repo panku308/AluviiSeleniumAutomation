@@ -1,6 +1,6 @@
 package GlobalFiles;
 
-
+ 
 
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -37,7 +37,7 @@ public class CommonFunctions {
 	//--------------------------------------------Global Variables-------------------------------------------------------
 	public static String domainName="https://stagingqa";
 	public static String url=domainName+".aluvii.com/employee/";
-	public static String UserName="ceo@aluvii.com";
+	public static String UserName="pankaj@aluvii.com";
 	public static String Password="Admin@123";
 	public static String chromeDriverPath="C:\\chromedriver_win32\\chromedriver.exe";
 
@@ -63,9 +63,10 @@ public class CommonFunctions {
 		driver.manage().window().maximize();
 		return driver;
 	}
-	public static void SelectOptionFromDropdownByValue(WebElement element, String OptName)
+	public static void SelectOptionFromDropdownByValue(WebElement element, String OptName) throws Exception
 	{
 		element.click();
+		Thread.sleep(2000);
 		Select ObjSelect = new Select(element);
 		ObjSelect.selectByValue(OptName);
 	}
@@ -320,5 +321,65 @@ public class CommonFunctions {
 		}
 		return Day;
 	}
-
+	public static String GetCurrentSelectionOfDropdownField(WebDriver driver, WebElement element)
+	{
+		Select dd = new Select(element);
+		WebElement option = dd.getFirstSelectedOption();
+		System.out.println(option.getAttribute("value"));
+		return option.getText();
+	}
+	public static String GetMonthNumberIntoMonthName(String str)
+	{
+		String month="";
+		if(str.equals("1"))
+		{
+			month= "January";
+		}
+		else if(str.equals("2"))
+		{
+			month= "February";
+		}
+		else if(str.equals("3"))
+		{
+			month= "March";
+		}
+		else if(str.equals("4"))
+		{
+			month= "April";
+		}
+		else if(str.equals("5"))
+		{
+			month= "May";
+		}
+		else if(str.equals("6"))
+		{
+			month= "June";
+		}
+		else if(str.equals("7"))
+		{
+			month= "July";
+		}
+		else if(str.equals("8"))
+		{
+			month= "August";
+		}
+		else if(str.equals("9"))
+		{
+			month= "September";
+		}
+		else if(str.equals("10"))
+		{
+			month= "October";
+		}
+		else if(str.equals("11"))
+		{
+			month= "November";
+		}
+		else if(str.equals("12"))
+		{
+			month= "December";
+		}		
+		return month;
+	}
+	
 }

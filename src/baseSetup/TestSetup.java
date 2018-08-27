@@ -26,7 +26,7 @@ import util.PropertyFileManager;
 public class TestSetup {
 
 	protected static Properties configProperty;
-	protected WebDriver driver = null;
+	protected static WebDriver driver = null;
 
 	@BeforeSuite
 	public void setUp() {

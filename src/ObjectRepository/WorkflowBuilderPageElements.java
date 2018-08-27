@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class WorkflowBuilderPageElements {
-	
+	 
 private static WebElement element = null;
 	
 	public static WebElement GetSettings_Integrate_this_session_with(WebDriver driver)

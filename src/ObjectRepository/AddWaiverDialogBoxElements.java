@@ -14,7 +14,7 @@ import GlobalFiles.CommonFunctions;
 public class AddWaiverDialogBoxElements {
 private static WebElement element = null;
 	
-	
+	 
 	public static WebElement GetWaiverNameField(WebDriver driver)
 	{
 		element =driver.findElement(By.id("WaiverName"));

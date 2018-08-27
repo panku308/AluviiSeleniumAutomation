@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class WaiverManagementPageElements {
 private static WebElement element = null;
 	
-	
+	 
 	public static WebElement GetWaiverTab(WebDriver driver)
 	{
 		//element =driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div/ul/li[1]/a"));

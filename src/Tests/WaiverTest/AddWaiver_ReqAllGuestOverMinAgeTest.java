@@ -20,7 +20,7 @@ public class AddWaiver_ReqAllGuestOverMinAgeTest {
 	 public static WebDriver driver=null;
 	 String WaiverName="";
 	 int NumberOfWaiver=3;
-	 
+	  
 	 String ActualGuestRows[]=null;
 	 @BeforeClass
 	  public void beforeClass() throws InterruptedException {
@@ -35,7 +35,7 @@ public class AddWaiver_ReqAllGuestOverMinAgeTest {
 		  AddWaiverDialogBoxElements.AddWaiver(driver, WaiverName, 2);
 	  }
 	 @Test(priority=5)
-	 public void SignWaiverTest() throws InterruptedException
+	 public void SignWaiverTest() throws Exception
 	 {
 		 SignWaiverPageElements.AddWaiverSign(driver, NumberOfWaiver, 1,2); 
 	 }

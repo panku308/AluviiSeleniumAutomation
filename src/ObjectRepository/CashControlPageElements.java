@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 public class CashControlPageElements {
 	private static WebElement element = null;
 
-
+ 
 	public static WebElement GetDashboardLink(WebDriver driver)
 	{
 		element =driver.findElement(By.linkText("Dashboard"));		

@@ -24,7 +24,7 @@ public class AddWaiver_ReqAllGuestToSign {
 	 @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
-	  }
+	  } 
 	 @Test (priority=1)
 	  public void AddWaiver_ReqAllGuestToSignTest()throws Exception
 	  {
@@ -34,7 +34,7 @@ public class AddWaiver_ReqAllGuestToSign {
 		  AddWaiverDialogBoxElements.AddWaiver(driver, WaiverName, 1);
 	  }
 	 @Test(priority=2)
-	 public void SignWaiverTest() throws InterruptedException
+	 public void SignWaiverTest() throws Exception
 	 {
 		 SignWaiverPageElements.AddWaiverSign(driver, NumberOfWaiver,1,0); 
 	 }

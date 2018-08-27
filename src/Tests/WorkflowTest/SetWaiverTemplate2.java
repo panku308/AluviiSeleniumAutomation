@@ -1,5 +1,7 @@
 package Tests.WorkflowTest;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
@@ -16,7 +18,9 @@ public class SetWaiverTemplate2 {
 		  driver = CommonFunctions.driver;
 	  }
  @Test
- public void SetWaiverTemplate1() throws InterruptedException {CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetWorkflowLink(driver));
+ public void SetWaiverTemplate2() throws InterruptedException {
+	 
+	 CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetWorkflowLink(driver));
 	Thread.sleep(2000);
 	DashboardPageElements.GetWorkflowLink(driver).click();
 	Thread.sleep(2000);
@@ -44,5 +48,8 @@ public class SetWaiverTemplate2 {
 	WorkflowBuilderPageElements.GetReqSignerDD(driver).click();
 	Thread.sleep(2000);
 	WorkflowBuilderPageElements.GetReqSignerDDOption(driver, "Yes").click();
+	WorkflowBuilderPageElements.GetSaveButton(driver).click();
+	Thread.sleep(1000);
+	assertEquals(WorkflowBuilderPageElements.GetSuccessMessage(driver).getText(), "Work flow updated successfully.");
 }
 }

@@ -19,7 +19,8 @@ public class SetWaiverTemplate1 {
 		  driver = CommonFunctions.driver;
 	  }
   @Test
-  public void SetWaiverTemplate1() throws InterruptedException {CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetWorkflowLink(driver));
+  public void SetWaiver_Template1() throws InterruptedException {
+	  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetWorkflowLink(driver));
 	Thread.sleep(2000);
 	DashboardPageElements.GetWorkflowLink(driver).click();
 	Thread.sleep(2000);

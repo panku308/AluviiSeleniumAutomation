@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class ManageMembershipsPageElements {
 private static WebElement element = null;
-	
+	 
 	
 	public static WebElement GetSearchTextField(WebDriver driver)
 	{
@@ -61,6 +61,11 @@ private static WebElement element = null;
 		//element = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/table/tbody/tr[2]/td/div/div/div[1]/div[2]/table/tbody/tr["+(row)+"]/td[3]/div/ul/li[1]/h3"));
 		                                         
 		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[3]/div/ul/li[1]/h3"));
+		return element;
+	}
+	public static WebElement GetAddGuestButton(WebDriver driver)
+	{
+		element = driver.findElement(By.xpath("//button[text()='Add Guest']"));
 		return element;
 	}
 	
@@ -117,7 +122,17 @@ private static WebElement element = null;
 		 System.out.println("GetSearchRecordRowCountOfAccountTable" +TableRows.size());
 		 return TableRows.size();		 
 	}
-	
+	public static void ExpandMemberRow(WebDriver driver, String EmailID) throws InterruptedException
+	{
+		DashboardPageElements.GetManageMemberShipLink(driver).click();
+		Thread.sleep(5000);
+		 ManageMembershipsPageElements.GetSearchTextField(driver).clear();
+		 ManageMembershipsPageElements.GetSearchTextField(driver).sendKeys(EmailID);
+		 ManageMembershipsPageElements.GetSearchButtonField(driver).click();	
+		 Thread.sleep(5000);
+		 ManageMembershipsPageElements.GetExpandArrowElement(driver).click();
+		 
+	}
 	public static WebElement GetAccountGuestAddMembership(WebDriver driver, int row)
 	{
 		element = driver.findElement(By.xpath("//div[contains(@id, 'accountgrid_')]//table/tbody/tr["+(row)+"]/td[4]/div[1]/button"));
