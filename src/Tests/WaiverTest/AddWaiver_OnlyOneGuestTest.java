@@ -23,6 +23,7 @@ public class AddWaiver_OnlyOneGuestTest {
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
 	  }
+	  
 	 @Test (priority=7)
 	  public void AddWaiver_OnlyOneGuest()throws Exception
 	  {

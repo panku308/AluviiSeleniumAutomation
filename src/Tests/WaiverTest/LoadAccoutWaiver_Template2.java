@@ -15,7 +15,7 @@ import Tests.ManageMembershipsTest.CreateMemberTest;
 public class LoadAccoutWaiver_Template2 {
 
 	
-
+ 
 public static WebDriver driver=null;
 String WaiverName="";
 int NumberOfWaiver=1;

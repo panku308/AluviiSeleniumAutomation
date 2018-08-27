@@ -26,7 +26,7 @@ public void SignWaiverTest() throws Exception
 {
 	 SignWaiver2PageElements.AddWaiverSign_Template2(driver, NumberOfWaiver,1,1); 
 }
-@Test (priority=3) 
+@Test (priority=3)  
 public void VerifySignedWaiverOnManageMemebershipTest() throws InterruptedException
 {
 	 boolean actualResult=false;

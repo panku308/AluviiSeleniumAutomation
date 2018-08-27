@@ -9,7 +9,7 @@ import ObjectRepository.AddWaiverDialogBoxElements;
 import ObjectRepository.WaiverManagementPageElements;
 
 public class AddWaiver_NewWorkFlow {
-	
+	 
 	 public static WebDriver driver=null;
 	 String WaiverName="";
 	 @BeforeClass

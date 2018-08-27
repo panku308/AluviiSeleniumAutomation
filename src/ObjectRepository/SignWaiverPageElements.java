@@ -16,7 +16,7 @@ import org.openqa.selenium.interactions.Actions;
 import GlobalFiles.CommonFunctions;
 import Tests.ManageMembershipsTest.AddMinorIntoGuestAccount;
 import Tests.ManageMembershipsTest.CreateMemberTest;
-
+ 
 public class SignWaiverPageElements {
 private static WebElement element = null;
 public static String GuestFnameLname []=null;

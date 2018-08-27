@@ -16,7 +16,7 @@ import Tests.ManageMembershipsTest.CreateMemberTest;
 public class LoadAccountWaiverWithMinor_Template2 {
 
 	
-
+ 
 public static WebDriver driver=null;
 String WaiverName="";
 int NumberOfWaiver=2;

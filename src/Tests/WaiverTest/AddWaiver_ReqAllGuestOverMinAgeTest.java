@@ -20,7 +20,7 @@ public class AddWaiver_ReqAllGuestOverMinAgeTest {
 	 public static WebDriver driver=null;
 	 String WaiverName="";
 	 int NumberOfWaiver=3;
-	 
+	  
 	 String ActualGuestRows[]=null;
 	 @BeforeClass
 	  public void beforeClass() throws InterruptedException {

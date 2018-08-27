@@ -23,7 +23,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateMemberTest {
-
+ 
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
 	  public static String EmailID="", fname="", lname="", Street="", State="", City="",ZipCode="", PhoneNumber="" ;

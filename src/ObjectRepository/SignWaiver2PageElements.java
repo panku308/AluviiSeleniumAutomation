@@ -15,7 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import GlobalFiles.CommonFunctions;
 import Tests.ManageMembershipsTest.CreateMemberTest;
-
+ 
 public class SignWaiver2PageElements {
 	private static WebElement element = null;
 	public static String GuestFnameLname []=null;

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import GlobalFiles.CommonFunctions;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.SignWaiverPageElements;
-
+ 
 public class SignWaiverWithMinor_Template1 {
 	public static WebDriver driver=null;
 String WaiverName="";

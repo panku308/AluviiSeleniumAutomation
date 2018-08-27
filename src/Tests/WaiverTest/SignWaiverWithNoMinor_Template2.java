@@ -12,7 +12,7 @@ import ObjectRepository.SignWaiver2PageElements;
 import ObjectRepository.SignWaiverPageElements;
 
 public class SignWaiverWithNoMinor_Template2 {
-	
+	 
 
 public static WebDriver driver=null;
 String WaiverName="";

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class ManageMembershipsPageElements {
 private static WebElement element = null;
-	
+	 
 	
 	public static WebElement GetSearchTextField(WebDriver driver)
 	{

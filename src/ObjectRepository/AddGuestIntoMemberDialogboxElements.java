@@ -8,7 +8,7 @@ public class AddGuestIntoMemberDialogboxElements {
 
 private static WebElement element = null;
 	
-	
+	 
 	public static WebElement GetLoadDataButton(WebDriver driver)
 	{
 		element =driver.findElement(By.id("GetGuestAccountDetails"));

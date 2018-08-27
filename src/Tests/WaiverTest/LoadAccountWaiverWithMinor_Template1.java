@@ -15,7 +15,7 @@ import Tests.ManageMembershipsTest.CreateMemberTest;
 public class LoadAccountWaiverWithMinor_Template1 {
 	
 
-public static WebDriver driver=null;
+public static WebDriver driver=null; 
 String WaiverName="";
 int NumberOfWaiver=2;
 String ActualGuestRows[]=null, ExpectedGuestRows[]=null;

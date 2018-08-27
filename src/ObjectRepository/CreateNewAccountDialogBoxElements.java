@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class CreateNewAccountDialogBoxElements {
 private static WebElement element = null;
-	
+	 
 //=============================Account Info Variable==========================================
 	public static WebElement GetAccountNameField(WebDriver driver)
 	{

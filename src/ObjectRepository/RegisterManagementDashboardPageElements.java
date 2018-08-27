@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 public class RegisterManagementDashboardPageElements {
 private static WebElement element = null;
 	
-	
+	 
 	public static WebElement GetProductsTab(WebDriver driver)
 	{
 		element =driver.findElement(By.linkText("Products"));
