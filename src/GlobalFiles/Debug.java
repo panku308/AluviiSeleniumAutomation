@@ -69,7 +69,7 @@ public class Debug {
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
 		try {
-			SignWaiver2PageElements.LoadAccountWaiver_Teamplate2(driver,"selenium1535169189285@gmail.com"); 
+			SignWaiverPageElements.LoadAccountWaiver_Teamplate1(driver,"selenium1535288254935@gmail.com",2); 
 		}
 		catch(Exception e)
 		{

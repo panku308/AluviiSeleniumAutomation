@@ -27,7 +27,7 @@ String ActualGuestRows[]=null, ExpectedGuestRows[]=new String[1];
 @Test (priority=2)
 public void LoadAccountWaiver() throws Exception
 {
-	 SignWaiver2PageElements.LoadAccountWaiver_Teamplate2(driver,CreateMemberTest.EmailID); 
+	 SignWaiver2PageElements.LoadAccountWaiver_Teamplate2(driver,CreateMemberTest.EmailID,NumberOfWaiver); 
 }
 @Test (priority=3) 
 public void VerifySignedWaiverOnManageMemebershipTest() throws InterruptedException
@@ -40,11 +40,12 @@ public void VerifySignedWaiverOnManageMemebershipTest() throws InterruptedExcept
 		 assertEquals(actualResult, true);
 		 ManageMembershipsPageElements.GetExpandArrowElement(driver).click();
 		 Thread.sleep(4000);
+		 
 		 ActualGuestRows= ManageMembershipsPageElements.GetGuestRecordRowsFromAccountTable(driver);
 		 ExpectedGuestRows [0]= CreateMemberTest.fname + " "+ CreateMemberTest.lname;
 		 System.out.println("Actual Guest Row"  + ActualGuestRows.length);
-		 if(ActualGuestRows.length==ExpectedGuestRows.length)
 		 
+		 if(ActualGuestRows.length==ExpectedGuestRows.length)		 
 		 {
 			 assertEquals(CommonFunctions.CompareSingleDimensionStringArray(ActualGuestRows, ExpectedGuestRows), true);
 		 }

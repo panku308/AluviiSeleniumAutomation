@@ -26,7 +26,7 @@ String ActualGuestRows[]=null, ExpectedGuestRows[]=new String[1];
 @Test (priority=2)
 public void LoadAccountWaiver() throws Exception
 {
-	 SignWaiverPageElements.LoadAccountWaiver_Teamplate1(driver,CreateMemberTest.EmailID); 
+	 SignWaiverPageElements.LoadAccountWaiver_Teamplate1(driver,CreateMemberTest.EmailID,NumberOfWaiver); 
 }
 @Test (priority=3) 
 public void VerifySignedWaiverOnManageMemebershipTest() throws InterruptedException

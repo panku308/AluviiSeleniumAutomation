@@ -10,10 +10,10 @@ import GlobalFiles.CommonFunctions;
 import ObjectRepository.ManageMembershipsPageElements;
 import ObjectRepository.SignWaiverPageElements;
 
-public class SignWaiverWithNoMinor_Template1 {
+public class SignWaiverWithMinor_Template1 {
 	public static WebDriver driver=null;
 String WaiverName="";
-int NumberOfWaiver=1;
+int NumberOfWaiver=2;
 String ActualGuestRows[]=null;
 @BeforeClass
  public void beforeClass() throws InterruptedException {
@@ -22,7 +22,7 @@ String ActualGuestRows[]=null;
 @Test (priority=2)
 public void SignWaiverTest() throws Exception
 {
-	 SignWaiverPageElements.AddWaiverSign_Template1(driver, NumberOfWaiver,1,0); 
+	 SignWaiverPageElements.AddWaiverSign_Template1(driver, NumberOfWaiver,1,1); 
 }
 @Test (priority=3) 
 public void VerifySignedWaiverOnManageMemebershipTest() throws InterruptedException

@@ -176,7 +176,7 @@ public class SignWaiver2PageElements {
 			element =driver.findElement(By.id("btnAddGuests"));
 			return element;
 		}
-		public static void VerifyDOBDropdownFieldValues(WebDriver driver)
+		public static void VerifyDOBDropdownFieldValues(WebDriver driver, int i)
 		{
 			String ExpectedString="";
 			String ActualString="";
@@ -191,10 +191,24 @@ public class SignWaiver2PageElements {
 			ExpectedString = CreateMemberTest.Year;
 			ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetBirthYearField(driver, ""));
 			assertEquals(ActualString, ExpectedString);
+			if(i>1)
+			{
+				ExpectedString = CreateMemberTest.Date;
+				ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetMinorBirthDateField(driver, "1"));
+				assertEquals(ActualString, ExpectedString);
+				
+				ExpectedString =  CommonFunctions.GetMonthNumberIntoMonthName(CreateMemberTest.Month);
+				ActualString =CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetMinorBirthMonthField(driver, "1"));
+				assertEquals(ActualString, ExpectedString);
+				
+				ExpectedString = CreateMemberTest.Year;
+				ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetBirthYearField(driver, "1"));
+				assertEquals(ActualString, ExpectedString);	
+			}
 			
 			
 		}
-		public static void LoadAccountWaiver_Teamplate2(WebDriver driver, String AccountEmail) throws InterruptedException
+		public static void LoadAccountWaiver_Teamplate2(WebDriver driver, String AccountEmail, int WaiverCount) throws InterruptedException
 		{
 
 			String actualResult="";
@@ -207,10 +221,9 @@ public class SignWaiver2PageElements {
 
 		  ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
 		  driver.switchTo().window(windowHandles.get(1));
-		  GetMyselfButton(driver).click();
+		  GetMyselfAndChildrenButton(driver).click();
 		  Thread.sleep(5000);
-		  assertEquals( SignWaiver2PageElements.GetIAcknowledgeCheckBox(driver).isDisplayed(), true);
-		  assertEquals( SignWaiver2PageElements.GetEmailOptOutCheckBox(driver).isDisplayed(), true);
+
 		 
 		  GetEmailIDField(driver).sendKeys(AccountEmail);
 		  GetEmailIDField(driver).sendKeys(Keys.TAB);
@@ -237,7 +250,7 @@ public class SignWaiver2PageElements {
 			  
 			  assertEquals(GetFirstNameField(driver, "").getAttribute("value").trim(),CreateMemberTest.fname);
 			  assertEquals(GetLastNameField(driver, "").getAttribute("value").trim(), CreateMemberTest.lname);
-			  VerifyDOBDropdownFieldValues(driver);
+			  VerifyDOBDropdownFieldValues(driver,1);
 			  assertEquals(GetStreetAddressField(driver).getAttribute("value").trim(), CreateMemberTest.Street);
 			  assertEquals(GetCityField(driver).getAttribute("value").trim(), CreateMemberTest.City);
 			  assertEquals(GetStateField(driver).getAttribute("value").trim(), CreateMemberTest.State);
@@ -263,6 +276,15 @@ public class SignWaiver2PageElements {
 			  builder = new Actions(driver);
 			  drawAction = builder.moveToElement(SignWaiver2PageElements.GetSignatureField(driver),100,15).clickAndHold().moveByOffset(120, 30).moveByOffset(80, 40).release().build();
 			  drawAction.perform();
+			  
+			  if(WaiverCount>1)
+			  {
+				  assertEquals(GetFirstNameField(driver, "1").getAttribute("value").trim(),CreateMemberTest.fname);
+				  assertEquals(GetLastNameField(driver, "1").getAttribute("value").trim(), CreateMemberTest.lname);
+				  VerifyDOBDropdownFieldValues(driver,WaiverCount);
+				    
+			  }
+			  
 			  
 			  SignWaiver2PageElements.GetIMFinishedButton(driver).click();
 			  Thread.sleep(5000);

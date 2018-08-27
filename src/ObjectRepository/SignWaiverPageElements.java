@@ -14,6 +14,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import GlobalFiles.CommonFunctions;
+import Tests.ManageMembershipsTest.AddMinorIntoGuestAccount;
 import Tests.ManageMembershipsTest.CreateMemberTest;
 
 public class SignWaiverPageElements {
@@ -136,9 +137,17 @@ public static String Street="", City="", ZipCode="", State="";
 		element =driver.findElement(By.id("btnLoadAccount"));
 		return element;
 	}
-	public static WebElement GetExistingModal_btnGuestSelection(WebDriver driver)
+	public static WebElement GetExistingModal_btnGuestSelection(WebDriver driver, String GuestNumber)
 	{
-		element =driver.findElement(By.xpath("//div[@id='guestSelection']//p[@id='paraFour']/p/button"));
+		if(GuestNumber.equals(""))
+		{
+			element =driver.findElement(By.xpath("//div[@id='guestSelection']//p[@id='paraFour']/p/button"));
+		}
+		else
+		{
+			element =driver.findElement(By.xpath("//div[@id='guestSelection']//p[@id='paraFour']/p["+GuestNumber+"]/button"));
+		}
+		
 		return element;
 	}
 	public static WebElement GetExistingModal_btnAddGuests(WebDriver driver)
@@ -146,7 +155,41 @@ public static String Street="", City="", ZipCode="", State="";
 		element =driver.findElement(By.id("btnAddGuests"));
 		return element;
 	}
-	public static void LoadAccountWaiver_Teamplate1(WebDriver driver, String AccountEmail) throws InterruptedException
+	public static void VerifyDOBDropdownFieldValues(WebDriver driver, int i)
+	{
+		
+		String ExpectedString="";
+		String ActualString="";
+	
+		ExpectedString = CreateMemberTest.Date;
+		ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetDayDropdown(driver, 1));
+		assertEquals(ActualString, ExpectedString);
+		
+		ExpectedString =  CommonFunctions.GetMonthNumberIntoMonthName(CreateMemberTest.Month);
+		ActualString =CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetMonthDropdown(driver, 1));
+		assertEquals(ActualString, ExpectedString);
+		
+		ExpectedString = CreateMemberTest.Year;
+		ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetYearDropdown(driver, 1));
+		assertEquals(ActualString, ExpectedString);
+		if(i>1)
+		{
+			ExpectedString = AddMinorIntoGuestAccount.MinorBirthdate[0];
+			ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetDayDropdown(driver, i));
+			assertEquals(ActualString, ExpectedString);
+			
+			ExpectedString =  CommonFunctions.GetMonthNumberIntoMonthName(AddMinorIntoGuestAccount.MinorBirthMonth[0]);
+			ActualString =CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetMonthDropdown(driver, i));
+			assertEquals(ActualString, ExpectedString);
+			
+			ExpectedString = AddMinorIntoGuestAccount.MinorBirthYear[0];
+			ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetYearDropdown(driver, i));
+			assertEquals(ActualString, ExpectedString);
+		}
+			
+		
+	}
+	public static void LoadAccountWaiver_Teamplate1(WebDriver driver, String AccountEmail,int NumberOfWaiver) throws InterruptedException
 	{
 			String actualResult="";
 		  WaiverManagementPageElements.GetWaiverNameOfFirstRow(driver).click();
@@ -165,17 +208,28 @@ public static String Street="", City="", ZipCode="", State="";
 		  SignWaiverPageElements.GetEmailIDField(driver).sendKeys(AccountEmail);
 		  SignWaiverPageElements.GetEmailIDField(driver).sendKeys(Keys.TAB);
 		  Thread.sleep(5000);
+		  
 		  if(SignWaiverPageElements.GetExistingGuestModal(driver).isDisplayed())
 		  {
 			  assertEquals(GetExistingModal_EmailID(driver).getText(), AccountEmail);
 			  assertEquals(GetExistingModal_FnameAndLname(driver).getText(), CreateMemberTest.fname + " " + CreateMemberTest.lname );
 			  GetExistingModal_btnLoadAccount(driver).click();
 			  Thread.sleep(5000);
-			  GetExistingModal_btnGuestSelection(driver).click();
+			  if(NumberOfWaiver==1)
+			  {
+				  GetExistingModal_btnGuestSelection(driver,"").click();  
+			  }
+			  else
+			  {
+				  GetExistingModal_btnGuestSelection(driver,"1").click();
+				  GetExistingModal_btnGuestSelection(driver,"2").click();
+			  }
+			  
 			  GetExistingModal_btnAddGuests(driver).click();
 			  Thread.sleep(15000);
 			  System.out.println("fname="+GetFirstNameField(driver, 1).getAttribute("value"));
 			  System.out.println("lname="+GetLastNameField(driver, 1).getAttribute("value"));
+			  VerifyDOBDropdownFieldValues(driver,1);
 			  System.out.println("street="+GetStreetAddressField(driver).getAttribute("value"));
 			  System.out.println("zipcode="+GetZipCodeField(driver).getAttribute("value"));
 			  System.out.println("city="+GetCityField(driver).getAttribute("value"));
@@ -197,12 +251,24 @@ public static String Street="", City="", ZipCode="", State="";
 			  {
 				  SignWaiverPageElements.GetIAcknowledgeCheckBox(driver).click();
 			  }
+			  
 			  Actions builder = null;
 			  Action drawAction = null;
 			  
 			  builder = new Actions(driver);
 			  drawAction = builder.moveToElement(SignWaiverPageElements.GetSignatureField(driver,1),100,15).clickAndHold().moveByOffset(120, 30).moveByOffset(80, 40).release().build();
 			  drawAction.perform();
+			  
+			  
+			  if(NumberOfWaiver>1)
+			  {
+				  System.out.println("fname="+GetFirstNameField(driver, 2).getAttribute("value"));
+				  System.out.println("lname="+GetLastNameField(driver, 2).getAttribute("value"));
+				  VerifyDOBDropdownFieldValues(driver,NumberOfWaiver);
+				 
+			  }
+			  
+			  
 			  GetIMFinishedButton(driver).click();
 
 			  actualResult = WaiverFinalPageElements.GetSigningSuccessMsg(driver).getText();

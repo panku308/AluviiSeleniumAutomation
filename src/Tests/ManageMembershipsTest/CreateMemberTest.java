@@ -3,6 +3,8 @@ package Tests.ManageMembershipsTest;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
+import ObjectRepository.AddGuestDialogBoxInsideSellProductElements;
+import ObjectRepository.AddGuestIntoMemberDialogboxElements;
 import ObjectRepository.CreateNewAccountDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ManageMembershipsPageElements;
@@ -14,7 +16,7 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.List;
 
-
+import org.apache.pdfbox.contentstream.operator.MissingOperandException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,12 +28,10 @@ public class CreateMemberTest {
 	  public static String expectedResult="", actualResult="";
 	  public static String EmailID="", fname="", lname="", Street="", State="", City="",ZipCode="", PhoneNumber="" ;
 	  public static String Date="11",Month="11",Year="1984";
-	  
-	  
+	
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
-		  
 	  }
 	  @Test
 	  public void CreateMemeberTest() throws Exception
@@ -84,5 +84,7 @@ public class CreateMemberTest {
 		  Thread.sleep(5000);		  
 		  
 	  }
+	
+	
 	  
 }
