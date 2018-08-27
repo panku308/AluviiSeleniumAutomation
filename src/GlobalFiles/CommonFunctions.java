@@ -18,6 +18,7 @@ import java.util.Map;
 import org.apache.commons.io.FileUtils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -163,15 +164,49 @@ public class CommonFunctions {
 	public static void filterTable(WebDriver driver,String input) throws InterruptedException {
 
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//span[text()='Filter']")).click();
+		try {
+			driver.findElement(By.xpath("(//span[text()='Filter'])[1]")).click();
+		}
+		catch(ElementNotVisibleException e)
+		{
+			driver.findElement(By.xpath("(//span[text()='Filter'])[2]")).click();
+		}
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//select[@title='Operator']/..")).click();
+		try {
+			driver.findElement(By.xpath("(//select[@title='Operator']/..)[1]")).click();
+		}
+		catch(ElementNotVisibleException e)
+		{
+			driver.findElement(By.xpath("(//select[@title='Operator']/..)[2]")).click();
+		}
+		//driver.findElement(By.xpath("//select[@title='Operator']/..")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//li[text()='Is equal to']")).click();
+		try {
+			driver.findElement(By.xpath("(//li[text()='Is equal to'])[1]")).click();
+		}
+		catch(ElementNotVisibleException e)
+		{
+			driver.findElement(By.xpath("(//li[text()='Is equal to'])[2]")).click();
+		}
+		//driver.findElement(By.xpath("//li[text()='Is equal to']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);		
+		try {
+			driver.findElement(By.xpath("(//select[@title='Operator']/../following-sibling::input)[1]")).sendKeys(input);
+		}
+		catch(ElementNotVisibleException e)
+		{
+			driver.findElement(By.xpath("(//select[@title='Operator']/../following-sibling::input)[2]")).sendKeys(input);
+		}
+		//	driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);		
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//button[text()='Filter']")).click();
+		try {
+			driver.findElement(By.xpath("(//button[text()='Filter'])[1]")).click();
+		}
+		catch(ElementNotVisibleException e)
+		{
+			driver.findElement(By.xpath("(//button[text()='Filter'])[2]")).click();
+		}
+		//driver.findElement(By.xpath("//button[text()='Filter']")).click();
 		Thread.sleep(2000);
 
 	}
