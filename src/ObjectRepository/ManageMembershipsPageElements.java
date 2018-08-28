@@ -225,4 +225,114 @@ private static WebElement element = null;
 		return element;
 	}
 	
+	public static int getDesiredColumnIndex(WebDriver driver, String columnName)
+	{
+		List<WebElement> elements;
+		elements =driver.findElements(By.xpath("//*[@id='accountgrid']//th"));
+
+
+		for(int i=0;i<elements.size();i++)			
+		{	
+			try {
+				if(elements.get(i).getAttribute("data-title").equals(columnName))			
+					return i+1;
+
+			}
+			catch(Exception e)
+			{
+
+			}
+		}
+
+		return 1000000001;
+	}
+
+	public static WebElement getDesiredAccountColumn(WebDriver driver, int columnIndex)
+	{			
+
+		element =driver.findElement(By.xpath("//*[@id='accountgrid']//th["+columnIndex+"]//a[1]"));
+		return element;
+	}
+	public static WebElement getFilteredColumn(WebDriver driver, int columnIndex)
+	{
+		List<WebElement> element;
+		element = driver.findElements(By.xpath("//*[@id='accountgrid']//td["+columnIndex+"]"));
+		return element.get(element.size()-1);
+	}
+
+	public static WebElement getFilteredColumns(WebDriver driver, int columnIndex, int dataIndex)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='accountgrid']//td["+columnIndex+"]"));
+		return element.get(dataIndex);
+	}
+
+	public static WebElement getClearFilterButton(WebDriver driver)
+	{			
+
+		element =driver.findElement(By.xpath("//button[text()='Clear All Filters']"));
+		return element;
+	}
+
+	public static WebElement getAddGuestButton(WebDriver driver)
+	{			
+
+		element =driver.findElement(By.xpath("//button[text()='Add Guest']"));
+		return element;
+	}
+
+	public static WebElement getSplitAccountButton(WebDriver driver)
+	{			
+
+		element =driver.findElement(By.xpath("//button[text()='Split Account']"));
+		return element;
+	}
+
+	public static WebElement getMergeGuestsButton(WebDriver driver)
+	{			
+
+		element =driver.findElement(By.xpath("//button[text()='Merge Guests']"));
+		return element;
+	}
+
+	public static WebElement getFastLoadMembershipButton(WebDriver driver)
+	{			
+
+		element =driver.findElement(By.xpath("//button[text()='Fast Load Membership']"));
+		return element;
+	}
+
+
+	public static boolean isPresent(WebDriver driver, String string)
+	{			
+
+		List<WebElement> elements =driver.findElements(By.xpath("//*[contains(text(),'"+string+"')]"));
+
+		if(elements.get(0).isDisplayed() && elements.get(1).isDisplayed())
+			return true;
+		else
+			return false;
+	}
+
+	public static boolean isMergedAccountPresent(WebDriver driver, String string)
+	{			
+
+		List<WebElement> elements =driver.findElements(By.xpath("//*[contains(text(),'"+string+"')]"));
+
+		if(elements.get(0).isDisplayed() && elements.get(1).isDisplayed() && elements.get(2).isDisplayed())
+			return true;
+		else
+			return false;
+	}
+	public static WebElement GetMergeAccountsLink(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Merge Accounts"));
+		return element;
+	}
+	public static WebElement GetEditAccountLink(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Edit Account"));
+		return element;
+	}
+	
 }	

@@ -37,7 +37,8 @@ public class CreateDiscountEntitlementTest extends TestSetup {
 			MembershipPackagesPageElements.GetDiscountEntitlementTab_SelectOptionDropdownList(driver, "Add Discount Entitlement").click();
 			Thread.sleep(2000);
 			
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
+//			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
 			String DiscountEntitlementName="TestDiscountEntitlement_"+System.currentTimeMillis();
@@ -50,7 +51,7 @@ public class CreateDiscountEntitlementTest extends TestSetup {
 			Thread.sleep(2000);
 			AddDiscountEntitlementDialogBoxElements.setDiscountType(driver, "In Percentage").click();
 			Thread.sleep(3000);
-			AddDiscountEntitlementDialogBoxElements.getDiscountPercentageField(driver).sendKeys(Keys.BACK_SPACE);
+			AddDiscountEntitlementDialogBoxElements.getDiscountPercentageField(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddDiscountEntitlementDialogBoxElements.setDiscountPercentageField(driver).sendKeys("0.5");
 			Thread.sleep(2000);

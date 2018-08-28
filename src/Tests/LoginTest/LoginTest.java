@@ -24,8 +24,8 @@ import org.testng.annotations.AfterSuite;
 
 		  
 		  CommonFunctions.Login(DriverManager.getDriver(),CommonFunctions.UserName,CommonFunctions.Password);
-		  Thread.sleep(3000);
-		  CommonFunctions.minimizeChatWindow(DriverManager.getDriver());
+		  //Thread.sleep(3000);
+		  //CommonFunctions.minimizeChatWindow(DriverManager.getDriver());
 	  }
 	/*  @BeforeSuite
 	  public void beforeSuite() throws InterruptedException {
