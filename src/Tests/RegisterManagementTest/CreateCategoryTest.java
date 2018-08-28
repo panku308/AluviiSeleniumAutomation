@@ -37,6 +37,7 @@ public class CreateCategoryTest {
 		  driver.navigate().refresh();
 		  CategoryName="category_" + System.currentTimeMillis();
 		  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
+		  Thread.sleep(3000);
 		  DashboardPageElements.GetRegisterManagementLink(driver).click();
 		  Thread.sleep(5000);
 		  RegisterManagementDashboardPageElements.GetProductsTab(driver).click();
