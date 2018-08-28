@@ -1,5 +1,4 @@
 package Tests.MembershipPackagesTest;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -19,6 +18,7 @@ import ObjectRepository.AddMembershipPackageDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EventManagementPageElements;
 import ObjectRepository.MembershipPackagesPageElements;
+import Tests.AdministrationTest.CreateTaxOptionTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 
@@ -42,7 +42,7 @@ public class CreateMembershipPackageTest extends TestSetup {
 			MembershipPackagesPageElements.GetPackageTab_SelectOptionDropdownList(driver, "Add Membership Package").click();
 			Thread.sleep(2000);
 			
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			
 			String PackageName="TestPackage_"+System.currentTimeMillis();
@@ -51,9 +51,9 @@ public class CreateMembershipPackageTest extends TestSetup {
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.getTaxOption(driver).click();
 			Thread.sleep(2000);
-			AddMembershipPackageDialogBoxElements.setTaxOption(driver, "Tourism ").click();
+			AddMembershipPackageDialogBoxElements.setTaxOption(driver, CreateTaxOptionTest.TaxOptionName).click();
 			Thread.sleep(2000);
-			AddMembershipPackageDialogBoxElements.getSalePrice(driver).sendKeys(Keys.BACK_SPACE);
+			AddMembershipPackageDialogBoxElements.getSalePrice(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setSalePrice(driver).sendKeys("20");
 			Thread.sleep(2000);
@@ -61,13 +61,13 @@ public class CreateMembershipPackageTest extends TestSetup {
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setLengthType(driver, "Floating Expiration").click();
 			Thread.sleep(2000);
-			AddMembershipPackageDialogBoxElements.getMembershipLength(driver).sendKeys(Keys.BACK_SPACE);
+			AddMembershipPackageDialogBoxElements.getMembershipLength(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setMembershipLength(driver).sendKeys("365");
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.getMembershipCheckbox(driver).click();
 			Thread.sleep(2000);
-			AddMembershipPackageDialogBoxElements.getRenewablePrice(driver).sendKeys(Keys.BACK_SPACE);
+			AddMembershipPackageDialogBoxElements.getRenewablePrice(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.setRenewablePrice(driver).sendKeys("15");
 			Thread.sleep(2000);
@@ -79,7 +79,7 @@ public class CreateMembershipPackageTest extends TestSetup {
 			Thread.sleep(4000);
 			AddMembershipPackageDialogBoxElements.getAddEntranceButton(driver).click();
 			Thread.sleep(4000);
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 		
 			AddMembershipEntranceEntitlementDialogBoxElements.GetSelectEntranceEntitlementButton(driver).click();
@@ -92,12 +92,12 @@ public class CreateMembershipPackageTest extends TestSetup {
 			AddMembershipEntranceEntitlementDialogBoxElements.GetAddEntranceButton(driver).click();
 			Thread.sleep(4000);
 			driver.switchTo().defaultContent();
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			
 			AddMembershipPackageDialogBoxElements.getAddDiscountButton(driver).click();
 			Thread.sleep(4000);
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			AddMembershipDiscountEntitlementDialogBoxElements.GetSelectDiscountEntitlementButton(driver).click();
 			Thread.sleep(2000);
@@ -108,7 +108,7 @@ public class CreateMembershipPackageTest extends TestSetup {
 			AddMembershipDiscountEntitlementDialogBoxElements.GetAddDiscountButton(driver).click();
 			Thread.sleep(4000);
 			driver.switchTo().defaultContent();
-			driver.switchTo().frame(0);
+			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			AddMembershipPackageDialogBoxElements.GetSubmitButton(driver).click();
 			Thread.sleep(4000);
