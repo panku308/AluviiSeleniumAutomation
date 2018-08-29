@@ -5,6 +5,7 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -61,7 +62,11 @@ public class Debug {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws Exception {
 		
-				
+		String number = "1000500000.574";
+		double amount = Double.parseDouble(number);
+		DecimalFormat formatter = new DecimalFormat("#,###.00");
+
+		System.out.println(formatter.format(amount));
 		Date dt = new Date();
 		System.out.println(CommonFunctions.GetDayOfWeekIntFornat());
 		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");

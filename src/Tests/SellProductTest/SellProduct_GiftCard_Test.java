@@ -34,7 +34,7 @@ public class SellProduct_GiftCard_Test {
 		  driver = CommonFunctions.driver;
 	  }
 	  @Test
-	  public static void SellProduct_PaymentTypeCreditcard() throws Exception {
+	  public static void SellProduct_PaymentTypeGiftCard() throws Exception {
 		  
 		  DashboardPageElements.GetEmployeeRegistersLink(driver).click();
 		  Thread.sleep(5000);
@@ -55,7 +55,9 @@ public class SellProduct_GiftCard_Test {
 		  CommonFunctions.SwitchToContentFrame(driver);	
 		  ReceiptSelectionDialogBoxElements.GetNoneButton(driver).click();
 		  assertTrue(true);
+		  SellGiftCard_Cash_Test.ExpCurrentBalance = SellGiftCard_Cash_Test.ExpCurrentBalance-PaymentTransactionType.AmountToBePaid;
 		  driver.switchTo().defaultContent();
+		  SellGiftCard_Cash_Test.VerifyCurrentAndOriginalBalance(driver, SellGiftCard_Cash_Test.GiftCardBarcode);
 		  
 	  }
 	
