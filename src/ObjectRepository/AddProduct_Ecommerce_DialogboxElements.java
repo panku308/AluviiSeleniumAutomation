@@ -50,7 +50,11 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//label[text() =  'Price']// following::span/span/input[1]"));		
 		return element;
 	}
-	
+	public static WebElement GetSalePriceField(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//label[text() =  'Sale Price']// following::span/span/input[1]"));		
+		return element;
+	}
 	public static WebElement GetEcommerceProductUploadButton(WebDriver driver)
 	{
 		element =driver.findElement(By.id("popupWindowPicMonkeyAPIAddEcommerceProduct"));		

@@ -67,6 +67,24 @@ private static String ProductID="";
 		//element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']"));
 		return element;
 	}
+	public static WebElement GetProductSalePrice(WebDriver driver, String ProductName)
+	{	
+		element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']/following::span[@class='product-price']"));
+		//element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']"));
+		return element;
+	}
+	public static WebElement GetProductOldPrice(WebDriver driver, String ProductName)
+	{	
+		element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']/following::span[@class='old-price']"));
+		//element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']"));
+		return element;
+	}
+	public static WebElement GetProductPriceOnMiniCart(WebDriver driver, String ProductName)
+	{	
+		element = driver.findElement(By.xpath("//div[@id='mini-cart']//div[@class='mc-content']/div[@class='mc-products']/span[@class='price']"));
+		//element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']"));
+		return element;
+	}
 	//----------------categoriesProduct page elements End------------------------
 	public static void SelectCategory(WebDriver driver, String categoryName)
 	{
@@ -110,6 +128,11 @@ private static String ProductID="";
 	public static WebElement GetQuantityField(WebDriver driver)
 	{
 		element = driver.findElement(By.xpath("//table[@id='eCartTable']/tbody/tr/td[2]/input"));		
+		return element;
+	}
+	public static WebElement GetPriceField(WebDriver driver)
+	{
+		element = driver.findElement(By.xpath("//table[@id='eCartTable']/tbody/tr/td[3]/span/span"));		
 		return element;
 	}
 	//------------------------------ Product session window elements-------------------------------
