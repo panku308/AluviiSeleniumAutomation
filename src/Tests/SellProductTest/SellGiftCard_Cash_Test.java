@@ -83,7 +83,7 @@ public class SellGiftCard_Cash_Test {
 		 assertEquals(ActcurrentBal, CommonFunctions.ConverNumberStringIntoCommaFormat(String.valueOf(ExpCurrentBalance)));
 		 
 		 String ActOriginalCurBal = GiftCardManagementPageElements.getOriginalBalanceFieldFirstRow(driver).getText();
-		 ActcurrentBal= CommonFunctions.RemoveCharFromString(ActOriginalCurBal, "$");
+		 ActOriginalCurBal= CommonFunctions.RemoveCharFromString(ActOriginalCurBal, "$");
 		 assertEquals(ActOriginalCurBal, CommonFunctions.ConverNumberStringIntoCommaFormat(String.valueOf(GiftCardAmount)));
 		 
 		 

@@ -59,11 +59,14 @@ private static String ProductID="";
 		String str2 = str1.substring(str1.indexOf("=")+1,str1.length());
 		ProductID=str2;
 		element = driver.findElement(By.xpath("//span[@data-product-id='"+str2+"']"));
-		
-				
 		return element;
 	}
-	
+	public static WebElement GetCaetgoryProductOutofStockMessage(WebDriver driver, String ProductName)
+	{	
+		element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']/../following-sibling::span[@class='text-danger out-stock-msg']"));
+		//element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']"));
+		return element;
+	}
 	//----------------categoriesProduct page elements End------------------------
 	public static void SelectCategory(WebDriver driver, String categoryName)
 	{

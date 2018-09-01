@@ -6,6 +6,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.io.File;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,8 +41,12 @@ import ObjectRepository.RegisterManagementDashboardPageElements;
 import ObjectRepository.SessionProductWindowElements;
 import ObjectRepository.SignWaiver2PageElements;
 import ObjectRepository.SignWaiverPageElements;
+import ObjectRepository.WebsiteOpenPageElements;
 import ObjectRepository.WorkflowBuilderPageElements;
 import Tests.BookingTest.AddBooking;
+import Tests.ECommerceTest.CreateEcommerceCategoryTest;
+import Tests.ECommerceTest.CreateEcommereceProductTest;
+import Tests.ECommerceTest.CreateWebsiteTest;
 import Tests.ManageMembershipsTest.CreateMemberTest;
 import Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest;
 import Tests.RegisterManagementTest.CreateCategoryTest;
@@ -73,7 +78,42 @@ public class Debug {
 		Thread.sleep(5000);
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
+		
+		 CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetEcommerceLink(driver));
+		  Thread.sleep(2000);
+		  DashboardPageElements.GetEcommerceLink(driver).click();
+		  Thread.sleep(5000);
+		  ECommerceDashboardPageElements.GetWebSiteTab(driver).click();
+		  Thread.sleep(2000);
+		  ECommerceDashboardPageElements.GetWebsiteTab_WebsiteNameClolumnSettingIcon(driver).click();
+		  Thread.sleep(2000);
+		//  CommonFunctions.filterTable(driver, CreateWebsiteTest.WebsiteName);
+		  CommonFunctions.filterTable(driver, "website-1535605130198");
+		   
+		  Thread.sleep(2000);
+		  ECommerceDashboardPageElements.GetWebsiteTab_FirstRowWebsiteNameColumn(driver).click();
+		  ECommerceDashboardPageElements.GetWebsiteTab_SelectOptionDD(driver).click();
+		  Thread.sleep(3000);
+		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Open Website").click();
+		  Thread.sleep(10000);
+		  ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+		  driver.switchTo().window(windowHandles.get(1));	  
+		  
+		  CommonFunctions.ActionBuilder_PerformMouseHoverEventOnElement(driver, WebsiteOpenPageElements.GetCategoriesDD(driver));
+		  Thread.sleep(2000);
+		 // WebsiteOpenPageElements.SelectCategory(driver, CreateEcommerceCategoryTest.EcommerceCategoryName);
+		  WebsiteOpenPageElements.SelectCategory(driver, "Ecom-category-1535605241015");
+		  Thread.sleep(5000);
+		
+		  String ActResult="";
+		
 		try {
+			 //WebsiteOpenPageElements.GetCaetgoryProductOutofStockMessage(driver, CreateEcommereceProductTest.EcommerceProductName).getText();
+			ActResult = WebsiteOpenPageElements.GetCaetgoryProductOutofStockMessage(driver, "EcommerceProduct-1535605387660").getText();
+			System.out.println(ActResult);
+			 assertEquals(ActResult.trim(), "OUT OF STOCK");
+			  Thread.sleep(5000);
+			
 			SignWaiverPageElements.LoadAccountWaiver_Teamplate1(driver,"selenium1535288254935@gmail.com",2); 
 		}
 		catch(Exception e)
@@ -105,7 +145,7 @@ public class Debug {
 			Thread.sleep(5000);
 			assertEquals(AccessControlPageElements.GetApprovedOrDeniedMessage(driver).getText().trim(), "Approved");
 			String	ExpResult = "Welcome to the facility! Hope you enjoy your time";
-			String ActResult=AccessControlPageElements.GetBarcodeExpMessage(driver).getText().trim();
+			 ActResult=AccessControlPageElements.GetBarcodeExpMessage(driver).getText().trim();
 			assertEquals(ActResult,ExpResult);
 			
 		 

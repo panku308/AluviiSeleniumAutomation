@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class AddProduct_Ecommerce_DialogboxElements {
 
+
 private static WebElement element = null;
 	
 	
@@ -71,6 +72,28 @@ private static WebElement element = null;
 		
 		return element;
 	}
+	public static WebElement GetOutOfStockCheckbox(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//label[text()='Out of Stock']"));		
+		return element;
+	}
+	public static WebElement GetOnSaleCheckbox(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//label[text()='ON SALE']"));		
+		return element;
+	}
+	public static WebElement GetIncludeTransactionFeeCheckbox(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//label[text()='Include Transaction Fee']"));		
+		return element;
+	}
+	public static WebElement GetProductUpdateMessagae(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@class='divMsgProp']/h5"));		
+		return element;
+	}
 	
+
+
 
 }

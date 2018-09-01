@@ -35,7 +35,7 @@
 	</test> 
 	
 	
- 	<!--  <test name="SignWaiverWithNoMinor_Template1">
+<!--  	  <test name="SignWaiverWithNoMinor_Template1">
 		<classes>
 			<class name="Tests.WorkflowTest.SetWaiverTemplate1"></class>
 			<class name="Tests.WaiverTest.AddWaiver_NewWorkFlow"></class>
@@ -43,7 +43,7 @@
 		</classes>	
 	</test>
 	
-	 -->
+	
 	<test name="SignWaiverWithMinor_Template1">
 		<classes>
 			<class name="Tests.WorkflowTest.SetWaiverTemplate1"></class>
@@ -68,7 +68,7 @@
 			<class name="Tests.WaiverTest.AddWaiver_NewWorkFlow"></class>
 			<class name="Tests.WaiverTest.LoadAccountWaiverWithMinor_Template1"></class>
 		</classes>	
-	</test>  
+	</test> -->  
 	<test name="SignWaiverWithNoMinor_Template2">
 		<classes>
 			 <class name="Tests.WorkflowTest.SetWaiverTemplate2"></class>
