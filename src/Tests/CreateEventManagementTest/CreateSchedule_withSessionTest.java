@@ -78,11 +78,11 @@ public class CreateSchedule_withSessionTest extends TestSetup {
 			AddScheduleEventManagementDialogBoxElements.getSubScheduleNameField(driver).sendKeys(subScheduleSessionName);
 			AddScheduleEventManagementDialogBoxElements.getStartTime(driver).click();
 			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.setStartTime(driver, "10:00 AM").click();
+			AddScheduleEventManagementDialogBoxElements.setStartTime(driver, "12:00 AM").click();
 			
 			AddScheduleEventManagementDialogBoxElements.getEndTime(driver).click();
 			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.setEEndTime(driver, "10:00 PM").click();
+			AddScheduleEventManagementDialogBoxElements.setEEndTime(driver, "11:30 PM").click();
 			
 			AddScheduleEventManagementDialogBoxElements.GetAddButton(driver).click();
 			

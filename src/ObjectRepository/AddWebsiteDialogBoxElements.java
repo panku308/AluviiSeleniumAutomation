@@ -82,6 +82,36 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@class='k-color-input']/input"));
 		return element;
 	}
+	public static WebElement GetIncludeWebsiteTransactionFeeCheckbox(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//label[text()= 'Include Website Transaction Fee']"));
+		return element;
+	}
+	public static WebElement GetChargeTaxCheckbox(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//label[contains(@for, 'IsChargeTax_')]"));
+		return element;
+	}
+	public static WebElement GetWebsiteUpdateMessagae(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@class='divMsgProp']/h5"));		
+		return element;
+	}
+	public static WebElement getSaveButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("btnSubmitWebsite"));
+		return element;
+	}
+	public static WebElement GetFeenameDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//span[text()= 'Select Fee Name']"));
+		return element;
+	}
+	public static WebElement GetFeeAmountField(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[contains(@id, 'divFeeAmountPer')]/span/span/input[1]"));
+		return element;
+	}
 	public static WebElement GetNext_2_Button(WebDriver driver)
 	{
 		element =driver.findElement(By.name("nextButton"));

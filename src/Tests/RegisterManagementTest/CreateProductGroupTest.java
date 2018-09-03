@@ -24,15 +24,15 @@ import Tests.RegisterManagementTest.CreateCategoryTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class CreateProductGroupTest extends TestSetup {
-	//public static WebDriver driver=null;
+public class CreateProductGroupTest {
+	public static WebDriver driver=null;
 	public static String expectedResult="", actualResult="";
 	public static String ProductForProductGroup[];
 	public static String ProductGroupName="";
-	/*@BeforeClass
+	@BeforeClass
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
-	}*/
+	}
 	@Test
 	public void CreateProductGroup () throws Exception {
 		

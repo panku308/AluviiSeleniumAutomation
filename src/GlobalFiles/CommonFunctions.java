@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -416,5 +417,18 @@ public class CommonFunctions {
 		}		
 		return month;
 	}
-	
+	public static String RemoveCharFromString(String str, String CharToRemove)
+	{
+		String UpdatedStr = str.replace("$", "");
+		return UpdatedStr;
+		
+	}
+	public static String ConverNumberStringIntoCommaFormat(String str)
+	{
+		
+		double amount = Double.parseDouble(str);
+		DecimalFormat formatter = new DecimalFormat("#,##0.00");
+		System.out.println(formatter.format(amount));
+		return formatter.format(amount);
+	}
 }

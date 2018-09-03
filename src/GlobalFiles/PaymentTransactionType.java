@@ -19,7 +19,7 @@ import Tests.RegisterManagementTest.CreateRegisterTest;
 import Tests.SellProductTest.SellGiftCard_Cash_Test;
 
 public class PaymentTransactionType {
-	
+	public static Double AmountToBePaid=0.00;
 	public static void PaymentThroughStoredValue(WebDriver driver) throws Exception
 	{		 
 		try
@@ -168,6 +168,7 @@ public class PaymentTransactionType {
 	{
 		try
 		{
+			AmountToBePaid = Double.valueOf(CommonFunctions.RemoveCharFromString(PaymentTransactionDialogBoxElements.getTotalDueField(driver).getText(),"$"));
 			PaymentTransactionDialogBoxElements.GetGiftCardButton(driver).click();
 			  Thread.sleep(2000);
 			  		  
