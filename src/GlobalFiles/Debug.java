@@ -67,9 +67,9 @@ public class Debug {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws Exception {
 		
-		String number = "1000500000.574";
+		String number = "0.30";
 		double amount = Double.parseDouble(number);
-		DecimalFormat formatter = new DecimalFormat("#,###.00");
+		DecimalFormat formatter = new DecimalFormat("#,##0.00");
 
 		System.out.println(formatter.format(amount));
 		Date dt = new Date();

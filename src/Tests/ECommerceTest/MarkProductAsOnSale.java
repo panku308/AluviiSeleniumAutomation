@@ -115,4 +115,5 @@ public class MarkProductAsOnSale {
 		  driver.switchTo().window(windowHandles.get(0));
 	  
 	  }
+	 
 }

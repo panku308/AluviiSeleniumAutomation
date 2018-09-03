@@ -85,6 +85,12 @@ private static String ProductID="";
 		//element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']"));
 		return element;
 	}
+	public static WebElement GetTransactionFees(WebDriver driver)
+	{	
+		element = driver.findElement(By.xpath("//div[@id='FeeDetailPrice']//span[@class='price']"));
+		//element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']"));
+		return element;
+	}
 	//----------------categoriesProduct page elements End------------------------
 	public static void SelectCategory(WebDriver driver, String categoryName)
 	{

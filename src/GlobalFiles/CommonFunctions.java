@@ -427,7 +427,7 @@ public class CommonFunctions {
 	{
 		
 		double amount = Double.parseDouble(str);
-		DecimalFormat formatter = new DecimalFormat("#,###.00");
+		DecimalFormat formatter = new DecimalFormat("#,##0.00");
 		System.out.println(formatter.format(amount));
 		return formatter.format(amount);
 	}

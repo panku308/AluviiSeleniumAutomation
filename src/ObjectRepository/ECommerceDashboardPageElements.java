@@ -42,6 +42,16 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@id='productsGrid']//div[@class='k-grid-content']//table//tbody/tr[1]/td[2]"));
 		return element;
 	}
+	public static WebElement GetFeesTab(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Fees"));
+		return element;
+	}
+	public static WebElement GetSetupTab_SubTab_Fees_SelectOptionDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='tbsSetup-1']//span[text()='Select Option']"));
+		return element;
+	}
 	
 	
 	public static WebElement GetProductsTab_SubTab_Categories(WebDriver driver)
