@@ -25,6 +25,7 @@ import ObjectRepository.AddLoginActivityDialogBox;
 import ObjectRepository.AddDiscountPackageDialogBoxElements;
 import ObjectRepository.AddDiscountRuleDialogBoxElements;
 import ObjectRepository.AddScheduleEventManagementDialogBoxElements;
+import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.HRManagementPageElements;
 import ObjectRepository.ManageDiscountCodesDialogBoxElements;
@@ -37,6 +38,8 @@ import ObjectRepository.EventManagementPageElements;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateDiscountTest extends TestSetup {
 
+	public static String discountCode="";
+	public static String discountAmt="";
 
 	@Test(priority=1)
 	public static void createDiscountRule()throws Exception
@@ -58,6 +61,7 @@ public class CreateDiscountTest extends TestSetup {
 			
 			String discountRuleName="TestDiscountRule_"+System.currentTimeMillis();
 			String externalDescription="TestDescription_"+System.currentTimeMillis();
+			discountAmt="2";
 			
 			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
@@ -65,16 +69,21 @@ public class CreateDiscountTest extends TestSetup {
 			Thread.sleep(2000);
 			AddDiscountRuleDialogBoxElements.getDiscountProductType(driver).click();
 			Thread.sleep(2000);
-			AddDiscountRuleDialogBoxElements.setDiscountProductType(driver, "Product").click();
+			AddDiscountRuleDialogBoxElements.setDiscountProductType(driver, "Category").click();
 			Thread.sleep(2000);
-			AddDiscountRuleDialogBoxElements.getDiscountField(driver).sendKeys(Keys.BACK_SPACE);
+			AddDiscountRuleDialogBoxElements.getDiscountField(driver,"").sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
-			AddDiscountRuleDialogBoxElements.setDiscount(driver).sendKeys("2");
+			AddDiscountRuleDialogBoxElements.setDiscount(driver,"").sendKeys(discountAmt);
 			Thread.sleep(2000);
 			AddDiscountRuleDialogBoxElements.selectDiscountItemButton(driver).click();
 			Thread.sleep(3000);
 			//need to add product name related line.
-			AddDiscountRuleDialogBoxElements.selectProduct(driver, "Adventurer Thermal").click();
+			//AddDiscountRuleDialogBoxElements.selectProduct(driver, "product1535866909821").click();
+			AddDiscountRuleDialogBoxElements.getCategoryNameFilterOption(driver).click();
+			  Thread.sleep(2000);
+			  CommonFunctions.filterTable(driver, CreateCategoryTest.CategoryName);
+			  Thread.sleep(2000);
+			  AddDiscountRuleDialogBoxElements.getCategoryNameFilteredValue(driver).click();
 			Thread.sleep(3000);
 			AddDiscountRuleDialogBoxElements.getExternalDescriptionField(driver).sendKeys(externalDescription);
 			Thread.sleep(2000);
@@ -121,7 +130,7 @@ public class CreateDiscountTest extends TestSetup {
 			Thread.sleep(2000);
 			AddDiscountPackageDialogBoxElements.getDiscountPackageName(driver).sendKeys(discountPackageName);
 			Thread.sleep(2000);
-			AddDiscountPackageDialogBoxElements.getUsesAllowedPerTransactionField(driver).sendKeys(Keys.BACK_SPACE);
+			AddDiscountPackageDialogBoxElements.getUsesAllowedPerTransactionField(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddDiscountPackageDialogBoxElements.setUsesAllowedPerTransaction(driver).sendKeys("1000");
 			Thread.sleep(2000);
@@ -175,7 +184,9 @@ public class CreateDiscountTest extends TestSetup {
 			CommonFunctions.SwitchToContentFrame(driver);
 			Thread.sleep(2000);
 			
-			String discountCode="Code"+System.currentTimeMillis();
+			discountCode="TestCode"+System.currentTimeMillis();
+			discountCode=discountCode.substring(0, 19);
+			System.out.println(discountCode);
 			
 			ManageDiscountCodesDialogBoxElements.getAddCodeButton(driver).click();
 			Thread.sleep(2000);

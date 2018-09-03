@@ -34,7 +34,7 @@ private static WebElement element = null;
 	}
 	public static WebElement GetEmailConfigurationDD(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@class='col-lg']//span[.='Select Configuration']"));
+		element =driver.findElement(By.xpath("//*[text()='Email Configuration']/..//*[text()='Select Configuration']"));
 		return element;
 	}
 	public static void SelectFirstOptionFromLocationDD(WebDriver driver)

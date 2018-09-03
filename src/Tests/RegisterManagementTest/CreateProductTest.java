@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -55,15 +56,23 @@ public class CreateProductTest {
 		  
 		  AddProductDialogBoxElements.GetCategory(driver).click();		  
 		  Thread.sleep(5000);
-		  if(CreateCategoryTest.CategoryName!=null && !CreateCategoryTest.CategoryName.equals("")) {
-			  CommonFunctions.ScrollUptoElement(driver, CategoryDialogBoxElements.GetLastPageButton(driver));
+		  if(CreateCategoryTest.CategoryName!=null && !CreateCategoryTest.CategoryName.equals(""))
+		  {
+			/*  CommonFunctions.ScrollUptoElement(driver, CategoryDialogBoxElements.GetLastPageButton(driver));
 			  System.out.println("After category lastpage button");
 			  CategoryDialogBoxElements.GetLastPageButton(driver).click();
 			  Thread.sleep(5000);
-			  CommonFunctions.ScrollUptoElement(driver, CategoryDialogBoxElements.GetDynamicCategoryName(driver,CreateCategoryTest.CategoryName));
+			  CommonFunctions.ScrollUptoElement(driver, CategoryDialogBoxElements.GetDynamicCategoryName(driver,"category_1535818401325"));
 			  Thread.sleep(2000);
-			  CategoryDialogBoxElements.GetDynamicCategoryName(driver,CreateCategoryTest.CategoryName).click();
+			  CategoryDialogBoxElements.GetDynamicCategoryName(driver,"category_1535818401325").click();
+			  Thread.sleep(2000);*/
+			  
+			  
+			  CategoryDialogBoxElements.getCategoryNameFilterOption(driver).click();
 			  Thread.sleep(2000);
+			  CommonFunctions.filterTable(driver, CreateCategoryTest.CategoryName);
+			  Thread.sleep(2000);
+			  CategoryDialogBoxElements.getCategoryNameFilteredValue(driver).click();
 		  }
 		  else
 		  {
@@ -76,11 +85,15 @@ public class CreateProductTest {
 		  AddProductDialogBoxElements.GetPricingTab(driver).click();
 		  Thread.sleep(3000);
 		  
-		  AddProductDialogBoxElements.SetUnitPrice(driver, CommonFunctions.CreateProduct_unitPrice);
-		  AddProductDialogBoxElements.GetSalesTaxTab(driver).click();
-		  Thread.sleep(3000);
-		  AddProductDialogBoxElements.GetSalesTax_LocationNameColumnSettingsIcon(driver).click();
+		  AddProductDialogBoxElements.getUnitPrice(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		  Thread.sleep(2000);
+		  AddProductDialogBoxElements.setUnitPrice(driver).sendKeys(CommonFunctions.createProduct_unitPrice);
+		  AddProductDialogBoxElements.GetSalesTaxTab(driver).click();
+		  Thread.sleep(5000);
+		 
+		  AddProductDialogBoxElements.GetSalesTax_LocationNameColumnSettingsIcon(driver).click();
+		  Thread.sleep(5000);
+		  
 		  CommonFunctions.filterTable(driver, CreateLocationDepartmentSiteTest.Location);
 		  Thread.sleep(2000);
 		  AddProductDialogBoxElements.GetSalesTax_FirstRowOfTaxOptionNameColumn(driver).click();

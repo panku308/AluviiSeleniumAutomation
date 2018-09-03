@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
-
+import org.apache.commons.lang3.time.DateUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
@@ -44,6 +44,7 @@ public class CommonFunctions {
 
 
 	public static int CreateProduct_unitPrice=5, CreateProductGroup_UnitPrice=5;
+	public static String createProduct_unitPrice="5";
 	public static int AddWaiver_MinAge=15;
 	public static int ProductsCountForProductGroup=2;
 	public static int ECommereceProductQuantity=20;
@@ -171,6 +172,7 @@ public class CommonFunctions {
 		{
 			driver.findElement(By.xpath("(//span[text()='Filter'])[2]")).click();
 		}
+		
 		Thread.sleep(2000);
 		try {
 			driver.findElement(By.xpath("(//select[@title='Operator']/..)[1]")).click();
@@ -179,7 +181,7 @@ public class CommonFunctions {
 		{
 			driver.findElement(By.xpath("(//select[@title='Operator']/..)[2]")).click();
 		}
-		//driver.findElement(By.xpath("//select[@title='Operator']/..")).click();
+
 		Thread.sleep(2000);
 		try {
 			driver.findElement(By.xpath("(//li[text()='Is equal to'])[1]")).click();
@@ -188,7 +190,7 @@ public class CommonFunctions {
 		{
 			driver.findElement(By.xpath("(//li[text()='Is equal to'])[2]")).click();
 		}
-		//driver.findElement(By.xpath("//li[text()='Is equal to']")).click();
+
 		Thread.sleep(2000);
 		try {
 			driver.findElement(By.xpath("(//select[@title='Operator']/../following-sibling::input)[1]")).sendKeys(input);
@@ -197,7 +199,7 @@ public class CommonFunctions {
 		{
 			driver.findElement(By.xpath("(//select[@title='Operator']/../following-sibling::input)[2]")).sendKeys(input);
 		}
-		//	driver.findElement(By.xpath("//select[@title='Operator']/../following-sibling::input")).sendKeys(input);		
+		
 		Thread.sleep(2000);
 		try {
 			driver.findElement(By.xpath("(//button[text()='Filter'])[1]")).click();
@@ -206,7 +208,7 @@ public class CommonFunctions {
 		{
 			driver.findElement(By.xpath("(//button[text()='Filter'])[2]")).click();
 		}
-		//driver.findElement(By.xpath("//button[text()='Filter']")).click();
+
 		Thread.sleep(2000);
 
 	}
@@ -301,7 +303,8 @@ public class CommonFunctions {
 	public static String getPresentDate()
 	{
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");  
-		Date date = new Date();  
+		//Date date = new Date();  
+		Date date = DateUtils.addDays(new Date(), -1);
 		return formatter.format(date);  
 	}
 	

@@ -1,6 +1,8 @@
 package Tests.HRManagementTest;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -14,6 +16,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.HRManagementPageElements;
 import Tests.RegisterManagementTest.CreateRegisterTest;
+import Tests.RegisterManagementTest.CreateSimpleRegisterTest;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddProductActivityToCurrentUser {
 	  public static WebDriver driver=null;
@@ -51,8 +54,19 @@ public class AddProductActivityToCurrentUser {
 			CommonFunctions.SwitchToContentFrame(driver);
 			AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
 			Thread.sleep(2000);
+
+			if(!(CreateRegisterTest.LoginActivity.equals("")))
 			AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterTest.LoginActivity).click();
+
+
+			if(!(CreateSimpleRegisterTest.LoginActivity.equals("")))
+			{
+				WebElement element=AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateSimpleRegisterTest.LoginActivity);
+				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+			}
+			
 			Thread.sleep(2000);
+			
 			AddLoginActivityDialogBox.getAddActivityButton(driver).click();
 
 			driver.switchTo().defaultContent();

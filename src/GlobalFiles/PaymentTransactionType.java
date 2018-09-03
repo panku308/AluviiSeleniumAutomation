@@ -20,6 +20,8 @@ import Tests.SellProductTest.SellGiftCard_Cash_Test;
 
 public class PaymentTransactionType {
 	
+	public static WebElement element=null;
+	
 	public static void PaymentThroughStoredValue(WebDriver driver) throws Exception
 	{		 
 		try
@@ -229,5 +231,38 @@ public class PaymentTransactionType {
 		  {
 			  
 		  }
+	}
+	
+	public static WebElement getDiscountButton(WebDriver driver)
+	{
+		element=driver.findElement(By.id("btnAddADiscount"));
+		return element;
+				
+	}
+	
+	public static WebElement getAppliedDiscount(WebDriver driver)
+	{
+		element=driver.findElement(By.id("lblAppliedDiscount"));
+		return element;
+				
+	}
+	
+	public static WebElement getGrandTotalAmount(WebDriver driver)
+	{
+		element=driver.findElement(By.id("grandTotal"));
+		return element;
+				
+	}
+	public static WebElement getTotalTax(WebDriver driver)
+	{
+		element=driver.findElement(By.id("lblTaxTotal"));
+		return element;
+				
+	}
+	public static WebElement getCloseButton(WebDriver driver)
+	{
+		element=driver.findElement(By.id("btnClose"));
+		return element;
+				
 	}
 }

@@ -1,6 +1,7 @@
 package ObjectRepository;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -34,6 +35,8 @@ private static WebElement element = null;
 		{
 			OptionName = OptionName+" (Group)";
 		}
-		driver.findElement(By.xpath("//li[text()='"+OptionName+"']")).click();
+		//driver.findElement(By.xpath("//li[text()='"+OptionName+"']")).click();
+		
+		((JavascriptExecutor)driver).executeScript("arguments[0].click();", driver.findElement(By.xpath("//li[text()='"+OptionName+"']")));
 	}
 }

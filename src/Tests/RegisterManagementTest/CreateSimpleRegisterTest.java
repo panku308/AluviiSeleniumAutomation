@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -20,21 +21,20 @@ import ObjectRepository.AddRegisterDialogboxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
+import baseSetup.TestSetup;
+import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class CreateRegisterTest {
+public class CreateSimpleRegisterTest extends TestSetup{
 	public static WebDriver driver=null;
 	public static String expectedResult="", actualResult="";
 	public static String RegisterName="";
 	public static String LoginActivity="";
 	public static String Location="";
-	@BeforeClass
-	public void beforeClass() throws InterruptedException {
-		driver = CommonFunctions.driver;
-
-	}
+	
 	@Test 
 	public static void AddRegisterTest()throws Exception
 	{
+		driver=DriverManager.getDriver();
 		RegisterName="Register_" + System.currentTimeMillis();
 		CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		DashboardPageElements.GetRegisterManagementLink(driver).click();
@@ -96,73 +96,30 @@ public class CreateRegisterTest {
 		CommonFunctions.SwitchToContentFrame(driver);
 		AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
 		Thread.sleep(2000);
-		try
-		{
-			AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
-			//AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");
-			Thread.sleep(2000);  
-		}
-		catch (Exception e)
-		{
 
-		}
-		if(CreateProduct_withSessionTest.SessionProduct==1)
-		{
-			try {
-				AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProduct_withSessionTest.ProductName2, "product");
-				//AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");
-				Thread.sleep(2000);
-			}
-			catch(Exception e)
-			{
+		AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
+		//AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");
+		Thread.sleep(2000);  
 
-			}
-		}
+
 		AddProductDialogboxInsideAddRegisterPageElements.GetAddProductButton(driver).click();
 		Thread.sleep(2000);
 		driver.switchTo().defaultContent();
 		Thread.sleep(2000);
 		CommonFunctions.SwitchToContentFrame(driver);
-		// Add product group
-		try {
-			AddRegisterDialogboxElements.GetAddProductButton(driver).click();
-			Thread.sleep(2000);			  
-			CommonFunctions.SwitchToContentFrame(driver);
-			AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
-			Thread.sleep(2000);
-			AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductGroupTest.ProductGroupName, "group");
-			Thread.sleep(2000);
-			AddProductDialogboxInsideAddRegisterPageElements.GetAddProductButton(driver).click();
-			Thread.sleep(2000);
-			driver.switchTo().defaultContent();
-			Thread.sleep(2000);
-			CommonFunctions.SwitchToContentFrame(driver);
-		}catch(Exception e)
-		{
-			AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
-			Thread.sleep(2000);
-			AddProductDialogboxInsideAddRegisterPageElements.GetCancelButton(driver).click();
-			Thread.sleep(2000);
-			driver.switchTo().defaultContent();
-			Thread.sleep(2000);
-			CommonFunctions.SwitchToContentFrame(driver);
-			System.out.println(e);
-		}
-		CommonFunctions.ScrollUptoElement(driver, AddRegisterDialogboxElements.GetSaveChangesButton(driver));
+
+
 		Thread.sleep(2000);
 		AddRegisterDialogboxElements.GetSaveChangesButton(driver).click();
 		Thread.sleep(5000);
 		driver.switchTo().defaultContent();
 
+		RegisterManagementDashboardPageElements.getColumn(driver, "Register Name").click();
+		CommonFunctions.filterTable(driver, RegisterName);
+		Assert.assertEquals(RegisterManagementDashboardPageElements.getRegisterNameFilteredValue(driver).getText(), RegisterName);
 
-		RegisterManagementDashboardPageElements.GetRegistersTab_SubTab_Registers_IDColumn(driver).click();
-		Thread.sleep(5000);
-		RegisterManagementDashboardPageElements.GetRegistersTab_SubTab_Registers_IDColumn(driver).click();
-		Thread.sleep(5000);
-		actualResult = RegisterManagementDashboardPageElements.GetRegistersTab_SubTab_Registers_FirstRowRegisterNameCloumn(driver).getText();
-		LoginActivity =  CreateLocationDepartmentSiteTest.Location+"- "+ RegisterName+" (Register)";		  
-		assertEquals(actualResult, RegisterName);
-
+		LoginActivity =  CreateLocationDepartmentSiteTest.Location+"- "+ RegisterName+" (Register)";	
+		System.out.println("Simple Register Test execution is complete");
 	}
 
 }

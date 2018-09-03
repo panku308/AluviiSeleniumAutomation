@@ -28,15 +28,34 @@ private static WebElement element = null;
 		return element.get(element.size()-1);
 	}
 	
-	public static WebElement getDiscountField(WebDriver driver)
+	public static WebElement getDiscountType(WebDriver driver,String type)
 	{
-		element =driver.findElement(By.xpath("//*[text()='Discount']/..//input[1]"));
+		element =driver.findElement(By.xpath("//input[@id='DiscountType']/..//*[text()='"+type+"']/preceding-sibling::input"));
 		return element;
 	}
 	
-	public static WebElement setDiscount(WebDriver driver)
+	public static WebElement getDiscountField(WebDriver driver, String type)
 	{
-		element =driver.findElement(By.xpath("//*[text()='Discount']/..//input[2]"));
+		if(type.equals("In Percentage"))
+		{
+		element =driver.findElement(By.xpath("(//*[text()='Discount']/..//input[1])[2]"));
+		return element;
+		}
+		
+		element =driver.findElement(By.xpath("(//*[text()='Discount']/..//input[1])[1]"));
+		return element;
+		
+	}
+	
+	public static WebElement setDiscount(WebDriver driver, String type)
+	{
+		if(type.equals("In Percentage"))
+		{
+		element =driver.findElement(By.xpath("(//*[text()='Discount']/..//input[2])[2]"));
+		return element;
+		}
+		
+		element =driver.findElement(By.xpath("(//*[text()='Discount']/..//input[2])[1]"));
 		return element;
 	}
 	
@@ -63,6 +82,19 @@ private static WebElement element = null;
 	{
 		element =driver.findElement(By.id("AddEditDiscountRule"));
 		return element;
+	}
+	public static WebElement getCategoryNameFilterOption(WebDriver driver)
+	{		
+				
+		element =driver.findElement(By.xpath("//*[@id='innerPopupWindoow']//*[text()='Category Name']/..//a[1]"));
+		return element;
+	}
+	
+	public static WebElement getCategoryNameFilteredValue(WebDriver driver)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='innerPopupWindoow']//td[2]/a"));
+		return element.get(element.size()-1);
 	}
 
 }

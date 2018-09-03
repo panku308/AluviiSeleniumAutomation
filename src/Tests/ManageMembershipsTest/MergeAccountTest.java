@@ -49,7 +49,6 @@ public class MergeAccountTest {
 		columnIndex = ManageMembershipsPageElements.getDesiredColumnIndex(driver, "First Name");
 
 		ManageMembershipsPageElements.getDesiredAccountColumn(driver, columnIndex).click();
-		System.out.println(CreateMemberTest.fname);
 		CommonFunctions.filterTable(driver, CreateMemberTest.fname);
 
 		ManageMembershipsPageElements.getFilteredColumns(driver, 2, 0).click();

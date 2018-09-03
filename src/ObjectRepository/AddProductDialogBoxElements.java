@@ -171,7 +171,7 @@ private static WebElement element = null;
 	}
 	public static WebElement GetSalesTax_LocationNameColumnSettingsIcon(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//div[@id='TaxOptionGrid']//th[@data-title='Location Name']/a[1]"));
+		element =driver.findElement(By.xpath("//*[@id='TaxOptionGrid']//*[text()='Location Name']/..//a[1]"));
 		return element;
 	}
 	
@@ -195,6 +195,18 @@ private static WebElement element = null;
 			  AddProductDialogBoxElements.GetUnitPriceIncreaseArrow(driver).click();
 		  }
 	 }
+	 
+	 public static WebElement getUnitPrice(WebDriver driver)
+		{
+			element =driver.findElement(By.xpath("//*[contains(text(),'Unit Price')]/following-sibling::span//input[1]"));
+			return element;
+		}
+
+		public static WebElement setUnitPrice(WebDriver driver)
+		{
+			element =driver.findElement(By.xpath("//*[contains(text(),'Unit Price')]/following-sibling::span//input[2]"));
+			return element;
+		}
 	 
 	 public static WebElement getCheckbox_ThisProductIsASession(WebDriver driver)
 	  {

@@ -46,6 +46,9 @@ public class ReportCustomization implements ITestListener {
         try
         {
         	CommonFunctions.TakeScreenShot(test.getName());
+        	String exceptionMessage = "";
+    		exceptionMessage = test.getThrowable().getClass().toString();
+    		System.out.println(exceptionMessage);
         }
         catch(Exception e)
         {

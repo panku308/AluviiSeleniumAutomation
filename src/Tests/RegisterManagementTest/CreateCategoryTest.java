@@ -23,7 +23,7 @@ import util.DriverManager;
 public class CreateCategoryTest {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
-	  public static String CategoryName="";
+	  public static String CategoryName="category_1535866851914";
 	  @BeforeClass
 	  public void beforeClass() {
 		  driver = CommonFunctions.driver;
