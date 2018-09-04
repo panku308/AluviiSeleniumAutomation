@@ -57,7 +57,7 @@ public class MarkProductAsOnSale {
 		  AddProduct_Ecommerce_DialogboxElements.GetSaveButton(driver).click();
 		  Thread.sleep(3000);
 		  driver.switchTo().defaultContent();
-		  assertEquals(AddProduct_Ecommerce_DialogboxElements.GetProductUpdateMessagae(driver).getText(), "Product updated successfully.");
+		  assertEquals(AddProduct_Ecommerce_DialogboxElements.GetProductUpdateMessage(driver).getText(), "Product updated successfully.");
 		  VerifyOnSaleProductInWebsite();
 	  }
 	  public static void VerifyOnSaleProductInWebsite() throws InterruptedException

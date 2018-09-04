@@ -73,6 +73,16 @@ private static String ProductID="";
 		//element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']"));
 		return element;
 	}
+	public static WebElement GetCartTotal(WebDriver driver)
+	{	
+		element = driver.findElement(By.id("cartTotal"));		
+		return element;
+	}
+	public static WebElement GetBtnClearCart(WebDriver driver)
+	{	
+		element = driver.findElement(By.id("btnClearCart"));		
+		return element;
+	}
 	public static WebElement GetProductOldPrice(WebDriver driver, String ProductName)
 	{	
 		element = driver.findElement(By.xpath("//div[@id='product-list-container']//a[text() ='"+ProductName+"']/following::span[@class='old-price']"));
