@@ -70,6 +70,32 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("Save"));		
 		return element;
 	}
+	public static WebElement GetIncludeTransactionFee(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//label[text()='Include Transaction Fee']"));		
+		return element;
+	}
+	public static WebElement GetFeeNameDropdown(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//span[text()='Select Fee Name']"));		
+		return element;
+	}
+	public static WebElement GetFeeAmountField(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[contains(@id, 'divFeeAmountPer')]/span/span/input[1]"));
+		return element;
+	}
+	
+	public static WebElement GetChargeTaxCheckbox(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//label[text()='Charge Tax']"));
+		return element;
+	}
+	public static WebElement GetChargeFeePerProductRadioButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@class='fee-radio']/input[2]"));
+		return element;
+	}
 	public static WebElement GetSelectfilesButton(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//span[.='Select files...']"));
@@ -91,7 +117,7 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//label[text()='Include Transaction Fee']"));		
 		return element;
 	}
-	public static WebElement GetProductUpdateMessagae(WebDriver driver)
+	public static WebElement GetProductUpdateMessage(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//div[@class='divMsgProp']/h5"));		
 		return element;
