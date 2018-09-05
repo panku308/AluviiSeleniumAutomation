@@ -9,33 +9,15 @@
 		</classes>
 	</test>
  	
- <!-- 
- 	<test name="Create Location Department and Site">
-		<classes>
-			<class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
-		</classes>
-	</test>
-	<test name="Create Tax Option">
-		<classes>
-			<class name="Tests.AdministrationTest.CreateTaxOptionTest"></class>
-		</classes>
-	</test>
-
-	<test name="Create enterance Entitlement">
-		<classes>
-			<class name="Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest"></class>
-		</classes>
-	</test>
-	 -->
- 	<test name=" Create Member">
+ 	 <test name=" Create Member">
 		<classes>
 			
-		<!-- 	<class name="Tests.ManageMembershipsTest.AddStoredValueIntoMember_Cash_Test"/> -->
+			<class name="Tests.ManageMembershipsTest.AddStoredValueIntoMember_Cash_Test"/>
 		</classes>
 	</test> 
 	
 	
-<!--  	  <test name="SignWaiverWithNoMinor_Template1">
+  	  <test name="SignWaiverWithNoMinor_Template1">
 		<classes>
 			<class name="Tests.WorkflowTest.SetWaiverTemplate1"></class>
 			<class name="Tests.WaiverTest.AddWaiver_NewWorkFlow"></class>
@@ -68,7 +50,7 @@
 			<class name="Tests.WaiverTest.AddWaiver_NewWorkFlow"></class>
 			<class name="Tests.WaiverTest.LoadAccountWaiverWithMinor_Template1"></class>
 		</classes>	
-	</test> -->  
+	</test>   
 	<test name="SignWaiverWithNoMinor_Template2">
 		<classes>
 			 <class name="Tests.WorkflowTest.SetWaiverTemplate2"></class>
@@ -94,7 +76,7 @@
 			<class name="Tests.WaiverTest.LoadAccoutWaiver_Template2"></class>
 		</classes>	
 	</test>  	
-	<test name="LoadAccountWithMinor_Template2">
+ 	<test name="LoadAccountWithMinor_Template2">
 		<classes>
 			<class name="Tests.ManageMembershipsTest.CreateMemberTest"/>
 			<class name="Tests.ManageMembershipsTest.AddMinorIntoGuestAccount"/>

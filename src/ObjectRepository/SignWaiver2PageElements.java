@@ -14,6 +14,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import GlobalFiles.CommonFunctions;
+import Tests.ManageMembershipsTest.AddMinorIntoGuestAccount;
 import Tests.ManageMembershipsTest.CreateMemberTest;
  
 public class SignWaiver2PageElements {
@@ -166,9 +167,20 @@ public class SignWaiver2PageElements {
 			element =driver.findElement(By.id("btnLoadAccount"));
 			return element;
 		}
-		public static WebElement GetExistingModal_btnGuestSelection(WebDriver driver)
+		public static WebElement GetExistingModal_btnGuestSelection(WebDriver driver, String GuestNumber)
 		{
-			element =driver.findElement(By.xpath("//div[@id='guestSelection']//p[@id='paraFour']/p/button"));
+			/*element =driver.findElement(By.xpath("//div[@id='guestSelection']//p[@id='paraFour']/p/button"));
+			return element;
+			*/
+			if(GuestNumber.equals(""))
+			{
+				element =driver.findElement(By.xpath("//div[@id='guestSelection']//p[@id='paraFour']/p/button"));
+			}
+			else
+			{
+				element =driver.findElement(By.xpath("//div[@id='guestSelection']//p[@id='paraFour']/p["+GuestNumber+"]/button"));
+			}
+			
 			return element;
 		}
 		public static WebElement GetExistingModal_btnAddGuests(WebDriver driver)
@@ -182,6 +194,7 @@ public class SignWaiver2PageElements {
 			String ActualString="";
 			ExpectedString = CreateMemberTest.Date;
 			ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetBirthDateField(driver, ""));
+			System.out.println("Date = " + ActualString);
 			assertEquals(ActualString, ExpectedString);
 			
 			ExpectedString =  CommonFunctions.GetMonthNumberIntoMonthName(CreateMemberTest.Month);
@@ -193,15 +206,15 @@ public class SignWaiver2PageElements {
 			assertEquals(ActualString, ExpectedString);
 			if(i>1)
 			{
-				ExpectedString = CreateMemberTest.Date;
+				ExpectedString = AddMinorIntoGuestAccount.MinorBirthdate[0];
 				ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetMinorBirthDateField(driver, "1"));
 				assertEquals(ActualString, ExpectedString);
 				
-				ExpectedString =  CommonFunctions.GetMonthNumberIntoMonthName(CreateMemberTest.Month);
+				ExpectedString =  CommonFunctions.GetMonthNumberIntoMonthName(AddMinorIntoGuestAccount.MinorBirthMonth[0]);
 				ActualString =CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetMinorBirthMonthField(driver, "1"));
 				assertEquals(ActualString, ExpectedString);
 				
-				ExpectedString = CreateMemberTest.Year;
+				ExpectedString = AddMinorIntoGuestAccount.MinorBirthYear[0];
 				ActualString = CommonFunctions.GetCurrentSelectionOfDropdownField(driver, GetBirthYearField(driver, "1"));
 				assertEquals(ActualString, ExpectedString);	
 			}
@@ -235,7 +248,17 @@ public class SignWaiver2PageElements {
 			  assertEquals(GetExistingModal_FnameAndLname(driver).getText(), CreateMemberTest.fname + " " + CreateMemberTest.lname );
 			  GetExistingModal_btnLoadAccount(driver).click();
 			  Thread.sleep(5000);
-			  GetExistingModal_btnGuestSelection(driver).click();
+			  
+			  if(WaiverCount==1)
+			  {
+				  GetExistingModal_btnGuestSelection(driver,"").click();  
+			  }
+			  else
+			  {
+				  GetExistingModal_btnGuestSelection(driver,"1").click();
+				  GetExistingModal_btnGuestSelection(driver,"2").click();
+			  }
+			  
 			  GetExistingModal_btnAddGuests(driver).click();
 			  Thread.sleep(15000);
 			  
@@ -257,6 +280,14 @@ public class SignWaiver2PageElements {
 			  assertEquals(GetZipCodeField(driver).getAttribute("value").trim(), CreateMemberTest.ZipCode);
 			  assertEquals(GetPhoneNumberField(driver).getAttribute("value").trim(), CreateMemberTest.PhoneNumber);
 			  
+			  if(WaiverCount>1)
+			  {
+				  assertEquals(GetFirstNameField(driver, "1").getAttribute("value").trim(),AddMinorIntoGuestAccount.MinorFirstname[0]);
+				  assertEquals(GetLastNameField(driver, "1").getAttribute("value").trim(), CreateMemberTest.lname);
+				  VerifyDOBDropdownFieldValues(driver,WaiverCount);
+				    
+			  }
+			  
 			  SignWaiver2PageElements.GetContinueButton(driver).click();
 			  Thread.sleep(10000);
 			  assertEquals( SignWaiver2PageElements.GetIAcknowledgeCheckBox(driver).isDisplayed(), true);
@@ -277,13 +308,7 @@ public class SignWaiver2PageElements {
 			  drawAction = builder.moveToElement(SignWaiver2PageElements.GetSignatureField(driver),100,15).clickAndHold().moveByOffset(120, 30).moveByOffset(80, 40).release().build();
 			  drawAction.perform();
 			  
-			  if(WaiverCount>1)
-			  {
-				  assertEquals(GetFirstNameField(driver, "1").getAttribute("value").trim(),CreateMemberTest.fname);
-				  assertEquals(GetLastNameField(driver, "1").getAttribute("value").trim(), CreateMemberTest.lname);
-				  VerifyDOBDropdownFieldValues(driver,WaiverCount);
-				    
-			  }
+			  
 			  
 			  
 			  SignWaiver2PageElements.GetIMFinishedButton(driver).click();
@@ -434,7 +459,8 @@ public class SignWaiver2PageElements {
 				  builder = new Actions(driver);
 				  drawAction = builder.moveToElement(SignWaiver2PageElements.GetSignatureField(driver),100,15).clickAndHold().moveByOffset(120, 30).moveByOffset(80, 40).release().build();
 				  drawAction.perform();
-				  
+				  CommonFunctions.ScrollUptoElement(driver, SignWaiver2PageElements.GetIMFinishedButton(driver));
+				  Thread.sleep(2000);
 				  SignWaiver2PageElements.GetIMFinishedButton(driver).click();
 				  Thread.sleep(5000);
 				  
