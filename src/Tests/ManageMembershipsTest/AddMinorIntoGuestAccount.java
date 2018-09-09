@@ -16,6 +16,7 @@ public class AddMinorIntoGuestAccount {
 	  public static int NumberMinorGuest=1;
 	  public static WebDriver driver=null;
 	  public static String ActualGuestRows[]=null;
+	  public static String MinorFirstname[]=null;
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		   driver = CommonFunctions.driver;
@@ -24,7 +25,7 @@ public class AddMinorIntoGuestAccount {
 	  public static void AddMinorGuest() throws InterruptedException
 	  {
 		  ManageMembershipsPageElements.ExpandMemberRow(driver, CreateMemberTest.EmailID);
-		  
+		  MinorFirstname = new String [NumberMinorGuest];
 		  MinorGuestdata = new String[NumberMinorGuest+1];
 		  MinorBirthdate=new String [NumberMinorGuest];
 		  MinorBirthMonth=new String [NumberMinorGuest];
@@ -39,11 +40,11 @@ public class AddMinorIntoGuestAccount {
 			  Thread.sleep(5000);
 			  AddGuestIntoMemberDialogboxElements.GetLoadDataButton(driver).click();
 			  Thread.sleep(5000);
-			  String FirstName="minorFname"+System.currentTimeMillis();
+			  MinorFirstname[i]="minorFname"+System.currentTimeMillis();
 			  
 			  String LastName= AddGuestIntoMemberDialogboxElements.GetLastNameField(driver).getAttribute("value");
-			  AddGuestIntoMemberDialogboxElements.GetFirstNameField(driver).sendKeys(FirstName);
-			  MinorGuestdata[i+1] = FirstName + " " + LastName;
+			  AddGuestIntoMemberDialogboxElements.GetFirstNameField(driver).sendKeys(MinorFirstname[i]);
+			  MinorGuestdata[i+1] = MinorFirstname[i] + " " + LastName;
 			  AddGuestIntoMemberDialogboxElements.GetBirthDate(driver).clear();
 			  MinorBirthdate[i]="23";
 			  MinorBirthMonth[i]="10";

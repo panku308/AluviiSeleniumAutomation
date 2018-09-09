@@ -53,6 +53,7 @@ import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductModifier;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
+import Tests.WaiverTest.LoadAccoutWaiver_Template2;
 import util.DriverManager;
 
 public class Debug {
@@ -67,19 +68,15 @@ public class Debug {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws Exception {
 		
-		String number = "0.30";
-		double amount = Double.parseDouble(number);
-		DecimalFormat formatter = new DecimalFormat("#,##0.00");
-
-		System.out.println(formatter.format(amount));
-		Date dt = new Date();
-		System.out.println(CommonFunctions.GetDayOfWeekIntFornat());
+		
 		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
 		Thread.sleep(5000);
 		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
 		Thread.sleep(5000);
-		
-		 CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetEcommerceLink(driver));
+		 ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+		  driver.switchTo().window(windowHandles.get(1));
+		SignWaiver2PageElements.VerifyDOBDropdownFieldValues(driver, 2);
+		CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetEcommerceLink(driver));
 		  Thread.sleep(2000);
 		  DashboardPageElements.GetEcommerceLink(driver).click();
 		  Thread.sleep(5000);
@@ -96,7 +93,7 @@ public class Debug {
 		  Thread.sleep(3000);
 		  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver, "Open Website").click();
 		  Thread.sleep(10000);
-		  ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+		  windowHandles = new ArrayList<String>(driver.getWindowHandles());
 		  driver.switchTo().window(windowHandles.get(1));	  
 		  
 		  CommonFunctions.ActionBuilder_PerformMouseHoverEventOnElement(driver, WebsiteOpenPageElements.GetCategoriesDD(driver));
