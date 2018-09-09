@@ -182,11 +182,13 @@ private static WebElement element = null;
 	
 	public static void SelectDynamicTaxOptionFromDD(WebDriver driver,String TaxOption)
 	  {
-		  driver.findElement(By.xpath("//*[@id='TaxOptionName_listbox']//li[text()='"+TaxOption+"']")).click();
+		//  driver.findElement(By.xpath("//*[@id='TaxOptionName_listbox']//li[text()='"+TaxOption+"']")).click();
+		  driver.findElement(By.xpath("//*[@id='TaxOptions_listbox']//li[text()='"+TaxOption+"']")).click();
 	  }
 	 public static void SelectfirstOptionFromTaxOptionDropdown(WebDriver driver)
 	  {
-		  driver.findElement(By.xpath("//*[@id='TaxOptionName_listbox']//li[1]")).click();
+		//  driver.findElement(By.xpath("//*[@id='TaxOptionName_listbox']//li[1]")).click();
+		  driver.findElement(By.xpath("//*[@id='TaxOptions_listbox']//li[1]")).click();
 	  }
 	 public static void SetUnitPrice(WebDriver driver, int UnitPrice)
 	 {

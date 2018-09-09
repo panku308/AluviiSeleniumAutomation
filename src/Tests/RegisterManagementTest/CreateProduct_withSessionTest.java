@@ -94,6 +94,7 @@ public class CreateProduct_withSessionTest extends TestSetup {
 		CommonFunctions.filterTable(driver, CreateLocationDepartmentSiteTest.Location);
 		Thread.sleep(2000);
 		AddProductDialogBoxElements.GetSalesTax_FirstRowOfTaxOptionNameColumn(driver).click();
+		Thread.sleep(2000);
 		AddProductDialogBoxElements.GetSalesTax_FirstRowOfTaxOptionNameColumn(driver).click();
 		Thread.sleep(2000);
 		AddProductDialogBoxElements.SelectDynamicTaxOptionFromDD(driver, CreateTaxOptionTest.TaxOptionName);

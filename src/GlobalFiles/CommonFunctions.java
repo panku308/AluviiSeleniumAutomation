@@ -32,25 +32,31 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
+import ObjectRepository.GuestPortal_LoginPageElements;
 import ObjectRepository.LoginPageElements;
 import util.DriverManager;
 
 public class CommonFunctions {
 	//--------------------------------------------Global Variables-------------------------------------------------------
-	public static String domainName="https://stagingqa";
+	public static String domainName="https://stagingqa";	
 	public static String url=domainName+".aluvii.com/employee/";
+	public static String GuestURL=  domainName+".aluvii.com/guest/";
 	public static String UserName="pankaj@aluvii.com";
 	public static String Password="Admin@123";
+	public static String GuestUserName="selenium1536113373628@gmail.com";
+	public static String GuestPassword="Password@1";
 	public static String chromeDriverPath="C:\\chromedriver_win32\\chromedriver.exe";
 
-
+	public static boolean SimplePassword=true, ShowAdons=false, ShowCreateAccountButton=false;
+	
 	public static int CreateProduct_unitPrice=5, CreateProductGroup_UnitPrice=5;
 	public static int AddWaiver_MinAge=15;
 	public static int ProductsCountForProductGroup=2;
 	public static int ECommereceProductQuantity=20;
 	//-------------------------------------------------------------------------------------------------------------------
 	public static WebDriver driver = DriverManager.getDriver();
-
+	public static WebDriver GuestPortaldriver = null;
+	
 	public static Map<String, String> map = new HashMap<String, String>();
 
 
@@ -64,6 +70,17 @@ public class CommonFunctions {
 		driver.get(url);
 		driver.manage().window().maximize();
 		return driver;
+	}
+	public static WebDriver SetupGuestEnvironment(String url, String Browser)
+	{
+		if (Browser.toLowerCase().equals("chrome"))			
+		{
+			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+			GuestPortaldriver = new ChromeDriver();
+		}
+		GuestPortaldriver.get(url);
+		GuestPortaldriver.manage().window().maximize();
+		return GuestPortaldriver;
 	}
 	public static void SelectOptionFromDropdownByValue(WebElement element, String OptName) throws Exception
 	{
@@ -97,7 +114,21 @@ public class CommonFunctions {
 		Thread.sleep(5000);
 		
 	}
+	public static void GuestLogin(WebDriver driver, String username, String password) throws InterruptedException
+	{
 	
+		GuestclearLoginFields();		
+		GuestPortal_LoginPageElements.GetUserNameField(driver).sendKeys(username);
+		GuestPortal_LoginPageElements.GetPasswordField(driver).sendKeys(password);
+		GuestPortal_LoginPageElements.GetLoginButton(driver).click();
+		Thread.sleep(5000);
+		
+	}
+	public static void GuestclearLoginFields()
+	{
+		GuestPortal_LoginPageElements.GetUserNameField(GuestPortaldriver).clear();
+		GuestPortal_LoginPageElements.GetPasswordField(GuestPortaldriver).clear();
+	}
 	public static void clearLoginFields()
 	{
 		LoginPageElements.GetUsernameField(driver).clear();
@@ -161,7 +192,10 @@ public class CommonFunctions {
 	{
 		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 	}
-	
+	public static void SwitchToContentFrameClassK_Content(WebDriver driver)
+	{
+		driver.switchTo().frame(driver.findElement(By.className("k-content")));
+	}	
 	public static void filterTable(WebDriver driver,String input) throws InterruptedException {
 
 		Thread.sleep(2000);

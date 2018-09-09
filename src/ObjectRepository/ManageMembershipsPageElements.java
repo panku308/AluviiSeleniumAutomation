@@ -43,6 +43,12 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@class='k-grid-content']//table[@class='gridrow k-selectable']/tbody/tr[1]/td[1]/a"));		
 		return element;
 	}
+	public static WebElement GetAccountGuestResetPasswordButton(WebDriver driver)
+	{
+		//element = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/table/tbody/tr[1]/td[1]/a"));
+		element =driver.findElement(By.xpath("//button[text()='Reset Password']"));		
+		return element;
+	}
 	public static WebElement GetAccountTableElement(WebDriver driver)
 	{
 		//element = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/table/tbody"));
