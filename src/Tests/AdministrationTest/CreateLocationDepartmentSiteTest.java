@@ -19,7 +19,8 @@ import baseSetup.TestSetup;
 import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateLocationDepartmentSiteTest extends TestSetup {
-	public static String Location="TestLocation1535881255532", Department="TestDepartment1535881312760", Site="TestSite1535881364141";
+	public static String Location="", Department="", Site="";
+	//TestLocation1536418748084
 	
 	@Test(priority=1) 
 	public static void createLocation()throws Exception

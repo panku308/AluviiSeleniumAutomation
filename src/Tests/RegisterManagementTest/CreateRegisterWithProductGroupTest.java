@@ -24,7 +24,7 @@ import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class CreateSimpleRegisterTest extends TestSetup{
+public class CreateRegisterWithProductGroupTest extends TestSetup{
 	public static WebDriver driver=null;
 	public static String expectedResult="", actualResult="";
 	public static String RegisterName="";
@@ -97,8 +97,8 @@ public class CreateSimpleRegisterTest extends TestSetup{
 		AddProductDialogboxInsideAddRegisterPageElements.GetProductDD(driver).click();
 		Thread.sleep(2000);
 
-		
-		AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
+			
+		AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductGroupWithTwoTaxRatesTest.ProductGroupName, "group");
 		
 		
 		//AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");
@@ -122,7 +122,7 @@ public class CreateSimpleRegisterTest extends TestSetup{
 		Assert.assertEquals(RegisterManagementDashboardPageElements.getRegisterNameFilteredValue(driver).getText(), RegisterName);
 
 		LoginActivity =  CreateLocationDepartmentSiteTest.Location+"- "+ RegisterName+" (Register)";	
-		System.out.println("Simple Register Test execution is complete");
+		System.out.println(LoginActivity);
 	}
 
 }

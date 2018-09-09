@@ -16,19 +16,20 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.HRManagementPageElements;
 import Tests.RegisterManagementTest.CreateRegisterTest;
+import Tests.RegisterManagementTest.CreateRegisterWithProductGroupTest;
+import Tests.RegisterManagementTest.CreateRegisterWithProductTest;
 import Tests.RegisterManagementTest.CreateSimpleRegisterTest;
+import baseSetup.TestSetup;
+import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class AddProductActivityToCurrentUser {
+public class AddProductActivityToCurrentUser extends TestSetup{
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
-	  @BeforeClass
-	  public void beforeClass() throws InterruptedException {
-		  driver = CommonFunctions.driver;
-	  }
+	
 	  @Test
 	  public static void  AddProductActivityToUser()throws Exception
 	  {
-		  
+		  WebDriver driver=DriverManager.getDriver();
 		  DashboardPageElements.GetHRManagementLink(driver).click();
 		  Thread.sleep(2000);
 
@@ -55,13 +56,10 @@ public class AddProductActivityToCurrentUser {
 			AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
 			Thread.sleep(2000);
 
-			if(!(CreateRegisterTest.LoginActivity.equals("")))
-			AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterTest.LoginActivity).click();
-
-
-			if(!(CreateSimpleRegisterTest.LoginActivity.equals("")))
+			
+			if(!(CreateRegisterWithProductTest.LoginActivity.equals("")))
 			{
-				WebElement element=AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateSimpleRegisterTest.LoginActivity);
+				WebElement element=AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterWithProductTest.LoginActivity);
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 			}
 			

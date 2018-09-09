@@ -24,7 +24,7 @@ import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class CreateSimpleRegisterTest extends TestSetup{
+public class CreateRegisterWithProductTest extends TestSetup{
 	public static WebDriver driver=null;
 	public static String expectedResult="", actualResult="";
 	public static String RegisterName="";
@@ -98,7 +98,7 @@ public class CreateSimpleRegisterTest extends TestSetup{
 		Thread.sleep(2000);
 
 		
-		AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductTest.ProductName, "product");
+		AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, CreateProductWithTwoTaxRatesTest.ProductName, "product");
 		
 		
 		//AddProductDialogboxInsideAddRegisterPageElements.SelectValueFromProductDD(driver, "product1532270149533", "product");

@@ -1,4 +1,4 @@
-package Tests.SellProductTest;
+package Tests.HRManagementTest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Action;
@@ -14,17 +14,19 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.HRManagementPageElements;
 import Tests.RegisterManagementTest.CreateRegisterTest;
+import Tests.RegisterManagementTest.CreateRegisterWithProductGroupTest;
+import Tests.RegisterManagementTest.CreateRegisterWithProductTest;
+import baseSetup.TestSetup;
+import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class AddProductActivityToCurrentUser {
+public class AddProductGroupActivityToCurrentUser extends TestSetup{
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
-	  @BeforeClass
-	  public void beforeClass() throws InterruptedException {
-		  driver = CommonFunctions.driver;
-	  }
+	 
 	  @Test
 	  public static void  AddProductActivityToUser()throws Exception
 	  {
+		  WebDriver driver=DriverManager.getDriver();
 		  
 		  DashboardPageElements.GetHRManagementLink(driver).click();
 		  Thread.sleep(2000);
@@ -53,7 +55,7 @@ public class AddProductActivityToCurrentUser {
 			Thread.sleep(2000);
 			
 			
-			AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterTest.LoginActivity).click();
+			AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterWithProductGroupTest.LoginActivity).click();
 			Thread.sleep(2000);
 			
 			

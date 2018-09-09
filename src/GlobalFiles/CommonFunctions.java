@@ -46,6 +46,7 @@ public class CommonFunctions {
 	public static int CreateProduct_unitPrice=5, CreateProductGroup_UnitPrice=5;
 	public static String createProduct_unitPrice="5";
 	public static int AddWaiver_MinAge=15;
+	public static String taxRate="0.1";
 	public static int ProductsCountForProductGroup=2;
 	public static int ECommereceProductQuantity=20;
 	//-------------------------------------------------------------------------------------------------------------------
@@ -418,6 +419,12 @@ public class CommonFunctions {
 			month= "December";
 		}		
 		return month;
+	}
+	
+	public static double getPriceWithoutCurrencyAnnotation(String amount) {
+		
+		return Double.parseDouble(amount.substring(1));
+		
 	}
 	
 }
