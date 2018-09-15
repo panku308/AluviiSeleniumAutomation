@@ -19,7 +19,7 @@ import util.DriverManager;
 
 public class CreateDiscountEntitlementTest extends TestSetup {
 
-	
+	public static String DiscountEntitlementName="";
 
 	@Test()
 	public static void createDiscountEntitlement()throws Exception
@@ -41,7 +41,7 @@ public class CreateDiscountEntitlementTest extends TestSetup {
 //			driver.switchTo().frame(0);
 			Thread.sleep(2000);
 			
-			String DiscountEntitlementName="TestDiscountEntitlement_"+System.currentTimeMillis();
+			DiscountEntitlementName="TestDiscountEntitlement_"+System.currentTimeMillis();
 			
 			AddDiscountEntitlementDialogBoxElements.getNameField(driver).sendKeys(DiscountEntitlementName);
 			Thread.sleep(2000);
@@ -77,7 +77,9 @@ public class CreateDiscountEntitlementTest extends TestSetup {
 			
 			
 			CommonFunctions.map.put("Discount_Entitlement", DiscountEntitlementName);
-
+			
+			
+			//System.out.println(DiscountEntitlementName);
 		
 	}
 

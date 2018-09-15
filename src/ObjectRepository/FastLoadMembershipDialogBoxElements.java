@@ -14,10 +14,17 @@ public class FastLoadMembershipDialogBoxElements {
 		element =driver.findElement(By.xpath("//*[text()='Season Pass']"));
 		return element;
 	}
-	public static void selectOwner(WebDriver driver)
+	
+	public static WebElement getAvailableGuestMembership(WebDriver driver, String membership)
+	{
+		element =driver.findElement(By.xpath("//*[text()='"+membership+"']"));
+		return element;
+	}
+	
+	public static void selectOwner(WebDriver driver, String owner)
 	{
 		Select select=new Select(driver.findElement(By.id("Owner_0")));
-		select.selectByIndex(2);
+		select.selectByVisibleText(owner);
 	}
 	
 	public static WebElement getSendToCheckoutButton(WebDriver driver)

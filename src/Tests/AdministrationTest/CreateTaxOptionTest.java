@@ -65,6 +65,7 @@ public class CreateTaxOptionTest extends TestSetup{
 		Assert.assertEquals(AdministrationDashboardPageElements.getTaxOptionNameNameFilteredValue(driver).getText(), TaxOptionName);
 		
 		//CommonFunctions.map.put("TaxOption", TaxOptionName);
+		//System.out.println(TaxOptionName);
 		
 	}
 

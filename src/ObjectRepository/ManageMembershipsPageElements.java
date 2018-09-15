@@ -344,6 +344,30 @@ public class ManageMembershipsPageElements {
 			return true;
 		
 		return false;
-	}		
+	}	
+	
+	public static boolean IsMembershipAvailable(WebDriver driver, String membership)
+	{
+		element =driver.findElement(By.xpath("(//*[text()='"+membership+"'])[1]"));
+		if(element.isDisplayed())
+			return true;
+		
+		return false;
+	}	
+	
+	public static WebElement getSubTotal(WebDriver driver)
+	{
+		return driver.findElement(By.id("SubTotal"));
+	}
+	
+	public static WebElement getTax(WebDriver driver)
+	{
+		return driver.findElement(By.id("TotalTaxAmount"));
+	}
+	
+	public static WebElement getGrandTotal(WebDriver driver)
+	{
+		return driver.findElement(By.id("GrandTotal"));
+	}
 
 }	

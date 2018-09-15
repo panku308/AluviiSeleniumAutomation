@@ -20,7 +20,6 @@ import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateLocationDepartmentSiteTest extends TestSetup {
 	public static String Location="", Department="", Site="";
-	//TestLocation1536418748084
 	
 	@Test(priority=1) 
 	public static void createLocation()throws Exception
@@ -180,6 +179,8 @@ public class CreateLocationDepartmentSiteTest extends TestSetup {
 		Assert.assertEquals(AdministrationDashboardPageElements.getSiteNameFilteredValue(driver).getText(), SiteName);
 		
 		CommonFunctions.map.put("Site", SiteName);
+		
+		//System.out.println(Location+"-"+Department+"-"+Site);
 		
 		
 	}

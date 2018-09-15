@@ -19,7 +19,7 @@ public class CreateMultipleTaxTest extends TestSetup{
 	public static String TaxOptionName1="";
 	public static String TaxOptionName2="";
 	//TestTax1536418962044	TestTax1536419029340
-	
+
 	@Test
 	public static void createTaxOption1()throws Exception
 	{
@@ -35,12 +35,12 @@ public class CreateMultipleTaxTest extends TestSetup{
 		AdministrationDashboardPageElements.getTaxOptionSelectOptionDropdownButton(driver).click();
 		Thread.sleep(2000);
 		AdministrationDashboardPageElements.getTaxSelectOptionDropdownList(driver, "Add Tax Option").click();
-		
+
 		Thread.sleep(2000);
 		//driver.switchTo().frame(0);
 		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 		Thread.sleep(2000);
-		
+
 		TaxOptionName1="TestTax"+System.currentTimeMillis();
 
 		AddTaxOptionDialogBoxElements.getTaxOptionName(driver).sendKeys(TaxOptionName1);
@@ -62,13 +62,13 @@ public class CreateMultipleTaxTest extends TestSetup{
 		AdministrationDashboardPageElements.getColumn_TaxOptionName(driver).click();
 		Thread.sleep(2000);
 		CommonFunctions.filterTable(driver, TaxOptionName1);
-		
+
 		Assert.assertEquals(AdministrationDashboardPageElements.getTaxOptionNameNameFilteredValue(driver).getText(), TaxOptionName1);
-		
+
 		//CommonFunctions.map.put("TaxOption", TaxOptionName);
-		
+
 	}
-	
+
 	@Test
 	public static void createTaxOption2()throws Exception
 	{
@@ -84,12 +84,12 @@ public class CreateMultipleTaxTest extends TestSetup{
 		AdministrationDashboardPageElements.getTaxOptionSelectOptionDropdownButton(driver).click();
 		Thread.sleep(2000);
 		AdministrationDashboardPageElements.getTaxSelectOptionDropdownList(driver, "Add Tax Option").click();
-		
+
 		Thread.sleep(2000);
 		//driver.switchTo().frame(0);
 		driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 		Thread.sleep(2000);
-		
+
 		TaxOptionName2="TestTax"+System.currentTimeMillis();
 
 		AddTaxOptionDialogBoxElements.getTaxOptionName(driver).sendKeys(TaxOptionName2);
@@ -111,12 +111,14 @@ public class CreateMultipleTaxTest extends TestSetup{
 		AdministrationDashboardPageElements.getColumn_TaxOptionName(driver).click();
 		Thread.sleep(2000);
 		CommonFunctions.filterTable(driver, TaxOptionName2);
-		
+
 		Assert.assertEquals(AdministrationDashboardPageElements.getTaxOptionNameNameFilteredValue(driver).getText(), TaxOptionName2);
-		
+
 		//CommonFunctions.map.put("TaxOption", TaxOptionName);
-		
+
+		//System.out.println(TaxOptionName1+"-"+TaxOptionName2);
+
 	}
 
-	
+
 }

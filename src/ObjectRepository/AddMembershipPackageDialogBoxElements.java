@@ -17,15 +17,15 @@ private static WebElement element = null;
 	}
 	public static WebElement getTaxOption(WebDriver driver)
 	{	
-
-		element = driver.findElement(By.xpath("//*[text()='Select Tax']"));
+		//*[text()='Select Tax']
+		element = driver.findElement(By.xpath("//*[text()='Tax Option']/following-sibling::div[1]"));
 		return element;
 	}
 
 	public static WebElement setTaxOption(WebDriver driver, String option)
 	{			
 		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[text()='Select Tax']/..//li[contains(text(),'"+option+"')]"));
+		element =driver.findElements(By.xpath("//*[@id='TaxOptionList_listbox']//li[contains(text(),'"+option+"')]"));
 		return element.get(element.size()-1);
 	}
 	

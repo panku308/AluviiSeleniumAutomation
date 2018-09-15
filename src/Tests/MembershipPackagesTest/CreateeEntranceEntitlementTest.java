@@ -74,6 +74,8 @@ public class CreateeEntranceEntitlementTest {
 		  assertEquals(MembershipPackagesPageElements.GetEntranceEntitlementTab_FirstRowNameColumn(driver).getText().trim(), EntranceEntitlement);
 	 
 		  CommonFunctions.map.put("Entrance_Entitlement", EntranceEntitlement);
+		  
+		  //System.out.println(EntranceEntitlement);
 	  
 	  }
 }

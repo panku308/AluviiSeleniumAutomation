@@ -43,7 +43,7 @@ public class CreateMemberTest {
 		  State="UT";
 		  City="PV";
 		  ZipCode="12345";
-		  PhoneNumber="1234567890";
+		  PhoneNumber="8876875160";
 		  String DateString = Date+"/"+Month+"/"+Year;
 		  Thread.sleep(5000);
 		  DashboardPageElements.GetManageMemberShipLink(driver).click();
@@ -71,9 +71,9 @@ public class CreateMemberTest {
 		  CreateNewAccountDialogBoxElements.GetBirthDateField(driver).sendKeys(DateString);
 		  CreateNewAccountDialogBoxElements.GetSubmitButton(driver).click();
 		  
-		  Thread.sleep(30000);
+		  Thread.sleep(5000);
 		  CreateNewAccountDialogBoxElements.GetClosetButton(driver).click();
-		  Thread.sleep(10000);
+		  Thread.sleep(5000);
 		  driver.switchTo().defaultContent();
 		  ManageMembershipsPageElements.GetSearchTextField(driver).clear();
 		  ManageMembershipsPageElements.GetSearchTextField(driver).sendKeys(EmailID);

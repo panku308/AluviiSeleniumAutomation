@@ -87,7 +87,7 @@ public class CreateMembershipPackageTest extends TestSetup {
 			
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();",
 					AddMembershipEntranceEntitlementDialogBoxElements.selectEntranceEntitlement(driver,  
-							CommonFunctions.map.get("Entrance_Entitlement")));
+							CreateeEntranceEntitlementTest.EntranceEntitlement));
 			Thread.sleep(5000);
 			AddMembershipEntranceEntitlementDialogBoxElements.GetAddEntranceButton(driver).click();
 			Thread.sleep(4000);
@@ -103,7 +103,7 @@ public class CreateMembershipPackageTest extends TestSetup {
 			Thread.sleep(2000);
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", 
 					AddMembershipDiscountEntitlementDialogBoxElements.selectDiscountEntitlement(driver,  
-							CommonFunctions.map.get("Discount_Entitlement")));
+							CreateDiscountEntitlementTest.DiscountEntitlementName));
 			Thread.sleep(5000);
 			AddMembershipDiscountEntitlementDialogBoxElements.GetAddDiscountButton(driver).click();
 			Thread.sleep(4000);

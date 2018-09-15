@@ -45,6 +45,18 @@
        <class name="Tests.SellProductGroupTest.SellProductGroupTest"/>
     </classes>
   </test>
-	
+	 <test thread-count="5" name="MembershipPackagesTest" preserve-order="true" enabled="true">
+    <classes>
+      <class name="Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest"/>
+      <class name="Tests.MembershipPackagesTest.CreateDiscountEntitlementTest"/> 
+      <class name="Tests.MembershipPackagesTest.CreateMembershipPackageWithMultipleTaxRatesTest"/>
+      </classes>
+  </test>
+   <test name="ManageMembershipsTest" preserve-order="true" enabled="true">
+		<classes>
+		    <class name="Tests.ManageMembershipsTest.CreateMemberTest"/>
+            <class name="Tests.ManageMembershipsTest.FastLoadMembershipWithMultipleTaxRatesTest"/>
+		</classes>
+	</test>
 	<!-- Test -->
 </suite> <!-- Suite -->
