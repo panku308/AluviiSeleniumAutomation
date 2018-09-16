@@ -53,16 +53,24 @@ public class AddProductActivityToCurrentUser extends TestSetup{
 			Thread.sleep(4000);
 
 			CommonFunctions.SwitchToContentFrame(driver);
-			AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
-			Thread.sleep(2000);
+			
 
 			
 			if(!(CreateRegisterWithProductTest.LoginActivity.equals("")))
 			{
+				AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
+				Thread.sleep(2000);
 				WebElement element=AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterWithProductTest.LoginActivity);
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 			}
+			if(!(CreateSimpleRegisterTest.LoginActivity.equals("")))
+			{	
+				AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
+				Thread.sleep(2000);
+				WebElement element=AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateSimpleRegisterTest.LoginActivity);
+				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 			
+			}
 			Thread.sleep(2000);
 			
 			AddLoginActivityDialogBox.getAddActivityButton(driver).click();

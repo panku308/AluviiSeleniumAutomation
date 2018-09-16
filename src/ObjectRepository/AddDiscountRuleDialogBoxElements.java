@@ -96,5 +96,18 @@ private static WebElement element = null;
 		element =driver.findElements(By.xpath("//*[@id='innerPopupWindoow']//td[2]/a"));
 		return element.get(element.size()-1);
 	}
+	public static WebElement getProductNameFilterOption(WebDriver driver)
+	{		
+				
+		element =driver.findElement(By.xpath("//*[@id='innerPopupWindoow']//*[text()='Product Name']/..//a[1]"));
+		return element;
+	}
+	
+	public static WebElement getProductNameFilteredValue(WebDriver driver)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='innerPopupWindoow']//td[2]/a"));
+		return element.get(element.size()-1);
+	}
 
 }

@@ -19,6 +19,7 @@ import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateDiscountTest;
+import Tests.RegisterManagementTest.CreateFixedDiscountOnCategoryTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
 import Tests.RegisterManagementTest.CreateSimpleRegisterTest;
@@ -52,12 +53,12 @@ public class Register_FixedDiscountOnCategoryTest {
 		  Thread.sleep(2000);
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  Thread.sleep(2000);
-		  AddDiscountDialogBoxElements.getDiscountCodeInputField(driver).sendKeys(CreateDiscountTest.discountCode);
+		  AddDiscountDialogBoxElements.getDiscountCodeInputField(driver).sendKeys(CreateFixedDiscountOnCategoryTest.discountCode);
 		  Thread.sleep(2000);
 		  AddDiscountDialogBoxElements.getApplyButton(driver).click();
 		  Thread.sleep(2000);
 		  
-		  Assert.assertTrue(AddDiscountDialogBoxElements.getAppliedDiscount(driver).getText().contains(CreateDiscountTest.discountAmt));
+		  Assert.assertTrue(AddDiscountDialogBoxElements.getAppliedDiscount(driver).getText().contains(CreateFixedDiscountOnCategoryTest.discountAmt));
 		  Thread.sleep(2000);
 		  AddDiscountDialogBoxElements.getCloseButton(driver).click();
 		  Thread.sleep(2000);
@@ -65,9 +66,11 @@ public class Register_FixedDiscountOnCategoryTest {
 		  
 		  driver.switchTo().defaultContent();
 		  CommonFunctions.SwitchToContentFrame(driver);
-		  Assert.assertTrue(PaymentTransactionType.getAppliedDiscount(driver).getText().contains(CreateDiscountTest.discountAmt));
+		  Assert.assertTrue(PaymentTransactionType.getAppliedDiscount(driver).getText().contains(CreateFixedDiscountOnCategoryTest.discountAmt));
 		  
 		  PaymentTransactionType.getCloseButton(driver).click();
+		  Thread.sleep(2000);
+		  driver.switchTo().defaultContent();
 	  }
 	 
 }

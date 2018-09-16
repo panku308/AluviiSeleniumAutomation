@@ -27,7 +27,7 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="CreateFixedDiscountDiscountRule">
+	<!-- <test thread-count="5" name="CreateFixedDiscountDiscountRule">
 		<classes>
 			<class name="Tests.RegisterManagementTest.CreateFixedDiscountOnCategoryTest" />
 
@@ -36,9 +36,9 @@
 
 	<test thread-count="5" name="CheckFixedDiscountOnCategory">
 		<classes>
-			<class name="Tests.EmployeeRegistersTest.Register_DiscountOnCategoryTest" />
+			<class name="Tests.EmployeeRegistersTest.Register_FixedDiscountOnCategoryTest" />
 		</classes>
-	</test>
+	</test> -->
 	
 	<test thread-count="5" name="CreatePercentageDiscountDiscountRule">
      <classes>

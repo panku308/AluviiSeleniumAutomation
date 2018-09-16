@@ -19,12 +19,12 @@ import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateDiscountTest;
-import Tests.RegisterManagementTest.CreatePercentageDiscountOnCategoryTest;
+import Tests.RegisterManagementTest.CreateFixedDiscountOnProductTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
 import Tests.RegisterManagementTest.CreateSimpleRegisterTest;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class Register_PercentageDiscountOnCategoryTest {
+public class Register_FixedDiscountOnProductTest {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
 	  @BeforeClass
@@ -32,7 +32,7 @@ public class Register_PercentageDiscountOnCategoryTest {
 		  driver = CommonFunctions.driver;
 	  }
 	  @Test
-	  public void percentageDiscountOnCategoryTest() throws Exception {
+	  public void fixedDiscountOnProductTest() throws Exception {
 		  
 		  DashboardPageElements.GetEmployeeRegistersLink(driver).click();
 		  Thread.sleep(5000);
@@ -49,33 +49,16 @@ public class Register_PercentageDiscountOnCategoryTest {
 		  Thread.sleep(2000);		  	  
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  Thread.sleep(2000);
-		  
-		  String grandTotal=PaymentTransactionType.getGrandTotalAmount(driver).getText();
-		  grandTotal=grandTotal.substring(1);
-		 // System.out.println(grandTotal);
-		  
-		  String totalTax=PaymentTransactionType.getTotalTax(driver).getText();
-		  totalTax=totalTax.substring(1);
-		 // System.out.println(totalTax);
-		  
-		  double totalAmount=Double.parseDouble(grandTotal)-Double.parseDouble(totalTax);
-		 // System.out.println(totalAmount);
-		  
-		  Thread.sleep(2000);
-		  
 		  PaymentTransactionType.getDiscountButton(driver).click();
 		  Thread.sleep(2000);
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  Thread.sleep(2000);
-		  AddDiscountDialogBoxElements.getDiscountCodeInputField(driver).sendKeys(CreatePercentageDiscountOnCategoryTest.discountCode);
+		  AddDiscountDialogBoxElements.getDiscountCodeInputField(driver).sendKeys(CreateFixedDiscountOnProductTest.discountCode);
 		  Thread.sleep(2000);
 		  AddDiscountDialogBoxElements.getApplyButton(driver).click();
 		  Thread.sleep(2000);
 		  
-		  expectedResult="$"+String.valueOf(String.format("%.1f", (totalAmount*(Double.parseDouble(CreatePercentageDiscountOnCategoryTest.discountAmt)))));
-		 // System.out.println(expectedResult);
-		  
-		  Assert.assertTrue(AddDiscountDialogBoxElements.getAppliedDiscount(driver).getText().contains(expectedResult));
+		  Assert.assertTrue(AddDiscountDialogBoxElements.getAppliedDiscount(driver).getText().contains(CreateFixedDiscountOnProductTest.discountAmt));
 		  Thread.sleep(2000);
 		  AddDiscountDialogBoxElements.getCloseButton(driver).click();
 		  Thread.sleep(2000);
@@ -83,11 +66,9 @@ public class Register_PercentageDiscountOnCategoryTest {
 		  
 		  driver.switchTo().defaultContent();
 		  CommonFunctions.SwitchToContentFrame(driver);
-		  Assert.assertTrue(PaymentTransactionType.getAppliedDiscount(driver).getText().contains(expectedResult));
+		  Assert.assertTrue(PaymentTransactionType.getAppliedDiscount(driver).getText().contains(CreateFixedDiscountOnProductTest.discountAmt));
 		  
 		  PaymentTransactionType.getCloseButton(driver).click();
-		  Thread.sleep(2000);
-		  driver.switchTo().defaultContent();
 	  }
 	 
 }

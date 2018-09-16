@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test thread-count="5" name="Test" preserve-order="true"
+		enabled="true">
+		<classes>
+			<class name="Tests.LoginTest.LoginTest" />
+		</classes>
+	</test>
+	<test name="Create Location Department and Site">
+		<classes>
+			<class
+				name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
+		</classes>
+	</test>
+	<test name="Create Tax Option">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateTaxOptionTest"></class>
+		</classes>
+	</test>
+	<test thread-count="5" name="RegisterManagementTest">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateCategoryTest" />
+			<class name="Tests.RegisterManagementTest.CreateProductTest" />
+			<class name="Tests.RegisterManagementTest.CreateSimpleRegisterTest" />
+			<class name="Tests.HRManagementTest.AddProductActivityToCurrentUser" />
+		</classes>
+	</test>
+
+	 <test thread-count="5" name="CreateDiscountRule">
+     <classes>
+     <class name="Tests.RegisterManagementTest.CreatePercentageDiscountOnProductTest"/>
+
+      </classes>
+  </test> 
+   
+   <test thread-count="5" name="sellProductWithDiscount">
+    <classes>
+       <class name="Tests.EmployeeRegistersTest.Register_PercentageDiscountOnProductTest"/>
+    </classes>
+  </test>
+	<!-- Test -->
+</suite> <!-- Suite -->

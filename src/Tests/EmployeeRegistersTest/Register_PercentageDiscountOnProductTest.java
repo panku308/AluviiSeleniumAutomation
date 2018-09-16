@@ -20,11 +20,12 @@ import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateDiscountTest;
 import Tests.RegisterManagementTest.CreatePercentageDiscountOnCategoryTest;
+import Tests.RegisterManagementTest.CreatePercentageDiscountOnProductTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
 import Tests.RegisterManagementTest.CreateSimpleRegisterTest;
 @Listeners (GlobalFiles.ReportCustomization.class) 
-public class Register_PercentageDiscountOnCategoryTest {
+public class Register_PercentageDiscountOnProductTest {
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
 	  @BeforeClass
@@ -67,12 +68,12 @@ public class Register_PercentageDiscountOnCategoryTest {
 		  Thread.sleep(2000);
 		  CommonFunctions.SwitchToContentFrame(driver);
 		  Thread.sleep(2000);
-		  AddDiscountDialogBoxElements.getDiscountCodeInputField(driver).sendKeys(CreatePercentageDiscountOnCategoryTest.discountCode);
+		  AddDiscountDialogBoxElements.getDiscountCodeInputField(driver).sendKeys(CreatePercentageDiscountOnProductTest.discountCode);
 		  Thread.sleep(2000);
 		  AddDiscountDialogBoxElements.getApplyButton(driver).click();
 		  Thread.sleep(2000);
 		  
-		  expectedResult="$"+String.valueOf(String.format("%.1f", (totalAmount*(Double.parseDouble(CreatePercentageDiscountOnCategoryTest.discountAmt)))));
+		  expectedResult="$"+String.valueOf(String.format("%.1f", (totalAmount*(Double.parseDouble(CreatePercentageDiscountOnProductTest.discountAmt)))));
 		 // System.out.println(expectedResult);
 		  
 		  Assert.assertTrue(AddDiscountDialogBoxElements.getAppliedDiscount(driver).getText().contains(expectedResult));
@@ -86,8 +87,6 @@ public class Register_PercentageDiscountOnCategoryTest {
 		  Assert.assertTrue(PaymentTransactionType.getAppliedDiscount(driver).getText().contains(expectedResult));
 		  
 		  PaymentTransactionType.getCloseButton(driver).click();
-		  Thread.sleep(2000);
-		  driver.switchTo().defaultContent();
 	  }
 	 
 }
