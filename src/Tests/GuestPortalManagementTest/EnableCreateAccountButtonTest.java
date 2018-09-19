@@ -32,7 +32,7 @@ public class EnableCreateAccountButtonTest {
 			GuestPortalManagementPageElements.GetConfigureTab_SubTabConfigure_IsDisableCreateAccount(driver).click();	
 		}
 		assertTrue(true);
-		
+		CommonFunctions.ShowCreateAccountButton=true;
 	}
 	
 

@@ -8,7 +8,7 @@
 		</classes>
 	</test>
 	
- 
+ <!-- 
  	<test name="Create Location Department and Site">
 		<classes>
 			<class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
@@ -27,15 +27,15 @@
 	</test>
 	
 	
-<!-- 	
+ 	 -->
 <test name="booking">
 	<classes>
-		 <class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+		<!--  <class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
 		<class name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
 		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
 		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
-		<class name="Tests.CreateEventManagementTest.CreatePackageTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePackageTest" /> -->
 		<class name="Tests.BookingTest.AddBooking" />
 	</classes>
-</test> -->
+</test> 
 </suite>

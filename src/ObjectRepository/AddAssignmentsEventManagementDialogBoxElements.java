@@ -42,7 +42,8 @@ private static WebElement element = null;
 	}
 	public static WebElement getTaxOptionButton(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("//*[text()='Tax Option']/../..//*[text()='Select Tax']"));
+		element =driver.findElement(By.xpath("//*[@id='TaxOptionList_taglist']/..//input"));
+		//element =driver.findElement(By.xpath("//*[text()='Tax Option']/../..//*[text()='Select Tax']"));
 		return element;
 	}
 	
