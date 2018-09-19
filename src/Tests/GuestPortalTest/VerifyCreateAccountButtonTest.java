@@ -37,14 +37,23 @@ public class VerifyCreateAccountButtonTest {
 		 {
 			 actualResult=false;
 		 }
+		 Thread.sleep(2000);
+		 driver.switchTo().defaultContent();
+		 GuestPortal_CreateAccountDialogBoxElements.GetCloseButton(driver).click();
+		 
+		 
 		 if(CommonFunctions.ShowCreateAccountButton==true)
 		 {
 			assertEquals(actualResult, true); 
 		 }
+		 
 		 else if (CommonFunctions.ShowCreateAccountButton==false)
 		 {
 			 assertEquals(actualResult, false); 
 		 }
+		 driver.close();
+		 driver.quit();
+		 
 		 
 	 }
 

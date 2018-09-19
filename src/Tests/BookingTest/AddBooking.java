@@ -66,11 +66,18 @@ public class AddBooking {
 				Thread.sleep(5000);
 				BookingDashboardPageElements.Get_CategoryTab_CategoryDropdown(driver).click();
 				Thread.sleep(2000);
-			//	BookingDashboardPageElements.SelectCategory(driver, "TestCategory_1534561096616");
+			//	BookingDashboardPageElements.SelectCategory(driver, "TestCategory_1536556572448");
 				BookingDashboardPageElements.SelectCategory(driver, CreateCategoryTest.CategoryName);
 				Thread.sleep(2000);
-				BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver).click();
-				Thread.sleep(30000);
+				try
+				{
+					BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver).click();
+					Thread.sleep(30000);
+				}
+				catch(Exception e){
+					
+				}
+				
 				if(i==2)
 				{
 					if(CommonFunctions.GetDayOfWeekIntFornat()==6)
@@ -97,7 +104,7 @@ public class AddBooking {
 				Thread.sleep(2000);
 				BookingDashboardPageElements.Get_BookingDataTab_FirstNameField(driver).sendKeys("fname"+System.currentTimeMillis());
 				BookingDashboardPageElements.Get_BookingDataTab_LastNameField(driver).sendKeys("lname"+System.currentTimeMillis());
-				BookingDashboardPageElements.Get_BookingDataTab_EmailField(driver).sendKeys("email"+System.currentTimeMillis());
+				BookingDashboardPageElements.Get_BookingDataTab_EmailField(driver).sendKeys("email"+System.currentTimeMillis()+"@gmail.com");
 				BookingDashboardPageElements.Get_BookingDataTab_PhoneField(driver).sendKeys("1234567890");
 				BookingDashboardPageElements.Get_BookingDataTab_CreateAccountButton(driver).click();
 				Thread.sleep(10000);

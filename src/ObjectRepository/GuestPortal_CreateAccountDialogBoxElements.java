@@ -17,4 +17,9 @@ public class GuestPortal_CreateAccountDialogBoxElements {
 		element =driver.findElement(By.xpath("//span[text()='"+text+"']"));
 		return element;
 	}
+	public static WebElement GetCloseButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//span[@class='k-icon k-i-close']"));
+		return element;
+	}
 }

@@ -34,7 +34,7 @@ public class CreateAssignmentTest extends TestSetup {
 	@Test()
 	public static void createAssignment()throws Exception
 	{
-
+		
 		WebDriver driver=DriverManager.getDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -59,14 +59,17 @@ public class CreateAssignmentTest extends TestSetup {
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getLocationButton(driver).click();
 		Thread.sleep(2000);
+//		 CreateLocationDepartmentSiteTest.Location="TestLocation1536554372298";
 		AddAssignmentsEventManagementDialogBoxElements.setLocation(driver, CreateLocationDepartmentSiteTest.Location).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getSiteButton(driver).click();
 		Thread.sleep(2000);
+	//	CreateLocationDepartmentSiteTest.Site="TestSite1536554485372";
 		AddAssignmentsEventManagementDialogBoxElements.setSiteOption(driver, CreateLocationDepartmentSiteTest.Site).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getTaxOptionButton(driver).click();
 		Thread.sleep(2000);
+	//	CreateTaxOptionTest.TaxOptionName="TestTax1536554540891";
 		AddAssignmentsEventManagementDialogBoxElements.setTaxOption(driver, CreateTaxOptionTest.TaxOptionName).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getCapacity(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
