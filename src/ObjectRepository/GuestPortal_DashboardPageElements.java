@@ -43,5 +43,16 @@ public class GuestPortal_DashboardPageElements {
 		element =driver.findElement(By.xpath("//div[@id='username']//a[contains(text(), 'Logout')]"));
 		return element;
 	}
-
+	public static WebElement GetDashboardLink(WebDriver driver)
+	{
+		element =driver.findElement(By.linkText("Dashboard"));
+		return element;
+	}
+	
+	public static WebElement GetUpdateAccountInfoButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='dashboard-quick-links']//a[text()='Update Account Info']"));
+		return element;
+	}
+	
 }
