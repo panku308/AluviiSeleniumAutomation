@@ -1,45 +1,32 @@
 package Tests.CreateEventManagementTest;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
-import org.testng.AssertJUnit;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
-import ObjectRepository.AddEmployeeDialogBox;
-import ObjectRepository.AddLoginActivityDialogBox;
 import ObjectRepository.AddScheduleEventManagementDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
-import ObjectRepository.HRManagementPageElements;
-import baseSetup.TestSetup;
-import util.DriverManager;
-import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.EditScheduleEventManagementDialogBoxElements;
 import ObjectRepository.EventManagementPageElements;
-@Listeners (GlobalFiles.ReportCustomization.class) 
-public class CreateSchedule_withSessionTest extends TestSetup {
+import util.DriverManager;
 
-	//public static WebDriver driver=DriverManager.getDriver();
+public class CreateWaterfallScheduleTest {
+public static WebDriver driver= null;
 
-	/*@BeforeClass
+	
+
+	@BeforeClass
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
-	}*/
-	public static String ScheduleSessionName="";
+	}
+	public static String ScheduleName="";
 	@Test
 	public static void createSchedule()throws Exception
 	{
@@ -60,29 +47,36 @@ public class CreateSchedule_withSessionTest extends TestSetup {
 			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			Thread.sleep(2000);
 			
-			 ScheduleSessionName="TestSchedule"+System.currentTimeMillis();
-			AddScheduleEventManagementDialogBoxElements.getScheduleNameField(driver).sendKeys(ScheduleSessionName);
+			 ScheduleName="WaterfallSchedule_"+System.currentTimeMillis();
+			AddScheduleEventManagementDialogBoxElements.getScheduleNameField(driver).sendKeys(ScheduleName);
 			AddScheduleEventManagementDialogBoxElements.getSelectTimeZoneButton(driver).click();
 			Thread.sleep(2000);
 			AddScheduleEventManagementDialogBoxElements.setSelectTimeZone(driver, "Denver").click();;
 			Thread.sleep(2000);
 			AddScheduleEventManagementDialogBoxElements.getNormalDurationTime(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.setNormalDurationTime(driver).sendKeys("120");
+			AddScheduleEventManagementDialogBoxElements.setNormalDurationTime(driver).sendKeys("45");
+			
+			
+			AddScheduleEventManagementDialogBoxElements.getMinutesBetweenField(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+			Thread.sleep(2000);
+			AddScheduleEventManagementDialogBoxElements.setMinutesBetweenField(driver).sendKeys("15");
+			
+			
 			
 			AddScheduleEventManagementDialogBoxElements.gettab(driver, "Time & Recurrences").click();
 			Thread.sleep(2000);
 			AddScheduleEventManagementDialogBoxElements.getAddSubScheduleButton(driver).click();
 			Thread.sleep(2000);
-			String subScheduleSessionName="TestSubSchedule"+System.currentTimeMillis();
-			AddScheduleEventManagementDialogBoxElements.getSubScheduleNameField(driver).sendKeys(subScheduleSessionName);
+			String subScheduleName="TestSubSchedule"+System.currentTimeMillis();
+			AddScheduleEventManagementDialogBoxElements.getSubScheduleNameField(driver).sendKeys(subScheduleName);
 			AddScheduleEventManagementDialogBoxElements.getStartTime(driver).click();
 			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.setStartTime(driver, "12:00 AM").click();
+			AddScheduleEventManagementDialogBoxElements.setStartTime(driver, "10:00 AM").click();
 			
 			AddScheduleEventManagementDialogBoxElements.getEndTime(driver).click();
 			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.setEEndTime(driver, "11:30 PM").click();
+			AddScheduleEventManagementDialogBoxElements.setEEndTime(driver, "8:00 PM").click();
 			
 			AddScheduleEventManagementDialogBoxElements.GetAddButton(driver).click();
 			
@@ -90,9 +84,9 @@ public class CreateSchedule_withSessionTest extends TestSetup {
 			Thread.sleep(3000);
 			EventManagementPageElements.getColumn_ScheduleName(driver).click();
 			Thread.sleep(2000);
-			CommonFunctions.filterTable(driver, ScheduleSessionName);
+			CommonFunctions.filterTable(driver, ScheduleName);
 			
-			Assert.assertEquals(EventManagementPageElements.getScheduleNameFilteredValue(driver).getText(), ScheduleSessionName);
+			Assert.assertEquals(EventManagementPageElements.getScheduleNameFilteredValue(driver).getText(), ScheduleName);
 			
 			Actions action = new Actions(driver);
 			action.moveToElement(EventManagementPageElements.getScheduleNameFilteredValue(driver)).doubleClick();
@@ -104,24 +98,15 @@ public class CreateSchedule_withSessionTest extends TestSetup {
 			
 			EditScheduleEventManagementDialogBoxElements.gettab(driver, "View Calendar").click();
 			Thread.sleep(2000);
-			Assert.assertTrue(EditScheduleEventManagementDialogBoxElements.checkSubScheduleName(driver, subScheduleSessionName));
-			
-			Thread.sleep(2000);
-			
-			EditScheduleEventManagementDialogBoxElements.gettab(driver, "General").click();
-			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.GetEnableSession_YES_RadioButton(driver).click();
-			Thread.sleep(2000);
-			EditScheduleEventManagementDialogBoxElements.getSaveButton(driver).click();
+			Assert.assertTrue(EditScheduleEventManagementDialogBoxElements.checkSubScheduleName(driver, subScheduleName));
 			
 			driver.switchTo().defaultContent();
-			/*Thread.sleep(3000);
-			EventManagementPageElements.getEditScheduleCloseButton(driver).click();*/
+			Thread.sleep(3000);
+			EventManagementPageElements.getEditScheduleCloseButton(driver).click();
 			
 			Thread.sleep(2000);
 			
-			CommonFunctions.map.put("Schedule", ScheduleSessionName);
-			CommonFunctions.IsSessionSchedule=true;
+			CommonFunctions.IsWaterfallSchedule=true;
 		
 	}
 
@@ -130,4 +115,5 @@ public class CreateSchedule_withSessionTest extends TestSetup {
 		//driver.quit();
 
 	}*/
+
 }

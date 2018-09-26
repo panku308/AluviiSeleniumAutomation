@@ -1,8 +1,14 @@
 package ObjectRepository;
 
+
+
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+
 
 public class BookingDashboardPageElements {
 private static WebElement element = null;
@@ -48,6 +54,8 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//span[text()='Select Category']"));		
 		return element;
 	}
+	
+	
 	public static void SelectCategory(WebDriver driver, String Category)
 	{
 		driver.findElement(By.xpath("//ul[@id='ddlSelCat_listbox']/li[text()='"+Category+"']")).click();		
@@ -134,11 +142,38 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("ff-field-phone"));		
 		return element;
 	}
+	public static WebElement Get_BookingDataTab_HeightField(WebDriver driver)
+	{
+		element =driver.findElement(By.id("ff-field-6"));		
+		return element;
+	}
+	
 	public static WebElement Get_BookingDataTab_CreateAccountButton(WebDriver driver)
 	{
 		element =driver.findElement(By.id("save-finalize"));		
 		return element;
 	}
+	public static WebElement Get_BookingDataTab_CancelBookingButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("btnCancelBooking"));		
+		return element;
+	}
+	public static WebElement Get_BookingDataTab_ConfirmCancelBookingButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("yesCancel"));		
+		return element;
+	}
+	public static WebElement Get_BookingDataTab_WaterfallProductText(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@class='WFItems']/span[1]"));		
+		return element;
+	}
+	public static WebElement Get_BookingDataTab_WaterfallAssignmentText(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@class='WFItems']/span[2]"));		
+		return element;
+	}
+	
 	public static WebElement Get_FinalizeTab_StatucField(WebDriver driver)
 	{
 		element =driver.findElement(By.id("pay-status"));		
@@ -167,6 +202,16 @@ private static WebElement element = null;
 	public static WebElement Get_FinalizeTab_RequireDepositField(WebDriver driver)
 	{
 		element =driver.findElement(By.id("bookDep"));		
+		return element;
+	}
+	public static WebElement Get_FinalizeTab_DiscountCodeField(WebDriver driver)
+	{
+		element =driver.findElement(By.id("txtDiscCode"));		
+		return element;
+	}
+	public static WebElement Get_FinalizeTab_ApplyDiscountButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("btnDiscCode"));		
 		return element;
 	}
 	public static WebElement Get_FinalizeTab_GrandTotal(WebDriver driver)
@@ -219,8 +264,23 @@ private static WebElement element = null;
 	}
 	public static WebElement Get_PaymentTab_Status(WebDriver driver)
 	{
-		element =driver.findElement(By.xpath("#status"));		
+		element =driver.findElement(By.id("#status"));		
 		return element;
 	}
-	
+	public static WebElement Get_PaymentTab_Discount(WebDriver driver)
+	{
+		element =driver.findElement(By.id("#discount"));		
+		return element;
+	}
+	public static WebElement Get_TicketsTab_TicketsTable(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='ticketsGrid']//table/tbody"));		
+		return element;
+	}
+	public static int Get_TicketsTab_TicketsTableRows(WebDriver driver)
+	{
+		List<WebElement> rows = driver.findElements(By.xpath("//div[@id='ticketsGrid']//table/tbody/tr"));
+		System.out.println("Ticket Rows = "+rows.size());
+		return rows.size();
+	}
 }

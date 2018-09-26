@@ -15,10 +15,50 @@ public class EditAssignmentsEventManagementDialogBoxElements {
 		element =driver.findElement(By.xpath("//*[text()='"+tabName+"']"));
 		return element;
 	}
-	
+	public static WebElement getUpsellsTab(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[text()='Upsells']"));
+		return element;
+	}
 	public static WebElement getSelectPriceRuleButton(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//*[text()='Select price rule']"));
+		return element;
+	}
+	public static WebElement getUpsellTab_TaxOptionButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[@id='TaxOptionListUpsell_taglist']/..//input"));
+		//element =driver.findElement(By.xpath("//*[text()='Tax Option']/../..//*[text()='Select Tax']"));
+		return element;
+	}
+	
+	public static WebElement setUpsellTab_TaxOption(WebDriver driver, String option)
+	{
+		List<WebElement> element;
+		//element =driver.findElements(By.xpath("//*[@id='TaxOptionId_listbox']//li[text()='"+option+"']"));
+		element =driver.findElements(By.xpath("//*[@id='TaxOptionListUpsell_listbox']//li[text()='"+option+"']"));
+		return element.get(element.size()-1);
+		
+	}
+	
+	public static WebElement getUpsellTab_ProductDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//span[text()='Select Product']"));		
+		return element;
+	}
+	public static WebElement getUpsellTab_SelectProduct(WebDriver driver, String product)
+	{
+		element =driver.findElement(By.xpath("//ul=[@id='ddlUpsellProducts_listbox']/li[contains(text(),'"+product+"')]"));		
+		return element;
+	}
+	public static WebElement getUpsellTab_PriceField(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//div[@id='divUpsPrice']/span/span/input[1]"));		
+		return element;
+	}
+	public static WebElement getUpsellTab_SaveButton(WebDriver driver, String product)
+	{
+		element =driver.findElement(By.id("btnUpdVenUps"));		
 		return element;
 	}
 	

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ 	<test name="Login">
+		<classes>
+			<class name="Tests.LoginTest.LoginTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Create Location Department and Site">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Create Tax Option">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateTaxOptionTest"></class>
+		</classes>
+	</test>
+	<test name="Create schedule with session">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateSchedule_withSessionTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Create work flow">
+		<classes>
+			<class name="Tests.CreateWorkFlowTest.CreateWorkflowTest"></class>
+		</classes>
+	</test>
+	<test name="Create session Product">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateProduct_withSessionTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Create Waterfall Package">
+		<classes>
+			<class name="Tests.CreateEventManagementTest.CreateWaterfallPackageTest"></class>
+		</classes>
+	</test>
+	
+		
+</suite> <!-- Suite -->

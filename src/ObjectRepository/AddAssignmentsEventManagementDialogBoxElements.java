@@ -50,8 +50,10 @@ private static WebElement element = null;
 	public static WebElement setTaxOption(WebDriver driver, String option)
 	{
 		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[@id='TaxOptionId_listbox']//li[text()='"+option+"']"));
+		//element =driver.findElements(By.xpath("//*[@id='TaxOptionId_listbox']//li[text()='"+option+"']"));
+		element =driver.findElements(By.xpath("//*[@id='TaxOptionList_listbox']//li[text()='"+option+"']"));
 		return element.get(element.size()-1);
+		
 	}
 	public static WebElement getSiteButton(WebDriver driver)
 	{

@@ -59,17 +59,17 @@ public class CreateAssignmentTest extends TestSetup {
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getLocationButton(driver).click();
 		Thread.sleep(2000);
-//		 CreateLocationDepartmentSiteTest.Location="TestLocation1536554372298";
+//		 CreateLocationDepartmentSiteTest.Location="TestLocation1537433440270";
 		AddAssignmentsEventManagementDialogBoxElements.setLocation(driver, CreateLocationDepartmentSiteTest.Location).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getSiteButton(driver).click();
 		Thread.sleep(2000);
-	//	CreateLocationDepartmentSiteTest.Site="TestSite1536554485372";
+	//	CreateLocationDepartmentSiteTest.Site="TestSite1537433552184";
 		AddAssignmentsEventManagementDialogBoxElements.setSiteOption(driver, CreateLocationDepartmentSiteTest.Site).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getTaxOptionButton(driver).click();
 		Thread.sleep(2000);
-	//	CreateTaxOptionTest.TaxOptionName="TestTax1536554540891";
+	//	CreateTaxOptionTest.TaxOptionName="TestTax1537433606785";
 		AddAssignmentsEventManagementDialogBoxElements.setTaxOption(driver, CreateTaxOptionTest.TaxOptionName).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getCapacity(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
@@ -78,6 +78,8 @@ public class CreateAssignmentTest extends TestSetup {
 		AddAssignmentsEventManagementDialogBoxElements.setExclusiveUse(driver).sendKeys(Keys.SPACE);
 		AddAssignmentsEventManagementDialogBoxElements.getscheduleOptionButton(driver).click();
 		Thread.sleep(3000);
+		
+		
 		AddAssignmentsEventManagementDialogBoxElements.setScheduleOption(driver, CommonFunctions.map.get("Schedule")).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.setViewOnEventPortal(driver).sendKeys(Keys.SPACE);
@@ -119,7 +121,7 @@ public class CreateAssignmentTest extends TestSetup {
 		EditAssignmentsEventManagementDialogBoxElements.getCloseButton(driver).click();
 		
 		CommonFunctions.map.put("Assignment", AssignmentName);
-
+		
 	}
 
 	/*@AfterClass

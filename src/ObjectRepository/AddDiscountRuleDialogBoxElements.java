@@ -33,7 +33,12 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//*[text()='Discount']/..//input[1]"));
 		return element;
 	}
-	
+
+	public static WebElement getDiscountType_InPercentageRadioButton(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//input[@id='DiscountType']/following::label[text()='In Percentage']"));
+		return element;
+	}
 	public static WebElement setDiscount(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//*[text()='Discount']/..//input[2]"));
@@ -64,5 +69,6 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("AddEditDiscountRule"));
 		return element;
 	}
+	
 
 }

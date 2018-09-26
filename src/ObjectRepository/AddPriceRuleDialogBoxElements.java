@@ -35,7 +35,31 @@ public class AddPriceRuleDialogBoxElements {
 		return element.get(element.size()-1);
 
 	}
-
+	public static WebElement GetTicketableCheckbox(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//input[contains(@id,'-TicketTable')]"));
+		return element;
+	}
+	public static WebElement GetEcomTickeTypeDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//span[contains(@aria-owns,'EcomTicketType_listbox')]/span/span[text()='Select Ticket Type']"));
+		return element;
+	}
+	public static WebElement SetEcomTickeTypeDD(WebDriver driver,String str)
+	{
+		element =driver.findElement(By.xpath("//ul[contains(@id,'EcomTicketType_listbox')]/li[text()='"+str+"']"));
+		return element;
+	}
+	public static WebElement GetOnPremTickeTypeDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//span[contains(@aria-owns,'OnPremTicketType_listbox')]/span/span[text()='Select Ticket Type']"));
+		return element;
+	}
+	public static WebElement SetOnPremTickeTypeDD(WebDriver driver,String str)
+	{
+		element =driver.findElement(By.xpath("//ul[contains(@id,'OnPremTicketType_listbox')]/li[text()='"+str+"']"));
+		return element;
+	}
 	
 
 	public static WebElement getPercentage(WebDriver driver)
