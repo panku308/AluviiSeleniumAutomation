@@ -32,7 +32,7 @@
 			<class name="Tests.RegisterManagementTest.CreateProduct_withSessionTest" />
 			<class name="Tests.RegisterManagementTest.CreateRegisterTest" />
 			<class name="Tests.HRManagementTest.AddProductActivityToCurrentUser"/>
-			<class name="Tests.SellProductTest.SellSessionProduct" />
+			 <class name="Tests.SellProductTest.SellSessionProduct" /> 
 		</classes>
 	</test>
 <test name="Ecommerce Session product sell Test">

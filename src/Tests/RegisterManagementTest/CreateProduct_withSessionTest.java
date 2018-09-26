@@ -49,7 +49,7 @@ public class CreateProduct_withSessionTest extends TestSetup {
 	public void AddProductTest1()throws Exception
 	{
 		WebDriver driver = DriverManager.getDriver();
-		ProductName1="product" + System.currentTimeMillis();
+		ProductName1="Session_Product" + System.currentTimeMillis();
 		CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		DashboardPageElements.GetRegisterManagementLink(driver).click();
 		Thread.sleep(5000);
@@ -137,7 +137,7 @@ public class CreateProduct_withSessionTest extends TestSetup {
 	public void AddProductTest2()throws Exception
 	{
 		WebDriver driver = DriverManager.getDriver();
-		ProductName2="product" + System.currentTimeMillis();
+		ProductName2="Session_Product" + System.currentTimeMillis();
 		CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetRegisterManagementLink(driver));
 		DashboardPageElements.GetRegisterManagementLink(driver).click();
 		Thread.sleep(5000);

@@ -38,6 +38,21 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//*[contains(text(),'Normal Duration')]/../..//input[2]"));
 		return element;
 	}
+	
+	public static WebElement getMinutesBetweenField(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Minutes Between')]/../..//input[1]"));
+		return element;
+	}
+	
+	public static WebElement setMinutesBetweenField(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Minutes Between')]/../..//input[2]"));
+		return element;
+	}
+	
+	
+	
 	public static WebElement gettab(WebDriver driver, String tabName)
 	{
 		element =driver.findElement(By.xpath("//*[text()='"+tabName+"']"));

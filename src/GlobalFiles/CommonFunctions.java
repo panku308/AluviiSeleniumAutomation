@@ -46,13 +46,17 @@ public class CommonFunctions {
 	public static String GuestUserName="selenium1536113373628@gmail.com";
 	public static String GuestPassword="Password@1";
 	public static String chromeDriverPath="C:\\chromedriver_win32\\chromedriver.exe";
+	
 
 	public static boolean SimplePassword=true, ShowAdons=false, ShowCreateAccountButton=false;
-	
+	public static boolean IsWaterfallSchedule=false, IsSessionSchedule=false;
 	public static int CreateProduct_unitPrice=5, CreateProductGroup_UnitPrice=5;
 	public static int AddWaiver_MinAge=15;
 	public static int ProductsCountForProductGroup=2;
 	public static int ECommereceProductQuantity=20;
+	
+	public static String AssignmentName="", DiscountCode="";
+	public static boolean IsDiscountInDollars=true;
 	//-------------------------------------------------------------------------------------------------------------------
 	public static WebDriver driver = DriverManager.getDriver();
 	public static WebDriver GuestPortaldriver = null;
