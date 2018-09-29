@@ -65,38 +65,100 @@ private static WebElement element = null;
 		return element;
 	}
 	
-	public static WebElement getSubScheduleNameField(WebDriver driver)
+	public static WebElement getSubScheduleNameField(WebDriver driver,int count)
 	{
-		element =driver.findElement(By.id("txtRecName0"));
+		element =driver.findElement(By.id("txtRecName"+count));
 		return element;
 	}
 	
-	public static WebElement getStartTime(WebDriver driver)
+	public static WebElement getStartTime(WebDriver driver, int count)
 	{
-		element =driver.findElement(By.xpath("//*[text()='Start']/..//*[@class='k-icon k-i-clock']"));
+		//element =driver.findElement(By.xpath("//*[text()='Start']/..//*[@class='k-icon k-i-clock']"));
+		element =driver.findElement(By.xpath("//*[text()='Start']/..//*[@class='k-icon k-i-clock' and @aria-controls = 'dtpRecStart"+count+"_timeview']"));
 		return element;
 	}
 	
-	public static WebElement setStartTime(WebDriver driver, String time)
+	public static WebElement setStartTime(WebDriver driver, String time,int count)
 	{
-		List<WebElement> element;
+	/*	List<WebElement> element;
 		element =driver.findElements(By.xpath("//*[@id='dtpRecStart0_timeview']//*[text()='"+time+"']"));
 		return element.get(element.size()-1);
-	}
-	
-	public static WebElement getEndTime(WebDriver driver)
-	{
-		element =driver.findElement(By.xpath("//*[text()='End']/..//*[@class='k-icon k-i-clock']"));
+		*/
+		
+		element =driver.findElement(By.xpath("//*[@id='dtpRecStart"+count+"_timeview']//*[text()='"+time+"']"));
 		return element;
 	}
 	
-	public static WebElement setEEndTime(WebDriver driver, String time)
+	public static WebElement getEndTime(WebDriver driver,int count)
 	{
-		List<WebElement> element;
-		element =driver.findElements(By.xpath("//*[@id='tpRecEnd0_timeview']//*[text()='"+time+"']"));
-		return element.get(element.size()-1);
+		//element =driver.findElement(By.xpath("//*[text()='End']/..//*[@class='k-icon k-i-clock']"));
+		element =driver.findElement(By.xpath("//*[text()='End']/..//span[@aria-controls='tpRecEnd"+count+"_timeview']/span[@class='k-icon k-i-clock']"));
+		return element;
 	}
 	
+	public static WebElement setEEndTime(WebDriver driver, String time,int count)
+	{
+		/*List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='tpRecEnd0_timeview']//*[text()='"+time+"']"));
+		return element.get(element.size()-1);*/
+		element =driver.findElement(By.xpath("//*[@id='tpRecEnd"+count+"_timeview']//*[text()='"+time+"']"));
+		return element;
+		
+	}
+	public static WebElement GetScheduleEditButton(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.id("edtSubSch"+count));
+		return element;
+	}
+	public static WebElement GetWeeklyRadioButton(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.id("freqWk"+count));
+		return element;
+	}
+	public static WebElement GetSundayCheckbox(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.className("recWkDy recWkDy0 su"));
+		return element;
+	}
+	public static WebElement GetMondayCheckbox(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.className("recWkDy recWkDy"+count+" mo"));
+		return element;
+	}
+	public static WebElement GetTuesdayCheckbox(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.className("recWkDy recWkDy"+count+" tu"));
+		return element;
+	}
+	public static WebElement GetWednesdayCheckbox(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.className("recWkDy recWkDy"+count+" we"));
+		return element;
+	}
+	public static WebElement GetThrudsdayCheckbox(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.className("recWkDy recWkDy"+count+" th"));
+		return element;
+	}
+	public static WebElement GetFridayCheckbox(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.className("recWkDy recWkDy"+count+" fr"));
+		return element;
+	}
+	public static WebElement GetSaturdayCheckbox(WebDriver driver, int count)
+	{
+	
+		element =driver.findElement(By.className("recWkDy recWkDy"+count+" sa"));
+		return element;
+	}
 	public static WebElement GetEnableSession_YES_RadioButton(WebDriver driver)
 	{
 		element =driver.findElement(By.id("opYes"));
