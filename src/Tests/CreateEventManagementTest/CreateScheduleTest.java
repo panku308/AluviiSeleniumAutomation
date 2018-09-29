@@ -75,14 +75,14 @@ public class CreateScheduleTest extends TestSetup {
 			AddScheduleEventManagementDialogBoxElements.getAddSubScheduleButton(driver).click();
 			Thread.sleep(2000);
 			String subScheduleName="TestSubSchedule"+System.currentTimeMillis();
-			AddScheduleEventManagementDialogBoxElements.getSubScheduleNameField(driver).sendKeys(subScheduleName);
-			AddScheduleEventManagementDialogBoxElements.getStartTime(driver).click();
+			AddScheduleEventManagementDialogBoxElements.getSubScheduleNameField(driver,0).sendKeys(subScheduleName);
+			AddScheduleEventManagementDialogBoxElements.getStartTime(driver,0).click();
 			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.setStartTime(driver, "10:00 AM").click();
+			AddScheduleEventManagementDialogBoxElements.setStartTime(driver, "10:00 AM",0).click();
 			
-			AddScheduleEventManagementDialogBoxElements.getEndTime(driver).click();
+			AddScheduleEventManagementDialogBoxElements.getEndTime(driver,0).click();
 			Thread.sleep(2000);
-			AddScheduleEventManagementDialogBoxElements.setEEndTime(driver, "10:00 PM").click();
+			AddScheduleEventManagementDialogBoxElements.setEEndTime(driver, "10:00 PM",0).click();
 			
 			AddScheduleEventManagementDialogBoxElements.GetAddButton(driver).click();
 			

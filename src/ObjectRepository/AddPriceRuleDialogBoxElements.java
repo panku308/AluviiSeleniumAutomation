@@ -67,10 +67,19 @@ public class AddPriceRuleDialogBoxElements {
 		element =driver.findElement(By.xpath("//*[contains(text(),'Percentage')]/following-sibling::span//input[1]"));
 		return element;
 	}
-
+	public static WebElement GetMinDepositField(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Min Deposit')]/following-sibling::span//input[1]"));
+		return element;
+	}
 	public static WebElement setPercentage(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//*[contains(text(),'Percentage')]/following-sibling::span//input[2]"));
+		return element;
+	}
+	public static WebElement setMinDepositField(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Min Deposit')]/following-sibling::span//input[2]"));
 		return element;
 	}
 	

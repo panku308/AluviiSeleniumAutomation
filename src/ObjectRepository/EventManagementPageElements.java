@@ -107,9 +107,7 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//*[@id='categoryGrid']//*[text()='Category Name']/..//a[1]"));
 		return element;
 	}
-	
-	
-	
+
 	public static WebElement getCategoryNameFilteredValue(WebDriver driver)
 	{
 		List<WebElement> element;

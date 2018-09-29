@@ -20,6 +20,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.server.handler.SendKeys;
 
 import ObjectRepository.AccessControlPageElements;
+import ObjectRepository.AddCategoryDialogBoxElements;
 import ObjectRepository.AddCategoryDialogBoxInsideEcommerceProductsTabElements;
 import ObjectRepository.AddModifierDialogBoxElements;
 import ObjectRepository.AddModifierDialogBoxInsideAssignProductModifer;
@@ -58,21 +59,24 @@ import util.DriverManager;
 
 public class Debug {
 	public static WebDriver driver=null;
+	public static WebDriver driver1=null;
+	public static WebDriver driver2=null;
 	public static String ModifierName="";
 	public static Double ExpBalanceDue=0.0, ActBalanceDue=0.0;
 	public static Double  DepoSitVaue=0.0, GrandTotal=0.0;
 	public static Double AmountPaid=0.0; 
 	public static int TotalSpots = 40, BookedQuantity=10, ActBookedQuantity=0;
 	public static int ExpTotalSpotsLeft=10,ActTotalSpotLeft=0;
-	
+	public static String ActualCaetgories[]=null;
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws Exception {
 		
 		
-		driver = CommonFunctions.SetupEnvironment(CommonFunctions.url, "chrome");
+		driver1 = CommonFunctions.SetupEnvironment("https://kidztown.aluvii.com/employee", "chrome");
 		Thread.sleep(5000);
-		CommonFunctions.Login(driver, CommonFunctions.UserName, CommonFunctions.Password);
+		CommonFunctions.Login(driver1, "aluviitest@aluvii.com", "P@ssw0rd");
 		Thread.sleep(5000);
+		GetActualtCategory();
 		 ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
 		  driver.switchTo().window(windowHandles.get(1));
 		SignWaiver2PageElements.VerifyDOBDropdownFieldValues(driver, 2);
@@ -399,6 +403,74 @@ public class Debug {
 		WorkflowBuilderPageElements.GetReqSignerDDOption(driver, "Yes").click();
 	}
 	
-	
+	public static void AddCategory_Special() throws InterruptedException
+	{
+
+		 
+		  driver2.navigate().refresh();
+		  
+		  CommonFunctions.ScrollUptoElement(driver2, DashboardPageElements.GetRegisterManagementLink(driver2));
+		  Thread.sleep(3000);
+		  DashboardPageElements.GetRegisterManagementLink(driver2).click();
+		  Thread.sleep(5000);
+		  RegisterManagementDashboardPageElements.GetProductsTab(driver2).click();
+		  Thread.sleep(5000);
+		  for(int i=0;i<ActualCaetgories.length;i++)
+		  {
+			  RegisterManagementDashboardPageElements.GetProductsTab_subtab_Categories(driver2).click();
+			  Thread.sleep(3000);
+			  RegisterManagementDashboardPageElements.GetProductsTab_SubTab_Categories_SelectOptionDropdown(driver2).click();
+			  Thread.sleep(3000);
+			  RegisterManagementDashboardPageElements.SelectOptionFromSelectOptionDD(driver2, "Add Category").click();
+			  Thread.sleep(3000);
+			  List<WebElement> iframeElements = driver2.findElements(By.tagName("iframe"));
+			  System.out.println("iframe length = " + iframeElements.size());
+			  CommonFunctions.SwitchToContentFrame(driver2);
+			  
+			  AddCategoryDialogBoxElements.GetCategoryNameField(driver2).sendKeys(ActualCaetgories[i]);
+			  AddCategoryDialogBoxElements.GetCategoryDescField(driver2).sendKeys("categorydescription_"+System.currentTimeMillis());
+			  AddCategoryDialogBoxElements.GetAddButton(driver2).click();
+			  
+			  Thread.sleep(10000);
+			  driver.switchTo().defaultContent();
+		  }
+		  
+		
+	}
+	public static void GetActualtCategory()throws Exception
+	{
+		 	driver1.navigate().refresh();
+		  
+		  CommonFunctions.ScrollUptoElement(driver1, DashboardPageElements.GetRegisterManagementLink(driver1));
+		  Thread.sleep(3000);
+		  DashboardPageElements.GetRegisterManagementLink(driver1).click();
+		  Thread.sleep(5000);
+		  RegisterManagementDashboardPageElements.GetProductsTab(driver1).click();
+		  Thread.sleep(5000);
+		  RegisterManagementDashboardPageElements.GetProductsTab_subtab_Categories(driver1).click();
+		  Thread.sleep(3000);
+		 
+		
+		int CategoryRows=0;
+		List<WebElement> categoryList= driver1.findElements(By.xpath("//div[@id='categoryGrid']//div[@class='k-grid-content']//table/tbody/tr"));
+		System.out.println("CategoryRows = " + categoryList.size());
+		ActualCaetgories = new String [categoryList.size()];
+		try
+		{
+			for(int i=0;i<categoryList.size();i++)
+			{
+				ActualCaetgories[i] = driver1.findElement(By.xpath("//div[@id='categoryGrid']//div[@class='k-grid-content']//table/tbody/tr["+(i+1)+"]/td[2]")).getText();
+				System.out.println(ActualCaetgories[i]);
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+			
+		}
+		
+		
+		
+	}
 	
 }
