@@ -34,7 +34,7 @@ public class CreateAssignmentTest extends TestSetup {
 	@Test()
 	public static void createAssignment()throws Exception
 	{
-		
+
 		WebDriver driver=DriverManager.getDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -55,32 +55,27 @@ public class CreateAssignmentTest extends TestSetup {
 		AddAssignmentsEventManagementDialogBoxElements.getAssignmentNameField(driver).sendKeys(AssignmentName);
 		AddAssignmentsEventManagementDialogBoxElements.getCategoryButton(driver).click();
 		Thread.sleep(2000);
-		AddAssignmentsEventManagementDialogBoxElements.setCategory(driver, CommonFunctions.map.get("Category")).click();
+		AddAssignmentsEventManagementDialogBoxElements.setCategory(driver, CreateCategoryTest.CategoryName).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getLocationButton(driver).click();
 		Thread.sleep(2000);
-//		 CreateLocationDepartmentSiteTest.Location="TestLocation1537433440270";
 		AddAssignmentsEventManagementDialogBoxElements.setLocation(driver, CreateLocationDepartmentSiteTest.Location).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getSiteButton(driver).click();
 		Thread.sleep(2000);
-	//	CreateLocationDepartmentSiteTest.Site="TestSite1537433552184";
 		AddAssignmentsEventManagementDialogBoxElements.setSiteOption(driver, CreateLocationDepartmentSiteTest.Site).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getTaxOptionButton(driver).click();
 		Thread.sleep(2000);
-	//	CreateTaxOptionTest.TaxOptionName="TestTax1537433606785";
 		AddAssignmentsEventManagementDialogBoxElements.setTaxOption(driver, CreateTaxOptionTest.TaxOptionName).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.getCapacity(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		Thread.sleep(2000);
-		AddAssignmentsEventManagementDialogBoxElements.setCapacity(driver).sendKeys("40");
+		AddAssignmentsEventManagementDialogBoxElements.setCapacity(driver).sendKeys(CommonFunctions.createAssignment_capacity);
 		AddAssignmentsEventManagementDialogBoxElements.setExclusiveUse(driver).sendKeys(Keys.SPACE);
 		AddAssignmentsEventManagementDialogBoxElements.getscheduleOptionButton(driver).click();
 		Thread.sleep(3000);
-		
-		
-		AddAssignmentsEventManagementDialogBoxElements.setScheduleOption(driver, CommonFunctions.map.get("Schedule")).click();
+		AddAssignmentsEventManagementDialogBoxElements.setScheduleOption(driver, CreateScheduleTest.ScheduleName).click();
 		Thread.sleep(2000);
 		AddAssignmentsEventManagementDialogBoxElements.setViewOnEventPortal(driver).sendKeys(Keys.SPACE);
 		AddAssignmentsEventManagementDialogBoxElements.GetAddButton(driver).click();
@@ -106,15 +101,15 @@ public class CreateAssignmentTest extends TestSetup {
 		Thread.sleep(7000);
 		EditAssignmentsEventManagementDialogBoxElements.getSelectPriceRuleButton(driver).click();
 		Thread.sleep(3000);
-		EditAssignmentsEventManagementDialogBoxElements.setPriceRule(driver, CommonFunctions.map.get("PriceRule_TypeDeposit")).click();
+		EditAssignmentsEventManagementDialogBoxElements.setPriceRule(driver, CreatePriceRuleTest.PriceRule_TypeDeposit).click();
 		Thread.sleep(2000);
-		EditAssignmentsEventManagementDialogBoxElements.getSaveButton(driver).click();
+		EditAssignmentsEventManagementDialogBoxElements.getPriceRuleSaveButton(driver).click();
 		Thread.sleep(3000);
 		EditAssignmentsEventManagementDialogBoxElements.getSelectPriceRuleButton(driver).click();
 		Thread.sleep(2000);
-		EditAssignmentsEventManagementDialogBoxElements.setPriceRule(driver, CommonFunctions.map.get("PriceRule_TypeBasePrice")).click();
+		EditAssignmentsEventManagementDialogBoxElements.setPriceRule(driver, CreatePriceRuleTest.PriceRule_TypeBasePrice).click();
 		Thread.sleep(2000);
-		EditAssignmentsEventManagementDialogBoxElements.getSaveButton(driver).click();
+		EditAssignmentsEventManagementDialogBoxElements.getPriceRuleSaveButton(driver).click();
 		Thread.sleep(2000);		
 		
 		driver.switchTo().defaultContent();
@@ -122,6 +117,8 @@ public class CreateAssignmentTest extends TestSetup {
 		
 		CommonFunctions.map.put("Assignment", AssignmentName);
 		
+		System.out.println(AssignmentName);
+
 	}
 
 	/*@AfterClass

@@ -51,6 +51,10 @@ public class CommonFunctions {
 	public static boolean SimplePassword=true, ShowAdons=false, ShowCreateAccountButton=false;
 	public static boolean IsWaterfallSchedule=false, IsSessionSchedule=false;
 	public static int CreateProduct_unitPrice=5, CreateProductGroup_UnitPrice=5;
+	public static String createProduct_unitPrice="5";
+	public static String createAssignment_capacity="25";
+	public static String createTaxOption_TaxRate1=".1";
+	public static String createPriceRule_BaseAmount="375";
 	public static int AddWaiver_MinAge=15;
 	public static int ProductsCountForProductGroup=2;
 	public static int ECommereceProductQuantity=20;

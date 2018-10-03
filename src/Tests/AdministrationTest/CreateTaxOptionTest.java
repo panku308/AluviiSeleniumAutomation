@@ -17,6 +17,7 @@ import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateTaxOptionTest extends TestSetup{
 	public static String TaxOptionName="";
+	//TestTax1536419029340
 	
 	@Test
 	public static void createTaxOption()throws Exception
@@ -49,7 +50,7 @@ public class CreateTaxOptionTest extends TestSetup{
 		Thread.sleep(2000);
 		AddTaxOptionDialogBoxElements.getTaxRate(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		Thread.sleep(2000);
-		AddTaxOptionDialogBoxElements.setTaxRate(driver).sendKeys("0.1");
+		AddTaxOptionDialogBoxElements.setTaxRate(driver).sendKeys(CommonFunctions.createTaxOption_TaxRate1);
 		Thread.sleep(2000);
 		AddTaxOptionDialogBoxElements.getDescField(driver).sendKeys("Test Description");
 		Thread.sleep(2000);
@@ -64,6 +65,7 @@ public class CreateTaxOptionTest extends TestSetup{
 		Assert.assertEquals(AdministrationDashboardPageElements.getTaxOptionNameNameFilteredValue(driver).getText(), TaxOptionName);
 		
 		//CommonFunctions.map.put("TaxOption", TaxOptionName);
+		System.out.println(TaxOptionName);
 		
 	}
 

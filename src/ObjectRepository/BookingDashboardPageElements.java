@@ -241,6 +241,18 @@ private static WebElement element = null;
 		return element;
 	}
 	
+	public static WebElement Get_CustomizationTab(WebDriver driver)
+	{
+		element =driver.findElement(By.id("tabCustomize"));		
+		return element;
+	}
+	
+	public static WebElement addCustomization(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[@class='btn btn-aluvii add-product']"));		
+		return element;
+	}
+	
 	
 	public static WebElement Get_PaymentTab_OrderID(WebDriver driver)
 	{
@@ -282,5 +294,25 @@ private static WebElement element = null;
 		List<WebElement> rows = driver.findElements(By.xpath("//div[@id='ticketsGrid']//table/tbody/tr"));
 		System.out.println("Ticket Rows = "+rows.size());
 		return rows.size();
+	}
+	
+	//Booking Elements
+	public static List<WebElement> getFirstBookingDate(WebDriver driver)
+	{
+		List<WebElement> bookingDates = driver.findElements(By.xpath("((//*[@class='wkDy past'])[last()]/following-sibling::div)[1]"));
+		
+		return bookingDates;
+	}
+	public static List<WebElement> getLastBookingDate(WebDriver driver)
+	{
+		List<WebElement> bookingDates = driver.findElements(By.xpath("//*[@class='wkDy last']"));
+		
+		return bookingDates;
+	}
+	public static List<WebElement> getOtherBookingDate(WebDriver driver)
+	{
+		List<WebElement> bookingDates = driver.findElements(By.xpath("//*[@class='wkDy']"));
+		
+		return bookingDates;
 	}
 }

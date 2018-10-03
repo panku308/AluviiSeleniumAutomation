@@ -82,13 +82,11 @@ public class CreateCategoryTest extends TestSetup {
 			Thread.sleep(2000);
 			
 			CommonFunctions.map.put("Category", CategoryName);
+			
+			System.out.println(CategoryName);
 
 		
 	}
 
-	/*@AfterClass
-	public void afterClass() {
-		//driver.quit();
-
-	}*/
+	
 }
