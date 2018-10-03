@@ -22,6 +22,7 @@ import ObjectRepository.BookingEventDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import Tests.CreateEventManagementTest.CreateCategoryTest;
+import Tests.CreateEventManagementTest.CreatePackageTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class)
@@ -241,7 +242,7 @@ public class Booking extends TestSetup{
 		BookingDashboardPageElements.SelectCategory(driver, CreateCategoryTest.CategoryName);
 		Thread.sleep(2000);
 
-		BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver).click();
+		BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver, CreatePackageTest.packageName).click();
 		Thread.sleep(4000);
 	}
 	public static boolean checkAvailableTimeZonesAndSlots(WebDriver driver) throws InterruptedException
