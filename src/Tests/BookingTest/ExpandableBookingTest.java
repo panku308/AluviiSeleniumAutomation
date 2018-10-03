@@ -1,11 +1,15 @@
 package Tests.BookingTest;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
+
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -15,26 +19,25 @@ import ObjectRepository.BookingDashboardPageElements;
 import ObjectRepository.BookingEventDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
+import ObjectRepository.SearchBookingDialogboxElements;
+
+import Tests.CreateEventManagementTest.CreateAssignment_ExpandablePartyTest;
 import Tests.CreateEventManagementTest.CreateCategoryTest;
 import Tests.CreateEventManagementTest.CreatePackageTest;
-import Tests.RegisterManagementTest.CreateDiscountInDollarsForAssignment;
-import Tests.RegisterManagementTest.CreateDiscountInPercentageForAssignment;
+import Tests.CreateEventManagementTest.CreateScheduleWithMultipleSubSchedule;
 
-public class AddBookingWithDiscountTest {
-	
+public class ExpandableBookingTest {
 
-	public static WebDriver driver=null;
-	  public static boolean actualResult=false;
-	  public static Double ExpDepositPercentage = 50.00, ExpBasePrice=0.00, ExpVariablePrice=5.00;
-	  public static Double ExpDepositAmount=0.00;
+		public static WebDriver driver=null;
+		public static boolean actualResult=false;
+		public static Double ExpDepositPercentage = 50.00, ExpBasePrice=0.00, ExpVariablePrice=5.00;
+		public static Double ExpDepositAmount=0.00;
 		public static Double ExpBalanceDue=0.0, ActBalanceDue=0.0;
 		public static Double  DepoSitVaue=0.0, GrandTotal=0.0;
 		public static Double AmountPaid=0.0; 
 		public static int TotalSpots = 40, BookedQuantity=0, ActBookedQuantity=0;
 		public static int ExpTotalSpotsLeft=0,ActTotalSpotLeft=0;
-		public static String time="12:00pm";
-		public static Double DisountInDollars = 5.00, TotalDiscount=0.0;
-		public static Double DiscountPercentage=50.00;
+		public static String time="12:00pm";  
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
@@ -50,8 +53,7 @@ public class AddBookingWithDiscountTest {
 				  BookedQuantity=30;
 				  ExpTotalSpotsLeft = TotalSpots-BookedQuantity;
 				  ExpBasePrice=375.00;
-				  CalculateTotalDiscount();
-				  ExpDepositAmount = ((ExpBasePrice-TotalDiscount)/2);
+				  ExpDepositAmount = (ExpBasePrice/2);
 				  
 			  }
 			  else if(i==1)
@@ -60,31 +62,10 @@ public class AddBookingWithDiscountTest {
 				  BookedQuantity=31;
 				  ExpTotalSpotsLeft = TotalSpots-BookedQuantity;
 				  ExpBasePrice=375.00 + ExpVariablePrice;
-				  CalculateTotalDiscount();
-				  ExpDepositAmount = ((ExpBasePrice-TotalDiscount)/2);
+				  ExpDepositAmount = (ExpBasePrice/2);
 			  }
 
-			  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetBookingsLink(driver));
-			  DashboardPageElements.GetBookingsLink(driver).click();
-			  Thread.sleep(5000);
-			  CommonFunctions.ActionBuilder_PerformMouseHoverEventOnElement(driver, BookingEventDashboardPageElements.GetBookingPlusIcon(driver));
-				Thread.sleep(2000);
-				BookingEventDashboardPageElements.GetAddBookingOption(driver).click();
-				Thread.sleep(5000);
-				BookingDashboardPageElements.Get_CategoryTab_CategoryDropdown(driver).click();
-				Thread.sleep(2000);
-			//	BookingDashboardPageElements.SelectCategory(driver, "TestCategory_1536556572448");
-				BookingDashboardPageElements.SelectCategory(driver, CreateCategoryTest.CategoryName);
-				Thread.sleep(2000);
-				try
-				{
-					BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver,CreatePackageTest.packageName).click();
-					Thread.sleep(30000);
-				}
-				catch(Exception e){
-					
-				}
-				
+			  OpenPackageForBooking("");
 				if(i==2)
 				{
 					if(CommonFunctions.GetDayOfWeekIntFornat()==6)
@@ -94,19 +75,12 @@ public class AddBookingWithDiscountTest {
 					}
 					BookingDashboardPageElements.Get_BookingDetailsTab_GetDateField(driver, CommonFunctions.GetDayOfWeekStringFormat_FirstThreeLetters()).click();
 				}
-				String Assignment="";
-				
-				BookingDashboardPageElements.Get_BookingDetailsTab_TimeField(driver, time, CommonFunctions.AssignmentName).click();
+				BookingDashboardPageElements.Get_BookingDetailsTab_TimeField(driver, time,CreateAssignment_ExpandablePartyTest.multipleAssignmentName[i]).click();
 				Thread.sleep(20000);
 				CommonFunctions.ScrollUptoElement(driver, BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver));
 				Thread.sleep(5000);			
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 				Thread.sleep(2000);
-				
-				BookingDashboardPageElements.Get_FinalizeTab_DiscountCodeField(driver).sendKeys(CommonFunctions.DiscountCode);
-				BookingDashboardPageElements.Get_FinalizeTab_ApplyDiscountButton(driver).click();
-				Thread.sleep(5000);
-				
 				
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys(String.valueOf(BookedQuantity));
 				BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver).sendKeys(Keys.TAB);
@@ -122,7 +96,6 @@ public class AddBookingWithDiscountTest {
 				BookingDashboardPageElements.Get_BookingDataTab_PhoneField(driver).sendKeys("1234567890");
 				BookingDashboardPageElements.Get_BookingDataTab_CreateAccountButton(driver).click();
 				Thread.sleep(10000);
-				
 				if(i==0)
 				{
 					PayDepoistOnly();	
@@ -156,7 +129,6 @@ public class AddBookingWithDiscountTest {
 			Thread.sleep(5000);
 			BookingDashboardPageElements.GetFinalizeTab(driver).click();
 			Thread.sleep(5000);
-			
 			String str = BookingDashboardPageElements.Get_FinalizeTab_GrandTotal(driver).getText();
 			GrandTotal = Double.valueOf(getElementTextWithout$Sign(str));
 			str = BookingDashboardPageElements.Get_FinalizeTab_RequireDepositField(driver).getText();			
@@ -176,11 +148,6 @@ public class AddBookingWithDiscountTest {
 			Thread.sleep(5000);
 			BookingDashboardPageElements.GetFinalizeTab(driver).click();
 			Thread.sleep(5000);
-			
-			BookingDashboardPageElements.Get_FinalizeTab_DiscountCodeField(driver).sendKeys(CommonFunctions.DiscountCode);
-			BookingDashboardPageElements.Get_FinalizeTab_ApplyDiscountButton(driver).click();
-			Thread.sleep(5000);
-			
 			String str = BookingDashboardPageElements.Get_FinalizeTab_GrandTotal(driver).getText();
 			GrandTotal = Double.valueOf(getElementTextWithout$Sign(str));
 			str = BookingDashboardPageElements.Get_FinalizeTab_GrandTotal(driver).getText();
@@ -203,7 +170,6 @@ public class AddBookingWithDiscountTest {
 			Thread.sleep(5000);
 			BookingDashboardPageElements.GetFinalizeTab(driver).click();
 			Thread.sleep(5000);		
-			
 			String str = BookingDashboardPageElements.Get_FinalizeTab_BalanceDueField(driver).getText();
 			assertEquals(Double.valueOf(getElementTextWithout$Sign(str)), GrandTotal-AmountPaid);
 		}
@@ -218,8 +184,6 @@ public class AddBookingWithDiscountTest {
 			assertEquals(Double.valueOf(getElementTextWithout$Sign(str)), AmountPaid);
 			str= BookingDashboardPageElements.Get_PaymentTab_AmountRemaining(driver).getText();
 			assertEquals(Double.valueOf(getElementTextWithout$Sign(str)), GrandTotal-AmountPaid);
-			str=BookingDashboardPageElements.Get_PaymentTab_Discount(driver).getText();
-			assertEquals(Double.valueOf(getElementTextWithout$Sign(str)), TotalDiscount);
 			
 		}
 		public static void VerifyBookedQty_BasePrice_AndSpotsLeftAfterBooking() throws InterruptedException
@@ -258,19 +222,88 @@ public class AddBookingWithDiscountTest {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//button[text()='Filter']")).click();
 			Thread.sleep(2000);
+
 		}
-		public static void CalculateTotalDiscount()
+		public static void VerifyTimeSlot(WebDriver driver, String AssignmentName, int ExpTimeSlots)
 		{
-			if(CommonFunctions.IsDiscountInDollars==true)
+			List <WebElement> TimeSlots = BookingDashboardPageElements.Get_BookinDetailsTab_NumberOfTimeSlots(driver, AssignmentName);
+			if(TimeSlots.size()==ExpTimeSlots)
 			{
-				TotalDiscount=Double.valueOf(CreateDiscountInDollarsForAssignment.discount);
+				int i=0;
+				for(WebElement element:TimeSlots)
+				{
+					// Need to add code for expected timeslots.
+					
+					String ActValue = element.getText();
+					String ExpValue="";
+					if(ExpTimeSlots==4)
+					{
+						ExpValue = CreateScheduleWithMultipleSubSchedule.MonToFriTimeSlots[i];
+					}
+					else if(ExpTimeSlots==6)
+					{
+						ExpValue = CreateScheduleWithMultipleSubSchedule.SatSunTimeSlots[i];
+					}
+					assertEquals(ActValue, ExpValue);
+					i++;
+				}
 			}
 			else
 			{
-				TotalDiscount = ExpBalanceDue*Double.valueOf(CreateDiscountInPercentageForAssignment.discountPercentage);
+				assertFalse(false);
 			}
+			
 		}
-		
+		public static void VerifyBookedTimeSlot(WebDriver driver, String Assignment, int TimeSlotNumber )
+		{
+			String ActualValue = BookingDashboardPageElements.Get_BookingDetailsTab_TimeFieldByNumber(driver, Assignment, TimeSlotNumber).getText();
+			assertEquals(ActualValue, "In Use");
+		}
+		public static void OpenPackageForBooking(String PackageName)throws Exception
+		{
+			  CommonFunctions.ScrollUptoElement(driver, DashboardPageElements.GetBookingsLink(driver));
+			  DashboardPageElements.GetBookingsLink(driver).click();
+			  Thread.sleep(5000);
+			  CommonFunctions.ActionBuilder_PerformMouseHoverEventOnElement(driver, BookingEventDashboardPageElements.GetBookingPlusIcon(driver));
+				Thread.sleep(2000);
+				BookingEventDashboardPageElements.GetAddBookingOption(driver).click();
+				Thread.sleep(5000);
+				BookingDashboardPageElements.Get_CategoryTab_CategoryDropdown(driver).click();
+				Thread.sleep(2000);
+			//	BookingDashboardPageElements.SelectCategory(driver, "TestCategory_1536556572448");
+				BookingDashboardPageElements.SelectCategory(driver, CreateCategoryTest.CategoryName);
+				Thread.sleep(2000);
+				try
+				{
+					BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver,PackageName).click();
+					Thread.sleep(30000);
+				}
+				catch(Exception e){					
+				}
 
+		}
+		public static void VerifyDataOnBookingAndAvailability(String Assignment) throws Exception
+		{
+			BookingEventDashboardPageElements.GetAvailabitlityTab(driver).click();
+			Thread.sleep(3000);
+			BookingEventDashboardPageElements.GetSearchButton(driver).click();
+			Thread.sleep(2000);
+			SearchBookingDialogboxElements.GetFromDateTextField(driver).sendKeys("");
+			SearchBookingDialogboxElements.GetToDateTextField(driver).sendKeys("");
+			SearchBookingDialogboxElements.GetSearchButtonField(driver).click();
+			Thread.sleep(2000);
+			BookingEventDashboardPageElements.Get_BookingAvailabilityTab_CategoryColumnSettingsIcon(driver).click();
+			Thread.sleep(2000);
+			
+			CommonFunctions.filterTable(driver, CreateCategoryTest.CategoryName);
+			Thread.sleep(2000);
+			BookingEventDashboardPageElements.Get_BookingAvailabilityTab_AssignmentColumnSettingsIcon(driver).click();
+			Thread.sleep(2000);
+			CommonFunctions.filterTable(driver, Assignment);
+			
+			assertEquals("", "");
+			
+			
+		}
 	
 }

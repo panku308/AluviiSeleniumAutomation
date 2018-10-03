@@ -97,4 +97,51 @@ private static WebElement element = null;
 		return element;
 	}
 	
+	
+	public static WebElement Get_BookingAvailabilityTab_TimeColumnSettingsIcon(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//th[@data-field='StartTime']//a[1]"));		
+		return element;
+	}
+	public static WebElement Get_BookingAvailabilityTab_AssignmentColumnSettingsIcon(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//th[@data-field='AssignName']//a[1]"));		
+		return element;
+	}
+	public static WebElement Get_BookingAvailabilityTab_PackageColumnSettingsIcon(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//th[@data-field='PackageName']//a[1]"));		
+		return element;
+	}
+	public static WebElement Get_BookingAvailabilityTab_CategoryColumnSettingsIcon(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//th[@data-field='CatName']//a[1]"));		
+		return element;
+	}
+	
+	public static WebElement Get_BookingAvailabilityTab_TimeColumn(WebDriver driver, int count)
+	{
+		int row= 2+count;
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr["+row+"]/td[6]"));		
+		return element;
+	}
+	public static WebElement Get_BookingAvailabilityTab_AssignmentColumn(WebDriver driver, int count)
+	{
+		int row= 2+count;
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr["+row+"]/td[7]"));		
+		return element;
+	}
+	public static WebElement Get_BookingAvailabilityTab_ActionButton(WebDriver driver, int count)
+	{
+		int row= 2+count;
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr["+row+"]/td[17]/span"));		
+		return element;
+	}
+	public static WebElement Get_BookingAvailabilityTab_PackageColumn(WebDriver driver, int count)
+	{
+		int row= 2+count;
+		element =driver.findElement(By.xpath("//div[@id='BookingGrid']//div[@class='k-grid-content']//table/tbody/tr["+row+"]/td[10]"));		
+		return element;
+	}
+	
 }

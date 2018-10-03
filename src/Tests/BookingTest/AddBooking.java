@@ -17,7 +17,9 @@ import ObjectRepository.BookingDashboardPageElements;
 import ObjectRepository.BookingEventDashboardPageElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
+import Tests.CreateEventManagementTest.CreateAssignmentTest;
 import Tests.CreateEventManagementTest.CreateCategoryTest;
+import Tests.CreateEventManagementTest.CreatePackageTest;
 @Listeners (GlobalFiles.ReportCustomization.class)
 public class AddBooking {
 	public static WebDriver driver=null;
@@ -71,7 +73,7 @@ public class AddBooking {
 				Thread.sleep(2000);
 				try
 				{
-					BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver).click();
+					BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver,CreatePackageTest.packageName).click();
 					Thread.sleep(30000);
 				}
 				catch(Exception e){
@@ -87,7 +89,7 @@ public class AddBooking {
 					}
 					BookingDashboardPageElements.Get_BookingDetailsTab_GetDateField(driver, CommonFunctions.GetDayOfWeekStringFormat_FirstThreeLetters()).click();
 				}
-				BookingDashboardPageElements.Get_BookingDetailsTab_TimeField(driver, time).click();
+				BookingDashboardPageElements.Get_BookingDetailsTab_TimeField(driver, time, CreateAssignmentTest.AssignmentName).click();
 				Thread.sleep(20000);
 				CommonFunctions.ScrollUptoElement(driver, BookingDashboardPageElements.Get_BookingDetailsTab_TicketQtyfield(driver));
 				Thread.sleep(5000);			

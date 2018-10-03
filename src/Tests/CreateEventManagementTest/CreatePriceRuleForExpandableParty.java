@@ -16,7 +16,7 @@ import util.DriverManager;
 
 public class CreatePriceRuleForExpandableParty {
 
-	public static String ExpandableBasePriceRule[]=new String[3];
+	public static String ExpandableBasePriceRuleName[]=new String[3];
 	public static String priceRuleName="";
 	public static String PriceRule_TypeDeposit="";
 	public static String PriceRule_TypeBasePrice="";
@@ -114,11 +114,11 @@ public class CreatePriceRuleForExpandableParty {
 				driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 				Thread.sleep(2000);
 				
-				ExpandableBasePriceRule[i] = "ExpandableBasePriceRoom_"+i+"_"+System.currentTimeMillis();
-				String displayAndDesc = ExpandableBasePriceRule[i];
+				ExpandableBasePriceRuleName[i] = "ExpandableBasePriceRoom_"+i+"_"+System.currentTimeMillis();
+				String displayAndDesc = ExpandableBasePriceRuleName[i];
 				
 				
-				AddPriceRuleDialogBoxElements.getPriceRuleNameField(driver).sendKeys(ExpandableBasePriceRule[i]);
+				AddPriceRuleDialogBoxElements.getPriceRuleNameField(driver).sendKeys(ExpandableBasePriceRuleName[i]);
 				AddPriceRuleDialogBoxElements.getDisplayNameField(driver).sendKeys(displayAndDesc);
 				AddPriceRuleDialogBoxElements.getRuleTypeButton(driver).click();
 				Thread.sleep(2000);

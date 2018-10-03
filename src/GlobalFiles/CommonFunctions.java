@@ -373,23 +373,23 @@ public class CommonFunctions {
 		{
 			Day="sun";
 		}
-		else if(DayofWeek==0)
+		else if(DayofWeek==1)
 		{
 			Day="mon";
 		}
-		else if(DayofWeek==0)
+		else if(DayofWeek==2)
 		{
 			Day="tue";
-		}else if(DayofWeek==0)
+		}else if(DayofWeek==3)
 		{
 			Day="wed";
-		}else if(DayofWeek==0)
+		}else if(DayofWeek==4)
 		{
 			Day="thu";
-		}else if(DayofWeek==0)
+		}else if(DayofWeek==5)
 		{
 			Day="fri";
-		}else if(DayofWeek==0)
+		}else if(DayofWeek==6)
 		{
 			Day="sat";
 		}

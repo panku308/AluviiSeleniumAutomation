@@ -72,10 +72,41 @@ public class Debug {
 	public static void main(String[] args) throws Exception {
 		
 		
-		driver1 = CommonFunctions.SetupEnvironment("https://kidztown.aluvii.com/employee", "chrome");
+		
+		
+		
+		driver1 = CommonFunctions.SetupEnvironment("https://stagingqa.aluvii.com/employee", "chrome");
 		Thread.sleep(5000);
-		CommonFunctions.Login(driver1, "aluviitest@aluvii.com", "P@ssw0rd");
+		CommonFunctions.Login(driver1, "pankaj@aluvii.com", "Admin@123");
 		Thread.sleep(5000);
+		WebElement childElement=null, childElement1=null, childElement2=null;
+		try
+		{
+			//childElement = driver1.findElement(By.xpath("//h3[text()='expsuperscott83018']/parent::*//input"));
+			
+			childElement = driver1.findElement(By.xpath("//h3[text()='exproom1scott83018']/parent::div/parent::div//div[4]/p"));
+	//		childElement1 = driver1.findElement(By.xpath("//h3[text()='expsuperscott83018']/parent::div/parent::div/parent::div/input"));
+			System.out.println(childElement.getAttribute("id"));
+		childElement2 = childElement.findElement(By.tagName("input"));
+			System.out.println(childElement2.getAttribute("value"));
+			
+			
+			
+			
+			/*childElement = childElement.findElement(By.xpath(".."));
+			childElement = childElement.findElement(By.xpath("//input"));*/
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		
+		
+	//	String text = childElement.getAttribute("value");
+	//	String text1 = childElement1.getAttribute("value");
+		String text2 = childElement2.getAttribute("value");
+	//	System.out.println(text);
 		GetActualtCategory();
 		 ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
 		  driver.switchTo().window(windowHandles.get(1));

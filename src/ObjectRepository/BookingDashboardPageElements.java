@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 
 
 
+
+
 public class BookingDashboardPageElements {
 private static WebElement element = null;
 	
@@ -61,10 +63,12 @@ private static WebElement element = null;
 		driver.findElement(By.xpath("//ul[@id='ddlSelCat_listbox']/li[text()='"+Category+"']")).click();		
 		
 	}
-	public static WebElement Get_CategoryTab_Package_SelectButton(WebDriver driver)
+	public static WebElement Get_CategoryTab_Package_SelectButton(WebDriver driver, String Package)
 	{
-		element =driver.findElement(By.xpath("//div[@id='tmplPackageRowWrapper']//span[contains(@onclick,'managePackages(')]"));
-		//element =driver.findElement(By.xpath("//span[ .='Select']"));
+		WebElement ChildElement=driver.findElement(By.xpath("//h3[text()='"+Package+"']/parent::div/parent::div/parent::div"));;
+		WebElement ParentElement=ChildElement.findElement(By.tagName("input"));
+		String PackageID = ParentElement.getAttribute("value");
+		element =driver.findElement(By.xpath("//div[@id='tmplPackageRowWrapper']//span[contains(@onclick,'managePackages("+PackageID+",0)]"));		
 		return element;
 	}
 	public static WebElement Get_BookingDetailsTab_NextWeekButton(WebDriver driver)
@@ -87,10 +91,32 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@id='divCalWk']//div[@class='wkDy active']"));		
 		return element;
 	}
-	public static WebElement Get_BookingDetailsTab_TimeField(WebDriver driver, String time)
+	
+	public static WebElement Get_BookingDetailsTab_TimeField(WebDriver driver, String time,String assignment)
 	{
-		element =driver.findElement(By.xpath("//ul[contains(@id,'ulAvail')]//li[text()='"+time+"']"));		
+		WebElement Assignment = driver.findElement(By.xpath("//h3[text()='"+assignment+"']/parent::div/parent::div//div[4]/p"));
+		String AssignmentID = Assignment.getAttribute("id");
+		AssignmentID = AssignmentID.replaceAll("AsgnTimeZone", "");
+		element =driver.findElement(By.xpath("//ul[contains(@id,'ulAvail"+AssignmentID+"')]//li[text()='"+time+"']"));		
 		return element;
+	}
+	public static WebElement Get_BookingDetailsTab_TimeFieldByNumber(WebDriver driver, String assignment, int Number)
+	{
+		WebElement Assignment = driver.findElement(By.xpath("//h3[text()='"+assignment+"']/parent::div/parent::div//div[4]/p"));
+		String AssignmentID = Assignment.getAttribute("id");
+		AssignmentID = AssignmentID.replaceAll("AsgnTimeZone", "");
+		element =driver.findElement(By.xpath("//ul[contains(@id,'ulAvail"+AssignmentID+"')]//li["+Number+"]"));		
+		return element;
+	}
+	public static List<WebElement> Get_BookinDetailsTab_NumberOfTimeSlots(WebDriver driver, String AssignmentNamme)
+	{
+		WebElement Assignment = driver.findElement(By.xpath("//h3[text()='"+AssignmentNamme+"']/parent::div/parent::div//div[4]/p"));
+		String AssignmentID = Assignment.getAttribute("id");
+		AssignmentID = AssignmentID.replaceAll("AsgnTimeZone", "");
+		List  <WebElement> TimeSlot = driver.findElements(By.xpath("//ul[contains(@id,'ulAvail"+AssignmentID+"')]//li")) ;
+		 
+		return TimeSlot; 
+		
 	}
 	public static WebElement Get_BookingDetailsTab_TimeFieldAvailalbility(WebDriver driver, String time, String AMPM)
 	{
