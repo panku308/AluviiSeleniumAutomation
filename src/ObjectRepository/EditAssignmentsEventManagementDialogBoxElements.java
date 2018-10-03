@@ -41,6 +41,40 @@ public class EditAssignmentsEventManagementDialogBoxElements {
 		
 	}
 	
+	public static WebElement getSelectProductDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[text()='Select Product']"));
+		return element;
+	}
+	
+	public static void SelectProductOptionFromDD(WebDriver driver,String option)
+	{
+		driver.findElement(By.xpath("//*[@id='ddlUpsellProducts_listbox']//li[contains(text(),'"+option+"')]")).click();
+	}
+
+	public static WebElement getTaxOpionDD(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[text()='Select Tax']/.."));
+		return element;
+	}
+
+	public static void SelectTaxOptionFromDD(WebDriver driver,String TaxOption)
+	{
+		driver.findElement(By.xpath("//*[@id='TaxOptionListUpsell_listbox']//li[text()='"+TaxOption+"']")).click();
+	}
+	
+	public static WebElement getPrice(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Price')]/following-sibling::span//input[1]"));
+		return element;
+	}
+
+	public static WebElement setPrice(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Price')]/following-sibling::span//input[2]"));
+		return element;
+	}
+	
 	public static WebElement getUpsellTab_ProductDD(WebDriver driver)
 	{
 		element =driver.findElement(By.xpath("//span[text()='Select Product']"));		
@@ -69,9 +103,21 @@ public class EditAssignmentsEventManagementDialogBoxElements {
 		return element.get(element.size()-1);
 	}
 	
+	public static WebElement getPriceRuleSaveButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("btnAddPriceRule"));
+		return element;
+	}
+	
 	public static WebElement getSaveButton(WebDriver driver)
 	{
 		element =driver.findElement(By.id("btnAddPriceRule"));
+		return element;
+	}
+	
+	public static WebElement getUpsellSaveButton(WebDriver driver)
+	{
+		element =driver.findElement(By.id("btnUpdVenUps"));
 		return element;
 	}
 	

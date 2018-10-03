@@ -180,6 +180,8 @@ public class CreateLocationDepartmentSiteTest extends TestSetup {
 		
 		CommonFunctions.map.put("Site", SiteName);
 		
+		System.out.println(Location+"-"+Department+"-"+Site);
+		
 		
 	}
 }

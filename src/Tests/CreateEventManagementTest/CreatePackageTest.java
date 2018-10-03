@@ -66,7 +66,7 @@ public class CreatePackageTest extends TestSetup {
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getDisplayPrice(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.setDisplayPrice(driver).sendKeys("25");
+			AddPackageDialogBoxElements.setDisplayPrice(driver).sendKeys("300");
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.selectLocation(driver).click();
 			Thread.sleep(2000);
@@ -111,6 +111,8 @@ public class CreatePackageTest extends TestSetup {
 			
 			Thread.sleep(2000);
 			
+			
+			System.out.println(packageName);
 			
 		}catch(Exception e)
 		{
