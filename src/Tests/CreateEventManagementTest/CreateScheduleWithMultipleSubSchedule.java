@@ -19,7 +19,10 @@ import ObjectRepository.EventManagementPageElements;
 public class CreateScheduleWithMultipleSubSchedule {
 
 public static WebDriver driver = null;
-	public static String subScheduleName[]=new String[2]; 
+	public static String subScheduleName[]=new String[2];
+	public static String MonToFriTimeSlots[] = {"02:00pm","04:00pm","06:00pm","08:00pm"};
+	public static String SatSunTimeSlots[]={"10:00am","12:00pm","02:00pm","04:00pm","06:00pm","08:00pm"};
+			
 	@BeforeClass
 	public void beforeClass() throws InterruptedException {
 		driver = CommonFunctions.driver;
@@ -31,7 +34,7 @@ public static WebDriver driver = null;
 			
 	
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+			
 			DashboardPageElements.GetEventManagementLink(driver).click();		
 			
 			EventManagementPageElements.getTab(driver, "Schedules").click();
