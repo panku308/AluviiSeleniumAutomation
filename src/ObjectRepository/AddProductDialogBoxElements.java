@@ -9,72 +9,72 @@ import GlobalFiles.CommonFunctions;
 public class AddProductDialogBoxElements {
 
 
-private static WebElement element = null;
-	
-	
+	private static WebElement element = null;
+
+
 	public static WebElement GetProductsTab(WebDriver driver)
 	{
 		element =driver.findElement(By.linkText("General Info"));
-		
+
 		return element;
 	}
 	public static WebElement GetPricingTab(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.linkText("Pricing"));
 		return element;
 	}
 	public static WebElement GetTicketTab(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.linkText("Ticket"));
 		return element;
 	}
 	public static WebElement GetInventoryTab(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.linkText("Inventory"));
 		return element;
 	}
 	public static WebElement GetSalesTaxTab(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.linkText("Sales Tax"));
 		return element;
 	}
 	public static WebElement GetOtherTab(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.linkText("Other"));
 		return element;
 	}
 	public static WebElement GetAddButton(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.id("btnSaveProduct"));
 		return element;
 	}
 	public static WebElement GetSaveButton(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.name("EditProduct"));
 		return element;
 	}
 	public static WebElement GetCancelButton(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.id("/html/body/div[1]/div/form/fieldset/div/div[2]/input[1]"));
 		return element;
 	}
-	
-//===================================General Info Tab Elements============================================
+
+	//===================================General Info Tab Elements============================================
 	public static WebElement GetProductName(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.id("ProductName"));
 		return element;
 	}
-	
+
 	public static WebElement GetCategory(WebDriver driver)
 	{		
 		element =driver.findElement(By.xpath("//*[@id=\"popupWindowCategory\"]"));
@@ -82,36 +82,36 @@ private static WebElement element = null;
 	}
 	public static WebElement GetProductDescription(WebDriver driver)
 	{
-		
+
 		element =driver.findElement(By.id("ProductDescription"));
 		return element;
 	}
-	
-//===================================Price Tab Elements============================================
+
+	//===================================Price Tab Elements============================================
 	public static WebElement GetUnitCostField(WebDriver driver)
 	{
-		
+
 		//element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[2]/fieldset/div/div[1]/div/div[1]/span/span/input[1]"));
 		element =driver.findElement(By.xpath("//form[@id='frmProductDetail']//div[1]/span/span/input[1]"));
 		return element;
 	}
 	public static WebElement GetUnitCostIncreaseArrow(WebDriver driver)
 	{
-		
+
 		//element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[2]/fieldset/div/div[1]/div/div[1]/span/span/span/span[1]/span"));
 		element =driver.findElement(By.xpath("//form[@id='frmProductDetail']//div[1]/span/span[1]/span"));
 		return element;
 	}
 	public static WebElement GetUnitCostDecreaseArrow(WebDriver driver)
 	{
-		
+
 		//element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[2]/fieldset/div/div[1]/div/div[1]/span/span/span/span[2]/span"));
 		element =driver.findElement(By.xpath("//form[@id='frmProductDetail']//div[1]/span/span[2]/span"));
 		return element;
 	}
 	public static WebElement GetUnitPriceField(WebDriver driver)
 	{
-											  
+
 
 		//element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[-2]/fieldset/div/div[2]/div[2]/div/div/div/span/span/input[1]"));
 		element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span/input[1]"));
@@ -119,7 +119,7 @@ private static WebElement element = null;
 	}
 	public static WebElement GetUnitPriceIncreaseArrow(WebDriver driver)
 	{
-		
+
 		//element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[2]/fieldset/div/div[2]/div[2]/div/div/div/span/span/span/span[1]/span"));
 		//element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span/span[1]/span"));
 		element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span[@title = 'Increase value']/span"));
@@ -127,13 +127,13 @@ private static WebElement element = null;
 	}
 	public static WebElement GetUnitPriceDecreaseArrow(WebDriver driver)
 	{
-		
+
 		//element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[2]/fieldset/div/div[2]/div[2]/div/div/div/span/span/span/span[2]/span"));
 		element =driver.findElement(By.xpath("//div[@id='divUnitPrice']//span[@title = 'Decrease value']/span"));
 		return element;
 	}
 
-//===================================Ticket Tab Elements============================================
+	//===================================Ticket Tab Elements============================================
 	public static WebElement GetTicketTab_IsATicketCheckbox(WebDriver driver)
 	{		
 		element =driver.findElement(By.id("isTicketingItem"));
@@ -160,12 +160,12 @@ private static WebElement element = null;
 		return element;
 	}
 	///html/body/div[1]/div/form/div/div/div[3]/fieldset/div/div[2]/div[1]/div[1]/span/span/span[2]
-//===================================Inventory Tab Elements============================================
-//===================================Sales Tax Tab Elements============================================
-	
+	//===================================Inventory Tab Elements============================================
+	//===================================Sales Tax Tab Elements============================================
+
 	public static WebElement GetSalesTax_FirstRowOfTaxOptionNameColumn(WebDriver driver)
 	{		
-//		element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[5]/div/div/div[3]/table/tbody/tr[1]/td[2]"));
+		//		element =driver.findElement(By.xpath("/html/body/div[1]/div/form/div/div/div[5]/div/div/div[3]/table/tbody/tr[1]/td[2]"));
 		element =driver.findElement(By.xpath("//div[@id='TaxOptionGrid']//div[@class ='k-grid-content']/table/tbody/tr[1]/td[2]"));
 		return element;
 	}
@@ -174,72 +174,84 @@ private static WebElement element = null;
 		element =driver.findElement(By.xpath("//div[@id='TaxOptionGrid']//th[@data-title='Location Name']/a[1]"));
 		return element;
 	}
-	
-	
-//===================================Other Info Tab Elements============================================
-	
+
+
+	//===================================Other Info Tab Elements============================================
+
 	//========================================================================
-	
+
 	public static void SelectDynamicTaxOptionFromDD(WebDriver driver,String TaxOption)
-	  {
+	{
 		//  driver.findElement(By.xpath("//*[@id='TaxOptionName_listbox']//li[text()='"+TaxOption+"']")).click();
-		  driver.findElement(By.xpath("//*[@id='TaxOptions_listbox']//li[text()='"+TaxOption+"']")).click();
-	  }
-	 public static void SelectfirstOptionFromTaxOptionDropdown(WebDriver driver)
-	  {
+		driver.findElement(By.xpath("//*[@id='TaxOptions_listbox']//li[text()='"+TaxOption+"']")).click();
+	}
+	public static void SelectfirstOptionFromTaxOptionDropdown(WebDriver driver)
+	{
 		//  driver.findElement(By.xpath("//*[@id='TaxOptionName_listbox']//li[1]")).click();
-		  driver.findElement(By.xpath("//*[@id='TaxOptions_listbox']//li[1]")).click();
-	  }
-	 public static void SetUnitPrice(WebDriver driver, int UnitPrice)
-	 {
-		 for (int i=0;i<CommonFunctions.CreateProduct_unitPrice;i++)
-		  {
-			  AddProductDialogBoxElements.GetUnitPriceIncreaseArrow(driver).click();
-		  }
-	 }
-	 
-	 public static WebElement getCheckbox_ThisProductIsASession(WebDriver driver)
-	  {
-		  element =driver.findElement(By.id("IsSessionProduct"));
-			return element;
-	  }
-	 public static WebElement selectSite(WebDriver driver)
-		{	
-
-			element = driver.findElement(By.xpath("//*[text()='Select Site']"));
-			return element;
+		driver.findElement(By.xpath("//*[@id='TaxOptions_listbox']//li[1]")).click();
+	}
+	public static void SetUnitPrice(WebDriver driver, int UnitPrice)
+	{
+		for (int i=0;i<CommonFunctions.CreateProduct_unitPrice;i++)
+		{
+			AddProductDialogBoxElements.GetUnitPriceIncreaseArrow(driver).click();
 		}
+	}
 
-		public static WebElement selectSiteOption(WebDriver driver, String option)
-		{	
+	public static WebElement getCheckbox_ThisProductIsASession(WebDriver driver)
+	{
+		element =driver.findElement(By.id("IsSessionProduct"));
+		return element;
+	}
+	public static WebElement selectSite(WebDriver driver)
+	{	
 
-			element = driver.findElement(By.xpath("//*[@id='ddlSiteId_listbox']/li[contains(text(),'"+option+"')]"));
-			return element;
-		}
-		public static WebElement selectSchedule(WebDriver driver)
-		{	
+		element = driver.findElement(By.xpath("//*[text()='Select Site']"));
+		return element;
+	}
 
-			element = driver.findElement(By.xpath("//*[text()='Select Schedule']"));
-			return element;
-		}
+	public static WebElement selectSiteOption(WebDriver driver, String option)
+	{	
 
-		public static WebElement selectScheduleOption(WebDriver driver, String option)
-		{	
+		element = driver.findElement(By.xpath("//*[@id='ddlSiteId_listbox']/li[contains(text(),'"+option+"')]"));
+		return element;
+	}
+	public static WebElement selectSchedule(WebDriver driver)
+	{	
 
-			element = driver.findElement(By.xpath("//*[@id='ddlScheduleId_listbox']/li[contains(text(),'"+option+"')]"));
-			return element;
-		}
-		public static WebElement selectWorkflowBuilder(WebDriver driver)
-		{	
+		element = driver.findElement(By.xpath("//*[text()='Select Schedule']"));
+		return element;
+	}
 
-			element = driver.findElement(By.xpath("//*[text()='Work flow Builder']/..//*[text()='Select Option']"));
-			return element;
-		}
+	public static WebElement selectScheduleOption(WebDriver driver, String option)
+	{	
 
-		public static WebElement selectWorkflowBuilderOption(WebDriver driver, String option)
-		{	
+		element = driver.findElement(By.xpath("//*[@id='ddlScheduleId_listbox']/li[contains(text(),'"+option+"')]"));
+		return element;
+	}
+	public static WebElement selectWorkflowBuilder(WebDriver driver)
+	{	
 
-			element = driver.findElement(By.xpath("//*[@id='ddlWorkFlowId_listbox']/li[contains(text(),'"+option+"')]"));
-			return element;
-		}
+		element = driver.findElement(By.xpath("//*[text()='Work flow Builder']/..//*[text()='Select Option']"));
+		return element;
+	}
+
+	public static WebElement selectWorkflowBuilderOption(WebDriver driver, String option)
+	{	
+
+		element = driver.findElement(By.xpath("//*[@id='ddlWorkFlowId_listbox']/li[contains(text(),'"+option+"')]"));
+		return element;
+	}
+
+	public static WebElement getUnitPrice(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Unit Price')]/following-sibling::span//input[1]"));
+		return element;
+	}
+
+	public static WebElement setUnitPrice(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[contains(text(),'Unit Price')]/following-sibling::span//input[2]"));
+		return element;
+	}
 }

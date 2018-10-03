@@ -70,6 +70,8 @@ public static String PriceRule_TypeBasePrice="";
 			
 		
 			CommonFunctions.map.put("PriceRule_TypeDeposit", PriceRule_TypeDeposit);
+			
+			System.out.println(PriceRule_TypeDeposit);
 	}
 	@Test
 	public static void createPriceRule_TypeBasePrice()throws Exception
@@ -104,14 +106,14 @@ public static String PriceRule_TypeBasePrice="";
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.getBaseAmount(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
-			AddPriceRuleDialogBoxElements.setBaseAmount(driver).sendKeys("375");
+			AddPriceRuleDialogBoxElements.setBaseAmount(driver).sendKeys(CommonFunctions.createPriceRule_BaseAmount);
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.getDescriptionField(driver).sendKeys(displayAndDesc);
 			
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.getUpperLimit(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
-			AddPriceRuleDialogBoxElements.setUpperLimit(driver).sendKeys("30");
+			AddPriceRuleDialogBoxElements.setUpperLimit(driver).sendKeys("15");
 			Thread.sleep(2000);
 			
 			AddPriceRuleDialogBoxElements.getAddRuleButton(driver).click();
@@ -119,11 +121,11 @@ public static String PriceRule_TypeBasePrice="";
 			
 			AddPriceRuleDialogBoxElements.getLowerLimit2(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
-			AddPriceRuleDialogBoxElements.setLowerLimit2(driver).sendKeys("31");
+			AddPriceRuleDialogBoxElements.setLowerLimit2(driver).sendKeys("16");
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.getUpperLimit2(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
-			AddPriceRuleDialogBoxElements.setUpperLimit2(driver).sendKeys("40");
+			AddPriceRuleDialogBoxElements.setUpperLimit2(driver).sendKeys("30");
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.getVariableAmount2(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
@@ -141,6 +143,8 @@ public static String PriceRule_TypeBasePrice="";
 			
 		
 			CommonFunctions.map.put("PriceRule_TypeBasePrice", PriceRule_TypeBasePrice);
+			
+			System.out.println(PriceRule_TypeBasePrice);
 	}
 
 	}

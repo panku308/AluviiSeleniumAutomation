@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test" preserve-order="true" enabled="true">
+    <classes>
+      <class name="Tests.LoginTest.LoginTest"/>
+      </classes>
+  </test>
+   <test thread-count="5" name="Test1" preserve-order="true" enabled="true">
+    <classes>
+       <class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"/>
+      </classes>
+  </test>
+   <test name="Create Tax Option" preserve-order="true" enabled="true">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateTaxOptionTest"></class>
+		</classes>
+	</test>
+   <test thread-count="5" name="ScheduleTest" preserve-order="true" enabled="true">
+    <classes>
+      <class name="Tests.CreateEventManagementTest.CreateScheduleTest"/>
+    </classes>
+  </test> 
+  <test thread-count="5" name="PriceRuleTest" preserve-order="true" enabled="true">
+    <classes>
+      <class name="Tests.CreateEventManagementTest.CreatePriceRuleTest"/>
+    </classes>
+  </test>
+ 
+	<test thread-count="5" name="RegisterManagementTest" preserve-order="true" enabled="true">
+		<classes>
+			<class name="Tests.RegisterManagementTest.CreateCategoryTest" />
+			<class name="Tests.RegisterManagementTest.CreateProductTest" />
+		</classes>
+	</test>
+	
+  
+   
+    <test thread-count="5" preserve-order="true" name="CreateCategoryTest">
+    <classes>
+      <class name="Tests.CreateEventManagementTest.CreateCategoryTest"/>
+    </classes>
+  </test>
+	
+	  <test thread-count="5" preserve-order="true" name="AssignmentTest">
+    <classes>
+      <class name="Tests.CreateEventManagementTest.CreateAssignmentTest"/>
+    </classes>
+  </test>
+   <test thread-count="5" preserve-order="true" name="AddUpsellsToAssignmentTest">
+    <classes>
+      <class name="Tests.CreateEventManagementTest.AddUpsellsToAssignmentTest"/>
+    </classes>
+  </test>
+
+   <test thread-count="5" preserve-order="true" name="PackageTest">
+    <classes>
+      <class name="Tests.CreateEventManagementTest.CreatePackageTest"/>
+    </classes>
+  </test>
+      <test thread-count="5" preserve-order="true"  name="BookingTest">
+    <classes>
+      <class name="Tests.BookingTest.Booking"/>
+    </classes>
+  </test>
+	
+</suite> <!-- Suite -->

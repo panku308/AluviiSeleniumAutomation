@@ -65,6 +65,39 @@ private static WebElement element = null;
 		return element;
 	}
 	
+
+	public static WebElement getSubScheduleNameField(WebDriver driver)
+	{
+		element =driver.findElement(By.id("txtRecName0"));
+		return element;
+	}
+	
+	public static WebElement getStartTime(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[text()='Start']/..//*[@class='k-icon k-i-clock']"));
+		return element;
+	}
+	
+	public static WebElement setStartTime(WebDriver driver, String time)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='dtpRecStart0_timeview']//*[text()='"+time+"']"));
+		return element.get(element.size()-1);
+	}
+	
+	public static WebElement getEndTime(WebDriver driver)
+	{
+		element =driver.findElement(By.xpath("//*[text()='End']/..//*[@class='k-icon k-i-clock']"));
+		return element;
+	}
+	
+	public static WebElement setEEndTime(WebDriver driver, String time)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='tpRecEnd0_timeview']//*[text()='"+time+"']"));
+		return element.get(element.size()-1);
+	}
+	
 	public static WebElement getSubScheduleNameField(WebDriver driver,int count)
 	{
 		element =driver.findElement(By.id("txtRecName"+count));
