@@ -87,7 +87,7 @@ public class AddBookingWithDiscountTest {
 				
 				if(i==2)
 				{
-					if(CommonFunctions.GetDayOfWeekIntFornat()==6)
+					if(CommonFunctions.GetDayOfWeekIntFormat()==6)
 					{
 						BookingDashboardPageElements.Get_BookingDetailsTab_NextWeekButton(driver).click();	
 						Thread.sleep(5000);

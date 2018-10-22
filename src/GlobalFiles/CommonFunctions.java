@@ -364,14 +364,14 @@ public class CommonFunctions {
 		}
 		driver.switchTo().defaultContent();
 	}
-	public static int GetDayOfWeekIntFornat()
+	public static int GetDayOfWeekIntFormat()
 	{
 		Date dt = new Date();
 		return dt.getDay();		
 	}
 	public static String GetDayOfWeekStringFormat_FirstThreeLetters()
 	{
-		int DayofWeek = GetDayOfWeekIntFornat();
+		int DayofWeek = GetDayOfWeekIntFormat();
 		String Day="";
 		if(DayofWeek==0)
 		{
