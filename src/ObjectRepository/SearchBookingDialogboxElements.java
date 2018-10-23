@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 
 public class SearchBookingDialogboxElements {
 	
-
-	
 	private static WebElement element = null;
 	
 	public static WebElement GetFromDateTextField(WebDriver driver)
@@ -27,5 +25,17 @@ public class SearchBookingDialogboxElements {
 		element =driver.findElement(By.id("btnSearchBookings"));		
 		return element;
 	}
+	public static void SearchBookings(WebDriver driver, String fromDate, String toDate) throws InterruptedException
+	{
+		GetFromDateTextField(driver).clear();
+		GetFromDateTextField(driver).sendKeys(fromDate);
+		Thread.sleep(1000);
+		GetToDateTextField(driver).click();
+		GetToDateTextField(driver).clear();
+		GetToDateTextField(driver).sendKeys(toDate);
+		GetSearchButtonField(driver).click();		
+		
+	}
+	
 
 }

@@ -20,7 +20,16 @@ private static WebElement element = null;
 		element=driver.findElement(By.id("LastName"));
 		return element;
 	}
+	public static WebElement getHomePhoneField(WebDriver driver) {
 
+		element=driver.findElement(By.id("HomePhone"));
+		return element;
+	}
+	public static WebElement getMobilePhoneField(WebDriver driver) {
+
+		element=driver.findElement(By.id("MobilePhone"));
+		return element;
+	}
 	public static WebElement getEmployeeEmail(WebDriver driver) {
 
 		element=driver.findElement(By.id("EmployeeEmail"));

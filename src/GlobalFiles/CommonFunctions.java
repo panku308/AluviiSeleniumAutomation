@@ -58,6 +58,7 @@ public class CommonFunctions {
 	public static int AddWaiver_MinAge=15;
 	public static int ProductsCountForProductGroup=2;
 	public static int ECommereceProductQuantity=20;
+	public static String BasePriceRule="", DepositPriceRule="";
 	
 	public static String AssignmentName="", DiscountCode="";
 	public static boolean IsDiscountInDollars=true;
@@ -364,14 +365,14 @@ public class CommonFunctions {
 		}
 		driver.switchTo().defaultContent();
 	}
-	public static int GetDayOfWeekIntFornat()
+	public static int GetDayOfWeekIntFormat()
 	{
 		Date dt = new Date();
 		return dt.getDay();		
 	}
 	public static String GetDayOfWeekStringFormat_FirstThreeLetters()
 	{
-		int DayofWeek = GetDayOfWeekIntFornat();
+		int DayofWeek = GetDayOfWeekIntFormat();
 		String Day="";
 		if(DayofWeek==0)
 		{

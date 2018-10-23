@@ -80,11 +80,11 @@ public class CreatePackageTest extends TestSetup {
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getPriceRuleButton(driver).click();
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.setPriceRuleFromList(driver, CreatePriceRuleTest.PriceRule_TypeBasePrice).click();
+			AddPackageDialogBoxElements.setPriceRuleFromList(driver, CommonFunctions.BasePriceRule).click();
 			Thread.sleep(2000);
 			AddPackageDialogBoxElements.getPriceRuleButton(driver).click();
 			Thread.sleep(2000);
-			AddPackageDialogBoxElements.setPriceRuleFromList(driver, CreatePriceRuleTest.PriceRule_TypeDeposit).click();
+			AddPackageDialogBoxElements.setPriceRuleFromList(driver, CommonFunctions.DepositPriceRule).click();
 			Thread.sleep(2000);
 			//driver.switchTo().frame(0);
 			//driver.switchTo().defaultContent();

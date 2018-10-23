@@ -68,6 +68,7 @@ private static WebElement element = null;
 		WebElement ChildElement=driver.findElement(By.xpath("//h3[text()='"+Package+"']/parent::div/parent::div/parent::div"));;
 		WebElement ParentElement=ChildElement.findElement(By.tagName("input"));
 		String PackageID = ParentElement.getAttribute("value");
+		System.out.println("PackageID = " + PackageID);
 		element =driver.findElement(By.xpath("//div[@id='tmplPackageRowWrapper']//span[contains(@onclick,'managePackages("+PackageID+",0)]"));		
 		return element;
 	}

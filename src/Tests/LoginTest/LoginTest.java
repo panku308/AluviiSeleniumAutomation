@@ -4,6 +4,9 @@ import org.testng.annotations.Test;
 
 
 import GlobalFiles.CommonFunctions;
+import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
+import Tests.AdministrationTest.CreateTaxOptionTest;
+import Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 
@@ -24,7 +27,13 @@ import org.testng.annotations.AfterSuite;
 
 		  
 		  CommonFunctions.Login(DriverManager.getDriver(),CommonFunctions.UserName,CommonFunctions.Password);
-		  //Thread.sleep(3000);
+		  CreateLocationDepartmentSiteTest.Location="TestLocation1540197966173";
+		  CreateLocationDepartmentSiteTest.Department="TestDepartment1540198025629";
+		  CreateLocationDepartmentSiteTest.Site="TestSite1540198078304";
+		  CreateeEntranceEntitlementTest.EntranceEntitlement="Entitlement-1540198169037";
+		  CreateTaxOptionTest.TaxOptionName="TestTax1540198133336";
+		  
+		  Thread.sleep(3000);
 		  //CommonFunctions.minimizeChatWindow(DriverManager.getDriver());
 	  }
 	/*  @BeforeSuite
