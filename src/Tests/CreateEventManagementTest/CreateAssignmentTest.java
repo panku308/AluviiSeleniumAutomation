@@ -101,13 +101,13 @@ public class CreateAssignmentTest extends TestSetup {
 		Thread.sleep(7000);
 		EditAssignmentsEventManagementDialogBoxElements.getSelectPriceRuleButton(driver).click();
 		Thread.sleep(3000);
-		EditAssignmentsEventManagementDialogBoxElements.setPriceRule(driver, CreatePriceRuleTest.PriceRule_TypeDeposit).click();
+		EditAssignmentsEventManagementDialogBoxElements.setPriceRule(driver, CommonFunctions.DepositPriceRule).click();
 		Thread.sleep(2000);
 		EditAssignmentsEventManagementDialogBoxElements.getPriceRuleSaveButton(driver).click();
 		Thread.sleep(3000);
 		EditAssignmentsEventManagementDialogBoxElements.getSelectPriceRuleButton(driver).click();
 		Thread.sleep(2000);
-		EditAssignmentsEventManagementDialogBoxElements.setPriceRule(driver, CreatePriceRuleTest.PriceRule_TypeBasePrice).click();
+		EditAssignmentsEventManagementDialogBoxElements.setPriceRule(driver, CommonFunctions.BasePriceRule).click();
 		Thread.sleep(2000);
 		EditAssignmentsEventManagementDialogBoxElements.getPriceRuleSaveButton(driver).click();
 		Thread.sleep(2000);		

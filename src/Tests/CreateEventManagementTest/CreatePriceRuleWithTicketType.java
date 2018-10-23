@@ -12,6 +12,7 @@ import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddPriceRuleDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EventManagementPageElements;
+import Tests.TicketingTest.CreateTicketTypeBOCA;
 import Tests.TicketingTest.CreateTicketTypeTest;
 import util.DriverManager;
 
@@ -44,7 +45,7 @@ public static String PriceRule_TypeBasePrice="";
 			
 			PriceRule_TypeDeposit = "Deposit_"+System.currentTimeMillis();
 			String displayAndDesc = PriceRule_TypeDeposit;
-			
+			CommonFunctions.DepositPriceRule = PriceRule_TypeDeposit;
 			
 			AddPriceRuleDialogBoxElements.getPriceRuleNameField(driver).sendKeys(PriceRule_TypeDeposit);
 			AddPriceRuleDialogBoxElements.getDisplayNameField(driver).sendKeys(displayAndDesc);
@@ -67,7 +68,7 @@ public static String PriceRule_TypeBasePrice="";
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.GetOnPremTickeTypeDD(driver).click();
 			Thread.sleep(2000);
-			AddPriceRuleDialogBoxElements.SetOnPremTickeTypeDD(driver, CreateTicketTypeTest.TicketTypeName).click();
+			AddPriceRuleDialogBoxElements.SetOnPremTickeTypeDD(driver, CreateTicketTypeBOCA.TicketTypeName).click();
 			
 			
 			AddPriceRuleDialogBoxElements.getEventPortalCheckbox(driver).click();
@@ -108,7 +109,7 @@ public static String PriceRule_TypeBasePrice="";
 			
 			PriceRule_TypeBasePrice = "BasePrice_"+System.currentTimeMillis();
 			String displayAndDesc = PriceRule_TypeBasePrice;
-			
+			CommonFunctions.BasePriceRule = PriceRule_TypeBasePrice;
 			
 			AddPriceRuleDialogBoxElements.getPriceRuleNameField(driver).sendKeys(PriceRule_TypeBasePrice);
 			AddPriceRuleDialogBoxElements.getDisplayNameField(driver).sendKeys(displayAndDesc);
@@ -132,7 +133,7 @@ public static String PriceRule_TypeBasePrice="";
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.GetOnPremTickeTypeDD(driver).click();
 			Thread.sleep(2000);
-			AddPriceRuleDialogBoxElements.SetOnPremTickeTypeDD(driver, CreateTicketTypeTest.TicketTypeName).click();
+			AddPriceRuleDialogBoxElements.SetOnPremTickeTypeDD(driver, CreateTicketTypeBOCA.TicketTypeName).click();
 			
 			
 			

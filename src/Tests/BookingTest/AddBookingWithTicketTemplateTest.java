@@ -36,7 +36,7 @@ public class AddBookingWithTicketTemplateTest {
 		  driver = CommonFunctions.driver;
 	  }
 	  @Test
-	  public static void CreateMultipleBookings() throws Exception
+	  public static void AddBookingWithTemplate() throws Exception
 	  {
 
 
@@ -56,16 +56,16 @@ public class AddBookingWithTicketTemplateTest {
 			Thread.sleep(2000);
 		//	BookingDashboardPageElements.SelectCategory(driver, "TestCategory_1536556572448");
 			BookingDashboardPageElements.SelectCategory(driver, CreateCategoryTest.CategoryName);
-			Thread.sleep(2000);
-			try
-			{
+			Thread.sleep(5000);
+			/*try
+			{*/
 				BookingDashboardPageElements.Get_CategoryTab_Package_SelectButton(driver,CreatePackageTest.packageName).click();
 				Thread.sleep(30000);
-			}
+		/*	}
 			catch(Exception e){
 				
 			}
-			
+		*/	
 		
 			BookingDashboardPageElements.Get_BookingDetailsTab_TimeField(driver, time,CreateAssignmentTest.AssignmentName).click();
 			Thread.sleep(20000);

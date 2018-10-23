@@ -41,6 +41,7 @@ public static String PriceRule_TypeBasePrice="";
 			Thread.sleep(2000);
 			
 			PriceRule_TypeDeposit = "Deposit_"+System.currentTimeMillis();
+			CommonFunctions.DepositPriceRule = PriceRule_TypeDeposit;
 			String displayAndDesc = PriceRule_TypeDeposit;
 			
 			
@@ -96,7 +97,7 @@ public static String PriceRule_TypeBasePrice="";
 			
 			PriceRule_TypeBasePrice = "BasePrice_"+System.currentTimeMillis();
 			String displayAndDesc = PriceRule_TypeBasePrice;
-			
+			CommonFunctions.BasePriceRule = PriceRule_TypeBasePrice;
 			
 			AddPriceRuleDialogBoxElements.getPriceRuleNameField(driver).sendKeys(PriceRule_TypeBasePrice);
 			AddPriceRuleDialogBoxElements.getDisplayNameField(driver).sendKeys(displayAndDesc);

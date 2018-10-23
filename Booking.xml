@@ -8,8 +8,8 @@
 		</classes>
 	</test>
 	
- <!-- 
- 	<test name="Create Location Department and Site">
+  
+ <!-- 	<test name="Create Location Department and Site">
 		<classes>
 			<class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
 		</classes>
@@ -25,17 +25,82 @@
 			<class name="Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest"></class>
 		</classes>
 	</test>
+	 -->
 	
-	
- 	 -->
-<test name="booking">
+ 	 
+<!-- <test name="booking">
 	<classes>
-		<!--  <class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
 		<class name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
 		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
 		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
-		<class name="Tests.CreateEventManagementTest.CreatePackageTest" /> -->
+		<class name="Tests.CreateEventManagementTest.CreatePackageTest" /> 
 		<class name="Tests.BookingTest.AddBooking" />
 	</classes>
-</test> 
+</test>
+ -->
+
+<test name="Booking  with ticket template test">
+	<classes>
+		<class name="Tests.TicketingTest.CreateTicketTemplate_BOCA_Test"/>
+		<class name="Tests.TicketingTest.CreateTicketTypeBOCA"/>			
+	<!-- 	<class name="Tests.TicketingTest.CreateTicketGroupTest"/> -->
+		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePriceRuleWithTicketType" />
+		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
+		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePackageTest" /> 
+		<class name="Tests.BookingTest.AddBookingWithTicketTemplateTest" />
+	</classes>
+</test>
+
+<!-- 
+<test name="booking cancellation after payment">
+	<classes>
+		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
+		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
+		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePackageTest" /> 
+		<class name="Tests.BookingTest.BookingCancellationAfterPaymentTest" />
+	</classes>
+</test>
+
+<test name="booking cancellation Before payment">
+	<classes>
+		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
+		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
+		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePackageTest" /> 
+		<class name="Tests.BookingTest.BookingCancellationBeforePaymentTest" />
+	</classes>
+</test>
+
+<test name="Expandable booking Test">
+	<classes>
+		<class name="Tests.CreateEventManagementTest.CreateScheduleWithMultipleSubSchedule" />
+		<class name="Tests.CreateEventManagementTest.CreatePriceRuleForExpandableParty" />
+		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
+		<class name="Tests.CreateEventManagementTest.CreateAssignment_ExpandablePartyTest" />
+		<class name="Tests.CreateEventManagementTest.AddUpsellsToAssignmentTest" />
+		<class name="Tests.CreateEventManagementTest.CreateMultiplePackages_ExpandableParty" /> 
+		<class name="Tests.BookingTest.ExpandableBookingTest" />
+	</classes>
+</test>
+ 
+ 
+<test name="Waterfall booking Test">
+	<classes>
+		<class name="Tests.CreateEventManagementTest.CreateWaterfallScheduleTest" />
+		<class name="Tests.CreateEventManagementTest.CreatePriceRuleTest" />
+		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
+		<class name="Tests.CreateEventManagementTest.CreateWaterfallAssignmentTest" />
+		<class name="Tests.CreateEventManagementTest.AddUpsellsToAssignmentTest" />
+		<class name="Tests.CreateEventManagementTest.CreateWaterfallPackageTest" /> 
+		<class name="Tests.BookingTest.WaterfallBookingTest" />
+	</classes>
+</test>
+  -->
+ 
 </suite>
