@@ -233,4 +233,18 @@ private static WebElement element = null;
 		element =driver.findElement(By.id("IsEmailForMarketing"));
 		return element;
 	}
+	
+	public static WebElement getColumn(WebDriver driver, String columnName)
+	{
+		element=driver.findElement(By.xpath("//*[@id='RegisterGrid']//*[text()='"+columnName+"']/..//a[1]"));
+		
+		return element;
+	}
+	
+	public static WebElement getRegisterNameFilteredValue(WebDriver driver)
+	{
+		List<WebElement> element;
+		element =driver.findElements(By.xpath("//*[@id='RegisterGrid']/..//td[2]"));
+		return element.get(element.size()-1);
+	}
 }

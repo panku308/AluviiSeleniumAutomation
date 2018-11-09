@@ -14,53 +14,62 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.HRManagementPageElements;
 import Tests.RegisterManagementTest.CreateRegisterTest;
+import Tests.RegisterManagementTest.CreateSimpleRegisterTest;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddProductActivityToCurrentUser {
-	  public static WebDriver driver=null;
-	  public static String expectedResult="", actualResult="";
-	  @BeforeClass
-	  public void beforeClass() throws InterruptedException {
-		  driver = CommonFunctions.driver;
-	  }
-	  @Test
-	  public static void  AddProductActivityToUser()throws Exception
-	  {
-		  
-		  DashboardPageElements.GetHRManagementLink(driver).click();
-		  Thread.sleep(2000);
+	public static WebDriver driver=null;
+	public static String expectedResult="", actualResult="";
+	@BeforeClass
+	public void beforeClass() throws InterruptedException {
+		driver = CommonFunctions.driver;
+	}
+	@Test
+	public static void  AddProductActivityToUser()throws Exception
+	{
 
-			HRManagementPageElements.getEmailColumn(driver).click();
-			CommonFunctions.filterTable(driver,CommonFunctions.UserName);
-			String isRegisteredEmail=HRManagementPageElements.getEmail(driver).getText();
+		DashboardPageElements.GetHRManagementLink(driver).click();
+		Thread.sleep(2000);
 
-			Assert.assertEquals(isRegisteredEmail, CommonFunctions.UserName);
+		HRManagementPageElements.getEmailColumn(driver).click();
+		CommonFunctions.filterTable(driver,CommonFunctions.UserName);
+		String isRegisteredEmail=HRManagementPageElements.getEmail(driver).getText();
 
-			Actions action = new Actions(driver);
-			Action doubleClick = action.doubleClick(HRManagementPageElements.getEmail(driver)).build();
-			doubleClick.perform();
+		Assert.assertEquals(isRegisteredEmail, CommonFunctions.UserName);
 
-			Thread.sleep(5000);
+		Actions action = new Actions(driver);
+		Action doubleClick = action.doubleClick(HRManagementPageElements.getEmail(driver)).build();
+		doubleClick.perform();
 
-			CommonFunctions.SwitchToContentFrame(driver);
-			EditEmployeeDialogBox.getLoginActivityMenuLink(driver).click();
-			Thread.sleep(5000);
-			EditEmployeeDialogBox.getAddLoginActivityButton(driver).click();
+		Thread.sleep(5000);
 
-			Thread.sleep(4000);
+		CommonFunctions.SwitchToContentFrame(driver);
+		EditEmployeeDialogBox.getLoginActivityMenuLink(driver).click();
+		Thread.sleep(5000);
+		EditEmployeeDialogBox.getAddLoginActivityButton(driver).click();
 
-			CommonFunctions.SwitchToContentFrame(driver);
-			AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
-			Thread.sleep(2000);
+		Thread.sleep(4000);
+
+		CommonFunctions.SwitchToContentFrame(driver);
+		AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
+		Thread.sleep(2000);
+		try {
 			AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterTest.LoginActivity).click();
 			Thread.sleep(2000);
-			AddLoginActivityDialogBox.getAddActivityButton(driver).click();
-
-			driver.switchTo().defaultContent();
-
+		}catch(Exception e)
+		{
 			Thread.sleep(2000);
+			AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateSimpleRegisterTest.LoginActivity).click();
+			Thread.sleep(2000);
+		}
+		Thread.sleep(2000);
+		AddLoginActivityDialogBox.getAddActivityButton(driver).click();
 
-			EditEmployeeDialogBox.getPopupCloseButton(driver).click();
-	  }
-	
-	
+		driver.switchTo().defaultContent();
+
+		Thread.sleep(2000);
+
+		EditEmployeeDialogBox.getPopupCloseButton(driver).click();
+	}
+
+
 }

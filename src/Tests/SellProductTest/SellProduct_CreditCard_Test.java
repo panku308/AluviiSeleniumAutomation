@@ -1,30 +1,22 @@
 package Tests.SellProductTest;
 
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import GlobalFiles.CommonFunctions;
 import GlobalFiles.PaymentTransactionType;
-import ObjectRepository.CardKnoxDialogBoxElements;
 import ObjectRepository.CashierRegisterPageElements;
 import ObjectRepository.DashboardPageElements;
-import ObjectRepository.PaymentThroughCreditCardDialogBoxElements;
-import ObjectRepository.PaymentTransactionDialogBoxElements;
 import ObjectRepository.ReceiptSelectionDialogBoxElements;
 import ObjectRepository.RegisterListPageElements;
 import Tests.RegisterManagementTest.CreateCategoryTest;
 import Tests.RegisterManagementTest.CreateProductTest;
 import Tests.RegisterManagementTest.CreateRegisterTest;
+import Tests.RegisterManagementTest.CreateSimpleRegisterTest;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class SellProduct_CreditCard_Test {
 	
@@ -43,8 +35,17 @@ public class SellProduct_CreditCard_Test {
 		  CommonFunctions.ScrollUptoElement(driver, RegisterListPageElements.GetLastPageButton(driver));		  
 		  RegisterListPageElements.GetLastPageButton(driver).click();
 		  Thread.sleep(5000);
+		  try {
 		  RegisterListPageElements.GetRegisterLink(driver, " "+CreateRegisterTest.RegisterName).click();
 		  Thread.sleep(5000);
+		  }catch(Exception e)
+		  {
+			  Thread.sleep(2000);
+			  RegisterListPageElements.GetRegisterLink(driver, " "+CreateSimpleRegisterTest.RegisterName).click();
+			  Thread.sleep(5000);
+		  }
+		  
+		 
 		  CashierRegisterPageElements.GetCategoryElement(driver, CreateCategoryTest.CategoryName).click();
 		  Thread.sleep(5000);
 		  CashierRegisterPageElements.GetCategoryProductElement(driver, CreateProductTest.ProductName).click();

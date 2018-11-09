@@ -6,34 +6,24 @@ import GlobalFiles.CommonFunctions;
 import ObjectRepository.AddProductDialogBoxElements;
 import ObjectRepository.CategoryDialogBoxElements;
 import ObjectRepository.DashboardPageElements;
-import ObjectRepository.ProductModifierInsideCashierRegisterElements;
 import ObjectRepository.RegisterManagementDashboardPageElements;
 import Tests.AdministrationTest.CreateLocationDepartmentSiteTest;
 import Tests.AdministrationTest.CreateTaxOptionTest;
 import baseSetup.TestSetup;
 import util.DriverManager;
 
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 
 import static org.testng.Assert.assertEquals;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateProductTest extends TestSetup{
 
 	  public static WebDriver driver=null;
 	  String expectedResult="", actualResult="";
-	  public static String ProductName="product1540721631899";
+	  public static String ProductName="product1541492495520";
 	 
 	  
 	  @Test

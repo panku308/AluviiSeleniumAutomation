@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ <test thread-count="5" name="login" preserve-order="true" enabled="true">
+    <classes>
+      <class name="Tests.LoginTest.LoginTest"/>
+      </classes>
+  </test>
+   <!-- <test thread-count="5" name="Test1" preserve-order="true" enabled="true">
+    <classes>
+       <class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"/>
+      </classes>
+  </test>
+   <test name="Create Tax Option" preserve-order="true" enabled="true">
+		<classes>
+			<class name="Tests.AdministrationTest.CreateTaxOptionTest"></class>
+		</classes>
+	</test> -->
+  <test thread-count="5" name="registerManagement" preserve-order="true" enabled="true">
+    <classes>
+ <!--     <class name="Tests.RegisterManagementTest.CreateCategoryTest"/>
+      <class name="Tests.RegisterManagementTest.CreateProductTest"/> -->
+      <class name="Tests.RegisterManagementTest.CreateSimpleRegisterTest"/>
+      <class name="Tests.HRManagementTest.AddProductActivityToCurrentUser"/>
+     
+    </classes>
+  </test>
+   <test thread-count="5" name="sellProduct" preserve-order="true" enabled="true">
+    <classes>
+      <class name="Tests.SellProductTest.SellProduct_CardKnox_Test"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
