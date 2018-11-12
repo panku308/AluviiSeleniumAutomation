@@ -35,7 +35,7 @@ public static String PriceRule_TypeBasePrice="";
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownButton(driver).click();
 			Thread.sleep(2000);
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownList(driver, "Add Price Rule").click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			
 			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			Thread.sleep(2000);
@@ -62,7 +62,7 @@ public static String PriceRule_TypeBasePrice="";
 			AddPriceRuleDialogBoxElements.getSaveButton(driver).click();
 			
 			driver.switchTo().defaultContent();
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			EventManagementPageElements.getColumn_PriceRuleName(driver).click();
 			Thread.sleep(2000);
 			CommonFunctions.filterTable(driver, PriceRule_TypeDeposit);
@@ -89,7 +89,7 @@ public static String PriceRule_TypeBasePrice="";
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownButton(driver).click();
 			Thread.sleep(2000);
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownList(driver, "Add Price Rule").click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			
 			//driver.switchTo().frame(0);
 			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
@@ -135,7 +135,7 @@ public static String PriceRule_TypeBasePrice="";
 			AddPriceRuleDialogBoxElements.getSaveButton(driver).click();
 			
 			driver.switchTo().defaultContent();
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			EventManagementPageElements.getColumn_PriceRuleName(driver).click();
 			Thread.sleep(2000);
 			CommonFunctions.filterTable(driver, PriceRule_TypeBasePrice);

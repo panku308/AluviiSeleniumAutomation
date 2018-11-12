@@ -69,7 +69,7 @@ private static WebElement element = null;
 		WebElement ParentElement=ChildElement.findElement(By.tagName("input"));
 		String PackageID = ParentElement.getAttribute("value");
 		System.out.println("PackageID = " + PackageID);
-		element =driver.findElement(By.xpath("//div[@id='tmplPackageRowWrapper']//span[contains(@onclick,'managePackages("+PackageID+",0)]"));		
+		element =driver.findElement(By.xpath("//div[@id='tmplPackageRowWrapper']//span[contains(@onclick,'managePackages("+PackageID+",0)')]"));		
 		return element;
 	}
 	public static WebElement Get_BookingDetailsTab_NextWeekButton(WebDriver driver)
