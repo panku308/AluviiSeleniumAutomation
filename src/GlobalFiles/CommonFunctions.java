@@ -323,6 +323,25 @@ public class CommonFunctions {
 		d = String.format("%02d", d);
 		return d ;
 	}
+	
+	public static void changeLanguageToEnglish(WebDriver driver)
+	{
+		try {
+	
+		Thread.sleep(2000);
+		WebElement languageMenu=driver.findElement(By.xpath("//*[@id='language-menu']"));
+		Thread.sleep(2000);
+		Actions action = new Actions(driver);
+		action.moveToElement(languageMenu).perform();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//*[@id='language-menu']//a)[1]")).click();
+		
+		}catch(Exception e)
+		{
+			
+		}
+		driver.switchTo().defaultContent();
+	}
 	public static String GetCurrentMonth()
 	{
 				

@@ -35,6 +35,7 @@ import org.testng.annotations.AfterSuite;
 		  
 		  Thread.sleep(3000);
 		  //CommonFunctions.minimizeChatWindow(DriverManager.getDriver());
+		  CommonFunctions.changeLanguageToEnglish(DriverManager.getDriver());
 	  }
 	/*  @BeforeSuite
 	  public void beforeSuite() throws InterruptedException {

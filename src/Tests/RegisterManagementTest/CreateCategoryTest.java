@@ -23,8 +23,8 @@ import util.DriverManager;
 public class CreateCategoryTest extends TestSetup{
 	  public static WebDriver driver=null;
 	  public static String expectedResult="", actualResult="";
-	  public static String CategoryName="";
-	  //category_1536419075720
+	  public static String CategoryName="category_1541492414070";
+	  //category_1540721557284
 	 
 	 
 	  @Test
