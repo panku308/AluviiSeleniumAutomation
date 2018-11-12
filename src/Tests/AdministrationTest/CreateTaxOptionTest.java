@@ -16,7 +16,7 @@ import baseSetup.TestSetup;
 import util.DriverManager;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class CreateTaxOptionTest extends TestSetup{
-	public static String TaxOptionName="";
+	public static String TaxOptionName="TestTax1541491631455";
 	//TestTax1536419029340
 	
 	@Test

@@ -14,6 +14,7 @@ import ObjectRepository.DashboardPageElements;
 import ObjectRepository.EditEmployeeDialogBox;
 import ObjectRepository.HRManagementPageElements;
 import Tests.RegisterManagementTest.CreateRegisterTest;
+import Tests.RegisterManagementTest.CreateSimpleRegisterTest;
 @Listeners (GlobalFiles.ReportCustomization.class) 
 public class AddProductActivityToCurrentUser {
 	  public static WebDriver driver=null;
@@ -51,8 +52,16 @@ public class AddProductActivityToCurrentUser {
 			CommonFunctions.SwitchToContentFrame(driver);
 			AddLoginActivityDialogBox.getSelectActivityMenu(driver).click();
 			Thread.sleep(2000);
+			try {
 			AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateRegisterTest.LoginActivity).click();
 			Thread.sleep(2000);
+			}catch(Exception e)
+			{
+				Thread.sleep(2000);
+				AddLoginActivityDialogBox.getDesiredActivityMenu(driver, CreateSimpleRegisterTest.LoginActivity).click();
+				Thread.sleep(2000);
+			}
+					
 			AddLoginActivityDialogBox.getAddActivityButton(driver).click();
 
 			driver.switchTo().defaultContent();

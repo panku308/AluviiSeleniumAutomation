@@ -74,7 +74,7 @@ public class CreateRegisterTest {
 		  
 		  AddRegisterDialogboxElements.GetAddCategoryButton(driver).click();		  
 		  Thread.sleep(4000);
-		  CommonFunctions.ActionBuilder_PerformDoubleClickEventOnElement(driver, AddCategoryDialogboxInsideAddRegisterPageElements.GetWindowTitle(driver));		  
+		  //CommonFunctions.ActionBuilder_PerformDoubleClickEventOnElement(driver, AddCategoryDialogboxInsideAddRegisterPageElements.GetWindowTitle(driver));		  
 		  CommonFunctions.SwitchToContentFrame(driver);
 		
 		  AddCategoryDialogboxInsideAddRegisterPageElements.GetCategoryDD(driver).click();

@@ -36,6 +36,14 @@ public class AddProductDialogBoxElements {
 		element =driver.findElement(By.linkText("Inventory"));
 		return element;
 	}
+	
+	public static WebElement GetInventoriedCheckbox(WebDriver driver)
+	{
+
+		element =driver.findElement(By.id("Inventoried"));
+		return element;
+	}
+	
 	public static WebElement GetSalesTaxTab(WebDriver driver)
 	{
 
