@@ -38,7 +38,7 @@ public static String PriceRule_TypeBasePrice="";
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownButton(driver).click();
 			Thread.sleep(2000);
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownList(driver, "Add Price Rule").click();
-			Thread.sleep(2000);
+			Thread.sleep(20000);
 			
 			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
 			Thread.sleep(2000);
@@ -74,9 +74,9 @@ public static String PriceRule_TypeBasePrice="";
 			AddPriceRuleDialogBoxElements.getEventPortalCheckbox(driver).click();
 			AddPriceRuleDialogBoxElements.getEmployeePortalCheckbox(driver).click();
 			AddPriceRuleDialogBoxElements.getSaveButton(driver).click();
-			
+			Thread.sleep(5000);
 			driver.switchTo().defaultContent();
-			Thread.sleep(3000);
+			
 			EventManagementPageElements.getColumn_PriceRuleName(driver).click();
 			Thread.sleep(2000);
 			CommonFunctions.filterTable(driver, PriceRule_TypeDeposit);
@@ -101,7 +101,7 @@ public static String PriceRule_TypeBasePrice="";
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownButton(driver).click();
 			Thread.sleep(2000);
 			EventManagementPageElements.getPriceRulesSelectOptionDropdownList(driver, "Add Price Rule").click();
-			Thread.sleep(2000);
+			Thread.sleep(20000);
 			
 			//driver.switchTo().frame(0);
 			driver.switchTo().frame(driver.findElement(By.className("k-content-frame")));
@@ -144,7 +144,8 @@ public static String PriceRule_TypeBasePrice="";
 			
 			AddPriceRuleDialogBoxElements.getAddRuleButton(driver).click();
 			Thread.sleep(3000);
-			
+			CommonFunctions.ScrollUptoElement(driver, AddPriceRuleDialogBoxElements.getLowerLimit2(driver));
+			Thread.sleep(3000);
 			AddPriceRuleDialogBoxElements.getLowerLimit2(driver).sendKeys(Keys.chord(Keys.CONTROL, "a"));
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.setLowerLimit2(driver).sendKeys("31");
@@ -158,9 +159,9 @@ public static String PriceRule_TypeBasePrice="";
 			AddPriceRuleDialogBoxElements.setVariableAmount2(driver).sendKeys("5");
 			Thread.sleep(2000);
 			AddPriceRuleDialogBoxElements.getSaveButton(driver).click();
-			
+			Thread.sleep(5000);
 			driver.switchTo().defaultContent();
-			Thread.sleep(3000);
+			
 			EventManagementPageElements.getColumn_PriceRuleName(driver).click();
 			Thread.sleep(2000);
 			CommonFunctions.filterTable(driver, PriceRule_TypeBasePrice);
