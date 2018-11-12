@@ -98,7 +98,8 @@ private static WebElement element = null;
 		WebElement Assignment = driver.findElement(By.xpath("//h3[text()='"+assignment+"']/parent::div/parent::div//div[4]/p"));
 		String AssignmentID = Assignment.getAttribute("id");
 		AssignmentID = AssignmentID.replaceAll("AsgnTimeZone", "");
-		element =driver.findElement(By.xpath("//ul[contains(@id,'ulAvail"+AssignmentID+"')]//li[text()='"+time+"']"));		
+		element =driver.findElement(By.xpath("//ul[contains(@id,'ulAvail"+AssignmentID+"')]//li[text()='"+time+"']"));
+		System.out.println("element="+element+", assignment id = "+AssignmentID);
 		return element;
 	}
 	public static WebElement Get_BookingDetailsTab_TimeFieldByNumber(WebDriver driver, String assignment, int Number)
