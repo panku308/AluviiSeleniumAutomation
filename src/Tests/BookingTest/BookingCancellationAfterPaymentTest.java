@@ -29,9 +29,9 @@ public class BookingCancellationAfterPaymentTest {
 		public static Double ExpBalanceDue=0.0, ActBalanceDue=0.0;
 		public static Double  DepoSitVaue=0.0, GrandTotal=0.0;
 		public static Double AmountPaid=0.0; 
-		public static int TotalSpots = 40, BookedQuantity=0, ActBookedQuantity=0;
+		public static int TotalSpots = 25, BookedQuantity=0, ActBookedQuantity=0;
 		public static int ExpTotalSpotsLeft=0,ActTotalSpotLeft=0;
-		public static String time="12:00pm";  
+		public static String time="02:00pm";  
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
@@ -46,17 +46,17 @@ public class BookingCancellationAfterPaymentTest {
 	  public static void CancelBookingAfterPayment() throws InterruptedException
 	  {
 		  	BookingDashboardPageElements.Get_BookingDataTab_CancelBookingButton(driver).click();
-			Thread.sleep(2000);
+			Thread.sleep(8000);
 			//
 			BookingDashboardPageElements.Get_BookingDataTab_ConfirmCancelBookingButton(driver).click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			String Exp="https://stagingqa.aluvii.com/employee//Events/DashBoard";
 			assertEquals(driver.getCurrentUrl(),Exp);
 	  }
 	  public static void AddBooking() throws Exception
 	  {
-		  time="10:00am";
-		  BookedQuantity=30;
+		  time="02:00pm";
+		  BookedQuantity=5;
 		  ExpTotalSpotsLeft = TotalSpots-BookedQuantity;
 		  ExpBasePrice=375.00;
 		  ExpDepositAmount = (ExpBasePrice/2);

@@ -27,11 +27,11 @@ import org.testng.annotations.AfterSuite;
 
 		  
 		  CommonFunctions.Login(DriverManager.getDriver(),CommonFunctions.UserName,CommonFunctions.Password);
-		 /* CreateLocationDepartmentSiteTest.Location="TestLocation1540197966173";
-		  CreateLocationDepartmentSiteTest.Department="TestDepartment1540198025629";
-		  CreateLocationDepartmentSiteTest.Site="TestSite1540198078304";
-		  CreateeEntranceEntitlementTest.EntranceEntitlement="Entitlement-1540198169037";
-		  CreateTaxOptionTest.TaxOptionName="TestTax1540198133336";*/
+		 /* CreateLocationDepartmentSiteTest.Location="TestLocation1542028273556";
+		  CreateLocationDepartmentSiteTest.Department="TestDepartment1542028330005";
+		  CreateLocationDepartmentSiteTest.Site="TestSite1542028379183";
+		  CreateeEntranceEntitlementTest.EntranceEntitlement="Entitlement-1542028463541";
+		  CreateTaxOptionTest.TaxOptionName="TestTax1542028429577";*/
 		  
 		  Thread.sleep(3000);
 		  //CommonFunctions.minimizeChatWindow(DriverManager.getDriver());

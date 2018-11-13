@@ -148,48 +148,56 @@ private static WebElement element = null;
 	{
 	
 		element =driver.findElement(By.id("freqWk"+count));
+		element = element.findElement(By.xpath(".."));
 		return element;
 	}
 	public static WebElement GetSundayCheckbox(WebDriver driver, int count)
 	{
 	
-		element =driver.findElement(By.className("recWkDy recWkDy0 su"));
+		element =driver.findElement(By.xpath("//input[@class='recWkDy recWkDy"+count+" su']"));
+		element = element.findElement(By.xpath(".."));
 		return element;
 	}
 	public static WebElement GetMondayCheckbox(WebDriver driver, int count)
 	{
 	
-		element =driver.findElement(By.className("recWkDy recWkDy"+count+" mo"));
+		element =driver.findElement(By.xpath("//input[@class='recWkDy recWkDy"+count+" mo']"));
+		element = element.findElement(By.xpath(".."));
 		return element;
 	}
 	public static WebElement GetTuesdayCheckbox(WebDriver driver, int count)
 	{
 	
-		element =driver.findElement(By.className("recWkDy recWkDy"+count+" tu"));
+		element =driver.findElement(By.xpath("//input[@class='recWkDy recWkDy"+count+" tu']"));
+		element = element.findElement(By.xpath(".."));
 		return element;
 	}
 	public static WebElement GetWednesdayCheckbox(WebDriver driver, int count)
 	{
 	
-		element =driver.findElement(By.className("recWkDy recWkDy"+count+" we"));
+		element =driver.findElement(By.xpath("//input[@class='recWkDy recWkDy"+count+" we']"));
+		element = element.findElement(By.xpath(".."));
 		return element;
 	}
 	public static WebElement GetThrudsdayCheckbox(WebDriver driver, int count)
 	{
 	
-		element =driver.findElement(By.className("recWkDy recWkDy"+count+" th"));
+		element =driver.findElement(By.xpath("//input[@class='recWkDy recWkDy"+count+" th']"));
+		element = element.findElement(By.xpath(".."));
 		return element;
 	}
 	public static WebElement GetFridayCheckbox(WebDriver driver, int count)
 	{
 	
-		element =driver.findElement(By.className("recWkDy recWkDy"+count+" fr"));
+		element =driver.findElement(By.xpath("//input[@class='recWkDy recWkDy"+count+" fr']"));
+		element = element.findElement(By.xpath(".."));
 		return element;
 	}
 	public static WebElement GetSaturdayCheckbox(WebDriver driver, int count)
 	{
 	
-		element =driver.findElement(By.className("recWkDy recWkDy"+count+" sa"));
+		element =driver.findElement(By.xpath("//input[@class='recWkDy recWkDy"+count+" sa']"));
+		element = element.findElement(By.xpath(".."));
 		return element;
 	}
 	public static WebElement GetEnableSession_YES_RadioButton(WebDriver driver)

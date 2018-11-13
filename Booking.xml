@@ -8,7 +8,7 @@
 	</test>
 	
   
- <!-- 	<test name="Create Location Department and Site">
+  	<!-- <test name="Create Location Department and Site">
 		<classes>
 			<class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
 		</classes>
@@ -23,8 +23,8 @@
 		<classes>
 			<class name="Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest"></class>
 		</classes>
-	</test>
-	 -->
+	</test> -->
+	 
 	
  	 
 <!-- <test name="booking">
@@ -38,13 +38,15 @@
 	</classes>
 </test>
  -->
+<!--  
+This case is debugged successfully on 12 Nov
 
 <test name="Booking  with ticket template test">
 	<classes>
 		<class name="Tests.TicketingTest.CreateTicketTemplate_BOCA_Test"/>
-		<class name="Tests.TicketingTest.CreateTicketTypeBOCA"/>			
+		<class name="Tests.TicketingTest.CreateTicketTypeBOCA"/> -->			
 	<!-- 	<class name="Tests.TicketingTest.CreateTicketGroupTest"/> -->
-		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
+<!-- 		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
 		<class name="Tests.CreateEventManagementTest.CreatePriceRuleWithTicketType" />
 		<class name="Tests.CreateEventManagementTest.CreateCategoryTest" />
 		<class name="Tests.CreateEventManagementTest.CreateAssignmentTest" />
@@ -52,8 +54,8 @@
 		<class name="Tests.BookingTest.AddBookingWithTicketTemplateTest" />
 	</classes>
 </test>
-
-<!-- 
+ 
+ test case successfully debugged on 13 Nov
 <test name="booking cancellation after payment">
 	<classes>
 		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
@@ -65,6 +67,9 @@
 	</classes>
 </test>
 
+
+successfully debugged on 13 Nov.
+
 <test name="booking cancellation Before payment">
 	<classes>
 		<class name="Tests.CreateEventManagementTest.CreateScheduleTest" />
@@ -75,6 +80,7 @@
 		<class name="Tests.BookingTest.BookingCancellationBeforePaymentTest" />
 	</classes>
 </test>
+-->
 
 <test name="Expandable booking Test">
 	<classes>
@@ -88,7 +94,7 @@
 	</classes>
 </test>
  
- 
+<!-- 
 <test name="Waterfall booking Test">
 	<classes>
 		<class name="Tests.CreateEventManagementTest.CreateWaterfallScheduleTest" />
