@@ -28,9 +28,9 @@ public class AddBookingWithTicketTemplateTest {
 		public static Double ExpBalanceDue=0.0, ActBalanceDue=0.0;
 		public static Double  DepoSitVaue=0.0, GrandTotal=0.0;
 		public static Double AmountPaid=0.0; 
-		public static int TotalSpots = 40, BookedQuantity=0, ActBookedQuantity=0;
+		public static int TotalSpots = 25, BookedQuantity=0, ActBookedQuantity=0;
 		public static int ExpTotalSpotsLeft=0,ActTotalSpotLeft=0;
-		public static String time="12:00pm";  
+		public static String time="02:00pm";  
 	  @BeforeClass
 	  public void beforeClass() throws InterruptedException {
 		  driver = CommonFunctions.driver;
@@ -40,7 +40,7 @@ public class AddBookingWithTicketTemplateTest {
 	  {
 
 
-		  time="10:00am";
+		  time="02:00pm";
 		  BookedQuantity=5;
 		  ExpTotalSpotsLeft = TotalSpots-BookedQuantity;
 		  ExpBasePrice=375.00;

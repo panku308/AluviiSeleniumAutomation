@@ -188,7 +188,7 @@ private static WebElement element = null;
 	}
 	public static WebElement Get_BookingDataTab_ConfirmCancelBookingButton(WebDriver driver)
 	{
-		element =driver.findElement(By.id("yesCancel"));		
+		element =driver.findElement(By.xpath("//div[@class='k-window-content k-content']//span[@id='yesCancel']"));		
 		return element;
 	}
 	public static WebElement Get_BookingDataTab_WaterfallProductText(WebDriver driver)

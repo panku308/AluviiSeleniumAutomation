@@ -75,6 +75,9 @@ public static WebDriver driver = null;
 			AddScheduleEventManagementDialogBoxElements.GetScheduleEditButton(driver,0).click();
 			Thread.sleep(2000);
 			AddScheduleEventManagementDialogBoxElements.GetWeeklyRadioButton(driver,0).click();
+			
+			
+			
 			Thread.sleep(2000);
 			AddScheduleEventManagementDialogBoxElements.GetMondayCheckbox(driver,0).click();
 			AddScheduleEventManagementDialogBoxElements.GetTuesdayCheckbox(driver,0).click();

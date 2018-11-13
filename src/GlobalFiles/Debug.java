@@ -77,8 +77,13 @@ public class Debug {
 		
 		driver1 = CommonFunctions.SetupEnvironment("https://stagingqa.aluvii.com/employee", "chrome");
 		Thread.sleep(5000);
-		CommonFunctions.Login(driver1, "pankaj@aluvii.com", "Admin@123");
+		CommonFunctions.Login(driver1, "ceo@aluvii.com", "Admin@123");
 		Thread.sleep(5000);
+	
+		
+		BookingDashboardPageElements.Get_BookingDataTab_ConfirmCancelBookingButton(driver1).click();
+		Thread.sleep(5000);
+		
 		WebElement childElement=null, childElement1=null, childElement2=null;
 		try
 		{
