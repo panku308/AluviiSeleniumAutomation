@@ -16,6 +16,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+
+import com.beust.jcommander.Parameter;
 
 import util.DriverFactory;
 import util.DriverManager;
@@ -28,8 +31,9 @@ public class TestSetup {
 	protected static Properties configProperty;
 	protected static WebDriver driver = null;
 
+	@Parameters("browser")
 	@BeforeSuite
-	public void setUp() {
+	public void setUp(String browser) {
 
 		PropertyFileManager.setConfigFilePath(
 				System.getProperty("user.dir") + "\\resources\\config.properties");
@@ -42,7 +46,7 @@ public class TestSetup {
 
 
 		if (driver == null) {
-			driver = DriverFactory.createDriverInstance(configProperty.getProperty("browser"));
+			driver = DriverFactory.createDriverInstance(browser);
 			DriverManager.getDriver().navigate().to(configProperty.getProperty("aluviiSite"));
 		}
 
@@ -66,7 +70,7 @@ public class TestSetup {
 
 	@BeforeMethod
 	public void beforeMethod(Method method) {
-	//	System.out.println("before method called");		
+		//	System.out.println("before method called");		
 
 
 
@@ -94,10 +98,12 @@ public class TestSetup {
 
 	}
 
+	@Parameters("browser")
 	@AfterSuite
-	public void tearDown() {
+	public void tearDown(String browser) {
 
-	//DriverManager.getDriver().quit();
+		if(browser.equals("grid"))
+			DriverManager.getDriver().quit();
 
 	}
 

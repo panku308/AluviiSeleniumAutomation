@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+<parameter name="browser" value="grid"></parameter>
 <test name="Login">
 		<classes>
 			<class name="Tests.LoginTest.LoginTest"></class>			
 		</classes>
-	</test>
-	
-  
-  	<!-- <test name="Create Location Department and Site">
+	</test>  
+  	<test name="Create Location Department and Site">
 		<classes>
 			<class name="Tests.AdministrationTest.CreateLocationDepartmentSiteTest"></class>
 		</classes>
@@ -23,7 +22,7 @@
 		<classes>
 			<class name="Tests.MembershipPackagesTest.CreateeEntranceEntitlementTest"></class>
 		</classes>
-	</test> -->
+	</test>
 	 
 	
  	 
@@ -82,7 +81,7 @@ successfully debugged on 13 Nov.
 </test>
 -->
 
-<test name="Expandable booking Test">
+<!-- <test name="Expandable booking Test">
 	<classes>
 		<class name="Tests.CreateEventManagementTest.CreateScheduleWithMultipleSubSchedule" />
 		<class name="Tests.CreateEventManagementTest.CreatePriceRuleForExpandableParty" />
@@ -92,7 +91,7 @@ successfully debugged on 13 Nov.
 		<class name="Tests.CreateEventManagementTest.CreateMultiplePackages_ExpandableParty" /> 
 		<class name="Tests.BookingTest.ExpandableBookingTest" />
 	</classes>
-</test>
+</test> -->
  
 <!-- 
 <test name="Waterfall booking Test">
@@ -109,3 +108,4 @@ successfully debugged on 13 Nov.
   -->
  
 </suite>
+
